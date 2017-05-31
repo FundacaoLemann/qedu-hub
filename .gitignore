@@ -15,3 +15,5 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+/src/GimmeBundle/Resources/assets/node_modules/
+/src/GimmeBundle/Resources/assets/javascript/dist/

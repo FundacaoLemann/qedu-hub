@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+            "QEdu\\QEduHub\\": "src/"
         },
         "classmap": [
             "app/AppKernel.php",

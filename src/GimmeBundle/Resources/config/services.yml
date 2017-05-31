@@ -1,0 +1,4 @@
+# services:
+#    gimme.locator:
+#        class: QEdu\QEduHub\GimmeBundle\Service\Locator
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
