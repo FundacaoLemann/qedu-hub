@@ -19,7 +19,7 @@ class DefaultController extends Controller
      */
     public function indexAction($asset)
     {
-        $file = $this->mountFilePath($asset);
+        $file = $this->locateResource($asset);
 
         if (file_exists($file) === false) {
             throw $this->createNotFoundException('Asset not found');
@@ -28,13 +28,13 @@ class DefaultController extends Controller
         return $this->createJavascriptResponse($file);
     }
 
-    private function mountFilePath($fileName)
+    private function locateResource($fileName)
     {
-        $assetsPath = $this->container
+        $resource = $this->container
             ->get('kernel')
             ->locateResource('@GimmeBundle/Resources/assets/javascript/dist/');
 
-        return $assetsPath . $fileName;
+        return $resource . $fileName;
     }
 
     private function createJavascriptResponse($file)

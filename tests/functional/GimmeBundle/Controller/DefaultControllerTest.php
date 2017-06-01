@@ -12,7 +12,10 @@ class DefaultControllerTest extends WebTestCase
 
     public function testGetExistentAsset()
     {
-        $response = $this->executeGetRequest(self::SUCCESS_URL);
+        $client = static::createClient();
+        $client->request('GET', self::SUCCESS_URL);
+
+        $response = $client->getResponse();
 
         $statusCode = $response->getStatusCode();
         $content    = $response->getContent();
@@ -26,20 +29,15 @@ class DefaultControllerTest extends WebTestCase
 
     public function testGetNonExistAsset()
     {
-        $response = $this->executeGetRequest(self::FAIL_URL);
+        $client = static::createClient();
+        $client->request('GET', self::FAIL_URL);
+
+        $response = $client->getResponse();
 
         $statusCode = $response->getStatusCode();
 
         $statusCodeExpected = Response::HTTP_NOT_FOUND;
 
         $this->assertEquals($statusCodeExpected, $statusCode);
-    }
-
-    private function executeGetRequest($uri)
-    {
-        $client = static::createClient();
-        $client->request('GET', $uri);
-
-        return $client->getResponse();
     }
 }
