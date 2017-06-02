@@ -1,0 +1,91 @@
+.animation (@name, @duration: 300ms, @delay: 0ms, @ease: linear) {
+    -webkit-animation: @name @duration @delay @ease;
+    -moz-animation:    @name @duration @delay @ease;
+    -ms-animation:     @name @duration @delay @ease;
+    animation:         @name @duration @delay @ease;
+}
+
+.border-radius(...) {
+    -webkit-border-radius: @arguments;
+    -moz-border-radius:    @arguments;
+    border-radius:         @arguments;
+}
+
+.box-shadow(@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    -ms-box-shadow:     @string;
+    -o-box-shadow:      @string;
+    box-shadow:         @string;
+}
+
+.box-sizing(@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing:    @type;
+    box-sizing:         @type;
+}
+
+.fadeInUp(@top, @time, @delay: 0s) {
+    .transition(all @time linear @delay);
+    .opacity(1);
+
+    position: relative;
+    top: @top;
+
+    &.anim {
+        .opacity(100);
+
+        top: 0;
+    }
+}
+
+.fadeInLeft(@left, @time, @delay: 0s) {
+    .transition(all @time linear @delay);
+    .opacity(1);
+
+    position: relative;
+    left: @left;
+
+    &.anim {
+        .opacity(100);
+
+        left: 0;
+    }
+}
+
+.gradient(@angle, @from, @to) {
+    background-image: -webkit-linear-gradient(@angle, @from, @to);
+    background-image: -moz-linear-gradient(@angle, @from, @to);
+    background-image: -ms-linear-gradient(@angle, @from, @to);
+    background-image: -o-linear-gradient(@angle, @from, @to);
+    background-image: linear-gradient(@angle, @from, @to);
+    filter:           progid:DXImageTransform.Microsoft.gradient( startColorstr=@from, endColorstr=@to,GradientType=0 );
+}
+
+.opacity(@opacity) {
+    -webkit-opacity: @opacity / 100;
+    -moz-opacity:    @opacity / 100;
+    opacity:         @opacity / 100;
+}
+
+.opacity(@opacity) when (@opacity < 100) {
+    -webkit-opacity: @opacity / 100;
+    -moz-opacity:    @opacity / 100;
+    opacity:         @opacity / 100;
+    filter:          ~"alpha(opacity=@{opacity})";
+}
+
+.transform(...) {
+    -webkit-transform:  @arguments;
+    -moz-transform:     @arguments;
+    -ms-transform:      @arguments;
+    -o-transform:       @arguments;
+}
+
+.transition(...) {
+    -webkit-transition: @arguments;
+    -moz-transition:    @arguments;
+    -ms-transition:     @arguments;
+    -o-transition:      @arguments;
+    transition:         @arguments;
+}

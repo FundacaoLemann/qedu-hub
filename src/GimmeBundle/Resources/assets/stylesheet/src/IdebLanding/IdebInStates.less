@@ -1,0 +1,310 @@
+.ideb-in-states {
+    border-top: 1px solid #ccc;
+
+    h2 {
+        font-size: 40px;
+        letter-spacing: -2px;
+        margin-bottom: 15px;
+    }
+
+    .description-states {
+        color: #424242;
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 100px;
+        max-width: 330px;
+    }
+
+    .description-list {
+        padding-left: 0;
+
+        li {
+            clear: both;
+            cursor: pointer;
+            overflow: auto;
+
+            &:hover {
+                strong {
+                    color: #424242;
+                }
+            }
+        }
+
+        i {
+            transition: none;
+
+            background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat -25px -95px;
+            display: inline-block;
+            float: left;
+            height: 72px;
+            margin-bottom: 45px;
+            margin-right: 25px;
+            width: 72px;
+        }
+
+        .situation-state {
+            &:hover {
+                i {
+                    background-position-x: -98px;
+                }
+            }
+        }
+
+        .active {
+            .st {
+                background-position-x: -98px;
+            }
+
+            .nd {
+                background-position-x: -246px;
+            }
+
+            .th {
+                background-position-x: -459px;
+            }
+        }
+
+        .growth-state {
+            i {
+                background-position-x: -172px;
+            }
+
+            &:hover {
+                i {
+                    background-position-x: -246px;
+                }
+            }
+        }
+
+        .goal-state {
+            i {
+                background-position: -383px 0;
+            }
+
+            &:hover {
+                i {
+                    background-position-x: -459px;
+                }
+            }
+        }
+
+        strong {
+            -webkit-transition: all .2s ease;
+            -moz-transition: all .2s ease;
+            -ms-transition: all .2s ease;
+            transition: all .2s ease;
+
+            color: #c4c4c4;
+            display: block;
+            font-size: 18px;
+            margin-top: 16px;
+        }
+
+        p {
+            color: #424242;
+            font-size: 12px;
+        }
+
+        .active {
+            strong {
+                color: #424242;
+            }
+        }
+    }
+
+    .landing-map {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        top: 20px;
+        width: 95%;
+    }
+
+    // These class rules were added just to code JS behaviors
+    .ideb-growth, .ideb-goal {
+        display: none;
+    }
+
+    .ideb-growth, .ideb-goal {
+        overflow: auto;
+
+        ul {
+            float: right;
+            padding-left: 0;
+            padding-top: 55px;
+            width: 250px;
+
+            &:first-child {
+                float: left;
+            }
+        }
+
+        li {
+            border-bottom: 1px solid #e8e8e8;
+            clear: both;
+            color: #424242;
+            overflow: auto;
+            padding: 10px 5px 10px 0;
+
+            &:hover {
+                background: #f8f8f8;
+            }
+        }
+
+        a {
+            color: #424242;
+            text-decoration: none;
+        }
+
+        b, em, a {
+            display: block;
+        }
+
+        i {
+            background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat -461px -1134px;
+            border: 3px solid #ccc;
+            border-radius: 30px;
+            display: inline-block;
+            float: left;
+            font-style: normal;
+            height: 54px;
+            margin-right: 12px;
+            width: 54px;
+        }
+
+        div {
+            overflow: auto;
+        }
+
+        b {
+            font-size: 12px;
+            line-height: 12px;
+            margin-top: 14px;
+        }
+
+        em {
+            font-size: 14px;
+            font-style: normal;
+        }
+
+        .ac {
+            background-position: -461px -1237px;
+        }
+
+        .al {
+            background-position: -515px -1237px;
+        }
+
+        .am {
+            background-position: -566px -1237px;
+        }
+
+        .ba {
+            background-position: -618px -1237px;
+        }
+
+        .ce {
+            background-position: -616px -1186px;
+        }
+
+        .go {
+            background-position: -461px -1288px;
+        }
+
+        .mt {
+            background-position: -515px -1390px;
+        }
+
+        .ms {
+            background-position: -566px -1288px;
+        }
+
+        .mg {
+            background-position: -515px -1288px;
+        }
+
+        .pb {
+            background-position: -618px -1288px;
+        }
+
+        .pe {
+            background-position: -461px -1339px;
+        }
+
+        .pi {
+            background-position: -618px -1340px;
+        }
+
+        .rj {
+            background-position: -462px -1186px;
+        }
+
+        .rn {
+            background-position: -462px -1390px;
+        }
+
+        .rs {
+            background-position: -566px -1339px;
+        }
+
+        .ro {
+            background-position: -515px -1339px;
+        }
+
+        .sc {
+            background-position: -461px -1134px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .ideb-in-states {
+        .landing-map {
+            left: 20px;
+            margin: 0;
+            top: 120px;
+            width: 85%;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .ideb-in-states {
+        h2 {
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .description-states {
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+
+//Ipad portrait
+@media (width: 768px) {
+    .ideb-in-states {
+        h2 {
+            text-align: center;
+        }
+
+        .description-states {
+            margin: 20px auto;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .description-list {
+            display: none;
+        }
+
+        .landing-map {
+            left: 0;
+            margin: 0 auto;
+            top: 30px;
+            width: 75%;
+        }
+    }
+}

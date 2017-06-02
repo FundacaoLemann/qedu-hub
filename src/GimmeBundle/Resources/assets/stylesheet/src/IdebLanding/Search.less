@@ -1,0 +1,157 @@
+@import "../../../generic/Mixins";
+
+.search {
+    position: relative;
+
+    h2 {
+        font-size: 40px;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .description-search {
+        color: #424242;
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0 auto 110px auto;
+        max-width: 580px;
+        text-align: center;
+
+        a {
+            display: none;
+            margin-top: 30px;
+        }
+    }
+
+    .ideb-hand {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat 0 -3324px;
+        bottom: 190px;
+        display: inline-block;
+        height: 229px;
+        left: -390px;
+        position: absolute;
+        width: 541px;
+        z-index: 2;
+    }
+
+    @color: #909090;
+    @font-size: 40px;
+    .ideb-search {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        width: 780px;
+
+        input {
+            .border-radius(10px);
+            .transition(all 0.5s ease);
+
+            background: transparent;
+            border: 10px solid #e9e9e9;
+            color: @color;
+            display: block;
+            font-size: @font-size;
+            line-height: @font-size;
+            outline: none;
+            padding: 50px;
+            text-align: left;
+            width: 100%;
+
+            &:hover, &:focus {
+                border-color: #36d893;
+            }
+        }
+    }
+
+    .search-label {
+        color: @color;
+        cursor: text;
+        display: block;
+        font-size: @font-size;
+        font-weight: normal;
+        left: 60px;
+        position: absolute;
+        top: 75px;
+    }
+
+    .search-icon {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat -264px -3046px;
+        bottom: 8px;
+        display: inline-block;
+        height: 199px;
+        position: absolute;
+        right: 120px;
+        width: 170px;
+    }
+
+    .map-icon {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat -462px -3049px;
+        bottom: 50px;
+        display: inline-block;
+        height: 74px;
+        position: absolute;
+        right: 40px;
+        width: 75px;
+    }
+
+    .school-icon {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat 0 -3561px;
+        float: right;
+        height: 150px;
+        margin-top: 100px;
+        width: 264px;
+    }
+
+    .qedu-search-results {
+        width: 779px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .search {
+        .ideb-hand {
+            left: -390px;
+        }
+
+        .description-search {
+            a {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .search {
+        h2 {
+            font-size: 32px;
+        }
+
+        .description-search {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//Ipad portrait
+@media (width: 768px) {
+    .search {
+        .ideb-search {
+            width: auto;
+
+            input {
+                margin-left: 20px;
+                width: 90%;
+            }
+
+            .search-icon {
+                display: none;
+            }
+
+            .map-icon {
+                right: 90px;
+            }
+        }
+    }
+}
