@@ -2,48 +2,40 @@
 
 namespace QEdu\QEduHub\GimmeBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use QEdu\QEduHub\GimmeBundle\Util\AssetResponseTrait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Config\FileLocator;
 
 class DefaultController extends Controller
 {
+    use AssetResponseTrait;
+
+    private $fileLocator;
+
+    public function __construct(FileLocator $fileLocator)
+    {
+        $this->fileLocator = $fileLocator;
+    }
+
     /**
-     * @Route("/{hash}/pkg/js/{asset}",
+     * @Route("/{hash}/pkg/{prefix}/{fileName}",
      *     name="gimme_path",
      *     requirements={
      *         "hash": ".*",
-     *         "asset": "landingideb.js|Header.js"
+     *         "prefix": ".*",
+     *         "fileName": ".*"
      *     }
      * )
      */
-    public function indexAction($asset)
+    public function indexAction($fileName)
     {
-        $file = $this->locateResource($asset);
+        try {
+            $file = $this->fileLocator->locate($fileName);
 
-        if (file_exists($file) === false) {
-            throw $this->createNotFoundException('Asset not found');
+            return $this->createAssetResponse($file);
+        } catch (\InvalidArgumentException $exception) {
+            throw $this->createNotFoundException('File not found', $exception);
         }
-
-        return $this->createJavascriptResponse($file);
-    }
-
-    private function locateResource($fileName)
-    {
-        $resource = $this->container
-            ->get('kernel')
-            ->locateResource('@GimmeBundle/Resources/assets/javascript/dist/');
-
-        return $resource . $fileName;
-    }
-
-    private function createJavascriptResponse($file)
-    {
-        $content = file_get_contents($file);
-
-        $response = new Response($content);
-        $response->headers->set('Content-Type','text/javascript');
-
-        return $response;
     }
 }
