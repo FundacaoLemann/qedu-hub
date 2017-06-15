@@ -12,7 +12,7 @@ class DefaultControllerTest extends WebTestCase
     /**
      * @dataProvider assetProvider
      */
-    public function testGetExistentJavascript(
+    public function testGetExistentAsset(
         $successUrl,
         $contentTypeExpected,
         $contentExpected
