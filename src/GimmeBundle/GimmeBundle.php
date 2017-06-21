@@ -1,6 +1,6 @@
 <?php
 
-namespace QEdu\QEduHub\GimmeBundle;
+namespace GimmeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace QEdu\QEduHub\GimmeBundle\Controller;
+namespace GimmeBundle\Controller;
 
-use QEdu\QEduHub\GimmeBundle\Util\AssetResponseTrait;
+use GimmeBundle\Util\AssetResponseTrait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Config\FileLocator;

@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: false
 
-    QEdu\QEduHub\GimmeBundle\Controller\:
+    GimmeBundle\Controller\:
         resource: '../../../GimmeBundle/Controller/*'
         public: true
         tags: ['controller.service_arguments']

@@ -1,6 +1,6 @@
 <?php
 
-namespace QEdu\QEduHub\GimmeBundle\Util;
+namespace GimmeBundle\Util;
 
 use Symfony\Component\HttpFoundation\Response;
 

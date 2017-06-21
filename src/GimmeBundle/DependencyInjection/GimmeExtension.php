@@ -1,6 +1,6 @@
 <?php
 
-namespace QEdu\QEduHub\GimmeBundle\DependencyInjection;
+namespace GimmeBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

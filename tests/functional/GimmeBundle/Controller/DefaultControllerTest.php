@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Functional\QEdu\QEduHub\GimmeBundle\Controller;
+namespace Tests\Functional\GimmeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
