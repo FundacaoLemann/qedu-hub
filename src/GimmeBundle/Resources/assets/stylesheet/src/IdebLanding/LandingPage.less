@@ -1,0 +1,79 @@
+@import "../../../generic/Variables";
+
+* {
+    transition: 1s all ease;
+}
+
+.ideb-landing-block {
+    font-family: @font-family;
+    font-size: 16px;
+    line-height: 24px;
+
+    h2, h3 {
+        color: #5ba631;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    p {
+        line-height: 20px;
+    }
+
+    ul, li {
+        list-style: none;
+    }
+}
+
+// Fullscreen navigation
+#fp-nav {
+    li {
+        a {
+            color: #e2e2e2;
+
+            span {
+                background: #e2e2e2;
+                border: #e2e2e2;
+            }
+        }
+
+        .active {
+            color: #00b164;
+
+            span {
+                background: #00b164;
+                border: #00b164;
+            }
+        }
+
+        .fp-tooltip {
+            color: #00b164;
+        }
+    }
+}
+
+// Slides navigation
+.fp-controlArrow {
+    display: none !important;
+}
+
+// Responsive configuration
+@media (max-width: 767px) {
+    .mob, #fp-nav, .qedu-menu, .qedu-search, .qedu-access {
+        display: none !important;
+    }
+
+    .qedu-logo {
+        margin: 0 !important;
+    }
+
+    .qedu-container {
+        width: auto !important;
+    }
+}

@@ -1,0 +1,506 @@
+.ideb-in-brazil {
+    h2 {
+        font-size: 40px;
+        letter-spacing: -2px;
+        margin-bottom: 25px;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .situation-ideb {
+        color: #424242;
+        font-size: 14px;
+        margin: 0 auto;
+        max-width: 640px;
+        text-align: center;
+    }
+
+    .ct-ideb-years {
+        text-align: center;
+    }
+
+    .ideb-years {
+        display: inline-block;
+        margin-top: 70px;
+        padding-left: 0;
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+
+                strong {
+                    color: #868686;
+                }
+
+                span {
+                    color: #424242;
+                }
+            }
+        }
+
+        li {
+            display: inline-block;
+            float: left;
+            position: relative;
+            text-align: center;
+        }
+
+        i, strong, span {
+            transition: 1s all ease;
+
+            display: block;
+        }
+
+        strong {
+            color: #424242;
+            font-size: 17px;
+            margin: 20px 0 5px 0;
+        }
+
+        span {
+            color: #868686;
+            font-size: 14px;
+        }
+    }
+
+    .initial-years {
+        i {
+            transition: none;
+
+            background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/over-children.png') no-repeat -128px 0;
+            height: 329px;
+            width: 94px;
+        }
+
+        a {
+            &:hover {
+                i {
+                    background-position: -7px 0;
+                }
+            }
+        }
+    }
+
+    .final-years {
+        margin: 0 80px;
+
+        i {
+            transition: none;
+
+            background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/over-children.png') no-repeat -426px 0;
+            height: 329px;
+            width: 133px;
+        }
+
+        a {
+            &:hover {
+                i {
+                    background-position: -274px 0;
+                }
+            }
+        }
+    }
+
+    .high-school {
+        i {
+            transition: none;
+
+            background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/over-children.png') no-repeat -765px 0;
+            height: 329px;
+            width: 130px;
+        }
+
+        a {
+            &:hover {
+                i {
+                    background-position: -613px 0;
+                }
+            }
+        }
+    }
+
+    .ideb-graph {
+        background: #f3f3f3;
+        border-radius: 250px;
+        height: 471px;
+        margin: 20px auto 0 auto;
+        max-width: 471px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+
+        h3 {
+            color: #000;
+            font-size: 22px;
+            padding-top: 70px;
+            text-align: center;
+        }
+
+        p {
+            color: #868686;
+            font-size: 14px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        ol {
+            display: inline-block;
+            padding-left: 30px;
+        }
+
+        li {
+            float: left;
+            height: 200px;
+            margin-right: 22px;
+            position: relative;
+            width: 75px;
+        }
+
+        .break-graph {
+            background: #dedede;
+            bottom: 0;
+            height: 80px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+
+    .picture {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/landing/sprite.png') no-repeat 0 -1481px;
+        display: block;
+        position: absolute;
+    }
+
+    .year {
+        bottom: -15px;
+        color: #545454;
+        display: block;
+        font-size: 13px;
+        letter-spacing: -1px;
+        position: absolute;
+        text-align: center;
+        width: 70px;
+        z-index: 2;
+    }
+
+    .ideb, .goal {
+        display: inline-block;
+        float: left;
+        height: 200px;
+        margin-bottom: 20px;
+        padding-top: 20px;
+        position: relative;
+        width: 32px;
+
+        i {
+            color: #000;
+            display: block;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: bold;
+            position: absolute;
+            text-align: center;
+            top: -25px;
+            width: 100%;
+        }
+
+        em {
+            color: #fff;
+            display: block;
+            font-style: normal;
+            font-size: 13px;
+
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+    }
+
+    .ideb {
+        background: #6da609;
+    }
+
+    .goal {
+        background: #3b6c1c;
+    }
+}
+
+.ideb-initial-years {
+    border-top: 1px solid #ccc;
+    padding-bottom: 96px;
+
+    .picture {
+        background-position: 0 -1481px;
+        height: 568px;
+        left: 145px;
+        width: 220px;
+        z-index: 1;
+    }
+
+    .y2009 {
+        .goal {
+            top: 100px;
+        }
+
+        .ideb {
+            top: 60px;
+        }
+    }
+
+    .y2011 {
+        .goal {
+            top: 60px;
+        }
+
+        .ideb {
+            top: 20px;
+        }
+    }
+
+    .y2013 {
+        .goal {
+            top: 30px;
+        }
+
+        .ideb {
+            top: 0;
+        }
+    }
+}
+
+.ideb-final-years {
+    border-top: 1px solid #ccc;
+    padding-bottom: 165px;
+
+    .picture {
+        background-position: -249px -1481px;
+        height: 637px;
+        left: 100px;
+        width: 282px;
+        z-index: 1;
+    }
+
+    .y2009 {
+        .goal {
+            top: 90px;
+        }
+
+        .ideb {
+            top: 60px;
+        }
+    }
+
+    .y2011 {
+        .goal {
+            top: 70px;
+        }
+
+        .ideb {
+            top: 50px;
+        }
+    }
+
+    .y2013 {
+        .goal {
+            top: 0;
+        }
+
+        .ideb {
+            top: 40px;
+        }
+    }
+}
+
+.ideb-high-school {
+    border-top: 1px solid #ccc;
+    padding-bottom: 174px;
+
+    .picture {
+        background-position: 0 -2124px;
+        height: 647px;
+        left: 125px;
+        width: 242px;
+        z-index: 1;
+    }
+
+    .y2009 {
+        .goal {
+            top: 80px;
+        }
+
+        .ideb {
+            top: 60px;
+        }
+    }
+
+    .y2011 {
+        .goal {
+            top: 40px;
+        }
+
+        .ideb {
+            top: 40px;
+        }
+    }
+
+    .y2013 {
+        .goal {
+            top: 0;
+        }
+
+        .ideb {
+            top: 40px;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    .ideb-in-brazil {
+        h2 {
+            margin-bottom: 60px;
+        }
+
+        .ideb-graph {
+            margin-top: 60px;
+        }
+    }
+
+    .ideb-initial-years {
+        .picture {
+            bottom: -55px;
+        }
+    }
+
+    .ideb-final-years {
+        .picture {
+            bottom: -120px;
+        }
+    }
+
+    .ideb-high-school {
+        .picture {
+            bottom: -125px;
+            left: 200px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .ideb-initial-years {
+        .picture {
+            left: 145px;
+        }
+    }
+
+    .ideb-final-years {
+        .picture {
+            left: 100px;
+        }
+    }
+
+    .ideb-high-school {
+        .picture {
+            left: 125px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .ideb-in-brazil {
+        h2 {
+            font-size: 32px;
+        }
+
+        .ideb-graph {
+            height: 390px;
+            width: 390px;
+
+            h3 {
+                font-size: 32px;
+                padding-top: 20px;
+            }
+
+            p {
+                margin-bottom: 30px;
+            }
+
+            ol {
+                padding-left: 25px;
+            }
+
+            li {
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) and (max-width: 640px) {
+    .ideb-graph {
+        display: none;
+    }
+}
+
+@media (max-width: 440px) {
+    .ideb-in-brazil {
+        h2 {
+            font-size: 32px;
+        }
+
+        .ideb-graph {
+            height: 300px;
+            width: 300px;
+
+            h3 {
+                font-size: 18px;
+                padding-top: 5px;
+            }
+
+            p {
+                margin-bottom: 30px;
+            }
+
+            ol {
+                padding-left: 10px;
+            }
+
+            li {
+                margin-right: 0;
+            }
+
+            .year {
+                bottom: 30px;
+            }
+
+            .break-graph {
+                height: 50px;
+            }
+        }
+    }
+}
+
+//Ipad portrait
+@media (width: 768px) {
+    .ideb-initial-years {
+        .picture {
+            left: 45px;
+        }
+    }
+
+    .ideb-final-years {
+        .picture {
+            left: 20px;
+        }
+    }
+
+    .ideb-high-school {
+        .picture {
+            left: 45px;
+        }
+    }
+}
