@@ -46,7 +46,6 @@ gulp.task('landingideb.js', function() {
     .pipe(gulp.dest('./javascript/dist/'));
 });
 
-
 gulp.task('banner.css', function() {
   return gulp.src([
       './stylesheet/src/Banner/MeuMunicipioBanner.less',
@@ -55,6 +54,18 @@ gulp.task('banner.css', function() {
     .pipe(exec(cssCmdVersionOne, execOptions))
     .pipe(concat('banner.css', noBreakLineOption))
     .pipe(gulp.dest('./stylesheet/dist/'));
+});
+
+gulp.task('provabrasil/help.css', function() {
+    return gulp.src([
+        './stylesheet/src/ProvaBrasil/Help/help.less',
+        './stylesheet/src/ProvaBrasil/Help/content.less',
+        './stylesheet/src/ProvaBrasil/Help/feedback.less'
+    ])
+    .pipe(concat('help.css', noBreakLineOption))
+    .pipe(gulp.dest('./stylesheet/dist/provabrasil/'))
+    .pipe(exec(lessBinary     + ' ./stylesheet/dist/provabrasil/help.css --compress', execOptions))
+    .pipe(gulp.dest('./stylesheet/dist/provabrasil/'));
 });
 
 gulp.task('landingideb.css', function() {
@@ -73,4 +84,4 @@ gulp.task('landingideb.css', function() {
     .pipe(gulp.dest('./stylesheet/dist/'));
 });
 
-gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css']);
+gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'provabrasil/help.css']);
