@@ -14,7 +14,6 @@ var jsCmdVersionOne  = uglifyjsBinary + ' <%= file.path %> --define __DEV__=1 --
 var execOptions       = {pipeStdout: true},
     noBreakLineOption = {newLine:''};
 
-
 gulp.task('header.js', function() {
   return gulp.src([
       './javascript/src/Header/SentryBehavior.js',
@@ -64,7 +63,21 @@ gulp.task('provabrasil/help.css', function() {
     ])
     .pipe(concat('help.css', noBreakLineOption))
     .pipe(gulp.dest('./stylesheet/dist/provabrasil/'))
-    .pipe(exec(lessBinary     + ' ./stylesheet/dist/provabrasil/help.css --compress', execOptions))
+    .pipe(exec(lessBinary + ' ./stylesheet/dist/provabrasil/help.css --compress', execOptions))
+    .pipe(gulp.dest('./stylesheet/dist/provabrasil/'));
+});
+
+gulp.task('provabrasil/other-pages.css', function() {
+    return gulp.src([
+        './stylesheet/src/ProvaBrasil/About/about.less',
+        './stylesheet/src/ProvaBrasil/News/news.less',
+        './stylesheet/src/ProvaBrasil/News/press.less',
+        './stylesheet/src/ProvaBrasil/Terms/terms.less',
+        './stylesheet/src/ProvaBrasil/Sitemap/sitemap.less'
+    ])
+    .pipe(concat('other-pages.css', noBreakLineOption))
+    .pipe(gulp.dest('./stylesheet/dist/provabrasil/'))
+    .pipe(exec(lessBinary + ' ./stylesheet/dist/provabrasil/other-pages.css --compress', execOptions))
     .pipe(gulp.dest('./stylesheet/dist/provabrasil/'));
 });
 
@@ -84,4 +97,4 @@ gulp.task('landingideb.css', function() {
     .pipe(gulp.dest('./stylesheet/dist/'));
 });
 
-gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'provabrasil/help.css']);
+gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'provabrasil/help.css', 'provabrasil/other-pages.css']);
