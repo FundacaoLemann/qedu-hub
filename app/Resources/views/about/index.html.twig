@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sobre - QEdu{% endblock %}
+
+{% block stylesheets %}
+  <link type="text/css" href="/gimme/d3e1a7d09b/pkg/css/provabrasil.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/c6e158691b/pkg/css/provabrasil/help.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/e798d9d766/pkg/css/provabrasil/other-pages.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+  {% include 'about/subnav.html.twig' %}
+  {% include 'about/who_we_are.html.twig' %}
+{% endblock %}

@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}QEdu: Use dados. Transforme a educação.{% endblock %}</title>
+    
+    {% include 'meta.html.twig' %}
+
+    {% block stylesheets %}{% endblock %}
+
+    {% include 'google/analytics.html.twig' %}
+    {% include 'google/tagmanager/head.html.twig' %}
+
+  </head>
+  <body>
+    {% include 'google/tagmanager/body.html.twig' %}    
+
+    {% block body %}{% endblock %}
+
+    {% include 'footer.html.twig' %}
+
+    {% block javascripts %}{% endblock %}
+  </body>
 </html>
