@@ -10,7 +10,7 @@ class AboutControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/sobre');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Sobre o QEdu', $crawler->filter('.container h1')->text());
