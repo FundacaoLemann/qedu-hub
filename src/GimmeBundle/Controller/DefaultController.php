@@ -23,8 +23,8 @@ class DefaultController extends Controller
      *     name="gimme_path",
      *     requirements={
      *         "hash": ".*",
-     *         "prefix": ".*",
-     *         "fileName": ".*"
+     *         "prefix": "(css|js)",
+     *         "fileName": ".+"
      *     }
      * )
      */
