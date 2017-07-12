@@ -1,0 +1,402 @@
+# Logfile created on 2017-07-12 14:58:26 -0300 by logger.rb/v1.2.7
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-07-12 14:58:26 -0300 cap prod deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bd651368] Running /usr/bin/env mkdir -p /tmp as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [bd651368] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /tmp )
+  INFO [bd651368] Finished in 0.535 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-teste-prod-root.sh 0.0%
+  INFO Uploading /tmp/git-ssh-teste-prod-root.sh 100.0%
+  INFO [cc5ffb63] Running /usr/bin/env chmod 700 /tmp/git-ssh-teste-prod-root.sh as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [cc5ffb63] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env chmod 700 /tmp/git-ssh-teste-prod-root.sh )
+  INFO [cc5ffb63] Finished in 0.022 seconds with exit status 0 (successful).
+  INFO [900f2f62] Running /usr/bin/env git ls-remote git@github.com:QEdu/qedu-hub.git HEAD as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [900f2f62] Command: ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-teste-prod-root.sh" ; /usr/bin/env git ls-remote git@github.com:QEdu/qedu-hub.git HEAD )
+ DEBUG [900f2f62] 	cfca97a5c036eadbb8bf81e6b379a11e9d8ec5fa	HEAD
+  INFO [900f2f62] Finished in 1.741 seconds with exit status 0 (successful).
+  INFO [e5811095] Running /usr/bin/env mkdir -p /var/www/html/teste/shared /var/www/html/teste/releases as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [e5811095] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/html/teste/shared /var/www/html/teste/releases )
+  INFO [e5811095] Finished in 0.033 seconds with exit status 0 (successful).
+  INFO [5361418a] Running /usr/bin/env mkdir -p /var/www/html/teste/shared/app/logs /var/www/html/teste/shared/web/uploads as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [5361418a] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/html/teste/shared/app/logs /var/www/html/teste/shared/web/uploads )
+  INFO [5361418a] Finished in 0.037 seconds with exit status 0 (successful).
+ DEBUG [e1104443] Running [ -f /var/www/html/teste/current/REVISION ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [e1104443] Command: [ -f /var/www/html/teste/current/REVISION ]
+ DEBUG [e1104443] Finished in 0.033 seconds with exit status 0 (successful).
+ DEBUG [516d6904] Running /usr/bin/env cat /var/www/html/teste/current/REVISION 2>/dev/null as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [516d6904] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env cat /var/www/html/teste/current/REVISION 2>/dev/null )
+ DEBUG [516d6904] 	50076157a46f21d255f53ca780ecc902887aa3a6
+ DEBUG [516d6904] Finished in 0.027 seconds with exit status 0 (successful).
+ DEBUG [752a2565] Running [ -f /var/www/html/teste/repo/HEAD ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [752a2565] Command: [ -f /var/www/html/teste/repo/HEAD ]
+ DEBUG [752a2565] Finished in 0.031 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/html/teste/repo
+ DEBUG [57bad611] Running if test ! -d /var/www/html/teste/repo; then echo "Directory does not exist '/var/www/html/teste/repo'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [57bad611] Command: if test ! -d /var/www/html/teste/repo; then echo "Directory does not exist '/var/www/html/teste/repo'" 1>&2; false; fi
+ DEBUG [57bad611] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [f8379aa8] Running /usr/bin/env git remote set-url origin git@github.com:QEdu/qedu-hub.git as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [f8379aa8] Command: cd /var/www/html/teste/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-teste-prod-root.sh" ; /usr/bin/env git remote set-url origin git@github.com:QEdu/qedu-hub.git )
+  INFO [f8379aa8] Finished in 0.030 seconds with exit status 0 (successful).
+  INFO [eebf8472] Running /usr/bin/env git remote update --prune as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [eebf8472] Command: cd /var/www/html/teste/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-teste-prod-root.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [eebf8472] 	Fetching origin
+ DEBUG [eebf8472] 	remote: Counting objects: 52, done.[K
+remote: Compressing objects:   3% (1/31)   [Kremote: Compressing objects:   6% (2/31)   [Kremote: Compressing objects:   9% (3/31)   [Kremote: Compressing objects:  12% (4/31)   [Kremote: Compressing objects:  16% (5/31)   [Kremote: Compressing objects:  19% (6/31)   [Kremote: Compressing objects:  22% (7/31)   [K
+ DEBUG [eebf8472] 	remote: Compressing objects:  25% (8/31)   [Kremote: Compressing objects:  29% (9/31)   [Kremote: Compressing objects:  32% (10/31)   [Kremote: Compressing objects:  35% (11/31)   [Kremote: Compressing objects:  38% (12/31)   [Kremote: Compressing objects:  41% (13/31)   [K
+ DEBUG [eebf8472] 	remote: Compressing objects:  45% (14/31)   [Kremote: Compressing objects:  48% (15/31)   [Kremote: Compressing objects:  51% (16/31)   [Kremote: Compressing objects:  54% (17/31)   [Kremote: Compressing objects:  58% (18/31)   [Kremote: Compressing objects:  61% (19/31)   [K
+ DEBUG [eebf8472] 	remote: Compressing objects:  64% (20/31)   [Kremote: Compressing objects:  67% (21/31)   [Kremote: Compressing objects:  70% (22/31)   [Kremote: Compressing objects:  74% (23/31)   [Kremote: Compressing objects:  77% (24/31)   [K
+ DEBUG [eebf8472] 	remote: Compressing objects:  80% (25/31)   [Kremote: Compressing objects:  83% (26/31)   [Kremote: Compressing objects:  87% (27/31)   [Kremote: Compressing objects:  90% (28/31)   [Kremote: Compressing objects:  93% (29/31)   [Kremote: Compressing objects:  96% (30/31)   [Kremote: Compressing objects: 100% (31/31)   [K
+ DEBUG [eebf8472] 	remote: Compressing objects: 100% (31/31), done.[K
+ DEBUG [eebf8472] 	remote: Total 52 (delta 23), reused 41 (delta 16), pack-reused 0[K
+ DEBUG [eebf8472] 	
+ DEBUG [eebf8472] 	Unpacking objects:   1% (1/52)   
+ DEBUG [eebf8472] 	Unpacking objects:   3% (2/52)   
+ DEBUG [eebf8472] 	Unpacking objects:   5% (3/52)   
+ DEBUG [eebf8472] 	Unpacking objects:   7% (4/52)   
+ DEBUG [eebf8472] 	Unpacking objects:   9% (5/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  11% (6/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  13% (7/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  15% (8/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  17% (9/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  19% (10/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  21% (11/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  23% (12/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  25% (13/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  26% (14/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  28% (15/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  30% (16/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  32% (17/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  34% (18/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  36% (19/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  38% (20/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  40% (21/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  42% (22/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  44% (23/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  46% (24/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  48% (25/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  50% (26/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  51% (27/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  53% (28/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  55% (29/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  57% (30/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  59% (31/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  61% (32/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  63% (33/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  65% (34/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  67% (35/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  69% (36/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  71% (37/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  73% (38/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  75% (39/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  76% (40/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  78% (41/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  80% (42/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  82% (43/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  84% (44/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  86% (45/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  88% (46/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  90% (47/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  92% (48/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  94% (49/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  96% (50/52)   
+ DEBUG [eebf8472] 	Unpacking objects:  98% (51/52)   
+ DEBUG [eebf8472] 	Unpacking objects: 100% (52/52)   Unpacking objects: 100% (52/52), done.
+ DEBUG [eebf8472] 	From github.com:QEdu/qedu-hub
+   e5b0176..174163a  about_page -> about_page
+ DEBUG [eebf8472] 	 + 5007615...cfca97a master     -> master  (forced update)
+ DEBUG [eebf8472] 	 * [new ref]         refs/pull/1/head -> refs/pull/1/head
+ DEBUG [eebf8472] 	 * [new ref]         refs/pull/2/head -> refs/pull/2/head
+ DEBUG [eebf8472] 	 * [new ref]         refs/pull/2/merge -> refs/pull/2/merge
+ DEBUG [eebf8472] 	 * [new ref]         refs/pull/3/head -> refs/pull/3/head
+ DEBUG [eebf8472] 	 * [new ref]         refs/pull/3/merge -> refs/pull/3/merge
+  INFO [eebf8472] Finished in 1.995 seconds with exit status 0 (successful).
+ DEBUG [3fbbc530] Running if test ! -d /var/www/html/teste/repo; then echo "Directory does not exist '/var/www/html/teste/repo'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [3fbbc530] Command: if test ! -d /var/www/html/teste/repo; then echo "Directory does not exist '/var/www/html/teste/repo'" 1>&2; false; fi
+ DEBUG [3fbbc530] Finished in 0.024 seconds with exit status 0 (successful).
+  INFO [b8baa149] Running /usr/bin/env mkdir -p /var/www/html/teste/releases/20170712175829 as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [b8baa149] Command: cd /var/www/html/teste/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-teste-prod-root.sh" ; /usr/bin/env mkdir -p /var/www/html/teste/releases/20170712175829 )
+  INFO [b8baa149] Finished in 0.031 seconds with exit status 0 (successful).
+  INFO [6d4263e8] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/html/teste/releases/20170712175829 as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [6d4263e8] Command: cd /var/www/html/teste/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-teste-prod-root.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/html/teste/releases/20170712175829 )
+ DEBUG [6d4263e8] 	warning: unable to access '/home/ubuntu/.config/git/attributes': Permission denied
+  INFO [6d4263e8] Finished in 0.030 seconds with exit status 0 (successful).
+ DEBUG [acb787d3] Running if test ! -d /var/www/html/teste/repo; then echo "Directory does not exist '/var/www/html/teste/repo'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [acb787d3] Command: if test ! -d /var/www/html/teste/repo; then echo "Directory does not exist '/var/www/html/teste/repo'" 1>&2; false; fi
+ DEBUG [acb787d3] Finished in 0.033 seconds with exit status 0 (successful).
+ DEBUG [49adb18c] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [49adb18c] Command: cd /var/www/html/teste/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-teste-prod-root.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [49adb18c] 	cfca97a5c036eadbb8bf81e6b379a11e9d8ec5fa
+ DEBUG [49adb18c] Finished in 0.030 seconds with exit status 0 (successful).
+ DEBUG [eea730ad] Running if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [eea730ad] Command: if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi
+ DEBUG [eea730ad] Finished in 0.025 seconds with exit status 0 (successful).
+  INFO [a2785c6d] Running /usr/bin/env echo "cfca97a5c036eadbb8bf81e6b379a11e9d8ec5fa" >> REVISION as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [a2785c6d] Command: cd /var/www/html/teste/releases/20170712175829 && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "cfca97a5c036eadbb8bf81e6b379a11e9d8ec5fa" >> REVISION )
+  INFO [a2785c6d] Finished in 0.049 seconds with exit status 0 (successful).
+  INFO [8bd8b9d3] Running /usr/bin/env mkdir -p /var/www/html/teste/releases/20170712175829/app /var/www/html/teste/releases/20170712175829/web as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [8bd8b9d3] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/html/teste/releases/20170712175829/app /var/www/html/teste/releases/20170712175829/web )
+  INFO [8bd8b9d3] Finished in 0.029 seconds with exit status 0 (successful).
+ DEBUG [49539834] Running [ -L /var/www/html/teste/releases/20170712175829/app/logs ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [49539834] Command: [ -L /var/www/html/teste/releases/20170712175829/app/logs ]
+ DEBUG [49539834] Finished in 0.021 seconds with exit status 1 (failed).
+ DEBUG [77606c33] Running [ -d /var/www/html/teste/releases/20170712175829/app/logs ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [77606c33] Command: [ -d /var/www/html/teste/releases/20170712175829/app/logs ]
+ DEBUG [77606c33] Finished in 0.027 seconds with exit status 1 (failed).
+  INFO [515b843c] Running /usr/bin/env ln -s /var/www/html/teste/shared/app/logs /var/www/html/teste/releases/20170712175829/app/logs as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [515b843c] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/html/teste/shared/app/logs /var/www/html/teste/releases/20170712175829/app/logs )
+  INFO [515b843c] Finished in 0.021 seconds with exit status 0 (successful).
+ DEBUG [eabfc0a9] Running [ -L /var/www/html/teste/releases/20170712175829/web/uploads ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [eabfc0a9] Command: [ -L /var/www/html/teste/releases/20170712175829/web/uploads ]
+ DEBUG [eabfc0a9] Finished in 0.019 seconds with exit status 1 (failed).
+ DEBUG [64464be7] Running [ -d /var/www/html/teste/releases/20170712175829/web/uploads ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [64464be7] Command: [ -d /var/www/html/teste/releases/20170712175829/web/uploads ]
+ DEBUG [64464be7] Finished in 0.021 seconds with exit status 1 (failed).
+  INFO [02154390] Running /usr/bin/env ln -s /var/www/html/teste/shared/web/uploads /var/www/html/teste/releases/20170712175829/web/uploads as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [02154390] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/html/teste/shared/web/uploads /var/www/html/teste/releases/20170712175829/web/uploads )
+  INFO [02154390] Finished in 0.028 seconds with exit status 0 (successful).
+ DEBUG [f2086c36] Running if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [f2086c36] Command: if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi
+ DEBUG [f2086c36] Finished in 0.045 seconds with exit status 0 (successful).
+ DEBUG [d18e0631] Running [ -d /var/www/html/teste/releases/20170712175829/app/cache ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [d18e0631] Command: [ -d /var/www/html/teste/releases/20170712175829/app/cache ]
+ DEBUG [d18e0631] Finished in 0.020 seconds with exit status 1 (failed).
+  INFO [6ad1e84b] Running /usr/bin/env mkdir -pv app/cache as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [6ad1e84b] Command: cd /var/www/html/teste/releases/20170712175829 && ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -pv app/cache )
+ DEBUG [6ad1e84b] 	mkdir: created directory 'app/cache'
+ DEBUG [6ad1e84b] 	
+  INFO [6ad1e84b] Finished in 0.026 seconds with exit status 0 (successful).
+ DEBUG [af687c99] Running if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [af687c99] Command: if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi
+ DEBUG [af687c99] Finished in 0.032 seconds with exit status 0 (successful).
+  INFO [ff8b32b2] Running /usr/bin/env composer install --no-dev --no-interaction --optimize-autoloader as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [ff8b32b2] Command: cd /var/www/html/teste/releases/20170712175829 && ( export SYMFONY_ENV="prod" ; /usr/bin/env composer install --no-dev --no-interaction --optimize-autoloader )
+ DEBUG [ff8b32b2] 	[32mLoading composer repositories with package information[39m
+ DEBUG [ff8b32b2] 	[32mInstalling dependencies from lock file[39m
+ DEBUG [ff8b32b2] 	[32mPackage operations: 36 installs, 0 updates, 0 removals[39m
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/lexer[39m ([33mv1.0.1[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/annotations[39m ([33mv1.2.7[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mtwig/twig[39m ([33mv1.33.2[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/polyfill-util[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mparagonie/random_compat[39m ([33mv2.0.10[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/polyfill-php70[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/polyfill-php56[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/polyfill-mbstring[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/symfony[39m ([33mv3.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/polyfill-intl-icu[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mpsr/simple-cache[39m ([33m1.0.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mpsr/log[39m ([33m1.0.2[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mpsr/link[39m ([33m1.0.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mpsr/container[39m ([33m1.0.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mpsr/cache[39m ([33m1.0.1[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mfig/link-util[39m ([33m1.0.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/inflector[39m ([33mv1.1.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/collections[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/cache[39m ([33mv1.6.1[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/common[39m ([33mv2.6.2[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mjdorn/sql-formatter[39m ([33mv1.2.17[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/doctrine-cache-bundle[39m ([33m1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/dbal[39m ([33mv2.5.12[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/doctrine-bundle[39m ([33m1.6.8[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/instantiator[39m ([33m1.0.5[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mdoctrine/orm[39m ([33mv2.5.6[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mincenteev/composer-parameter-handler[39m ([33mv2.1.2[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mcomposer/ca-bundle[39m ([33m1.0.7[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msensiolabs/security-checker[39m ([33mv4.0.4[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msensio/distribution-bundle[39m ([33mv5.0.20[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msensio/framework-extra-bundle[39m ([33mv3.0.26[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mmonolog/monolog[39m ([33m1.22.1[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/monolog-bundle[39m ([33mv3.1.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/polyfill-apcu[39m ([33mv1.3.0[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32mswiftmailer/swiftmailer[39m ([33mv5.4.8[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	  - Installing [32msymfony/swiftmailer-bundle[39m ([33mv2.6.2[39m): 
+ DEBUG [ff8b32b2] 	Loading from cache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[32mGenerating optimized autoload files[39m
+ DEBUG [ff8b32b2] 	> Incenteev\ParameterHandler\ScriptHandler::buildParameters
+ DEBUG [ff8b32b2] 	[32mCreating the "app/config/parameters.yml" file[39m
+ DEBUG [ff8b32b2] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::buildBootstrap
+ DEBUG [ff8b32b2] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::clearCache
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[39;49m // [39;49mClearing the cache for the [32mprod[39m environment with debug                      
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[39;49m // [39;49m[32mfalse[39m                                                                       
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[30;42m                                                                                [39;49m
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[30;42m [OK] Cache for the "prod" environment (debug=false) was successfully cleared.  [39;49m
+ DEBUG [ff8b32b2] 	
+[30;42m                                                                                [39;49m
+
+ DEBUG [ff8b32b2] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installAssets
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	 Trying to install assets as [32mrelative symbolic links[39m.
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	 -- -------- ---------------- 
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	 [32m  [39m [32m Bundle [39m [32m Method / Error [39m 
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	 -- -------- ---------------- 
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[30;42m                                                                                [39;49m
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[30;42m [OK] All assets were successfully installed.                                   [39;49m
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	[30;42m                                                                                [39;49m
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	
+ DEBUG [ff8b32b2] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installRequirementsFile
+ DEBUG [ff8b32b2] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::prepareDeploymentTarget
+  INFO [ff8b32b2] Finished in 4.939 seconds with exit status 0 (successful).
+ DEBUG [fd186936] Running if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [fd186936] Command: if test ! -d /var/www/html/teste/releases/20170712175829; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829'" 1>&2; false; fi
+ DEBUG [fd186936] Finished in 0.031 seconds with exit status 0 (successful).
+  INFO [36112f8d] Running /usr/bin/env php bin/console cache:warmup  --no-debug as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [36112f8d] Command: cd /var/www/html/teste/releases/20170712175829 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console cache:warmup  --no-debug )
+ DEBUG [36112f8d] 	
+ DEBUG [36112f8d] 	[39;49m // [39;49mWarming up the cache for the [32mprod[39m environment with debug                    
+ DEBUG [36112f8d] 	[39;49m // [39;49m[32mfalse[39m                                                                       
+ DEBUG [36112f8d] 	
+ DEBUG [36112f8d] 	[30;42m                                                                                [39;49m
+[30;42m [OK] Cache for the "prod" environment (debug=false) was successfully warmed.   [39;49m
+ DEBUG [36112f8d] 	[30;42m                                                                                [39;49m
+ DEBUG [36112f8d] 	
+  INFO [36112f8d] Finished in 0.347 seconds with exit status 0 (successful).
+ DEBUG [73c15b66] Running if test ! -d /var/www/html/teste/releases/20170712175829/web; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829/web'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [73c15b66] Command: if test ! -d /var/www/html/teste/releases/20170712175829/web; then echo "Directory does not exist '/var/www/html/teste/releases/20170712175829/web'" 1>&2; false; fi
+ DEBUG [73c15b66] Finished in 0.024 seconds with exit status 0 (successful).
+  INFO [ab0c95f0] Running /usr/bin/env rm -f app_*.php as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [ab0c95f0] Command: cd /var/www/html/teste/releases/20170712175829/web && ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -f app_*.php )
+  INFO [ab0c95f0] Finished in 0.023 seconds with exit status 0 (successful).
+  INFO [bef0c2d3] Running /usr/bin/env ln -s /var/www/html/teste/releases/20170712175829 /var/www/html/teste/releases/current as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [bef0c2d3] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/html/teste/releases/20170712175829 /var/www/html/teste/releases/current )
+  INFO [bef0c2d3] Finished in 0.026 seconds with exit status 0 (successful).
+  INFO [d318df5d] Running /usr/bin/env mv /var/www/html/teste/releases/current /var/www/html/teste as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [d318df5d] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mv /var/www/html/teste/releases/current /var/www/html/teste )
+  INFO [d318df5d] Finished in 0.031 seconds with exit status 0 (successful).
+ DEBUG [b1d6d700] Running /usr/bin/env ls -x /var/www/html/teste/releases as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [b1d6d700] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ls -x /var/www/html/teste/releases )
+ DEBUG [b1d6d700] 	20170711131008
+ DEBUG [b1d6d700] 		
+ DEBUG [b1d6d700] 	20170711132428
+ DEBUG [b1d6d700] 		
+ DEBUG [b1d6d700] 	20170711132727
+ DEBUG [b1d6d700] 		
+ DEBUG [b1d6d700] 	20170711132949
+ DEBUG [b1d6d700] 		
+ DEBUG [b1d6d700] 	20170711134443
+ DEBUG [b1d6d700] 	
+ DEBUG [b1d6d700] 	20170712175829
+ DEBUG [b1d6d700] 	
+ DEBUG [b1d6d700] Finished in 0.034 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+  INFO [535f19b1] Running /usr/bin/env rm -rf /var/www/html/teste/releases/20170711131008 as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [535f19b1] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -rf /var/www/html/teste/releases/20170711131008 )
+  INFO [535f19b1] Finished in 1.693 seconds with exit status 0 (successful).
+ DEBUG [56a7013d] Running if test ! -d /var/www/html/teste/releases; then echo "Directory does not exist '/var/www/html/teste/releases'" 1>&2; false; fi as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [56a7013d] Command: if test ! -d /var/www/html/teste/releases; then echo "Directory does not exist '/var/www/html/teste/releases'" 1>&2; false; fi
+ DEBUG [56a7013d] Finished in 0.028 seconds with exit status 0 (successful).
+  INFO [0eac403a] Running /usr/bin/env echo "Branch master (at cfca97a5c036eadbb8bf81e6b379a11e9d8ec5fa) deployed as release 20170712175829 by root" >> /var/www/html/teste/revisions.log as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [0eac403a] Command: cd /var/www/html/teste/releases && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "Branch master (at cfca97a5c036eadbb8bf81e6b379a11e9d8ec5fa) deployed as release 20170712175829 by root" >> /var/www/html/teste/revisions.log )
+  INFO [0eac403a] Finished in 0.033 seconds with exit status 0 (successful).
+  INFO [d69b4ab8] Running cd /var/www/html/teste/releases/20170712175829 && npm_config_registry='http://registry.npmjs.org' npm install 2>/dev/null as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [d69b4ab8] Command: cd /var/www/html/teste/releases/20170712175829 && npm_config_registry='http://registry.npmjs.org' npm install 2>/dev/null
+  INFO [d69b4ab8] Finished in 1.697 seconds with exit status 0 (successful).
+ DEBUG [8c4c7b19] Running [ -d /var/www/html/teste/shared/app/logs ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [8c4c7b19] Command: [ -d /var/www/html/teste/shared/app/logs ]
+ DEBUG [8c4c7b19] Finished in 0.025 seconds with exit status 0 (successful).
+ DEBUG [de410f08] Running [ -d /var/www/html/teste/releases/20170712175829/app/cache ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [de410f08] Command: [ -d /var/www/html/teste/releases/20170712175829/app/cache ]
+ DEBUG [de410f08] Finished in 0.028 seconds with exit status 0 (successful).
+ DEBUG [f6fdd2b1] Running [ -d /var/www/html/teste/releases/20170712175829/var ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [f6fdd2b1] Command: [ -d /var/www/html/teste/releases/20170712175829/var ]
+ DEBUG [f6fdd2b1] Finished in 0.019 seconds with exit status 0 (successful).
+ DEBUG [b0911bdd] Running [ -d /var/www/html/teste/shared/web/uploads ] as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [b0911bdd] Command: [ -d /var/www/html/teste/shared/web/uploads ]
+ DEBUG [b0911bdd] Finished in 0.021 seconds with exit status 0 (successful).
+  INFO [e841e890] Running /usr/bin/env setfacl -Rm u:nginx:rwx,u:ubuntu:rwx /var/www/html/teste/shared/app/logs /var/www/html/teste/releases/20170712175829/app/cache /var/www/html/teste/releases/20170712175829/var /var/www/html/teste/shared/web/uploads as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [e841e890] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env setfacl -Rm u:nginx:rwx,u:ubuntu:rwx /var/www/html/teste/shared/app/logs /var/www/html/teste/releases/20170712175829/app/cache /var/www/html/teste/releases/20170712175829/var /var/www/html/teste/shared/web/uploads )
+ DEBUG [e841e890] 	setfacl: /var/www/html/teste/shared/app/logs/nginx-error.log: Operation not permitted
+ DEBUG [e841e890] 	setfacl: /var/www/html/teste/shared/app/logs/nginx-access.log: Operation not permitted
+  INFO [e841e890] Finished in 0.043 seconds with exit status 0 (successful).
+  INFO [c41d1506] Running /usr/bin/env setfacl -Rdm u:nginx:rwx,u:ubuntu:rwx /var/www/html/teste/shared/app/logs /var/www/html/teste/releases/20170712175829/app/cache /var/www/html/teste/releases/20170712175829/var /var/www/html/teste/shared/web/uploads as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [c41d1506] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env setfacl -Rdm u:nginx:rwx,u:ubuntu:rwx /var/www/html/teste/shared/app/logs /var/www/html/teste/releases/20170712175829/app/cache /var/www/html/teste/releases/20170712175829/var /var/www/html/teste/shared/web/uploads )
+  INFO [c41d1506] Finished in 0.029 seconds with exit status 0 (successful).
+  INFO [2870e184] Running sudo echo 'include /etc/nginx/conf.d/teste.conf;' >> /etc/nginx/sites-enabled/default.conf as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [2870e184] Command: sudo echo 'include /etc/nginx/conf.d/teste.conf;' >> /etc/nginx/sites-enabled/default.conf
+  INFO [2870e184] Finished in 0.027 seconds with exit status 0 (successful).
+  INFO [22edf5ec] Running /usr/bin/env sudo service nginx restart as ubuntu@ec2-52-67-216-66.sa-east-1.compute.amazonaws.com
+ DEBUG [22edf5ec] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env sudo service nginx restart )
+  INFO [22edf5ec] Finished in 0.128 seconds with exit status 0 (successful).

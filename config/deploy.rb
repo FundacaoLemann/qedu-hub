@@ -6,7 +6,7 @@ set :stages, ["prod","prod-php5"]
 set :symfony_env,  "prod"
 set :branch, "master"
 set :application, ask("set the correct app:")
-set :repo_url, "git@github.com:Talits/qedu-hub.git"
+set :repo_url, "git@github.com:QEdu/qedu-hub.git"
 set :pty, true
 set :deploy_via, :remote_cache
 set :http_host, "www.qedu.org.br"
@@ -19,7 +19,6 @@ set :file_permissions_users, ["nginx"]
 
 
 after "deploy:log_revision", "dep:node"
-after "dep:node", "shared:googlewmt"
-after "shared:googlewmt", "deploy:set_permissions:acl"
+after "dep:node", "deploy:set_permissions:acl"
 after "deploy:set_permissions:acl", "dep:include"
 after "dep:include", "restart:nginx"
