@@ -1,13 +1,4 @@
 
- <% if fetch(:nginx_redirected_domains) %>
-    ## Rewrite url
-   server {
-     listen 80;
-     server_name <%= fetch(:nginx_redirected_domains) %>;
-     rewrite ^(.*) http://<%= fetch(:nginx_domains).gsub(/\s.*/,'') %> permanent;
-   }
- <% end %>
-
 server {
     server_name <%= fetch(:nginx_domains) %>;
 
