@@ -16,3 +16,12 @@
   {% include 'about/subnav.html.twig' %}
   {% include 'about/who_we_are.html.twig' %}
 {% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
+  <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript">
+    mcc.init_behaviors({"Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend":""}]});
+  </script>
+  <script type="text/javascript">$(function() {mcc.init_behaviors({"dev-reload":[[]]});});</script>
+{% endblock %}
