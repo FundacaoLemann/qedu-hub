@@ -1,6 +1,4 @@
-
 require "capistrano/setup"
-
 require "capistrano/deploy"
 require "capistrano/nginx"
 require 'capistrano/symfony'
