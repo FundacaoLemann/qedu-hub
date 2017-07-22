@@ -17,7 +17,8 @@ install:
   - composer install
 
 script:
-  - ./vendor/bin/phpunit
+  - composer phpunit
+  - composer check-style
   # this checks that the YAML config files contain no syntax errors
   - ./bin/console lint:yaml app/config
   - ./bin/console lint:yaml @AppBundle
