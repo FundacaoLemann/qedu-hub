@@ -18,6 +18,12 @@ install:
 
 script:
   - ./vendor/bin/phpunit
+  # this checks that the YAML config files contain no syntax errors
+  - ./bin/console lint:yaml app/config
+  - ./bin/console lint:yaml @AppBundle
+  - ./bin/console lint:yaml @GimmeBundle
+  # this checks that the Twig template files contain no syntax errors
+  - ./bin/console lint:twig app/Resources @AppBundle
 
 notifications:
   slack:
