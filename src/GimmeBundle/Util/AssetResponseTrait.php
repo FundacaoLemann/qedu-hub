@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 trait AssetResponseTrait
 {
-
     private function createAssetResponse($file)
     {
         $fileContent = file_get_contents($file);
