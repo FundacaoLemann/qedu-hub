@@ -4,7 +4,8 @@ namespace GimmeBundle\Util;
 
 use Symfony\Component\HttpFoundation\Response;
 
-trait AssetResponseTrait {
+trait AssetResponseTrait
+{
 
     private function createAssetResponse($file)
     {
