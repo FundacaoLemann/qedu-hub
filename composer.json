@@ -46,8 +46,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
+        "npm-install": "npm install --prefix src/GimmeBundle/Resources/assets",
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "@npm-install"
         ],
         "post-update-cmd": [
             "@symfony-scripts"
