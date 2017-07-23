@@ -33,6 +33,7 @@
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
+        "pdepend/pdepend": "^2.5",
         "phpmd/phpmd": "^2.6",
         "phpunit/phpunit": "6.1.*",
         "sebastian/phpcpd": "^3.0",
@@ -54,6 +55,7 @@
         "check-style": "./vendor/bin/phpcs -p --standard=PSR2 --extensions=php --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/ tests/",
         "phpmd": "./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
         "phpcpd": "./vendor/bin/phpcpd src/ tests/",
+        "pdepend": "./vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=var/reports/jdepend.xml --summary-xml=var/reports/jdepend-summary.xml --jdepend-chart=var/reports/jdepend.svg --overview-pyramid=var/reports/jdepend-pyramid.svg src",
         "post-install-cmd": [
             "@symfony-scripts",
             "@npm-install"
