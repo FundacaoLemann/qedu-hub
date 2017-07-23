@@ -2,5 +2,4 @@ filter:
     paths: ["src/*", "tests/*"]
 
 checks:
-    javascript: false
     php: true
