@@ -3,3 +3,12 @@ filter:
 
 checks:
     php: true
+
+build:
+    tests:
+        override:
+            -
+                command: 'vendor/bin/phpunit --coverage-clover=clover-file.xml'
+                coverage:
+                    file: 'clover-file.xml'
+                    format: 'clover'
