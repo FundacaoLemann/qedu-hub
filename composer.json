@@ -34,6 +34,7 @@
     },
     "require-dev": {
         "pdepend/pdepend": "^2.5",
+        "phploc/phploc": "^4.0",
         "phpmd/phpmd": "^2.6",
         "phpunit/phpunit": "6.1.*",
         "sebastian/phpcpd": "^3.0",
@@ -56,6 +57,7 @@
         "phpmd": "./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
         "phpcpd": "./vendor/bin/phpcpd src/ tests/",
         "pdepend": "./vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=var/reports/jdepend.xml --summary-xml=var/reports/jdepend-summary.xml --jdepend-chart=var/reports/jdepend.svg --overview-pyramid=var/reports/jdepend-pyramid.svg src",
+        "phploc": "./vendor/bin/phploc --log-xml=var/reports/phploc.xml src",
         "post-install-cmd": [
             "@symfony-scripts",
             "@npm-install"
