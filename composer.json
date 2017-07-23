@@ -1,5 +1,5 @@
 {
-    "name": "marcussa/qedu-hub",
+    "name": "qedu/qedu-hub",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -20,7 +20,7 @@
         ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": "^7.1",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
