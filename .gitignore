@@ -1,3 +1,5 @@
+.idea/
+log/capistrano.log
 /.web-server-pid
 /app/config/parameters.yml
 /build/
