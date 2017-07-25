@@ -1,4 +1,4 @@
-server "52.67.121.9", user: "www-data", roles: %w{app db web}
+server "54.233.94.47", user: "www-data", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -36,12 +36,6 @@ server "52.67.121.9", user: "www-data", roles: %w{app db web}
 #
 # Global options
 # --------------
-set :ssh_options, {
-  user: "www-data",
-  keys: %w(~/.ssh/qedu-php7.pem),
-  forward_agent: true,
-  auth_methods: %w(publickey)
-}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------

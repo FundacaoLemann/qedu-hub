@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 set :application, "qedu-hub"
-set :repo_url, "git@github.com:QEdu/qedu-hub.git"
+set :repo_url, "https://github.com/QEdu/qedu-hub.git"
 
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -18,8 +18,8 @@ set :deploy_to, "/var/www/qedu-hub"
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 # Default value for :pty is false
-set :pty, true
-set :tmp_dir, '/tmp/deployqeduhub'
+#set :pty, true
+#set :tmp_dir, '/tmp/deploy'
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", "config/secrets.yml"
@@ -38,25 +38,4 @@ set :symfony_console_path, 'bin/console'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-after 'deploy:starting', 'composer:install_executable'
-after 'deploy:updated', 'notify:slack'
-
-namespace :phpfpm do
-    desc "Restarting PHP-FPM"
-    task :restart do
-        run "sudo service php7-fpm restart"
-    end
-end
-
-namespace :notify do
-  desc "Notify Slack of a deployment"
-  task :slack do
-    user = `git config user.name`.strip
-    tag = `git describe --abbrev=0 --tags`.strip
-
-    slack_command = "curl -s -X POST \"https://hooks.slack.com/services/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\" -H \"Content-Type: application/json\" -d '{\"username\": \"#{user}\",\"text\": \":qedu: *QEdu-hub* at `staging` - #{user} deployed branch `master` (#{tag}). :rocket:\",\"icon_url\": \"https://avatars2.githubusercontent.com/u/58257?v=3&s=40\"}'"
-
-    puts "--> Notifying Slack"
-    # run slack_command
-  end
-end
+after 'deploy:updated', 'phpfpm:restart'
