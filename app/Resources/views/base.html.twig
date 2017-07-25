@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}QEdu: Use dados. Transforme a educação.{% endblock %}</title>
+    
+    <meta name="viewport" content="width=992, initial-scale=1.0" />
+    <meta name="author" content="QEdu" />
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.qedu.org.br/">
+    <meta property="og:site_name" content="QEdu: Aprendizado em foco">
+    <meta property="og:title" content="{% block og_title %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% endblock %}">
+    <meta property="fb:admins" content="100000394680280,742652402, 1169118080">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/qedu_opengraph_logo.png">
+    <link type="image/x-icon" href="http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/favicon.ico" rel="shortcut icon" />
+
+    {% block stylesheets %}{% endblock %}
+
+    {% include 'google/analytics.html.twig' %}
+    {% include 'google/tagmanager/head.html.twig' %}
+
+  </head>
+  <body>
+    {% include 'google/tagmanager/body.html.twig' %}
+
+    {% include 'navbar.html.twig' %}
+
+    {% block body %}{% endblock %}
+
+    {% include 'footer.html.twig' %}
+
+    {% block javascripts %}{% endblock %}
+  </body>
 </html>

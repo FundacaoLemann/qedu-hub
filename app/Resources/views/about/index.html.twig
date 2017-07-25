@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sobre - QEdu{% endblock %}
+
+{% block description %}Saiba mais sobre a origem do QEdu, as fontes de dados utilizadas e as informações disponíveis{% endblock %}
+{% block og_title %}Sobre - QEdu{% endblock %}
+{% block og_description %}Saiba mais sobre a origem do QEdu, as fontes de dados utilizadas e as informações disponíveis{% endblock %}
+
+{% block stylesheets %}
+  <link type="text/css" href="/gimme/d3e1a7d09b/pkg/css/provabrasil.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/c6e158691b/pkg/css/provabrasil/help.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/e798d9d766/pkg/css/provabrasil/other-pages.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+  {% include 'about/subnav.html.twig' %}
+  {% include 'about/who_we_are.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
+  <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript">
+    mcc.init_behaviors({"Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend":""}]});
+  </script>
+  <script type="text/javascript">$(function() {mcc.init_behaviors({"dev-reload":[[]]});});</script>
+{% endblock %}
