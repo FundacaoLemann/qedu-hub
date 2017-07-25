@@ -1,0 +1,33 @@
+language: php
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1
+
+before_install:
+  - composer self-update
+
+install:
+  - composer install
+
+script:
+  - composer phpunit
+  - composer check-style
+  # this checks that the YAML config files contain no syntax errors
+  - ./bin/console lint:yaml app/config
+  - ./bin/console lint:yaml @AppBundle
+  - ./bin/console lint:yaml @GimmeBundle
+  # this checks that the Twig template files contain no syntax errors
+  - ./bin/console lint:twig app/Resources @AppBundle
+  # this checks that the application doesn't use dependencies with known security vulnerabilities
+  - ./bin/console security:check --end-point=http://security.sensiolabs.org/check_lock
+
+notifications:
+  slack:
+    secure: QwNYaBdtwiZxi4aAN8W1phQGwKc3WZ0wopsxQrn+q9EXEfUDSGwexxqfEnNZEioPQ4K8yJjkg1+RZRmVHZYO6aXjjNEWR+k55LHWcqMGSpvPm0AMcYrQGlLQT7sjLtz/JoipGn0xWsGrGEatsTm71RlS1JSQzurhK3o2h/7seoGqe7ja/gmXTZgDQVlVv139E6TBvo3AEw6s1B8PJieOctH9abPpOamBwfrHEHUN2ljjoMEP0235pUuqSfTPa+LhH24Op4smsDkPH27fz1gVfBZCufJ5CXCirdbEGN5mW7bCC0Yd0pC9SgXzTuXQG0bWtetU4M9uCnVCYN+kjLOc344UCXjl97jiMTKUGe2GJU4jXrV3BXsQ0vk3n7RpimgKKcWNI9eVYd5bknIKLEUYz9EOyK+j447gHOE105XF9RYlOIvzKsam22EWXt6+qEflSO4N0poA+hkU3YoWBAj3kfJmzLQVPEyGVL8dpjr+yzNGXUkLQNf6NcDDRnAu2UtTUBzyqHiba1SXKRAkLZUlcip7VekYrzS6GtbBh5SnA1IlE0Wl9cbcebS6b8GwiTvLglyLA6LwejtwzPRot6qO+cwlcy+Zj5sYbuWSLE21pFeWXk2Zd8EvhQSNRcr2gEmu1kr8yOi1FyJdgeoEl02nFzkWdawEN8P7km4afiiOoOg=

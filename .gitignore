@@ -9,6 +9,9 @@
 !/var/logs
 /var/logs/*
 !var/logs/.gitkeep
+!/var/reports
+/var/reports/*
+!var/reports/.gitkeep
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
