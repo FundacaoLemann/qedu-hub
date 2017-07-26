@@ -8,7 +8,6 @@ set :repo_url, "https://github.com/QEdu/qedu-hub.git"
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/qedu-hub"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -34,7 +33,6 @@ set :format_options, log_file: "var/logs/capistrano.log"
 # Default value for local_user is ENV['USER']
 set :local_user, -> { `git config user.name`.chomp }
 set :use_sudo, true
-set :symfony_console_path, 'bin/console'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
