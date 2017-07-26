@@ -16,6 +16,7 @@ set :deploy_to, "/var/www/qedu-hub"
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+set :format_options, log_file: "var/logs/capistrano.log"
 
 # Default value for :pty is false
 #set :pty, true
