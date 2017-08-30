@@ -72,10 +72,10 @@ class User implements UserInterface, \Serializable
 
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->email,
             $this->password,
-            ) = unserialize($serialized);
+        ) = unserialize($serialized);
     }
 }
