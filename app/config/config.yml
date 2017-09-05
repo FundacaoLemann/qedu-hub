@@ -76,3 +76,4 @@ snc_redis:
             dsn: 'redis://%redis_host%'
     session:
         client: session
+        ttl: 43200
