@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=992, initial-scale=1.0" />
     <meta name="description" content="{% block description %}{% endblock %}" />
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://www.qedu.org.br/">
+    <meta property="og:url" content="{{ url(app.request.attributes.get("_route"), app.request.attributes.get("_route_params")) }}">
     <meta property="og:site_name" content="QEdu: Aprendizado em foco">
     <meta property="og:title" content="{% block og_title %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% endblock %}">
