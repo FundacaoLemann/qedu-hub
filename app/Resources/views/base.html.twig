@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}QEdu: Use dados. Transforme a educação.{% endblock %}</title>
-    
+
+    {% set current_url = url(app.request.attributes.get("_route"), app.request.attributes.get("_route_params")) %}
+
     <meta name="viewport" content="width=992, initial-scale=1.0" />
-    <meta name="author" content="QEdu" />
     <meta name="description" content="{% block description %}{% endblock %}" />
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://www.qedu.org.br/">
+    <meta property="og:url" content="{{ current_url }}">
     <meta property="og:site_name" content="QEdu: Aprendizado em foco">
     <meta property="og:title" content="{% block og_title %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% endblock %}">
-    <meta property="fb:admins" content="100000394680280,742652402, 1169118080">
-    <meta property="og:locale" content="pt_BR">
     <meta property="og:image" content="http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/qedu_opengraph_logo.png">
     <link type="image/x-icon" href="http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/favicon.ico" rel="shortcut icon" />
+    <link rel="canonical" href="{{ current_url }}" />
 
     {% block stylesheets %}{% endblock %}
 

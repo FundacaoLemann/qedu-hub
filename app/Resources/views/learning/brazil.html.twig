@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aprendizado dos alunos: Brasil - QEdu{% endblock %}
+
+{% block description %}Com base nos resultados da Prova Brasil 2015, é possível calcular a proporção de alunos com aprendizado adequado à sua etapa escolar{% endblock %}
+{% block og_title %}Aprendizado dos alunos: Brasil - QEdu{% endblock %}
+{% block og_description %}Com base nos resultados da Prova Brasil 2015, é possível calcular a proporção de alunos com aprendizado adequado à sua etapa escolar{% endblock %}
+
+{% block stylesheets %}
+  <link type="text/css" href="/gimme/d3e1a7d09b/pkg/css/provabrasil.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/cfdcda464f/pkg/css/provabrasil/dropdown-select2.css" rel="stylesheet"/>
+  <link type="text/css" href="/gimme/c17a152ffb/pkg/css/provabrasil/banner.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+  {% include 'learning/subnav.html.twig' %}
+  {% include 'learning/banner.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
+  <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript" src="/gimme/f46964a241/pkg/js/select2-lib.js"></script>
+  <script type="text/javascript" src="/gimme/85d63f33ed/pkg/js/provabrasil/dropdown-select2.js"></script>
+  <script type="text/javascript">
+      mcc.init_behaviors({
+          "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}],
+          "behavior-dropdown-select2": [{
+              "fetch_from": "\/ajax\/dropdown\/remote\/states?url_default=\/aprendizado",
+              "formatSearchingText": "Carregando estados...",
+              "placeholder_input": "Busque por estado...",
+              "formatNoMatches": "Nenhum resultado para \"%s\".",
+              "small_dropdown": true,
+              "pull_right": true,
+              "height": 1,
+              "extra_dropdown_classes": " select2-breadcrumb-box",
+              "initial_selection": "<a class=\"drop-with-text-only\">Ir para um estado <\/a>",
+              "idElement": "ujeid_1"
+          }],
+          "i18n": [{
+              "proficiency.loading": "Carregando filtros...",
+              "proficiency.dependence.0": "p\u00fablica",
+              "proficiency.dependence.1": "federal",
+              "proficiency.dependence.2": "estadual",
+              "proficiency.dependence.3": "municipal"
+          }],
+          "provabrasil-didactic-proficiency-behavior": [{
+              "isSchool": false,
+              "stateMenuConfigs": {
+                  "grade": 5,
+                  "discipline": 1,
+                  "dependence": 0,
+                  "token": "66f488b76d4e448e814189feecf57acbcbb7e050"
+              }
+          }],
+          "Meritt\/QEdu\/UI\/Footer\/Assets\/js\/IdebModal": [[]],
+          "provabrasil-behavior-util-tooltip": [{"all": true}],
+          "provabrasil-behavior-util-popover": [[]],
+          "provabrasil-behavior-util-smoothscroll": [[]],
+          "util-print": [{
+              "modals": {"too_big": "ujeid_3", "not_supported": "ujeid_4"},
+              "token": "66f488b76d4e448e814189feecf57acbcbb7e050",
+              "actionId": 2
+          }],
+          "uservoice-widget": [{
+              "id": "9cybWXvohVkb7CzZ6jGg",
+              "subdomain": "qedu",
+              "user_logged": false,
+              "push": {
+                  "set": {
+                      "accent_color": "#7baa31",
+                      "trigger_color": "white",
+                      "trigger_background_color": "#7baa31"
+                  }, "addTrigger": {"mode": "contact", "trigger_position": "bottom-right"}
+              }
+          }]
+      });
+  </script>
+{% endblock %}
