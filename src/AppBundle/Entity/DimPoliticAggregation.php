@@ -5,9 +5,19 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DimPoliticAggregation
- *
- * @ORM\Table(name="dim_politic_aggregation", indexes={@ORM\Index(name="busca", columns={"dependence_id", "localization_id", "edition_id", "grade_id", "discipline_id"})})
+ * @ORM\Table(
+ *     name="dim_politic_aggregation",
+ *     indexes={@ORM\Index(
+ *         name="busca",
+ *         columns={
+ *             "dependence_id",
+ *             "localization_id",
+ *             "edition_id",
+ *             "grade_id",
+ *             "discipline_id"
+ *         })
+ *     }
+ *  )
  * @ORM\Entity
  */
 class DimPoliticAggregation

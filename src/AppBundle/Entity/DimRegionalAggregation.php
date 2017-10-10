@@ -5,7 +5,34 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="dim_regional_aggregation", indexes={@ORM\Index(name="busca", columns={"state_id", "city_id", "school_id", "team_id"}), @ORM\Index(name="city_group", columns={"state_id", "city_group_id"}), @ORM\Index(name="city_group_unique", columns={"state_id", "city_group_id"})})
+ * @ORM\Table(
+ *     name="dim_regional_aggregation",
+ *     indexes={
+ *         @ORM\Index(
+ *             name="busca",
+ *             columns={
+ *                 "state_id",
+ *                 "city_id",
+ *                 "school_id",
+ *                 "team_id"
+ *             }
+ *         ),
+ *         @ORM\Index(
+ *             name="city_group",
+ *             columns={
+ *                 "state_id",
+ *                 "city_group_id"
+ *             }
+ *         ),
+ *         @ORM\Index(
+ *             name="city_group_unique",
+ *             columns={
+ *                 "state_id",
+ *                 "city_group_id"
+ *             }
+ *         )
+ *     }
+ * )
  * @ORM\Entity
  */
 class DimRegionalAggregation

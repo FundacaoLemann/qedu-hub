@@ -5,7 +5,23 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="fact_proficiency", indexes={@ORM\Index(name="fk_fact_proficiency_2013_dim_politic_aggregation1_idx", columns={"dim_politic_aggregation_id"}), @ORM\Index(name="state_id", columns={"partition_state_id"})})
+ * @ORM\Table(
+ *     name="fact_proficiency",
+ *     indexes={
+ *         @ORM\Index(
+ *             name="fk_fact_proficiency_2013_dim_politic_aggregation1_idx",
+ *             columns={
+ *                 "dim_politic_aggregation_id"
+ *             }
+ *         ),
+ *         @ORM\Index(
+ *             name="state_id",
+ *             columns={
+ *                 "partition_state_id"
+ *             }
+ *         )
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProficiencyRepository")
  */
 class Proficiency
