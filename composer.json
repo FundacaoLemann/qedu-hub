@@ -13,7 +13,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\Fixture\\": "tests/fixture",
+            "Tests\\Functional\\": "tests/functional",
+            "Tests\\Unit\\": "tests/unit"
         },
         "files": [
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
