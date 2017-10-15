@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\AppBundle\Learning;
 
+use AppBundle\Entity\Proficiency;
 use AppBundle\Learning\HareNiemeyerCalculator;
 use AppBundle\Learning\LearningCalculatorInterface;
 use PHPUnit\Framework\TestCase;
-use Tests\Fixture\ProficiencyEntityFixture;
 
 class HareNiemeyerCalculatorTest extends TestCase
 {
@@ -16,15 +16,62 @@ class HareNiemeyerCalculatorTest extends TestCase
         $this->assertInstanceOf(LearningCalculatorInterface::class, $hareNiemeyerCalculator);
     }
 
-    public function testCalculate()
+    /**
+     * @dataProvider proficiencyDataProvider
+     */
+    public function testCalculate($qualitative, $percentageExpected)
     {
-        $proficiency = ProficiencyEntityFixture::getProficiencyEntities();
+        $proficiency = new Proficiency();
+        $proficiency->setQualitative0($qualitative[0]);
+        $proficiency->setQualitative1($qualitative[1]);
+        $proficiency->setQualitative2($qualitative[2]);
+        $proficiency->setQualitative3($qualitative[3]);
 
         $hareNiemeyerCalculator = new HareNiemeyerCalculator();
-        $percentage = $hareNiemeyerCalculator->calculate($proficiency[0]);
-
-        $percentageExpected = 50;
+        $percentage = $hareNiemeyerCalculator->calculate($proficiency);
 
         $this->assertEquals($percentageExpected, $percentage);
+    }
+
+    public function proficiencyDataProvider()
+    {
+        return [
+            [
+                'qualitative' => [
+                    '360308.55',
+                    '852858.35',
+                    '812656.05',
+                    '412426.06'
+                ],
+                'percentageExpected' => 50,
+            ],
+            [
+                'qualitative' => [
+                    '515218.34',
+                    '979617.59',
+                    '676757.03',
+                    '266656.04'
+                ],
+                'percentageExpected' => 39,
+            ],
+            [
+                'qualitative' => [
+                    '373266.07',
+                    '1094935.19',
+                    '529791.17',
+                    '99636.82'
+                ],
+                'percentageExpected' => 30,
+            ],
+            [
+                'qualitative' => [
+                    '646121.21',
+                    '1160289.70',
+                    '256269.77',
+                    '34948.56'
+                ],
+                'percentageExpected' => 14,
+            ],
+        ];
     }
 }

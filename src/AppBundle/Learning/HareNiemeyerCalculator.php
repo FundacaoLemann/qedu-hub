@@ -21,69 +21,34 @@ class HareNiemeyerCalculator implements LearningCalculatorInterface
         return $percentage;
     }
 
-    private function perfectHundred($aData, $aPrec = 0)
+    private function perfectHundred($aData): array
     {
-        if (!is_array($aData)) {
-            return array();
-        }
-
-        $aDataOriginal = $aData;
-        $aData = array_values($aData);
-
-        if (array_sum($aDataOriginal) == 0) {
-            return $aDataOriginal;
-        }
-
         $mul = 100;
-        if ($aPrec > 0 && $aPrec < 3) {
-            if ($aPrec == 1) {
-                $mul = 1000;
-            } else {
-                $mul = 10000;
-            }
-        }
 
         $tmp = array();
         $result = array();
-        $quote_sum = 0;
-        $n = count($aData);
-        for ($i = 0, $sum = 0; $i < $n; ++$i) {
-            $sum += $aData [$i];
+        $quoteSum = 0;
+
+        $sum = array_sum($aData);
+
+        if ($sum === 0) {
+            return $aData;
         }
 
         foreach ($aData as $index => $value) {
-            $tmp_percentage = $value / $sum * $mul;
-            $result [$index] = floor($tmp_percentage);
-            $tmp [$index] = $tmp_percentage - $result [$index];
-            $quote_sum += $result [$index];
-        }
-        if ($quote_sum == $mul) {
-            if ($mul > 100) {
-                $tmp = $mul / 100;
-                for ($i = 0; $i < $n; ++$i) {
-                    $result [$i] /= $tmp;
-                }
-            }
-        } else {
-            arsort($tmp, SORT_NUMERIC);
-            reset($tmp);
-            for ($i = 0; $i < $mul - $quote_sum; $i++) {
-                $result [key($tmp)]++;
-                next($tmp);
-            }
-            if ($mul > 100) {
-                $tmp = $mul / 100;
-                for ($i = 0; $i < $n; ++$i) {
-                    $result [$i] /= $tmp;
-                }
-            }
+            $tmpPercentage = $value / $sum * $mul;
+            $result [$index] = floor($tmpPercentage);
+            $tmp [$index] = $tmpPercentage - $result [$index];
+            $quoteSum += $result [$index];
         }
 
-        $i = 0;
-        foreach ($aDataOriginal as $k => &$v) {
-            $v = $result[$i++];
+        arsort($tmp, SORT_NUMERIC);
+        reset($tmp);
+        for ($i = 0; $i < $mul - $quoteSum; $i++) {
+            $result [key($tmp)]++;
+            next($tmp);
         }
 
-        return $aDataOriginal;
+        return $result;
     }
 }
