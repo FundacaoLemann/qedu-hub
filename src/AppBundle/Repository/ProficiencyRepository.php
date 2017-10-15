@@ -11,11 +11,11 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
 {
     public function findBrazilProficiencyByEdition(ProvaBrasilEdition $provaBrasilEdition)
     {
-        $qb = $this->createQueryBuilder('p');
+        $queryBuilder = $this->createQueryBuilder('p');
 
         $editionCode = $provaBrasilEdition->getCode();
 
-        return $qb
+        return $queryBuilder
             ->join(DimRegionalAggregation::class, 'dra', 'WITH', 'p.dimRegionalAggregationId = dra.id')
             ->andWhere('dra.stateId = 100')
             ->andWhere('dra.schoolId = 0')
