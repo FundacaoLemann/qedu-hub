@@ -10,14 +10,15 @@ class ProficiencyEntityFixture
 {
     public static function getProficiencyEntities()
     {
-        $dimRegionalAggregation = new DimRegionalAggregation();
+        return [
+            self::getProficiency(),
+        ];
+    }
 
-        $dimPoliticAggregation = new DimPoliticAggregation();
-        $dimPoliticAggregation->setDependenceId(0);
-        $dimPoliticAggregation->setDisciplineId(1);
-        $dimPoliticAggregation->setEditionId(6);
-        $dimPoliticAggregation->setGradeId(5);
-        $dimPoliticAggregation->setLocalizationId(0);
+    public static function getProficiency()
+    {
+        $dimRegionalAggregation = self::getDimRegionalAggregation();
+        $dimPoliticAggregation = self::getDimPoliticAggregation();
 
         $proficiency = new Proficiency();
         $proficiency->setDimRegionalAggregation($dimRegionalAggregation);
@@ -29,8 +30,23 @@ class ProficiencyEntityFixture
         $proficiency->setQualitative2('812656.05');
         $proficiency->setQualitative3('412426.06');
 
-        return [
-            $proficiency,
-        ];
+        return $proficiency;
+    }
+
+    public static function getDimRegionalAggregation()
+    {
+        return new DimRegionalAggregation();
+    }
+
+    public static function getDimPoliticAggregation()
+    {
+        $dimPoliticAggregation = new DimPoliticAggregation();
+        $dimPoliticAggregation->setDependenceId(0);
+        $dimPoliticAggregation->setDisciplineId(1);
+        $dimPoliticAggregation->setEditionId(6);
+        $dimPoliticAggregation->setGradeId(5);
+        $dimPoliticAggregation->setLocalizationId(0);
+
+        return $dimPoliticAggregation;
     }
 }
