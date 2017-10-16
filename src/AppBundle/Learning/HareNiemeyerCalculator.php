@@ -25,13 +25,13 @@ class HareNiemeyerCalculator implements LearningCalculatorInterface
     {
         $mul = 100;
 
-        $tmp = array();
-        $result = array();
+        $tmp = [];
+        $result = [];
         $quoteSum = 0;
 
         $sum = array_sum($aData);
 
-        if ($sum === 0) {
+        if ($sum == 0) {
             return $aData;
         }
 

@@ -33,7 +33,7 @@ class HareNiemeyerCalculatorTest extends TestCase
         $this->assertEquals($percentageExpected, $percentage);
     }
 
-    public function proficiencyDataProvider()
+    public function proficiencyDataProvider(): array
     {
         return [
             [
@@ -71,6 +71,15 @@ class HareNiemeyerCalculatorTest extends TestCase
                     '34948.56'
                 ],
                 'percentageExpected' => 14,
+            ],
+            [
+                'qualitative' => [
+                    '0.00',
+                    '0.00',
+                    '0.00',
+                    '0.00'
+                ],
+                'percentageExpected' => 0,
             ],
         ];
     }
