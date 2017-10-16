@@ -23,8 +23,6 @@ use Doctrine\ORM\Mapping as ORM;
 class DimPoliticAggregation
 {
     /**
-     * @var integer
-     *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -32,36 +30,26 @@ class DimPoliticAggregation
     private $id;
 
     /**
-     * @var integer
-     *
      * @ORM\Column(name="dependence_id", type="integer", nullable=true)
      */
     private $dependenceId;
 
     /**
-     * @var integer
-     *
      * @ORM\Column(name="localization_id", type="integer", nullable=true)
      */
     private $localizationId;
 
     /**
-     * @var integer
-     *
      * @ORM\Column(name="edition_id", type="integer", nullable=true)
      */
     private $editionId;
 
     /**
-     * @var integer
-     *
      * @ORM\Column(name="grade_id", type="integer", nullable=true)
      */
     private $gradeId;
 
     /**
-     * @var integer
-     *
      * @ORM\Column(name="discipline_id", type="integer", nullable=true)
      */
     private $disciplineId;
