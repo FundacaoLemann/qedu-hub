@@ -35,8 +35,8 @@ class LearningFactory implements LearningFactoryInterface
     private function createLearning(Proficiency $proficiency): Learning
     {
         $percentage = $this->learningCalculator->calculate($proficiency);
-        $totalSuccessfulStudents = (int) $proficiency->getWithProficiencyWeight();
-        $totalStudents = (int) $proficiency->getLevelOptimal();
+        $totalSuccessfulStudents = (int) $proficiency->getLevelOptimal();
+        $totalStudents = (int) $proficiency->getWithProficiencyWeight();
 
         $learning = new Learning($percentage, $totalSuccessfulStudents, $totalStudents);
 

@@ -23,8 +23,8 @@ class ProficiencyEntityFixture
         $proficiency = new Proficiency();
         $proficiency->setDimRegionalAggregation($dimRegionalAggregation);
         $proficiency->setDimPoliticAggregation($dimPoliticAggregation);
-        $proficiency->setWithProficiencyWeight('1225082.10');
-        $proficiency->setLevelOptimal('2438249.00');
+        $proficiency->setWithProficiencyWeight('2438249.00');
+        $proficiency->setLevelOptimal('1225082.10');
         $proficiency->setQualitative0('360308.55');
         $proficiency->setQualitative1('852858.35');
         $proficiency->setQualitative2('812656.05');
