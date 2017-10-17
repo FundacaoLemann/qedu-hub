@@ -5,6 +5,7 @@ namespace Tests\Unit\AppBundle\Learning;
 use AppBundle\Learning\LearningService;
 use PHPUnit\Framework\TestCase;
 use Tests\Fixture\BrazilLearningFixture;
+use Tests\Fixture\LearningFixture;
 use Tests\Fixture\ProficiencyEntityFixture;
 use Tests\Fixture\ProvaBrasilEditionFixture;
 
@@ -19,7 +20,7 @@ class LearningServiceTest extends TestCase
         $learningService = new LearningService($proficiencyRepositoryMock, $learningFactoryMock);
         $brazilLearning = $learningService->getBrazilLearningByEdition($provaBrasilEdition);
 
-        $this->assertEquals(BrazilLearningFixture::getBrazilLearning(), $brazilLearning);
+        $this->assertEquals($this->getLearnings(), $brazilLearning);
     }
 
     private function getProficiencyRepositoryMock()
@@ -40,7 +41,7 @@ class LearningServiceTest extends TestCase
     private function getLearningFactoryMock()
     {
         $proficiencyEntity = ProficiencyEntityFixture::getProficiencyEntities();
-        $brazilLearning = BrazilLearningFixture::getBrazilLearning();
+        $brazilLearning = $this->getLearnings();
 
         $learningFactoryMock = $this->createMock('AppBundle\Learning\LearningFactoryInterface');
 
@@ -50,5 +51,12 @@ class LearningServiceTest extends TestCase
             ->willReturn($brazilLearning);
 
         return $learningFactoryMock;
+    }
+
+    private function getLearnings(): array
+    {
+        $learnings[] = LearningFixture::getLearning();
+
+        return $learnings;
     }
 }

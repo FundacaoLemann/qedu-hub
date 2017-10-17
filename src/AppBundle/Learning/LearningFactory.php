@@ -12,21 +12,13 @@ class LearningFactory implements LearningFactoryInterface
     public function __construct(LearningCalculatorInterface $learningCalculator)
     {
         $this->learningCalculator = $learningCalculator;
-        $this->brazilLearning = new BrazilLearning();
+        $this->brazilLearning = [];
     }
 
-    public function create(array $proficiencies)
+    public function create(array $proficiencies): array
     {
         foreach ($proficiencies as $proficiency) {
-            $learning = $this->createLearning($proficiency);
-
-            $dimPoliticAggregation = $proficiency->getDimPoliticAggregation();
-
-            $this->brazilLearning->add(
-                $learning,
-                $dimPoliticAggregation->getGradeId(),
-                $dimPoliticAggregation->getDisciplineId()
-            );
+            $this->brazilLearning[] = $this->createLearning($proficiency);
         }
 
         return $this->brazilLearning;
@@ -35,10 +27,8 @@ class LearningFactory implements LearningFactoryInterface
     private function createLearning(Proficiency $proficiency): Learning
     {
         $percentage = $this->learningCalculator->calculate($proficiency);
-        $totalSuccessfulStudents = (int) $proficiency->getLevelOptimal();
-        $totalStudents = (int) $proficiency->getWithProficiencyWeight();
 
-        $learning = new Learning($percentage, $totalSuccessfulStudents, $totalStudents);
+        $learning = new Learning($proficiency, $percentage);
 
         return $learning;
     }

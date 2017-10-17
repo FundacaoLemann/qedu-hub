@@ -17,7 +17,7 @@ class LearningService
         $this->learningFactory = $learningFactory;
     }
 
-    public function getBrazilLearningByEdition(ProvaBrasilEdition $provaBrasilEdition): BrazilLearning
+    public function getBrazilLearningByEdition(ProvaBrasilEdition $provaBrasilEdition): array
     {
         $brazilProficiency = $this->proficiencyRepository->findBrazilProficiencyByEdition($provaBrasilEdition);
 

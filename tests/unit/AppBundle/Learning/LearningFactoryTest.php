@@ -4,7 +4,7 @@ namespace Tests\Unit\AppBundle\Learning;
 
 use AppBundle\Learning\LearningFactory;
 use PHPUnit\Framework\TestCase;
-use Tests\Fixture\BrazilLearningFixture;
+use Tests\Fixture\LearningFixture;
 use Tests\Fixture\ProficiencyEntityFixture;
 
 class LearningFactoryTest extends TestCase
@@ -23,7 +23,8 @@ class LearningFactoryTest extends TestCase
         $learningFactory = new LearningFactory($learningCalculatorMock);
         $brazilLearning = $learningFactory->create($proficiencies);
 
-        $brazilLearningExpected = BrazilLearningFixture::getBrazilLearning();
+        $brazilLearningExpected[] = LearningFixture::getLearning();
+
 
         $this->assertEquals($brazilLearningExpected, $brazilLearning);
     }

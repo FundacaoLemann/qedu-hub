@@ -9,13 +9,11 @@ class LearningFixture
     public static function getLearning(): Learning
     {
         $percentage = 50;
-        $totalSuccessfulStudents = 1225082;
-        $totalStudents = 2438249;
+        $proficiency = ProficiencyEntityFixture::getProficiency();
 
         $learning = new Learning(
-            $percentage,
-            $totalSuccessfulStudents,
-            $totalStudents
+            $proficiency,
+            $percentage
         );
 
         return $learning;

@@ -2,17 +2,17 @@
 
 namespace AppBundle\Learning;
 
+use AppBundle\Entity\Proficiency;
+
 class Learning
 {
+    private $proficiency;
     private $percentage;
-    private $totalSuccessfulStudents;
-    private $totalStudents;
 
-    public function __construct(int $percentage, int $totalSuccessfulStudents, int $totalStudents)
+    public function __construct(Proficiency $proficiency, $percentage)
     {
-        $this->percentage= $percentage;
-        $this->totalSuccessfulStudents= $totalSuccessfulStudents;
-        $this->totalStudents= $totalStudents;
+        $this->proficiency = $proficiency;
+        $this->percentage = $percentage;
     }
 
     public function getPercentage(): int
@@ -22,11 +22,21 @@ class Learning
 
     public function getTotalSuccessfulStudents(): int
     {
-        return $this->totalSuccessfulStudents;
+        return $this->proficiency->getLevelOptimal();
     }
 
     public function getTotalStudents(): int
     {
-        return $this->totalStudents;
+        return $this->proficiency->getWithProficiencyWeight();
+    }
+
+    public function getGradeId(): int
+    {
+        return $this->proficiency->getDimPoliticAggregation()->getGradeId();
+    }
+
+    public function getDisciplineId(): int
+    {
+        return $this->proficiency->getDimPoliticAggregation()->getDisciplineId();
     }
 }
