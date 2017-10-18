@@ -23,13 +23,6 @@ use Doctrine\ORM\Mapping as ORM;
  *                 "state_id",
  *                 "city_group_id"
  *             }
- *         ),
- *         @ORM\Index(
- *             name="city_group_unique",
- *             columns={
- *                 "state_id",
- *                 "city_group_id"
- *             }
  *         )
  *     }
  * )
