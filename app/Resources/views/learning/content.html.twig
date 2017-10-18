@@ -1,16 +1,20 @@
 <section class="normal-section title-section">
   <div class="container">
     <div class="row">
-      <div class="span7 didactic-block-title"><h1 class="light">Aprendizado dos alunos: Brasil</h1>
-        <p>Com base nos resultados da Prova Brasil {{ provaBrasilEdition.getYear() }}, é possível calcular a proporção de alunos com aprendizado
-          adequado à sua etapa escolar</p>
-        <p class="gotoAcademy"><span class="ico">!</span> <a target="_blank"
-                                                             href="http://academia.qedu.org.br/prova-brasil/aprendizado-adequado/">Conheça
-            o conceito de aprendizado adequado</a></p></div>
+      <div class="span7 didactic-block-title">
+        <h1 class="light">Aprendizado dos alunos: Brasil</h1>
+        <p>Com base nos resultados da Prova Brasil {{ provaBrasilEdition.getYear() }}, é possível calcular a
+          proporção de alunos com aprendizado adequado à sua etapa escolar</p>
+        <p class="gotoAcademy">
+          <span class="ico">!</span>
+          <a target="_blank" href="http://academia.qedu.org.br/prova-brasil/aprendizado-adequado/">
+            Conheça o conceito de aprendizado adequado
+          </a>
+        </p>
+      </div>
       <div class="span4 offset1 social-section">
         <div>
-          <div class="pull-right">
-          </div>
+          <div class="pull-right"></div>
         </div>
       </div>
     </div>
@@ -71,7 +75,7 @@
                data-content="<p>Na Prova Brasil, o resultado do aluno é apresentado em pontos numa escala (escala SAEB).&nbsp;
                Discussões promovidas pelo comitê científico do movimento Todos Pela Educação indicaram qual a pontuação a partir da qual pode-se considerar que o aluno demonstrou o domínio da competência avaliada.</p>"
                onclick="if(event &amp;&amp; event.preventDefault) {event.preventDefault();}; return false;"
-               data-original-title="Aprendizado adequado">aprenderam o adequado</a>na competência de
+               data-original-title="Aprendizado adequado">aprenderam o adequado</a> na competência de
 
             <span class="competence">
               {% if isPortuguese %}
@@ -85,7 +89,8 @@
 
           <small class="no-partial ">
             Dos <span class="present_count">{{ learning.getTotalStudents() | number_format(0, ',', '.') }}</span> alunos,
-            <span class="optimal_count">{{ learning.getTotalSuccessfulStudents() | number_format(0, ',', '.') }}</span> demonstraram o aprendizado adequado.
+            <span class="optimal_count">{{ learning.getTotalSuccessfulStudents() | number_format(0, ',', '.') }}</span>
+            demonstraram o aprendizado adequado.
           </small>
         </div>
       {% endfor %}
@@ -136,16 +141,21 @@
               <li class="percent">100%</li>
             </ul>
           </div>
-          <p> Essa é a proporção de alunos que deve aprender o adequado até 2022, segundo o movimento <a
-                    href="http://www.todospelaeducacao.org.br" rel="popover-left" title=""
-                    data-content="<p>O Todos Pela Educação é um movimento financiado exclusivamente pela iniciativa privada, que congrega sociedade civil organizada, educadores e gestores públicos que têm como objetivo contribuir para que o Brasil garanta a todas as crianças e jovens o direito à Educação Básica de qualidade.</p>"
-                    target="_blank" data-original-title="Todos pela Educação">Todos Pela Educação</a>. </p>
+          <p>Essa é a proporção de alunos que deve aprender o adequado até 2022, segundo o movimento
+            <a href="http://www.todospelaeducacao.org.br" rel="popover-left" title=""
+               data-content="<p>O Todos Pela Educação é um movimento financiado exclusivamente pela iniciativa privada, que congrega sociedade civil organizada, educadores e gestores públicos que têm como objetivo contribuir para que o Brasil garanta a todas as crianças e jovens o direito à Educação Básica de qualidade.</p>"
+               target="_blank" data-original-title="Todos pela Educação">
+              Todos Pela Educação
+            </a>.
+          </p>
           <p>Essa classificação não é oficial.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="row didactic-block-source">
-    <div class="span12"><p><strong>Fonte:</strong> Prova Brasil {{ provaBrasilEdition.getYear() }}, Inep. Classificação não oficial.</p></div>
+    <div class="span12">
+      <p><strong>Fonte:</strong> Prova Brasil {{ provaBrasilEdition.getYear() }}, Inep. Classificação não oficial.</p>
+    </div>
   </div>
 </section>
