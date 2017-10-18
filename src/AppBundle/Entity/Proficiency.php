@@ -48,13 +48,13 @@ class Proficiency
     private $partitionStateId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DimPoliticAggregation")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DimPoliticAggregation", fetch="EAGER")
      * @ORM\JoinColumn(name="dim_politic_aggregation_id", referencedColumnName="id")
      */
     public $dimPoliticAggregation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DimRegionalAggregation")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DimRegionalAggregation", fetch="EAGER")
      * @ORM\JoinColumn(name="dim_regional_aggregation_id", referencedColumnName="id")
      */
     public $dimRegionalAggregation;
