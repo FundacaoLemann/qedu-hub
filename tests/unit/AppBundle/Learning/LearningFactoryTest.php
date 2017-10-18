@@ -23,8 +23,7 @@ class LearningFactoryTest extends TestCase
         $learningFactory = new LearningFactory($learningCalculatorMock);
         $brazilLearning = $learningFactory->create($proficiencies);
 
-        $brazilLearningExpected[] = LearningFixture::getLearning();
-
+        $brazilLearningExpected = LearningFixture::getLearningCollection();
 
         $this->assertEquals($brazilLearningExpected, $brazilLearning);
     }

@@ -20,7 +20,9 @@ class LearningServiceTest extends TestCase
         $learningService = new LearningService($proficiencyRepositoryMock, $learningFactoryMock);
         $brazilLearning = $learningService->getBrazilLearningByEdition($provaBrasilEdition);
 
-        $this->assertEquals($this->getLearnings(), $brazilLearning);
+        $brazilLearningExpected = LearningFixture::getLearningCollection();
+
+        $this->assertEquals($brazilLearningExpected, $brazilLearning);
     }
 
     private function getProficiencyRepositoryMock()
@@ -41,7 +43,7 @@ class LearningServiceTest extends TestCase
     private function getLearningFactoryMock()
     {
         $proficiencyEntity = ProficiencyEntityFixture::getProficiencyEntities();
-        $brazilLearning = $this->getLearnings();
+        $brazilLearning = LearningFixture::getLearningCollection();
 
         $learningFactoryMock = $this->createMock('AppBundle\Learning\LearningFactoryInterface');
 
@@ -51,12 +53,5 @@ class LearningServiceTest extends TestCase
             ->willReturn($brazilLearning);
 
         return $learningFactoryMock;
-    }
-
-    private function getLearnings(): array
-    {
-        $learnings[] = LearningFixture::getLearning();
-
-        return $learnings;
     }
 }

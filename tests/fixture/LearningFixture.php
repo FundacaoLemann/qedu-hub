@@ -18,4 +18,13 @@ class LearningFixture
 
         return $learning;
     }
+
+    public static function getLearningCollection(): array
+    {
+        $learningCollection = [];
+
+        $learningCollection[] = self::getLearning();
+
+        return $learningCollection;
+    }
 }
