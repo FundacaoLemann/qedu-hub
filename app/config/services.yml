@@ -33,3 +33,9 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    AppBundle\Repository\ProficiencyRepository:
+        factory: 'doctrine.orm.waitress_dw_prova_brasil_entity_manager:getRepository'
+        arguments: ['AppBundle\Entity\Proficiency']
+
+    AppBundle\Repository\ProficiencyRepositoryInterface: '@AppBundle\Repository\ProficiencyRepository'
