@@ -1,0 +1,161 @@
+<section class="normal-section title-section">
+  <div class="container">
+    <div class="row">
+      <div class="span7 didactic-block-title">
+        <h1 class="light">Aprendizado dos alunos: Brasil</h1>
+        <p>Com base nos resultados da Prova Brasil {{ provaBrasilEdition.getYear() }}, é possível calcular a
+          proporção de alunos com aprendizado adequado à sua etapa escolar</p>
+        <p class="gotoAcademy">
+          <span class="ico">!</span>
+          <a target="_blank" href="http://academia.qedu.org.br/prova-brasil/aprendizado-adequado/">
+            Conheça o conceito de aprendizado adequado
+          </a>
+        </p>
+      </div>
+      <div class="span4 offset1 social-section">
+        <div>
+          <div class="pull-right"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-542c488254cb45ee" async></script>
+
+
+<section class="normal-section didactic-section container">
+
+  {#<div class="container-db-filters">#}
+  {#<div class="didactic-block-filters row">#}
+  {#<div class="btn-group db-filters span12">#}
+  {#<ul class="nav first pull-left">#}
+  {#<li class="active">Informações sobre:</li>#}
+  {#</ul>#}
+
+
+  {#<ul class="nav nav-pills pull-left">#}
+  {#<li class="active"><a href="#" data-value="0" data-filter="dependence">Todas</a></li>#}
+  {#<li><a href="#" data-value="3" data-filter="dependence">Escolas Municipais</a></li>#}
+  {#<li><a href="#" data-value="2" data-filter="dependence">Escolas Estaduais</a></li>#}
+  {#</ul>#}
+
+  {#</div>#}
+  {#</div>#}
+  {#</div>#}
+
+  <div class="didactic-block row">
+    <div class="span7" id="state-100">
+      {% for learning in brazilLearning  %}
+
+        {% set lastElementClass = loop.last ? 'didactic-block-last' %}
+
+        {% set gradeId = learning.getGradeId() %}
+        {% set disciplineId = learning.getDisciplineId() %}
+
+        <div class="didactic-learning-block {{ lastElementClass }}  proficiency-{{ gradeId }}-{{ disciplineId }} ">
+
+          {% set isPortuguese = disciplineId == '1' %}
+
+          {% set discipline = isPortuguese ? 'Português' : 'Matemática' %}
+
+          <h3>{{ discipline }}, {{ gradeId }}º ano</h3>
+
+
+          <div class="qualitative-square optimal-decile-bg-{{ learning.getPercentage()|first }}">
+              <span class="percent-level-with-data">
+                <span class="percent-level">{{ learning.getPercentage() }}</span>%
+              </span>
+          </div>
+
+          <p class="description">
+            É a proporção de alunos que
+
+            <a href="#2" class="test" rel="popover-right" title="" style="cursor: help;"
+               data-content="<p>Na Prova Brasil, o resultado do aluno é apresentado em pontos numa escala (escala SAEB).&nbsp;
+               Discussões promovidas pelo comitê científico do movimento Todos Pela Educação indicaram qual a pontuação a partir da qual pode-se considerar que o aluno demonstrou o domínio da competência avaliada.</p>"
+               onclick="if(event &amp;&amp; event.preventDefault) {event.preventDefault();}; return false;"
+               data-original-title="Aprendizado adequado">aprenderam o adequado</a> na competência de
+
+            <span class="competence">
+              {% if isPortuguese %}
+                leitura e interpretação de textos
+              {% else %}
+                resolução de problemas
+              {% endif %}
+            </span> até o <span class="grade">{{ gradeId }}º ano</span>
+            na rede <span class="dependence">pública</span> de ensino.
+          </p>
+
+          <small class="no-partial ">
+            Dos <span class="present_count">{{ learning.getTotalStudents() | number_format(0, ',', '.') }}</span> alunos,
+            <span class="optimal_count">{{ learning.getTotalSuccessfulStudents() | number_format(0, ',', '.') }}</span>
+            demonstraram o aprendizado adequado.
+          </small>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="container-didactic-main-block span5">
+      <div class="didactic-main-block span5" >
+        <div class="didactic-learning-block">
+          <h3>Referência</h3>
+          <div class="qualitative-square optimal-decile-bg-7 referencesample">
+            <span>70%</span>
+          </div>
+
+          <div class="block-legend 1">
+            <ul>
+              <li>Legenda:</li>
+              <li class="percent">0%</li>
+              <li class="square optimal-decile-bg-0"
+                  data-original-title="Entre 0% e 10% de alunos com aprendizado adequado. <br /><br />Muitos alunos ainda não aprenderam as habilidades esperadas para a sua série."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-1"
+                  data-original-title="Entre 10% e 20% de alunos com aprendizado adequado. <br /><br />Poucos alunos com aprendizado adequado. É preciso avançar."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-2"
+                  data-original-title="Entre 20% e 30% de alunos com  aprendizado adequado. <br /><br />Apenas 1 em cada 5 estudantes aprendeu o que era esperado para a sua série. "
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-3"
+                  data-original-title="Entre 30% e 40% de alunos com  aprendizado adequado. <br /><br />Um terço dos estudantes aprenderam o que era esperado. Ainda é preciso desenvolver mais de um terço para atingir a meta de 2022."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-4"
+                  data-original-title="Entre 40% e 50% de alunos com  aprendizado adequado. <br /><br />Quase metade dos alunos desenvolveram as habilidades esperadas para a sua série. Isto é bom, mas o ideal é que nenhum aluno deixe de aprender."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-5"
+                  data-original-title="Entre 50% e 60% de alunos com  aprendizado adequado. <br /><br />Mais da metade dos alunos desenvolveram as habilidades esperadas. Próximo da meta para 2022."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-6"
+                  data-original-title="Entre 60% e 70% de alunos com  aprendizado adequado. <br /><br />Quase atingida a meta do Todos Pela Educação. Porém, ainda assim, mais de 30% dos alunos estão com aprendizado em defasagem."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-7"
+                  data-original-title="Entre 70% e 80% de alunos com  aprendizado adequado. <br /><br />Esta é a meta para 2022. Bom resultado, agora o desafio é buscar a excelência."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-8"
+                  data-original-title="Entre 80% e 90% de alunos com  aprendizado adequado. <br /><br />Muito perto de garantir o direito ao aprendizado para todos os estudantes."
+                  rel="tooltip-left"></li>
+              <li class="square optimal-decile-bg-9"
+                  data-original-title="Entre 90% e 100% de alunos com  aprendizado adequado. <br /><br /><strong>Excelência</strong>, garantiu um aprendizado com <strong>equidade</strong> para todos os estudantes."
+                  rel="tooltip-left"></li>
+              <li class="percent">100%</li>
+            </ul>
+          </div>
+          <p>Essa é a proporção de alunos que deve aprender o adequado até 2022, segundo o movimento
+            <a href="http://www.todospelaeducacao.org.br" rel="popover-left" title=""
+               data-content="<p>O Todos Pela Educação é um movimento financiado exclusivamente pela iniciativa privada, que congrega sociedade civil organizada, educadores e gestores públicos que têm como objetivo contribuir para que o Brasil garanta a todas as crianças e jovens o direito à Educação Básica de qualidade.</p>"
+               target="_blank" data-original-title="Todos pela Educação">
+              Todos Pela Educação
+            </a>.
+          </p>
+          <p>Essa classificação não é oficial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row didactic-block-source">
+    <div class="span12">
+      <p><strong>Fonte:</strong> Prova Brasil {{ provaBrasilEdition.getYear() }}, Inep. Classificação não oficial.</p>
+    </div>
+  </div>
+</section>

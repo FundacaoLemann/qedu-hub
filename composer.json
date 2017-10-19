@@ -13,7 +13,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\Fixture\\": "tests/fixture",
+            "Tests\\Functional\\": "tests/functional",
+            "Tests\\Unit\\": "tests/unit"
         },
         "files": [
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
@@ -56,7 +58,7 @@
         "npm-install": "npm install --prefix src/GimmeBundle/Resources/assets",
         "phpunit": "./vendor/bin/phpunit",
         "check-style": "./vendor/bin/phpcs -p --standard=PSR2 --extensions=php --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/ tests/",
-        "phpmd": "./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
+        "phpmd": "./vendor/bin/phpmd src text app/config/build/phpmd.xml",
         "phpcpd": "./vendor/bin/phpcpd src/ tests/",
         "pdepend": "./vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=var/reports/jdepend.xml --summary-xml=var/reports/jdepend-summary.xml --jdepend-chart=var/reports/jdepend.svg --overview-pyramid=var/reports/jdepend-pyramid.svg src",
         "phploc": "./vendor/bin/phploc --log-xml=var/reports/phploc.xml src",
