@@ -26,6 +26,8 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
             ->andWhere('dpa.dependenceId = 0')
 
             ->andWhere('dpa.editionId= '.$editionCode)
+            ->addOrderBy('dpa.disciplineId')
+            ->addOrderBy('dpa.gradeId')
             ->getQuery()
             ->getResult();
     }
