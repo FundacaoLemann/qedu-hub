@@ -21,7 +21,7 @@ class LearningController extends Controller
     }
 
     /**
-     * @Route("/brasil/aprendizado-new", name="learning_brazil")
+     * @Route("/brasil/aprendizado", name="learning_brazil")
      */
     public function brazilAction()
     {
