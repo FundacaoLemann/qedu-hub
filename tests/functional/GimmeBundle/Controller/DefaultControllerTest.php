@@ -43,7 +43,7 @@ class DefaultControllerTest extends WebTestCase
             ],
             'css' => [
                 'url'     => '/gimme/c17a152ffb/pkg/css/provabrasil/banner.css',
-                'type'    => 'application/css',
+                'type'    => 'text/css; charset=UTF-8',
                 'content' => 'meumunicipio-banner-ct',
             ],
         ];

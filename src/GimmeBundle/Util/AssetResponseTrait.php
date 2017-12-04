@@ -14,7 +14,7 @@ trait AssetResponseTrait
 
         switch ($fileInfo->getExtension()) {
             case 'css':
-                $contentType = 'application/css';
+                $contentType = 'text/css';
                 break;
             case 'js':
                 $contentType = 'application/javascript';
