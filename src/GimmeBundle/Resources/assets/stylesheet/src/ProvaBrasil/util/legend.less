@@ -1,0 +1,39 @@
+.block-legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+
+  ul {
+    list-style: none;
+    margin: 15px 0 15px 2px;
+  }
+
+  li {
+    float: left;
+    margin-right: 7px;
+    line-height: 14px;
+
+    &.percent {
+      color: #888;
+    }
+
+    &.square {
+      width: 14px;
+      height: 14px;
+
+      &:hover {
+        box-shadow: green 0px 0px 4px 2px;
+        cursor: help;
+      }
+    }
+  }
+
+  &.block-legend-compact {
+    ul {
+      margin: 0;
+    }
+    ul li {
+      margin-right: 4px;
+    }
+  }
+}

@@ -1,0 +1,209 @@
+// Qualitative Building Chart
+.qualitative-building-chart-section {
+
+}
+
+.qualitative-building-chart-header {
+  margin-bottom: 20px;
+
+  padding-left: 36px;
+
+  h3 {
+    color: #333;
+  }
+
+  h5 {
+    margin-top: 10px;
+    margin-left: 5px;
+    color: #777777;
+  }
+
+  .qualitative-square {
+    margin-right: 10px;
+  }
+}
+
+.qualitative-building-chart {
+  @pointSize: 18px;
+  @pointSpaceSize: 3px;
+  @levelBorder: 3px;
+
+  padding-left: 36px;
+
+  > div {
+    width: (10 * (@pointSize + (2*@pointSpaceSize))) + (@pointSpaceSize * 2);
+
+    position: relative;
+  }
+
+  .qualitative-building-chart-number {
+    position: absolute;
+    left: -36px;
+    width: 30px;
+    height: 20px;
+
+    padding-right: 6px;
+    padding-left: 3px;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+
+   border-top: 5px solid #eee;
+
+    &.qualitative-building-chart-number-down {
+      bottom: 0;
+      border-bottom: 5px solid #eee;
+      border-top: 0px;
+    }
+  }
+
+  .qualitative-level-0 {
+    background: @qualitativeLevel0-Background;
+
+    .qualitative-building-chart-number {
+      border-color: @qualitativeLevel0-Background;
+    }
+  }
+
+  .qualitative-level-1 {
+    background: @qualitativeLevel1-Background;
+
+    .qualitative-building-chart-number {
+      border-color: @qualitativeLevel1-Background;
+    }
+  }
+
+  .qualitative-level-2 {
+    background: @qualitativeLevel2-Background;
+
+    .qualitative-building-chart-number {
+      border-color: @qualitativeLevel2-Background;
+    }
+  }
+
+  .qualitative-level-3 {
+    background: @qualitativeLevel3-Background;
+
+    .qualitative-building-chart-number {
+      border-color: @qualitativeLevel3-Background;
+    }
+  }
+
+  .qualitative-building-chart-points {
+    margin: 0;
+
+    padding: @pointSpaceSize;
+
+    li {
+      width: @pointSize;
+      height: @pointSize;
+      display: block;
+      margin: @pointSpaceSize;
+
+      float: left;
+
+      background: #666;
+    }
+  }
+
+  .qualitative-level-0 {
+    li {
+      background: #444;
+    }
+  }
+
+  .qualitative-building-chart-points-ideal-1 li {
+    background: #BE2222;
+  }
+
+  .qualitative-building-chart-points-ideal-2 li {
+    background: #FFA500;
+  }
+
+  .qualitative-building-chart-points-ideal-3 li {
+    background: #DCDC37;
+  }
+
+  .qualitative-building-chart-points-ideal-4 li {
+    background: #B3DC37;
+  }
+
+  .qualitative-building-chart-points-ideal-5 li {
+    background: #70BE22;
+  }
+
+  .qualitative-building-chart-points-ideal-6 li {
+    background: #1A931A;
+  }
+
+  .qualitative-building-chart-points-ideal-7 li {
+    background: #1A931A;
+  }
+
+}
+
+// Quantitative legend
+.qualitative-legends-section {
+ h3 {
+   margin-bottom: 10px;
+ }
+}
+
+.qualitative-legends {
+  .border-radius(3px);
+  overflow: hidden;
+
+  > div {
+    width: 25%;
+    float: left;
+
+    height: 260px;
+  }
+
+  @innerPadding: 15px;
+
+  h3, p {
+    padding: @innerPadding;
+  }
+
+  h3 {
+    padding-right: 0px;
+
+    color: #444;
+
+    //text-shadow: 0 1px 1px rgba(255,255,255,.50);
+
+    small {
+      color: #555;
+
+      margin-top: 0;
+      font-size: 13px;
+    }
+  }
+
+  h3 + p {
+    margin-top: 0px;
+    padding-top: 0;
+  }
+
+  .qualitative-legend-0 {
+    background: @qualitativeLevel0-Background;
+    color:      @qualitativeLevel0-Color;
+  }
+
+  .qualitative-legend-1 {
+    background: @qualitativeLevel1-Background;
+    color:      @qualitativeLevel1-Color;
+  }
+
+  .qualitative-legend-2 {
+    background: @qualitativeLevel2-Background;
+    color:      @qualitativeLevel2-Color;
+  }
+
+  .qualitative-legend-3 {
+    background: @qualitativeLevel3-Background;
+    color:      @qualitativeLevel3-Color;
+  }
+}

@@ -1,0 +1,111 @@
+@import 'css/bootstrap/variables.less';
+@import 'css/provabrasil/variables.less';
+@import 'css/bootstrap/mixins.less';
+@import 'css/provabrasil/mixins.less';
+
+.shitie-callout {
+  .alert-danger {
+    font-size: 18px;
+    line-height: 26px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .shitie-options {
+    position: relative;
+
+    margin-top: 60px;
+    margin-bottom: 70px;
+
+    .our-sugestion {
+      position: absolute;
+      left: 120px;
+      bottom: -70px;
+
+      .box-sizing(border-box);
+
+      padding-left: 74px;
+      padding-top: 62px;
+
+      font-weight: bold;
+
+      font-style: italic;
+
+      color: #555;
+      font-size: 16px;
+      vertical-align: bottom;
+
+      background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/home-arrow-up-left-curve-down.png') no-repeat;
+    }
+
+    .well {
+      text-align: center;
+      border-color: #eee;
+      background: #fff;
+
+      height: 276px;
+      overflow: hidden;
+
+      cursor: pointer;
+
+      .box-sizing(border-box);
+
+      .logo {
+        width: 128px;
+        height: 140px;
+
+        overflow: hidden;
+
+        margin: 0 auto;
+
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/browser_logos-128.png') no-repeat 0 0 transparent;
+
+        &.chrome {
+          background-position: -10px 0px;
+        }
+
+        &.firefox {
+          background-position: -154px 0px;
+        }
+
+        &.internet-explorer {
+          background-position: -570px 0px;
+        }
+
+        &.safari {
+          background-position: -434px 0px;
+        }
+      }
+    }
+
+    a:hover {
+      .well {
+        background: #eee;
+        border-color: #bbbbbb;
+
+        .transition(all 0.5s linear);
+      }
+    }
+  }
+}
+
+body.internet-explorer-5 .shitie-callout,
+body.internet-explorer-6 .shitie-callout {
+  .shitie-options {
+    .our-sugestion {
+      background-image: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/ie6/home-arrow-up-left-curve-down.png');
+    }
+
+    .well {
+      .logo {
+        background-image: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/ie6/browser_logos-128.jpg');
+      }
+
+       background-color: #fff !important;
+    }
+  }
+}

@@ -1,0 +1,375 @@
+
+// Typography.less
+// Headings, body text, lists, code, and more for a versatile and durable typography system
+// ----------------------------------------------------------------------------------------
+
+html, html a {
+  -webkit-font-smoothing: antialiased;
+}
+
+.small,
+p small {
+  font-size: @baseFontSize - 1;
+  color: #666;
+}
+.small-block {
+  display: block;
+  margin-top: 5px;
+}
+
+h1 {
+  color: @pbGreen;
+  font-weight: normal;
+
+  font-size: 26px;
+  line-height: 32px;
+
+  small {
+    color: #5D5D5D;
+    font-size: 16px;
+    display: block;
+    line-height: @baseLineHeight * 1.4;
+    margin-top: 4px;
+  }
+
+  a:hover {
+    //color: inherit;
+  }
+
+  &.super {
+    font-size: 26px;
+  }
+}
+
+h1 + p {
+  font-size: 20px;
+  line-height: 28px;
+  color: #666;
+  margin-top: 10px;
+
+  margin-bottom: 0;
+}
+
+// H1 with H2 style
+h1.light {
+  color: #444;
+
+  font-size: 20px;
+
+  line-height: 30px;
+}
+h1.light + p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #777;
+}
+
+h1.hero {
+  font-size: 44px;
+  line-height: 38px;
+}
+h1.hero + p {
+  font-size: 25px;
+  line-height: 38px;
+  margin-top: 10px;
+  color: #555;
+}
+
+h2 {
+  color: #444;
+  font-weight: normal;
+
+  font-size: 20px;
+
+  line-height: 30px;
+
+  small {
+    font-size: 14px;
+  }
+}
+
+h2 + p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #777;
+  margin-top: 10px;
+
+  margin-bottom: 0;
+}
+
+h3 {
+  line-height: 26px;
+  font-size: 16px;
+
+  font-weight: normal;
+
+  color: #555;
+
+  small {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+
+    color: #777;
+  }
+}
+h3 + p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #777;
+}
+
+h4, h5, h6 {
+  color: #5D5D5D;
+
+  font-weight: normal;
+
+  line-height: @baseLineHeight;
+
+  small {
+    color: #888;
+  }
+}
+h4 {
+  font-size: 14px;
+
+  small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+  }
+}
+h5 {
+  font-size: 12px;
+}
+h6 {
+  font-size: 11px;
+  color: @grayLight;
+  text-transform: uppercase;
+}
+
+
+// Default blockquote
+blockquote {
+  border: 0px;
+  margin: 0px;
+
+  color: #5D5D5D;
+
+  small {
+    margin-top: 10px;
+    margin-left: 16px;
+    color: #888;
+    font-size: 14px;
+  }
+}
+
+.big-left-cite {
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/cite-left.png') no-repeat 30px 0px /* @inline */;
+  padding-left: 135px;
+  min-height: 70px;
+}
+
+// Lists of links
+ul.links {
+  margin-left: 0;
+  margin-top: 10px;
+  list-style: none;
+
+  li {
+    margin: 4px 0;
+
+    a {
+      color: #555;
+
+      //padding-left: 5px;
+      //margin-left: 10px;
+
+      //border-left: 4px solid #ddd;
+
+      .transition(200ms border-color);
+
+      &:hover {
+        color: #333;
+        border-left-color: @pbGreen;
+      }
+    }
+  }
+}
+
+ul.side-links {
+  margin: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 8px;
+
+    color: #777;
+
+    a {
+      font-weight: bold;
+    }
+
+    &.divider {
+      height: 16px;
+      margin-bottom: 0;
+      display: none;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.side-links-margined-top {
+    margin-top: 13px;
+    margin-bottom: 11px;
+  }
+
+  &.side-links-after {
+    margin-left: 20px;
+    margin-top: 40px;
+  }
+}
+
+/*
+ * Up, down, left, right, out Arrows. Add the .left class to put it in the left. The out Arrow is for links that open a page in a target=_blank
+ */
+.up-arrow,
+.down-arrow,
+.right-arrow,
+.left-arrow,
+.out-arrow {
+  position: relative;
+
+  padding-right: 1em;
+
+  &.left {
+    padding-right: inherit;
+    padding-left: 1em;
+
+    &:after {
+      left: -0.1em;
+      right: inherit;
+    }
+  }
+
+  &:after {
+    right: -0.1em;
+  }
+}
+.up-arrow:after,
+.down-arrow:after,
+.right-arrow:after,
+.left-arrow:after,
+.out-arrow:after {
+  content: "";
+  position: absolute;
+  top: 0.3em;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0.4em solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.down-arrow:after {
+  top: 0.5em;
+  border-top-color: inherit;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+.up-arrow:after {
+  top: 0.1em;
+  border-top-color: transparent;
+  border-bottom-color: inherit;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+.right-arrow:after {
+  border-right-color: transparent;
+}
+.left-arrow:after {
+  border-left-color: transparent;
+}
+.out-arrow {
+  padding-right: 0.5em;
+}
+.out-arrow:after {
+  top: 0em;
+  border: 0.36em solid;
+  border-top-color: inherit;
+  border-bottom-color: transparent;
+  border-right-color: inherit;
+  border-left-color: transparent;
+}
+
+/**
+ * Use this on popovers =)
+ */
+.popover-link {
+  position: relative;
+  cursor: help;
+}
+.popover-link:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px #bbb dashed;
+}
+
+
+.parent-link {
+  margin-bottom: 5px;
+}
+
+.row > .parent-link {
+  margin-left: @gridGutterWidth;
+}
+
+.more-info-link {
+  color: #999;
+  margin-left: 20px;
+  margin-top: 40px;
+
+  a {
+    font-weight: bold;
+  }
+}
+
+
+/* Little help ? should be used with <sup tag */
+.what-is-it {
+  font-size: 10px;
+  font-weight: bold;
+
+  color: @infoColor;
+
+  cursor: default;
+
+  padding-left: 4px;
+  padding-right: 4px;
+
+  margin-left: -4px;
+
+  font-family: Arial;
+
+  &.glued {
+    padding-left: 1px;
+  }
+
+  &:hover {
+    color: @pbGreenHover;
+  }
+
+  .hide {
+    .opacity(0);
+
+  //.transition(opacity 0.1s);
+  }
+}

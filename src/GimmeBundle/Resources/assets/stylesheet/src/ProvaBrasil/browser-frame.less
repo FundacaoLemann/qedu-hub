@@ -1,0 +1,159 @@
+.browser-frame {
+  position: relative;
+
+  .box-shadow(0 0 16px #CCC);
+  .border-radius(3px);
+  border: 1px solid #ddd;
+
+  display: inline-block;
+  .ie7-inline-block();
+
+  overflow: hidden;
+
+  margin-bottom: 16px; // Space for shadow
+
+  width: 780px;
+  padding-top: 41px;
+
+  .browser-toolbar {
+    position: absolute;
+    width: 100%;
+    background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/safari_top_780px.png') no-repeat #fff;
+    height: 41px;
+    top: 0;
+  }
+
+  .browser-title {
+    text-align: center;
+    line-height: 1;
+    height: 20px;
+    position: absolute;
+    width: 100%;
+
+    font-size: 12px;
+    top: 4px;
+  }
+
+  .browser-location {
+    text-align: left;
+    line-height: 1;
+    height: 20px;
+    position: absolute;
+    width: 100%;
+    top: 22px;
+
+    margin-left: 80px;
+    font-size: 11px;
+    top: 21px;
+  }
+
+  .browser-content {
+
+  }
+
+  img.browser-content {
+    max-width: 100%; // for IE
+  }
+
+  &.browser-frame-480 {
+    width: 460px;
+    padding-top: 22px;
+
+    .browser-toolbar {
+      background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/safari_top_460px.png') no-repeat;
+      height: 30px;
+    }
+
+    &.no-location {
+      padding-top: 10px;
+
+      .browser-toolbar {
+        height: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+
+    .browser-title {
+      font-size: 8px;
+      line-height: 1;
+      height: 10px;
+      top: 1px;
+    }
+
+    .browser-location {
+      margin-left: 50px;
+      font-size: 8px;
+      line-height: 1;
+      top: 12px;
+    }
+  }
+
+  &.browser-frame-780 {
+    // This is de default
+  }
+
+  &.browser-frame-940 {
+    width: 920px;
+    padding-top: 49px;
+
+    .browser-toolbar {
+      background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/safari_top_920px.png') no-repeat;
+      height: 49px;
+    }
+
+    .browser-title {
+      font-size: 12px;
+      line-height: 22px;
+      height: 22px;
+    }
+
+    .browser-location {
+      margin-left: 100px;
+      font-size: 12px;
+      line-height: 22px;
+    }
+  }
+}
+
+
+.macbook-frame {
+  position: relative;
+  width: 540px;
+  height: 307px;
+
+  .frame {
+    background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/mac-540.png') no-repeat;
+    position: absolute;
+    width: 540px;
+    height: 307px;
+    z-index: 10;
+  }
+
+  .image {
+    left: 85px;
+    right: 84px;
+    top: 20px;
+    bottom: 55px;
+
+    position: absolute;
+    z-index: 0;
+
+    overflow: hidden;
+
+    &.slide {
+      img {
+        position: absolute;
+      }
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+  }
+
+  .macbook-frame-520 {
+    .frame {
+      background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/mac-520.png') no-repeat;
+    }
+  }
+}

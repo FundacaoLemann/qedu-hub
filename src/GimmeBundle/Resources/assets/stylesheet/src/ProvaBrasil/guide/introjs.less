@@ -1,0 +1,58 @@
+.introjs-overlay {
+  opacity: 0.8 !important;
+}
+
+.introjs-helperLayer {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.introjs-tooltip {
+  border-radius: 7px;
+  padding: 25px;
+  min-width: 360px;
+
+  .introjs-tooltiptext {
+
+    font-size: 12px;
+
+    h4 {
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .introjs-tooltipbuttons {
+    margin-top: 25px;
+
+    a:-webkit-any-link {
+
+      &:focus {
+        outline: none !important;
+      }
+    }
+
+    .introjs-nextbutton, .introjs-prevbutton {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      margin: 0 5px;
+    }
+
+    .introjs-skipbutton {
+      position: absolute;
+      top: 14px;
+      right: 24px;
+      padding: 0;
+      border: 0;
+
+      &:hover {
+        text-decoration: none;
+        box-shadow: none;
+      }
+    }
+  }
+}

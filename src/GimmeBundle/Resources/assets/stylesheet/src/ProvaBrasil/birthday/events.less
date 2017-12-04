@@ -1,0 +1,77 @@
+.birthday-page-events-section {
+  padding: 0;
+  padding-top: 120px;
+
+  background: #fff;
+
+  h2 {
+    text-align: center;
+
+    color: #97c04a;
+    font-size: 26px;
+    letter-spacing: -1px;
+    line-height: 1.6em;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    text-align: center;
+
+    color: #8c8c8c;
+    font-size: 18px;
+    letter-spacing: -1px;
+    line-height: 1.6em;
+    margin: 0px;
+    font-weight: normal;
+    margin-bottom: 40px;
+  }
+
+  .birthday-page-events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    margin-bottom: 12px;
+
+    li {
+      width: 302px;
+      margin-right: 10px;
+      float: left;
+
+      overflow: hidden;
+
+      .birthday-page-events-event {
+        display: block;
+
+        position: relative;
+
+        span {
+          text-align: center;
+          display: block;
+          width: 282px;
+          height: 70px;
+          position: absolute;
+          padding: 10px;
+          bottom: 0;
+          background: #adadad;
+          background: rgba(173,173,173, 0.9);
+          color: #6D6D6D;
+          font-size: 16px;
+          letter-spacing: -1px;
+          line-height: 1.4em;
+          .transition(all .2s linear);
+        }
+
+        &:hover {
+          span {
+            color: #fff;
+            background: #97c04a;
+            background: rgba(151,192,74, 0.96);
+          }
+        }
+      }
+    }
+  }
+}

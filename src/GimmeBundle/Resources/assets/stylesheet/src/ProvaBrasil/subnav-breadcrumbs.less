@@ -1,0 +1,144 @@
+// BREADCRUMBS FOR THE SUBNAV
+// -----------
+
+.subnav-breadcrumb>li.subnav-title .dropdown-toggle.btn-large .caret  {
+  margin-top: 8px !important;
+}
+.select2-bottom{
+  border-top: 1px solid lightgray;
+  padding: 8px;
+  a{
+    margin-top: 5px;
+    font-size: 12px;
+  }
+}
+.select2-no-results{
+  background: none !important;
+  padding: 8px;
+}
+.subnav-breadcrumb {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 12px;
+
+  a {
+    color: #36923f;
+  }
+
+
+  > li {
+    display: inline-block;
+    .ie7-inline-block();
+
+    color: #555;
+
+    font-size: 14px;
+
+    h1 {
+      display: inline-block;
+      .ie7-inline-block();
+
+      line-height: 1;
+
+      font-size: 22px;
+    }
+
+    .icon-chevron-right{
+      opacity: 0.4;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+
+    &.select2-title-bolder{
+      .select2-chosen, .select2-chosen *{
+        font-weight: bold;
+      }
+    }
+    .select2-choice{
+      background-image: none;
+      //background-color: #F3F3F3;
+      border: none !important;
+      box-shadow: none;
+      padding: 0 !important;
+
+        & > .select2-chosen {
+            max-width: 300px;
+        }
+    }
+
+    .select2-dropdown-open .select2-choice .select2-arrow{
+      border: 1px solid #AAAAAA;
+    }
+
+    .select2-arrow{
+      background: #fff !important;
+      border: none !important;
+//      height: 22px !important;
+//      width: 18px !important;
+    }
+    &.big-choice-title .select2-chosen .btn-large{
+        //font-size: 20px !important;
+    }
+    .select2-chosen .btn-large{
+      padding: 11px 0;
+
+      img{
+        margin-right: 8px;
+      }
+    }
+
+    .dropdown-title{
+      margin-right: 8px;
+    }
+
+    .dropdown-toggle {
+      margin-left: 5px;
+      padding: 2px 4px;
+      //background: transparent;
+      color: #555;
+
+      max-width: 400px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &.drop-with-text-only {
+        padding: 2px 6px;
+        margin-left: 0px;
+      }
+    }
+
+    .divider {
+      padding: 0 5px;
+      color: @grayLight;
+    }
+
+    &.active a {
+      color: @grayDark;
+    }
+
+    .dropdown-toggle {
+      margin-top: -6px;
+
+      font-size: 12px;
+
+      &.btn-large {
+        padding: 2px 6px 2px 4px;
+        //margin-left: -5px;
+
+        .caret {
+          margin-top: 11px;
+        }
+      }
+    }
+  }
+}
+
+.subnav-breadcrumb + .subnav {
+  margin-top: 12px;
+}
+
+.subnav-breadcrumb + .subnav-breadcrumb {
+  margin-top: 6px;
+}

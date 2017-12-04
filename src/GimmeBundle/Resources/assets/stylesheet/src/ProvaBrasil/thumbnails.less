@@ -1,0 +1,42 @@
+.thumbnail {
+  position: relative;
+
+  .border-radius(@borderRadius);
+
+  &.thumbnail-no-padding {
+    padding: 0;
+  }
+
+  > img {
+    max-width: 100% !important;
+  }
+}
+
+.video-play {
+  display: inline-block;
+  background: url(http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/video-play.png) no-repeat /* @inline */;
+  vertical-align: middle;
+
+  background-position: center;
+
+  position: absolute;
+
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  .opacity(60);
+
+  cursor: pointer;
+
+  &:hover {
+    .opacity(100);
+  }
+}
+
+.thumbnail.avatar {
+  //position: relative;
+
+  //padding: 2px;
+}

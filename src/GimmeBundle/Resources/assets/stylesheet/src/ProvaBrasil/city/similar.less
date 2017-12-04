@@ -1,0 +1,68 @@
+#similar-page_container {
+  .comparation_city-container {
+    overflow:hidden;
+    > div {
+      padding: 10px;float: left; width: 160px; background: yellow; border-radius: 5px;
+      h3 {
+        margin-bottom: 10px; font-size: 14px;
+      }
+      p {
+        margin-bottom: 3px; font-size: 10px;
+        strong {
+          font-size: 11px;
+        }
+        strong:after{
+          content: " ";
+        }
+      }
+      span {
+        font-size: 14px; text-align: right; display: block; margin-top: 5px; font-weight: bold;
+      }
+    }
+    > ul {
+      float: right; width: 64%;
+      li {
+        width: 93px; height: 100px; background: #CCC; border-radius: (5px); padding: 10px; float: left; margin: 0 11px 10px 0; border: 1px solid #999;
+        a {
+          font-weight: normal; text-decoration: none; display: block; color: #404040;  font-size: 11px; text-align: center;
+          &.move {
+            margin-top: 0;
+          }
+        }
+      }
+      li {
+        width: 90px; height: 90px; background: #EEE;
+        a {
+          font-size: 10px; 
+        }
+        .move {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+  .map_container {
+      position: relative; margin-top: 20px;
+      object {
+        border-radius: 5px; border: 1px solid #CCC; background: #EEE;
+      }
+      > div {
+        position: absolute; bottom: 25px; width: 300px; left: 20px;
+        label {
+          font-size: 11px; margin-bottom: 5px; display: block;
+          &:last-child {
+            text-align: center; font-weight: bold;
+          }
+        }
+        select {
+          display: block; width: 100%;
+        }
+        span {
+          font-size: 11px;
+        }
+        input[type="range"] {
+          width: 84px; vertical-align: middle;
+        }
+      }
+    }
+}

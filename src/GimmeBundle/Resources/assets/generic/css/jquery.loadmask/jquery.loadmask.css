@@ -1,0 +1,39 @@
+.loadmask {
+    z-index: 10000;
+    position: absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity: .50;
+    filter: alpha(opacity=50);
+    background-color: #CCC;
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+.loadmask-msg {
+    z-index: 20001;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    background: #ddd;
+    padding:2px;
+}
+.loadmask-msg div {
+    padding: 8px 10px 25px 10px;
+    background: white url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/ajax/loading-qedu-mini.gif') no-repeat 8px 24px;
+    line-height: 14px;
+    width: 120px;
+    color: #527811;
+    font:bold 12px tahoma, arial, helvetica, sans-serif;
+    cursor:wait;
+}
+.masked {
+    overflow: hidden !important;
+}
+.masked-relative {
+    position: relative !important;
+}
+.masked-hidden {
+    visibility: hidden !important;
+}

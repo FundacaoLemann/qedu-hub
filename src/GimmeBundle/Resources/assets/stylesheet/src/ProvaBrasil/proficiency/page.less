@@ -1,0 +1,371 @@
+#proficiency_page-container {
+  article {
+    .profiency_explanation {
+      position: relative; padding-left: 70px; padding-top: 10px; font-size: 12px;
+      span {
+        position: absolute; left: 0; top: 20px; font-size: 28px; font-weight: bold;
+      }
+    }
+    .profiency_explanation + b {
+      margin-top: 20px; display: block; font-size: 12px;
+      span {
+        color: red;
+      }
+    }
+  }
+  .evolution {
+    ul {
+      overflow: auto;
+      li {
+        float: left; background: red; margin: 0 3px 5px 0; border-radius: 3px; padding: 9px 11px;
+        &:last-child {
+          margin-right: 0;
+        }
+        span {
+          display: block; text-align: center; font-size: 12px;
+          &:last-child {
+            margin-top: 3px; font-weight: bold; font-size: 15px; 
+          }
+        }
+        &.legend{
+          background: none; width: 129px; padding: 0; text-align: center; margin-right: 5px; margin-top: 3px;
+          span, a {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+  .scale {
+    position: relative;
+    > ul {
+      position: absolute; top: 30px; left: 240px;
+      li {
+        height: 44px;
+      }
+    }
+    table {
+      border-collapse: collapse;  width: 230px;
+      tr {
+        &.green {
+           background: #109A00;
+        }
+        &.water_green {
+          background: #3FFF00;
+        }
+        &.yellow {
+          background: #FFFF2D;
+        }
+        &.red {
+          background: #FF0000;
+        }
+         td {
+          padding: 4px 9px; border: 2px solid #FFFFFF; font-size: 12px; font-weight: bold;
+          span {
+            display: block; margin-top: 2px; font-weight : normal;
+          }
+          &:last-child {
+            background: #F5F5F5; border: none;
+          }
+        }
+      }
+    }
+    .legend {
+      margin-top: 15px;
+      ul {
+        overflow: hidden;  border: 1px solid #DCDCDC; border-left: none; border-right: none; 
+        li {
+          float: left; width: 25%;
+          .sprite {
+            vertical-align: top; margin-right: 5px; margin-top: 0;
+          }
+        }
+      }
+      > b {
+        display: block; margin: 5px 0 3px;
+      }
+    }
+  }
+}
+
+
+.proficiency-section div { -webkit-print-color-adjust: exact; }
+
+@color_square: #04356C;
+@color_qualitative_0: @qualitativeLevel0-Background;
+@color_qualitative_1: @qualitativeLevel1-Background;
+@color_qualitative_2: @qualitativeLevel2-Background;
+@color_qualitative_3: @qualitativeLevel3-Background;
+
+.proficiency-section {
+
+  .proficiency-header {
+    width: 100%;
+    h2 {
+      margin-bottom: 5px;
+    }
+  }
+
+  .buttons-container {
+    float: left;
+    width: 100%;
+  }
+
+  .buttons-filter-proficiency {
+    background-color: #eee;
+    padding-top: 10px;
+    .nav {
+      float: left;
+      margin-left: 10px;
+      padding-left: 25px;
+      border-left: 1px solid #ddd;
+      &.first {
+        margin-left: 0;
+        border-left: 0;
+        padding-left: 0;
+        padding-left: 10px;
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .proficiency-stamp {
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+    .stamp {
+      float: left;
+      width: 290px;
+      margin-right: 30px;
+
+      &.stamp-last {
+        margin-right: 0;
+      }
+      h3 {
+        margin-top: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    .stamp-legend {
+      margin-right: 0
+    }
+  }
+
+  .card-proficiency {
+    margin-top: 20px;
+
+    h2 {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 0;
+      border-bottom: 1px dashed #ddd;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+
+    .qualitative-building-chart-header {
+      margin-bottom: 0px;
+      position: relative;
+
+      padding-left: 38px;
+
+      h3 {
+        color: #333;
+      }
+
+      h5 {
+        margin-top: 10px;
+        margin-left: 5px;
+        color: #777777;
+      }
+
+      .qualitative-square {
+        margin-right: 10px;
+      }
+
+      .ideal-level {
+        position: absolute;
+        width: 3px;
+        height: 16px;
+        bottom: -18px;
+        left: 43px;
+      }
+    }
+
+    .card-proficiency-presence {
+      float: left;
+      margin-left: 43px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      h4 {
+        font-size: 13px;
+        line-height: 18px;
+        margin-bottom: 4px;
+        color: #333;
+      }
+      p {
+        font-size: 12px;
+        color: #666;
+        strong {
+          color: #333;
+          font-size: 16px;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .card-proficiency-info {
+      float: left;
+      margin-left: 43px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      p {
+        color: #999;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .card-proficiency-square-percent {
+
+    width: 260px;
+    margin-top: 10px;
+    float: left;
+    margin-left: 43px;
+    margin-bottom: 10px;
+
+    a {
+      color: @infoLinkColor;
+    }
+
+    .block-qualitative {
+      width: 200px;
+      padding-left: 60px;
+      border-top: 1px solid #eee;
+      padding-top:2px;
+      padding-bottom: 10px;
+      float: left;
+      position: relative;
+      
+      .percent {
+        position: absolute;
+        left: 0px;
+        top: 9px;
+        font-size: 18px;
+        text-align: right;
+        width: 50px;
+      }
+
+      h4 {
+        font-size: 13px;
+        margin-bottom: 5px;
+        padding-bottom: 0;
+        line-height:18px;
+        margin-top: 5px;
+
+        color: #333;
+
+        small {
+          font-size: 12px;
+          margin-top: 0px;
+          color: #999999;
+        }
+      }
+
+      ul {
+        margin-left: 0;
+        li {
+          width: 24px;
+          height: 24px;
+          margin-right: 1px;
+          margin-bottom: 1px;
+          float: left;
+          background-color: #ddd;
+          background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5.png') no-repeat;
+          list-style: none;
+        }
+      }
+
+
+      &.indicator-level-0 { border-left: 3px solid @optimaldecileeLevel0-Background; }
+      &.indicator-level-1 { border-left: 3px solid @optimaldecileeLevel1-Background;}
+      &.indicator-level-2 { border-left: 3px solid @optimaldecileeLevel2-Background; }
+      &.indicator-level-3 { border-left: 3px solid @optimaldecileeLevel3-Background;}
+      &.indicator-level-4 { border-left: 3px solid @optimaldecileeLevel4-Background; }
+      &.indicator-level-5 { border-left: 3px solid @optimaldecileeLevel5-Background;  }
+      &.indicator-level-6 { border-left: 3px solid @optimaldecileeLevel6-Background; }
+      &.indicator-level-7 { border-left: 3px solid @optimaldecileeLevel7-Background; }
+      &.indicator-level-8 { border-left: 3px solid @optimaldecileeLevel8-Background; }
+      &.indicator-level-9 { border-left: 3px solid @optimaldecileeLevel9-Background; }
+      &.indicator-level-10 { border-left: 3px solid @optimaldecileeLevel10-Background; }
+
+      &.qualitative-3.grade-5 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-3.png') no-repeat; }
+      &.qualitative-3.grade-9 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-9-level-3.png') no-repeat; }
+
+      &.qualitative-2.grade-5 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-2.png') no-repeat; }
+      &.qualitative-2.grade-9 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-9-level-2.png') no-repeat; }
+
+      &.qualitative-1.grade-5 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-1.png') no-repeat; }
+      &.qualitative-1.grade-9 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-9-level-1.png') no-repeat; }
+
+      &.qualitative-0.grade-5 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-0.png') no-repeat;}
+      &.qualitative-0.grade-9 ul li { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-9-level-0.png') no-repeat;}
+    }
+
+
+
+  }
+
+
+  .proficiency-legend {
+
+    h2 {
+      font-size: 22px;
+      margin-top: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .legend-block {
+      padding: 10px;
+      border-top: 1px solid #eee;
+      .border-radius(10px);
+
+      
+      h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        padding-left: 28px;
+      }
+
+      h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }      
+
+    .qualitative-3 { h3 { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-3.png') no-repeat; } }
+    .qualitative-2 { h3 { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-2.png') no-repeat; } }
+    .qualitative-1 { h3 { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-1.png') no-repeat; } }
+    .qualitative-0 { h3 { background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/24/students-5-level-0.png') no-repeat; } }
+
+    .proficiency-legend-note {
+      margin-top: 20px;
+      color: #666;
+    }
+  }
+}

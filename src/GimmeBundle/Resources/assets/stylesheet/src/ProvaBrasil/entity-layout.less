@@ -1,0 +1,65 @@
+.entity_layout-container {
+  .list-users {
+    ul {
+       overflow: hidden; margin-bottom: 15px;
+      li {
+        float: left; margin-right: 8px;
+        img {
+          width: 48px; height: 48px; 
+        }
+      }
+    }
+    div > a {
+      display: block; text-align: center; margin-top: 20px;
+    }
+  }
+  .plan_actions-list {
+    > a {
+      display: block; text-align: center; margin-top: 10px;
+    }
+    li {
+      position: relative; padding-left: 60px; margin-bottom: 10px; border-bottom: 1px solid #DCDCDC; padding-bottom: 10px;
+      &:last-child {
+        border: none;
+      }
+      img {
+        position: absolute; left: 0; top: 4px; 
+      }
+      p {
+        margin-top: 5px;
+        strong:before {
+          content: " "; 
+        }
+      }
+      a:after {
+        content: " - ";
+      }
+    }
+  }
+  .statistic {
+    div {
+      > p {
+        margin-bottom: 20px;
+      }
+      ul {
+        margin: 0;
+        li {
+          padding-left: 100px; margin-bottom: 15px; position: relative; height: 45px; 
+          &:last-child {
+            margin-bottom: 0;
+          }
+          > span {
+            position: absolute; top: 5px; left: 0; font-size: 32px; font-weight: bold;
+          }
+          p {
+            width: 270px;
+          }
+          > a {
+            display: block; position: absolute; right: 0; top: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+

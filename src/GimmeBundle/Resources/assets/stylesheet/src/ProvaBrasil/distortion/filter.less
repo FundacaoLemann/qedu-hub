@@ -1,0 +1,54 @@
+section.distortion-filter-block {
+    background: #f4f4f4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    .distortion-filter {
+        display: inline-block;
+        float: left;
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+
+    h3 {
+        margin: 0;
+        float: left;
+        font-size: 12px;
+        line-height: 28px;
+        font-weight: bold;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    div.btn-group {
+        margin-left: 10px;
+
+
+        .dropdown-toggle {
+            text-align: left;
+            width: 160px;
+
+            .caret {
+            // Put the caret in the right side of the dropdown (that's compatible with Chrome and Firefox)
+                position: absolute;
+                right: 10px;
+            }
+
+            &.distortion-filter-year {
+                width: 50px;
+            }
+
+            &.distortion-filter-localization{
+                width: 120px;
+            }
+        }
+    }
+
+    #distortion-filter-localization-block {
+        width: auto;
+    }
+}
+
+@import 'css/provabrasil/util/dropdown-blocker.less';

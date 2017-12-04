@@ -1,0 +1,55 @@
+
+
+//Special Resources in list items
+ul.special_resource {
+
+  li.description {
+
+    white-space: normal !important;
+    font-size: 16px;
+    line-height: 22px;
+
+    &.special_resource_title {
+      padding-top: 5px;
+      width: 230px !important;
+      background: transparent url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/special_resources/present.png') no-repeat 8px 8px;
+      padding-left: 54px;
+      line-height: 40px;
+    }
+
+    &.special_resource_subtitle {
+      width: 270px !important;
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    a {
+      display: inline !important;
+      padding: 0 !important;
+      color: @pbGreen;
+
+      &:hover {
+        color: @pbGreenHover;
+        background: none !important;
+        text-decoration: underline;
+        margin: 0 !important;
+      }
+
+    }
+
+  }
+
+  li {
+    i {
+      margin-right: 5px;
+    }
+  }
+
+  li.disabled  {
+    a:hover i {
+      background-image: url("http://d2jaknbl34vcit.cloudfront.net/img/glyphicons-halflings.png");
+    }
+  }
+}

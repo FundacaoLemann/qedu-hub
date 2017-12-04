@@ -1,0 +1,92 @@
+#know-list-modal {
+  width: 450px;
+  
+  li {
+    margin-bottom: 5px;
+    border-bottom: 1px solid  #EEE;
+    padding-bottom: 5px;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  
+  }
+  
+  .name {
+    color: #00A859;
+    margin-bottom: 0;
+  }
+  
+  .location {
+    color:  #888;
+    font-size: 11px;
+  }
+  
+  .modal-body {
+    max-height: 400px;
+  }
+  
+  .modal-footer {
+    padding: 8px 15px 9px;
+  }
+}
+
+.btn-know-container {
+  .btn-know {
+    cursor: default;
+
+    color: #555;
+
+    &.btn-primary {
+      cursor: pointer;
+
+      color: #fff;
+    }
+
+    font-weight: bold;
+  }
+  
+  .dropdown-menu {
+    margin-top: 4px;
+    
+    li {
+      font-size: 11px;
+      
+      &:first-child {
+        text-align: left;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      
+      a {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+    
+    &:before, &:after {
+     bottom: 100%;
+     border: solid transparent;
+     content: " ";
+     height: 0;
+     width: 0;
+     position: absolute;
+    }
+    
+    &:before {
+      border-bottom-color: #DCDCDC;
+      border-width: 6px;
+      left: 50%;
+      margin-left: 60px;
+    }
+    
+    &:after {
+      border-bottom-color: #FFF;
+        border-width: 5px;
+        left: 50%;
+        margin-left: 61px;
+      }
+  }
+}

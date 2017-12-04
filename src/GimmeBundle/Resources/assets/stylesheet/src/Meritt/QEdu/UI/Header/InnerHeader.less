@@ -1,0 +1,189 @@
+.qedu-header {
+    .box-sizing(border-box);
+
+    background: #fff;
+    padding: 25px 0 11px;
+    position: relative;
+    z-index: 999 !important;
+    border-top:2px solid #36923F;
+    height: 84px;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    -moz-box-shadow:  0 0 5px rgba(0,0,0,0.1);
+    box-shadow:  0 0 5px rgba(0,0,0,0.1);
+}
+
+.qedu-container {
+    .box-sizing(border-box);
+
+    display: table;
+    margin: 0 auto;
+    padding: 0 15px !important;
+    width: 970px;
+
+    * {
+        .box-sizing(border-box);
+    }
+}
+
+/*
+    LOGO
+*/
+.qedu-logo {
+    float: left;
+    margin: 0 10px 0 0;
+    opacity: 1;
+    overflow: hidden;
+    width: 84px;
+
+    a {
+        display: block;
+        font: 0/0 arial;
+        height: 41px;
+        width: 29px;
+    }
+
+    img {
+        max-width: inherit;
+
+        &:hover {
+            opacity: .9;
+        }
+    }
+}
+
+/*
+    MENU
+*/
+.qedu-menu {
+    float: left;
+    margin: 5px 0 0 5px;
+    padding: 0;
+    position: relative;
+}
+
+.st {
+    float: left;
+    font: 14px/16px @font-family;
+    list-style: none;
+
+    a {
+        color: #666;
+        padding: 20px 8px 45px;
+    }
+
+    &:hover > a {
+        background-position: center -93px;
+        color: #36923F;
+        text-decoration: none;
+    }
+}
+
+/*
+    SUBMENU
+*/
+.qedu-submenu {
+    .box-shadow(rgba(0,0,0,0.2) 0 1px 1px);
+
+    background: #FFF;
+    display: none;
+    font-family: @font-family;
+    left: -124px;
+    padding: 0;
+    position: absolute;
+    top: 51px;
+    width: 721px;
+    z-index: 999;
+    border-radius: 3px;
+    border: 1px solid #d7d7d7;
+
+    &:after, &:before{
+        bottom: 100%;
+        left: 129px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &:after{
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: #ffffff;
+        border-width: 11px;
+        margin-left: -11px;
+    }
+
+    &:before{
+        border-color: rgba(215, 215, 215, 0);
+        border-bottom-color: #d7d7d7;
+        border-width: 12px;
+        margin-left: -12px;
+    }
+}
+
+.st:nth-child(2) .qedu-submenu:before, .st:nth-child(2) .qedu-submenu:after{
+    left: 206px;
+}
+
+.st:hover ul, li.over ul {
+    display: block;
+}
+
+.nd {
+    float: left;
+    list-style: none;
+    width: 235px;
+
+    a {
+        background: none;
+        color: #999;
+        display: block;
+        padding-bottom: 0;
+        padding-top: 0;
+
+        &:hover {
+            text-decoration: none;
+
+            .label-link {
+                color: #7BC04B;
+            }
+
+            .desc-link {
+                color: #313131;
+            }
+        }
+    }
+
+    .label-link {
+        .transition(all 0.5s ease);
+
+        color: #36923f;
+        display: block;
+        font-size: 14px;
+        margin: 20px 0 5px 0;
+    }
+
+    .desc-link {
+        .transition(all 0.5s ease);
+
+        display: block;
+        font-size: 11px;
+        line-height: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+/*
+    MENU DO USUÁRIO
+*/
+@font-face {
+    @icon-font-path: '/font/bootstrap/';
+    @icon-font-name: 'glyphicons-halflings-regular';
+    font-family: 'Glyphicons Halflings';
+    src: ~"url('@{icon-font-path}@{icon-font-name}.eot')";
+    src: ~"url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype')",
+    ~"url('@{icon-font-path}@{icon-font-name}.woff') format('woff')",
+    ~"url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype')",
+    ~"url('@{icon-font-path}@{icon-font-name}.svg#glyphicons-halflingsregular') format('svg')";
+}

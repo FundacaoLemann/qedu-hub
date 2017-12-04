@@ -1,0 +1,43 @@
+.birthday-banner-section {
+  @bannerHeight: 76px;
+
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/birthday/modal/banner_bg.png') no-repeat center bottom #000;
+  cursor: pointer;
+  color: #fff;
+
+  height: @bannerHeight;
+  line-height: @bannerHeight;
+
+  text-align: center;
+
+  .birthday-banner-title {
+    color: #c1d455;
+
+    padding-left: 20px;
+    padding-right: 10px;
+    letter-spacing: -1px;
+
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  a {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #fff;
+    background: transparent;
+    padding: 8px 18px;
+    text-shadow: none;
+    border: 1px solid #ddd;
+    .border-radius(3px);
+
+    &:hover {
+      text-decoration: none;
+      background: #7baa31;
+      color: #fff;
+      border-color: #444;
+    }
+  }
+}

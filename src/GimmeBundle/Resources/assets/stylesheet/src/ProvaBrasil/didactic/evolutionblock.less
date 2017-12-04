@@ -1,0 +1,99 @@
+.didactic-section .didactic-evolution-block {
+  float: left;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  //border-bottom: 1px solid #eee;
+  width: 100%;
+
+  &:only-of-type {
+    border-bottom-color: #fff;
+  }
+
+  &.last {
+
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom:10px;
+    color: #777;
+  }
+
+  img {
+    height: 28px;
+    border: 1px solid #ccc;
+    display: block;
+    float: left;
+    margin-right: 5px;
+  }
+
+  small {
+    font-size: 12px;
+    color: #666;
+  // display: none;
+  }
+
+  .qualitative-square {
+    width: 90px;
+    height: 90px;
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 0;
+    .transition(all 0.5s linear);
+    border-radius: 3px;
+    span {
+      line-height: 90px;
+      font-size: 24px;
+
+      &.percent-level-no-data {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .didactic-evolution-edition {
+    float: left;
+    h4 {
+      margin-bottom: 2px;
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+
+  .didactic-evolution-growth {
+    float: left;
+    width: 70px;
+    text-align: center;
+    margin-top: 55px;
+    margin-right: 5px;
+
+    strong {
+      font-size: 24px;      
+      .transition(all 0.5s linear);
+      &.up{
+        //content: '<i class="icon-plus"></i>';
+        color: green;
+        //background: transparent url("http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/up_16.png") no-repeat 0 5px ;
+      }
+      &.down {
+        color: red;
+        //background: transparent url("http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/down_16.png") no-repeat 0 5px;
+      }
+
+      &.equal{
+        color: #777;
+      }
+       
+    }
+
+    span.pontos-percentuais {
+        display: block;
+        line-height: 1.2em;
+        font-size: 11px;
+        color: #666;
+        font-weight: normal;
+      }  
+
+  }
+}

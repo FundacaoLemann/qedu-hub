@@ -1,0 +1,85 @@
+.more-container {
+  height: 200px;
+  overflow: hidden;
+
+  .border-radius(@borderRadius);
+
+  //border: 1px solid #ddd;
+
+  position: relative;
+
+  .more-image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .more-text {
+    .transition(0.2s all ease-in-out);
+
+    .opacity(90);
+
+    //border-top: 1px solid #ddd;
+
+    background: #f0f0f0;
+    padding-left: 0px;
+
+    position: absolute;
+    top: 154px;
+    left: 0;
+    right: 0;
+
+    height: 200px;
+
+    padding: 20px;
+    padding-top: 12px;
+    padding-right: 0;
+
+    h3 {
+      line-height: 22px;
+
+      small {
+        .transition(0.2s margin-top ease-in-out);
+        margin-top: 10px;
+
+        color: #666;
+      }
+    }
+
+    h3 + a {
+      margin-top: 7px;
+      display: block;
+    }
+    
+    h3 + .btn {
+      margin-top: 0px;
+      display: block;
+      margin-right: 20px;
+    }
+  }
+
+  &:hover {
+    border-color: #ddd;
+
+    .more-text {
+      padding-top: 20px;
+      top: 0;
+
+      h3 small {
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

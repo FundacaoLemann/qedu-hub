@@ -1,0 +1,234 @@
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  &:focus {
+    .glow();
+  }
+}
+
+.inputs-large,
+.input-append-big {
+
+  @height: 40px;
+
+  input {
+    //width: 280px;
+    height: @height;
+
+    padding-right: 20px;
+
+    font-size: 16px;
+
+  //color: #555;
+
+    .box-sizing(border-box);
+  }
+
+  button {
+    height: @height;
+
+    font-size: 14px;
+
+    .box-sizing(border-box);
+  }
+}
+
+.inputs-xlarge,
+.input-append-xbig {
+
+  @height: 60px;
+
+  input {
+    //width: 280px;
+    height: @height;
+
+    padding-right: 20px;
+
+    font-size: 20px;
+
+    //color: #555;
+
+    .box-sizing(border-box);
+  }
+
+  button {
+    height: @height;
+
+    font-size: 16px;
+
+    .box-sizing(border-box);
+  }
+}
+
+.form-actions {
+  margin-bottom: 0;
+
+//  border-top: 1px solid #ddd;
+//  background: #fafafa;
+}
+
+.help-block,
+.help-inline {
+  color: #666;
+}
+
+.alert + .form-horizontal,
+.well + .form-horizontal {
+  margin-top: 20px;
+}
+
+.form-horizontal {
+  margin: 100px 0;
+
+  > .form-message,
+  > .well {
+    margin-bottom: 20px;
+    width: 100%;
+
+    display: inline-block;
+    .ie7-inline-block();
+
+    .well,
+    .alert {
+      margin-bottom: 0;
+    }
+
+    min-width: 300px;
+  }
+
+  .help-text {
+    margin-top: 5px;
+  }
+
+  .controls {
+    //position: relative;
+
+    span {
+      line-height: 28px;
+      padding-left: 30px;
+    }
+  }
+
+  .control-label{
+    font-size: 14px;
+  }
+  &.form-less-longer {
+    .control-label {
+      width: 80px;
+    }
+
+    .controls {
+      margin-left: 100px;
+
+      &:first-child {
+        *padding-left: 100px;
+      }
+    }
+
+    .form-actions {
+      padding-left: 100px;
+      button.btn.btn-large{
+        font: bold 14px 'Open Sans',Arial,sans-serif;
+      }
+    }
+  }
+}
+
+.form-header {
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+}
+
+.form-actions {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  border-top: none;
+  .clearfix(); // Adding clearfix to allow for .pull-right button containers
+}
+
+.input-prepend,
+.input-append {
+  .btn {
+    .border-radius(3px);
+  }
+}
+
+/*
+input,
+textarea,
+select,
+.uneditable-input {
+  .border-radius(@borderRadius);
+}
+
+.input-prepend,
+.input-append {
+  input,
+  select,
+  .uneditable-input {
+    .border-radius(0 @borderRadius @borderRadius 0);
+  }
+
+  .add-on,
+  .btn {
+    .border-radius(@borderRadius 0 0 @borderRadius);
+  }
+}
+
+.input-append {
+  input,
+  select
+  .uneditable-input {
+    .border-radius(@borderRadius 0 0 @borderRadius);
+  }
+
+  .add-on,
+  .btn {
+    .border-radius(0 @borderRadius @borderRadius 0);
+  }
+}
+
+.input-prepend.input-append {
+  input,
+  select,
+  .uneditable-input {
+    .border-radius(0);
+  }
+  .add-on:first-child,
+  .btn:first-child {
+    margin-right: -1px;
+    .border-radius(@borderRadius 0 0 @borderRadius);
+  }
+  .add-on:last-child,
+  .btn:last-child {
+    margin-left: -1px;
+    .border-radius(0 @borderRadius @borderRadius 0);
+  }
+}
+*/

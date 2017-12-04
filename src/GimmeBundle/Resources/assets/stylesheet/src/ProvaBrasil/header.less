@@ -1,0 +1,246 @@
+8header.navbar {
+  &.fixed {
+    z-index: @zindexFixed + 100;
+  }
+
+  margin-bottom: 0px;
+  //background: #fff;
+
+  //border-bottom: 1px solid #ddd;
+
+  .navbar-inner {
+    .border-radius(0);
+  }
+
+  .container {
+    position: relative;
+    
+    //border-bottom: 2px solid @pbGreen;
+    //border-bottom: 2px solid #ccc;
+
+    //margin-bottom: -2px;
+  }
+
+  .brand {
+    @elementHeight: 38px;
+    padding: ((@navbarHeight - @elementHeight) / 2 - 1) 0px ((@navbarHeight - @elementHeight) / 2 + 1);
+    line-height: 1;
+
+    margin-left: 0;
+
+    img {
+      max-width: none;
+    }
+
+    margin-right: -10px;
+    .user-not-logged & {
+      width: 106px;
+      overflow: hidden;
+
+      margin-right: 20px;
+    }
+  }
+
+  .nav > li > button {
+    margin-top: 10px;
+    &.btn-primary {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding-top: 2px;
+      margin-top: 12px;
+    }
+  }
+
+  .nav > li > a {
+    text-transform: uppercase;
+
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: @navbarHeight;
+
+    .transition(200ms background);
+
+    i {
+      .opacity(80);
+    }
+  }
+
+  .nav > li:hover > a i {
+    .opacity(95);
+  }
+
+ .nav .dropdown-toggle .caret {
+   display: inline-block;
+   .ie7-inline-block();
+    //margin-top: @navbarHeight / 2;
+   float: right;
+   margin-left: 5px;
+   margin-top: @navbarHeight / 2;
+  }
+
+  form {
+    margin-top: 8px;
+    margin-left: 20px;
+
+    .input-append {
+      margin: 0;
+
+      @height: 34px;
+
+      input {
+        .buttonBackground(#527811, #618d1a);
+
+        .placeholder(#eee);
+
+        width: 190px;
+        height: @height;
+        padding-right: 4px;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        color: #fff;
+        .box-sizing(border-box);
+      }
+
+      button {
+        height: @height;
+        .box-sizing(border-box);
+      }
+    }
+  }
+
+  .advanced-search-link {
+    font-size: 11px;
+    padding: 8px;
+    padding-right: 0;
+    padding-top: 16px;
+    float: left;
+
+    color: @topNavSmallLinkColor;
+
+    display: inline-block;
+    .ie7-inline-block();
+  }
+
+  .header-help-link {
+    margin-right: 15px;
+  }
+
+  .nav.pull-right {
+    margin-left: 0px;
+  }
+
+  .avatar-mini {
+    height: 24px;
+    width: 24px;
+    margin-top: -4px;
+
+    border: 2px solid #fff;
+
+    max-width: none;
+  }
+
+  .header-favorites {
+    width: 300px;
+  }
+
+  .header-profile {
+    width: 300px;
+
+    .header-profile-header {
+      .block-image-content {
+        padding: 0 15px;
+        padding-top: 12px;
+      }
+
+      .block-image {
+        margin-right: 10px;
+
+        a {
+          margin: 0;
+          padding: 0;
+        }
+
+        .avatar {
+          border: 1px solid #ddd;
+        }
+      }
+
+      .block-content {
+        display: block;
+        width: auto;
+
+        overflow: hidden;
+
+        .header-profile-name {
+          padding-top: 2px;
+          padding-bottom: 4px;
+
+          a {
+            font-weight: bold;
+            color: #333;
+
+            font-size: 14px;
+
+            white-space: nowrap;
+
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .header-profile-email{
+          a {
+            color: #777;
+            white-space: nowrap;
+
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+
+      margin-bottom: 5px;
+    }
+
+    li {
+      a {
+        margin-left: 70px;
+        padding-left: 8px;
+      }
+    }
+  }
+}
+
+header.navbar.navbar-tall {
+  //margin-bottom: 2px;
+
+  //position: relative;
+
+  > .container {
+    width: 940px;
+
+    padding: 30px 0px;
+    
+    //border-bottom: none;
+
+    //margin-bottom: 0px;
+    
+    z-index: 10;
+  }
+
+  .brand {
+    .user-not-logged & {
+      width: auto;
+
+      margin-right: 20px;
+    }
+  }
+}
+
+/**
+O avatar do usuário aparecia quebrado, abaixo da seta.
+**/
+.internet-explorer-9 header.navbar .avatar-mini{
+  float: left;
+  margin-top: 12px;
+}

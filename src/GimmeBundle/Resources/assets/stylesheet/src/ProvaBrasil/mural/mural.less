@@ -1,0 +1,345 @@
+/**
+ * Imports necessários para compilação
+ */
+@import 'css/variables.less';
+@import 'css/mixins.less';
+
+#pg-mural {
+    width: 960px; margin-top: 24px;
+    h3 { color: #444;  font-weight: normal; } 
+    h4 { color: #666; font-size: 14px; font-weight: normal; } 
+}
+
+.mural-links-topo {
+    width: 570px;       
+    margin-top: 10px;    
+    float: right;    
+
+    h3 { background-color: white;  color: black; font-weight: bold; padding: 5px 0 2px 0; font-size: 14px;}    
+
+    div.sort { border:0; background-color: white; float: left; min-height: 30px; width: auto; width: 400px;}
+    div.layout { border:0; background-color: white; float: right; height: 30px; width: auto;}
+    div.text-filter { margin-top: 7px; margin-bottom: 7px; float: right; }
+    #busca_comparacao {width: 489px; padding: 5px; margin-right: 5px;}
+
+    ul { float: left;}        
+       
+
+    ul li { display: block; float: left; font-size: 12px; height: 22px; margin-right: 3px; margin-bottom: 3px;}    
+}
+
+a.button { display: block; background-color: #f2f2f2; padding: 3px; color: #666; border: 1px solid #ddd;  border-bottom-color: #ccc; .border-radius(3px); 
+    &:hover {  background-color: #e6e6e6; color: #333;  text-decoration: none; } 
+    &.both {font-size: 20px;}
+    &.active { 
+	background-color: #444; color: white; 
+	background-repeat: no-repeat;
+	background-position: 4px 4px;	
+
+	&.sort-letter-asc { background-image: url('../../img/mural/asc.png'); padding-left: 22px;}
+	&.sort-letter-desc { background-image: url('../../img/mural/desc.png'); padding-left: 22px; }
+	&.sort-number-asc { background-image: url('../../img/mural/asc.png'); padding-left: 22px;}
+	&.sort-number-desc { background-image: url('../../img/mural/desc.png'); padding-left: 22px; }
+    }
+}
+
+.mural-links {
+     
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    width: 370px;    
+    overflow-x: hidden;
+        
+    .filter ul li.label { line-height: 14px; margin-bottom: -3px;width: 100%;}
+    .information ul, .filter ul { width: 345px; }
+
+
+    h3 { background-color: white;  color: black; font-weight: bold; padding: 5px 0 2px 0; font-size: 14px; width: 380px; margin-left: -1px; margin-top: -1px; border-bottom: 1px solid #ccc;
+	a {font-size: 12px;}
+    }    
+   
+
+    .bloco {
+	float: left; 
+	border: 1px solid #ccc;
+	background-color: #f4f4f4; 		 
+	height: auto;
+	width: 368px;
+	margin-bottom: 20px;
+	&.what-you-see { font-size: 14px; line-height: 18px;
+	    p { margin: 5px;}
+	}
+	&.filter {  }
+	&.information {}
+
+	ul { margin: 3px; padding-bottom: 3px; border-bottom: 1px solid #ccc; float: left;   }	
+        ul.last {border-bottom: 0; padding-bottom: 0;}
+	ul li.label { line-height: 24px;}
+
+	ul li { display: block; float: left; font-size: 12px; height: 22px; margin-right: 3px; margin-bottom: 3px;}
+	ul li a { display: block; background-color: #f2f2f2; padding: 3px; color: #666; border: 1px solid #ddd;  border-bottom-color: #ccc; .border-radius(3px); 
+	   &:hover {
+	    background-color: #e6e6e6;
+	    color: #333;    
+	    text-decoration: none;
+	  } 
+	  &.both {font-size: 20px;}
+
+	  &.active { background-color: #444; color: white; }
+	}
+
+	
+    }            
+}
+
+#legend {
+    height: auto;
+
+    .item {
+	float: left; border-bottom: 1px solid #ccc; width: 100%;
+
+	.square {
+	    float: left; height: 32px; width: 32px; margin: 4px;
+
+	    &.level-0 {background-color: @color-level-0; .optimal-level{ display:none;} }
+	    &.level-1 {background-color: @color-level-1; div, a { color: #eee; }}
+	    &.level-2 {background-color: @color-level-2;  }
+	    &.level-3 {background-color: @color-level-3; }
+	    &.level-4 {background-color: @color-level-4;}
+	    &.level-5 {background-color: @color-level-5; }
+	    &.level-6 {background-color: @color-level-6; div, a { color: #eee; }}		
+	    &.level-7 {background: #1A931A url('../../img/mural/tarja_dourada.gif') repeat-x top left; div, a { color: #eee; }}
+	}
+
+	.text { float: left; height: 32px; margin: 4px; font-size: 13px;  line-height: 32px; width: 320px; }
+	.desc {float: left; margin: 4px; font-size: 12px; line-height: 16px; }
+    }
+
+    
+}
+
+#mural-estados, #mural-cities, #mural-schools {         
+
+    float: right;
+    width: 570px;    
+    margin-top: 5px;
+    background: url('../../img/padrao_meritt_cinza.png');
+    border: 1px solid #ddd;
+
+    .isotope-item {	
+	cursor: pointer;
+	height: 106px;
+	width: 106px;
+	margin: 3px;	
+	.border-radius(2px);
+
+	&.level-0 {background-color: @color-level-0; .optimal-level{ display:none;} }
+	&.level-1 {background-color: @color-level-1; div, .topo a { color: #eee; }}
+	&.level-2 {background-color: @color-level-2;  }
+	&.level-3 {background-color: @color-level-3; }
+	&.level-4 {background-color: @color-level-4;}
+	&.level-5 {background-color: @color-level-5; }
+	&.level-6 {background-color: @color-level-6; div, .topo a { color: #eee; }}		
+	&.level-7 {background: #1A931A url('../../img/mural/tarja_dourada.gif') repeat-x top left; div, .topo a { color: #eee; }}
+		
+	.topo { margin: 3px; height: 32px; overflow: hidden;
+	    a { font-size: 13px; color: black; line-height: 16px; }
+
+	}	
+
+	.info { display: none; }	    
+	.optimal-level { position: absolute; bottom: 10px; left: 10px; font-size: 20px; font-weight: bold; text-align: center; width: 22px}
+
+	&.isotope-item.mark { outline: #444 solid 3px; }
+	&.school a{ font-size: 10px; height: 48px; }
+    }
+
+    &.mini {  	
+	width: 565px; //17 blocks
+	.isotope-item {			
+	    height: 29px !important; 
+	    width: 29px !important;
+	    margin: 2px !important;	
+
+	    .topo { display:none; }	
+	    .optimal-level { bottom: 2px !important; left: 2px !important; font-size: 12px !important;}
+	}
+
+	.isotope-item.large {			
+	    height: 106px !important; 
+	    width: 106px !important;		
+
+	    .topo { display: block;}			    
+	    .optimal-level { bottom: 10px !important; left: 10px !important; font-size: 24px !important;}
+	}
+
+	.isotope-item.mark { outline: #444 solid 3px; }
+    }
+
+    &.foto {	
+	@size: 10px;
+	@margin: 1px;
+	@num_square: 15;
+	width: (@size + (@margin *2 ) ) * @num_square;
+	.isotope-item {			
+	    height: @size !important; 
+	    width: @size !important;
+	    margin: @margin !important;		
+	    .border-radius(0px);
+
+	    .topo { display:none;}		    
+	    .optimal-level { display:none }
+	}
+
+	.isotope-item.large {			
+	    height: @size * 3 + @margin * 4 - 2 !important; 
+	    width: @size * 3 + @margin * 4 - 2 !important;		
+	    border: 1px solid #444;
+	    .topo { display: none;}			    
+	    .optimal-level { display:none; }
+	}
+	
+	.isotope-item.mark {			
+	    height: 6px !important; 
+	    width: 6px !important;		
+	    border: 2px solid #6854A9;
+
+	}
+
+    }
+}
+
+
+
+#mural-students {         
+
+    float: right;
+    width: 570px;       
+    margin-top: 5px;
+    background: url('../../img/padrao_meritt_cinza.png');
+    border: 1px solid #ddd;
+
+    .isotope-item {	
+	cursor: default;
+	height: 20px;
+	width: 20px;
+	margin: 2px;	
+	.border-radius(15px);
+	color: black;
+	
+	&.team {background-color: #eee; height: 52px; width: 52px; .border-radius(5px);}	
+	&.quali-0 {background-color: @color-quali-0; }	
+	&.quali-1 {background-color: @color-quali-1; }	
+	&.quali-2  {background-color: @color-quali-2; }
+	&.quali-3 {background-color: @color-quali-3;}	
+
+	&.level-0 {background-color: @color-level-0; }
+	&.level-1 {background-color: @color-level-1; }
+	&.level-2 {background-color: @color-level-2;  }
+	&.level-3 {background-color: @color-level-3; }
+	&.level-4 {background-color: @color-level-4;}
+	&.level-5 {background-color: @color-level-5; }
+	&.level-6 {background-color: @color-level-6;}		
+	&.level-7 {background: @color-level-7 url('../../img/mural/tarja_dourada.gif') repeat-x top left; }
+			    
+	.quanti-level { display: none; position: absolute; bottom: 7px; left: 5px; width: 20px; text-align: center; font-size: 14px; font-weight: bold; color: black;}	
+	.title { position: absolute; top: 7px; left: 3px; width: 44px; text-align: center; font-size: 10px; line-height: 12px; font-weight: bold;}	
+	.percent { position: absolute; bottom: 3px; left: 3px; width: 44px; text-align: center; font-size: 14px; font-weight: bold;}
+    }
+
+    
+}
+
+#block_scale {
+    @size-item: 24px;
+    height: 400px;
+    float: left;
+    width: 376px;     
+    ul { width: 200px; .transition }
+    ul li { .transition; background-color: #f2f2f2; font-size: 12px; text-align: center; position: relative; margin-bottom: 1px; font-weight: bold; 
+	&.quali-0 {background-color: @color-quali-0; li { background-color: @color-quali-0; } }	
+	&.quali-1 {background-color: @color-quali-1; li { background-color: @color-quali-1; } }	
+	&.quali-2  {background-color: @color-quali-2; li { background-color: @color-quali-2; } }
+	&.quali-3 {background-color: @color-quali-3; li { background-color: @color-quali-3; } }
+
+	&.size-2 {height: 2 * @size-item; line-height: 2 * @size-item;}
+	&.size-3 {height: 3 * @size-item + 1; line-height: 3 * @size-item;}
+	&.size-4 {height: 4 * @size-item + 2; line-height: 4 * @size-item;}
+	&.size-5 {height: 5 * @size-item + 3; line-height: 5 * @size-item;}
+    }
+    
+    ul li a {display: block; color: black;
+	&:hover { color: white; font-size: 16px; text-decoration: none;} 	
+    }
+    ul li ul { position: absolute; top: 0; left: 201px; border: 0; margin-top: 0; }
+    ul li ul li { width: 180px;  height: @size-item; line-height: @size-item; margin-bottom: 1px;
+	&.last {height: @size-item - 1; margin-top: 0;}
+    }       
+
+
+}
+
+#mural-selecionadas {
+    float: left;
+    width: 368px;    
+    margin-top: 5px;
+    background: url('../../img/padrao_meritt_cinza.png');
+    border: 1px solid #ddd;
+}
+
+.complete-item {
+    float: left;
+    width: 99px;
+    height: 111px;
+    margin-right: 5px;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 5px;	
+    .border-radius(5px);
+    padding: 6px;
+    background-color: #eee;
+    font-weight: bold;
+    position: relative;
+    .img_close { position: absolute; right: 2px; top: 2px; width: 12px; height: 12px; background: transparent url('../../img/close.gif') no-repeat top right; cursor: pointer;}
+    .block-complete_name { font-weight: bold; height: 32px; overflow: hidden; padding-right:4px; }
+    
+    .block-complete_name_school { font-weight: bold; height: 38px; line-height: 13px; overflow: hidden; padding-right:4px; font-size: 11px;  }
+    .view-bairro {font-size: 11px; height: 14px; overflow: hidden;}
+
+    .view-essential-level { position: absolute; right: 5px; bottom: 5px; font-size: 14px; }
+    
+    a{ color: #444; }
+
+    &.level-0 {background-color: @color-level-0; .view-essential-level{ display: none; }}
+    &.level-1 {background-color: @color-level-1; div, a { color: #ccc; } }
+    &.level-2 {background-color: @color-level-2;  }
+    &.level-3 {background-color: @color-level-3; }
+    &.level-4 {background-color: @color-level-4;}
+    &.level-5 {background-color: @color-level-5; }
+    &.level-6 {background-color: @color-level-6; div, a { color: #ccc; } }		
+    &.level-7 {background: @color-level-7 url('../../img/mural/tarja_dourada.gif') repeat-x top left; div, a { color: #ccc; }}
+
+    &.mark {	
+	//border: 4px solid #444;
+	//padding: 2px;
+
+	outline: #444 solid 4px;
+	
+    }
+
+    -webkit-transition-duration: 1.2s;
+     -moz-transition-duration: 1.2s;
+       -o-transition-duration: 1.2s;
+          transition-duration: 1.2s;
+
+    -webkit-transition-property: background-color;
+     -moz-transition-property:    background-color;
+       -o-transition-property:         bakground-color;
+          transition-property:      background-color;
+}
+
+#view-item {
+    #view-essential-level {display: none;}
+    .img_close {display: none;}
+} 

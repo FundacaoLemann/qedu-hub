@@ -1,0 +1,320 @@
+.qedu-user-following-icon{
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+
+.qedu-user-profile-menu-ct, .qedu-user-following-ct {
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 45px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    top: -8px;
+
+    li {
+        list-style: none;
+    }
+
+    .dropdown-toggle {
+        display: block;
+        width: 52px;
+
+        &:hover .qedu-user-avatar {
+            border-color: #36923f;
+        }
+
+        &:hover .caret {
+            border-top-color: #999;
+        }
+    }
+
+    .caret {
+        .transition(border-color 0.5s ease);
+
+        border-left: 4px solid rgba(0, 0, 0, 0);
+        border-right: 4px solid rgba(0, 0, 0, 0);
+        border-top: 4px solid #cacaca;
+        content: "";
+        height: 22px;
+        margin-top: 0;
+        position: absolute;
+        right: -11px;
+        top: 19px;
+        vertical-align: top;
+        width: 0;
+    }
+}
+
+/*
+    FOLLOW MENU
+*/
+.qedu-user-following-ct {
+    border: 1px solid #d3d3d3;
+    margin-right: 20px;
+    height: 45px;
+
+    &:hover {
+        border-color: #36923f;
+    }
+}
+
+.not-following-img.qedu-user-following {
+    background: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/header/follow.png") no-repeat center 110px #fff;
+  width: 620px;
+  left: -500px !important;
+  .follow-title{
+    border-bottom: none;
+    padding: 25px 0 0 25px;
+  }
+}
+
+.qedu-user-following {
+    border-color: #d3d3d3;
+    border-radius: 0;
+    box-shadow: 0 1px 2px #ccc;
+    left: -670px !important;
+    padding: 0;
+    top: 63px;
+    width: 790px;
+
+    .arrow {
+        background: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/header/drop-triangle.png") no-repeat;
+        height: 12px;
+        position: absolute;
+        right: 88px;
+        top: -12px;
+        width: 23px;
+    }
+
+    .follow-title {
+        border-bottom: 1px solid #ededed;
+        color: #474747;
+        font: 400 17px @font-family;
+        margin: 0;
+        padding: 15px 0 15px 15px;
+    }
+
+    .nofollow-content {
+        display: none;
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    p {
+        color: #666;
+        font: 100 15px/20px @font-family;
+        line-height:20px;
+        margin-bottom: 0;
+        margin-left: 25px;
+        text-align: left;
+    }
+
+    .link-modal{
+      margin: 195px 0 15px 0;
+      display: block;
+      width: 100%;
+      border-top: 1px solid #dfdfdf;
+      text-align: left;
+      padding-top: 14px;
+    }
+
+    .btn-qedu {
+        .transition(all .5s ease);
+
+        background: #36923f;
+        border: 1px solid #21855a;
+        color: #fff;
+        display: inline-block;
+        font: 600 16px @font-family;
+        margin: 195px auto 25px auto;
+        padding: 10px 45px;
+
+        &:hover {
+            background: #7bc04b;
+            text-decoration: none;
+        }
+    }
+
+    .scrollbar {
+        display: none;
+        float: left;
+        max-height: 270px;
+        margin: 0;
+        overflow: auto;
+        padding-left: 0;
+        width: 320px;
+    }
+
+    .child {
+        color: #666;
+        display: block;
+        font: 400 13px @font-family;
+        height: 34px;
+        line-height: 34px;
+        overflow:hidden;
+        padding: 0 0 0 13px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:hover,
+        &:focus,
+        &.active {
+            color: #36923f;
+            text-decoration: none;
+        }
+    }
+
+    li:last-child a {
+        border-bottom: none;
+    }
+
+    .info-follow {
+        border-left: 1px solid #ededed;
+        display: none;
+        float: left;
+        height: 270px;
+        overflow: hidden;
+        padding: 20px 20px 10px;
+        width: 465px;
+    }
+
+    .img-follow {
+        display: block;
+        float: left;
+        height: 60px;
+        margin: 0 20px 20px 0;
+        overflow: hidden;
+        padding: 0;
+        width: 60px;
+      border-radius: 50%;
+
+        img {
+            max-width: none;
+          position: relative;
+          left: -2px;
+        }
+    }
+
+    .ct-follow {
+        float: left;
+    }
+
+    .crumb-follow {
+        padding: 0;
+        margin-left: 0;
+    }
+
+    .crumbs {
+        color: #999;
+        float: left;
+        font: 400 12px @font-family;
+
+        a {
+            color: #999;
+            padding-left: 3px;
+            padding-right: 0;
+
+            &:hover {
+                color: #36923f;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .crumbs.true {
+        max-width: 125px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .crumbs:nth-child(1) > a {
+        padding-left: 0;
+    }
+
+    .label-follow {
+        clear: both;
+        font: 400 17px @font-family;
+        margin: 0;
+        padding-top: 3px;
+
+        a {
+            color: #36923f;
+            display: block;
+            overflow: hidden;
+            padding-left: 0;
+            text-overflow: ellipsis;
+            width: 300px;
+            white-space: nowrap;
+        }
+    }
+
+    .activity-follow {
+        color: #999;
+        display: block;
+        font: 300 13px @font-family;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 300px;
+        white-space: nowrap;
+        margin-left: 0;
+    }
+
+    .ct-links {
+        clear: both;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .links-follow {
+        float: left;
+        font: 400 12px @font-family;
+        margin-left: 0;
+        margin-right: 23px;
+        padding: 0;
+
+        strong {
+            font-size: 14px;
+        }
+
+        a {
+            color: #333;
+            line-height: 22px;
+            padding: 0;
+        }
+    }
+
+    .updated {
+        .border-radius(5px);
+
+        background: #ffb14b;
+        color: #FFF;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        vertical-align: baseline;
+    }
+
+    .last {
+        margin-right: 0;
+    }
+
+    .unfollow {
+        clear: both;
+        color: #36923f;
+        display: block;
+        font: 11px @font-family;
+        padding: 15px 0 0;
+        width: 175px;
+    }
+
+    .loader {
+        background: url(/js/jquery.loadmask/images/loading.gif) no-repeat bottom right;
+    }
+}

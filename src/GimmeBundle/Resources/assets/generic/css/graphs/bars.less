@@ -1,0 +1,70 @@
+.block-graph-bars {
+
+  .table {
+    tbody tr:hover td,
+    tbody tr:hover th {
+      background-color: transparent;
+    }
+  }
+
+  table {
+    td {
+      border: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+    }
+    tr {border: 0;}
+
+    td.block-graph-label { display: block; width: 140px; font-size: 12px; text-align: left;}
+    td.block-graph-num {   font-size: 16px;}
+    td.block-graph-more { font-size: 11px; text-align: right;}
+    td.block-graph-bar {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      width: 60%;
+      position: relative;        
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+
+      div {
+        position: relative;
+        background-color: #888;
+        height: 24px;
+        .transition(all 1s ease-out);
+        left: 0;
+      }
+    }
+
+    tr.graph-bar-blue td.block-graph-bar div{
+      background-color: #3AA6D0;      
+    }
+
+    tr.graph-bar-red td.block-graph-bar div{
+      background-color: #FF4940;      
+    }
+
+
+    tr.min-max-info {
+
+      td{
+        border-left: 0;
+        border-right: 0;
+        overflow: visible;
+        padding-top: 2px;
+      }
+      td.block-graph-bar span, td.block-graph-num span {       
+        font-weight: bold;
+        font-size: 12px; 
+        color: #666; 
+        display: block; 
+        margin-left: -20px;
+      }
+    }
+
+  }
+
+}

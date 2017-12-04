@@ -1,0 +1,344 @@
+@import 'public/css/Meritt/QEdu/UI/Variables';
+@import 'public/css/Meritt/QEdu/UI/Mixins';
+
+.follow-button {
+    display: none;
+    .transition(background 0.7s ease);
+
+    color: #000;
+
+
+    font-family: @font-family;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.not-following {
+    display: inline;
+   
+    .follow-button-icon-left {
+        .icon {
+            background-position: left top;
+        }
+    }
+
+    .follow-button-label-center {
+        padding-right: 5px;
+        color: #565656;
+    }
+
+    .follow-button-icon-right {
+        display: none;
+    }
+
+    &:hover {
+        background: #008e50;
+    }
+}
+
+.following {
+    background: #fff;
+    border-color: #d3d3d3;
+
+    .follow-button-icon-left {
+        .icon {
+            background-position: -22px top;
+        }
+    }
+
+    .follow-button-label-center {
+        color: #000;
+    }
+
+    .follow-button-icon-right {
+        .icon {
+            background-position: -44px top;
+        }
+    }
+
+    &:hover {
+        .follow-button-label-center {
+            color: #00b164;
+        }
+    }
+
+    &.set-follow-profile-open {
+        .follow-button-icon-right .icon {
+            background-position: -44px -7px;
+        }
+    }
+}
+
+.follow-button-icon-left {
+    float: left;
+    margin: 5px;
+    text-align: right;
+    width: 22px;
+
+    .icon {
+        background: url(http://d2jaknbl34vcit.cloudfront.net/img/qedu/follow/qedu-icons.png) no-repeat;
+        display: inline-block;
+        height: 22px;
+        width: 22px;
+    }
+}
+
+.follow-button-label-center {
+    float: left;
+    font-weight: bold;
+    text-align: center;
+}
+
+.follow-button-icon-right {
+    display: inline-block;
+    float: right;
+    margin: 0 5px;
+    width: 11px;
+
+    .icon {
+        background: url(http://d2jaknbl34vcit.cloudfront.net/img/qedu/follow/qedu-icons.png) no-repeat;
+        display: inline-block;
+        height: 7px;
+        width: 11px;
+    }
+}
+
+.follow-loading .icon {
+    background: url(/js/jquery.loadmask/images/loading.gif) no-repeat;
+}
+
+/*
+    Set follow type
+*/
+.set-follow-profile {
+    border: 1px solid #cacaca;
+    box-shadow: 0 1px 2px #ccc;
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 54px;
+    width: 296px;
+    z-index: 5;
+
+  &:after, &:before {
+    bottom: 100%;
+    left: 20px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+  &:before {
+    border-color: rgba(216, 216, 216, 0);
+    border-bottom-color: #d8d8d8;
+    border-width: 11px;
+    margin-left: -11px;
+  }
+
+    .arrow-profile {
+      display: none;
+    }
+
+    ul, li {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    a {
+        background: #fff;
+        display: block;
+        font: 12px @font-family;
+        padding: 7px 0 7px 12px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .opt {
+        margin: 0;
+    }
+
+    .pooler, .pooler:hover {
+        color: #636570;
+        padding: 13px 10px;
+    }
+
+    a {
+        color: #362f44;
+        padding-left: 32px;
+        position: relative;
+
+        &:hover {
+            color: #32682c;
+        }
+    }
+
+    .glyphicon-ok {
+        color: #fff;
+        left: 13px;
+        position: absolute;
+        top: 14px;
+    }
+
+    .selected {
+        background: #32682c;
+        color: #fff;
+    }
+
+    .active {
+        background: #32682c;
+        color: #fff !important;
+    }
+
+    .other-options {
+        border-top: 1px solid #ccc;
+    }
+
+    .icon, .icon-ok {
+        position: absolute;
+        left: 8px;
+        top: 25%;
+    }
+
+    .icon {
+        display: block;
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/*
+    Follow Information
+*/
+.follow-information {
+    background: #fff;
+    border: 1px solid #cacaca;
+    box-shadow: 0 1px 2px #ccc;
+    display: none;
+    margin: 0;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 560px;
+    z-index: 5;
+    line-height: 16px;
+    font-size: 12px;
+      &:before, &:after{
+        bottom: 100%;
+        left: 33px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      &:before{
+        border-color: rgba(216,216,216,0);
+        border-bottom-color: #d8d8d8;
+        border-width: 11px;
+        margin-left: -11px;
+      }
+    &:after{
+      border-color: rgba(255,255,255,0);
+      border-bottom-color: #fff;
+      border-width: 10px;
+      margin-left: -10px;
+    }
+
+  .access{
+    float: right;
+    line-height: inherit;
+  }
+
+
+    h3 {
+        color: #000;
+        font: bold 17px @font-family;
+        margin: 0;
+    }
+
+    h4 {
+        color: #36923f;
+        font: bold 14px @font-family;
+        margin-top: 5px;
+    }
+
+    span{
+      display: block;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      background: green;
+      border-radius: 50%;
+      line-height: 30px;
+      color: #FFF;
+      margin-bottom: 10px;
+    }
+  li{
+    height: 148px;
+  }
+
+  strong{
+    clear: both;
+    display: block;
+  }
+
+    .follow-text {
+        color: #888;
+        margin: 10px 0;
+        font: 12px/17px @font-family;
+    }
+
+    ul {
+        border-bottom: 1px solid #eee;
+        margin: 20px 0;
+        overflow: auto;
+        padding-bottom: 5px;
+    }
+
+    .follow-steps {
+        float: left;
+        list-style: none;
+        margin-right: 17px;
+        width: 125px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .step-label {
+        display: block;
+        font-size: 11px;
+        line-height: 15px;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+.school-nse-block {
+  width: 100%;
+  float: left;
+  margin-top: -45px;
+
+  h3 {
+    font-size: 22px;
+    width: 100%;
+
+    padding-bottom: 10px;
+  }
+
+  .block-number-nse {
+    float: left;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+
+    .nse_highlight {
+      display: block;
+      width: 180px;
+      float: left;
+      text-align: center;
+
+      &.nse_empty {
+        strong {
+          font-size: 16px;
+          background-color: #666;
+        }
+      }
+      strong {
+        font-size: 16px;
+        display: block;
+        width: 160px;
+        height: 36px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 7px;
+        background-color: @pbGreen;
+        line-height: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px #888;
+        color: white;
+        .border-radius(10px);
+      }
+
+      em {
+        display: block;
+        width: 24px;
+        margin-left: 80px;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: bold;
+        font-style: normal;
+        text-shadow: 1px 1px #ddd;
+        padding: 5px;
+        margin-top: -5px;
+
+        color: @pbGreen;
+        .border-radius(24px);
+      }
+    }
+
+    .dropdown_other_schools {
+      position: relative;
+      margin-top: 15px;
+      float: left;
+      clear: both;
+
+      .info {
+        color: darkorange;
+        &:hover { text-decoration: underline; }
+      }
+    }
+
+    p {
+      font-size: 11px;
+      disploy: block;
+      float: right;
+      margin-left: 5px;
+      height: auto;
+      padding-left: 5px;
+      color: #666;
+      width: 255px;
+      text-align: justify;
+    }
+
+    .help-more-links {
+      float: right;
+      margin-top: 20px;
+    }
+  }
+
+  small.source {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    float: right;
+  }
+}
