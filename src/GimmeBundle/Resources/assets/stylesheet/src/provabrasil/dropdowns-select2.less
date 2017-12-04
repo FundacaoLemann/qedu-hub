@@ -1,0 +1,81 @@
+@import "../../../generic/css/bootstrap/variables.less";
+@import "../../../generic/css/bootstrap/mixins.less";
+@import '../../../generic/css/provabrasil/variables.less';
+
+// Right aligned dropdowns for all parents (bootstrap changed this in 2.0.4 so we are putting it back)
+.pull-right-select2 ul {
+  right: 0;
+  left: auto;
+}
+
+.small-select2 {
+  .select2-result-label {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  > li {
+    font-size: @baseFontSize - 1;
+    color: #666;
+    line-height: @baseLineHeight - 2;
+  }
+}
+
+.select2-breadcrumb-box.dropdown-unlimited-height .select2-choices{
+  max-height: none;
+}
+
+.select2-breadcrumb-box.dropdown-limited-height .select2-choices{
+  max-height: 450px;
+  overflow-y: ellipsis;
+}
+
+.select2-breadcrumb-box.dropdown-auto-height .select2-results{
+  overflow-y: auto;
+}
+
+
+.select2-breadcrumb-box .select2-results .divider {
+  .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+  height: 2px;
+}
+
+.dropdown-empty-initial-value .select2-choice{
+  width: 14px;
+}
+
+
+.select2-breadcrumb-box.select2-drop-active{
+  border:none;
+  margin-top: 6px;
+  &:after, &:before {
+    bottom: 100%;
+    left: 127px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+  &:before {
+    border-color: rgba(216, 216, 216, 0);
+    border-bottom-color: #d8d8d8;
+    border-width: 11px;
+    margin-left: -11px;
+  }
+}
+.select2-container-active .select2-choice{
+  border-color: #AAA;
+}
+.select2-no-scroll {
+  height: 100%;
+  overflow-y: hidden;
+}

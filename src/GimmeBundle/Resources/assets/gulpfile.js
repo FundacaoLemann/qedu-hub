@@ -73,4 +73,15 @@ gulp.task('landingideb.css', function() {
     .pipe(gulp.dest('./stylesheet/dist/'));
 });
 
-gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css']);
+gulp.task('dropdown-select2.css', function() {
+    return gulp.src([
+        './stylesheet/src/select2/select2.css',
+        './stylesheet/src/select2/select2-bootstrap.css',
+        './stylesheet/src/provabrasil/dropdowns-select2.less'
+    ])
+    .pipe(exec(cssCmdVersionOne, execOptions))
+    .pipe(concat('dropdown-select2.css', noBreakLineOption))
+    .pipe(gulp.dest('./stylesheet/dist/'))
+});
+
+gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css']);

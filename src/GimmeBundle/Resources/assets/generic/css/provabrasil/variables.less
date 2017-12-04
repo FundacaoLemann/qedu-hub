@@ -1,0 +1,154 @@
+/**
+ * Application variables.
+ */
+
+// New colors from designers are here:
+@titlesColor: #36923f; // Usado nos títulos
+@linksColor:  #36923f; // Usado nos links
+@infoColor:  #36923f;  // Usado em tudo que é informação complementar
+@textColor:  #666; // Usado em subtitulos, textos, etc.
+@textComplementColor:  #999; // Usado em textos mais lights
+
+@topNavBackgroundStart:  #7cab32;
+@topNavBackgroundFinish: #649319;
+@topNavLinkColor: #3d5715;
+@topNavSmallLinkColor: #fcff00;
+
+@grayPatternColor: #f4f3f3;
+@infoBackgroundColor: #f4f3f3;
+@infoTextColor: #666;
+@infoLinkColor: @infoColor;
+
+@footerColor: @infoColor;
+
+@footerExtraColor: #fff;
+@footerExtraBackgroundStart:  #fb8f02;
+@footerExtraBackgroundFinish: #ca7302;
+
+@btnPrimaryBackground:              #789f34;
+@btnPrimaryBackgroundHighlight:     #789f34;
+
+@btnHeroBackground:              #fb8e00;
+@btnHeroBackgroundHighlight:     #c26f02;
+
+// Old colors
+
+@pbGreen:       @linksColor;
+@pbGreenHover:  darken(@pbGreen, 10%);
+@pbGreenLight:  lighten(@pbGreen, 5%); // #00C267
+@pbGreenSuperLight:  lighten(@pbGreen, 15%);
+@pbGreenTransparent: #EAF7F1; //#ccf3e1; // @pbGreenLight + alpha 80%
+@pbGreenHoverOnBlack: #36923f;
+
+// Geral border radius
+@borderRadius: 2px;
+@borderRadiusInputs: 3px;
+
+// General transition delay
+@responsiveTransitionDelay: 0.4s;
+
+// Proficiency variables are on css/provabrasil/proficiency/colors.less
+// decile is the 1/10 part of something: @see http://en.wikipedia.org/wiki/decile
+// centile is the 1/100 part of something: @see http://en.wikipedia.org/wiki/percentile
+// if update here gotta update at: js/provabrasil/views/view-map.coffee
+@optimaldecileeLevelNoData-Background:   #f0f0f0; // NULL
+@optimaldecileeLevel0-Background:   #FF0000; // 0% - 9%
+@optimaldecileeLevel1-Background:   #FF6600; // 10% - 89%
+@optimaldecileeLevel2-Background:   #FC9700; // 20% - 29%
+@optimaldecileeLevel3-Background:   #fcc115; // 30% - 39%
+@optimaldecileeLevel4-Background:   #fde51f; // 40% - 49%
+@optimaldecileeLevel5-Background:   #f6fd2c; // 50% - 59%
+@optimaldecileeLevel6-Background:   #c9de26; // 60% - 69%
+@optimaldecileeLevel7-Background:   #87CC1D; // 70% - 79%
+@optimaldecileeLevel8-Background:   #63B916; // 80% - 89%
+@optimaldecileeLevel9-Background:   #3EA50F; // 90% - 100%
+@optimaldecileeLevel10-Background:  #3EA50F; // 100% ??
+
+@qualitativeLevelNoData-Background: #fff; // NULL
+@qualitativeLevel0-Background: #555555; // insuficiente
+@qualitativeLevel1-Background: #777777; // básico
+@qualitativeLevel2-Background: #999999; // proficiente
+@qualitativeLevel3-Background: #bbbbbb; // avançado
+
+@qualitativeLevel0-Color:   #fff;
+@qualitativeLevel1-Color:   #fff;
+@qualitativeLevel2-Color:   #fff;
+@qualitativeLevel3-Color:   #fff;
+
+// Twitter glow effect when focus inputs
+@glowColor: @btnPrimaryBackground;
+
+// This gotta be smaller then dropdowns and tooltips popup
+@zindexFixed: 500;
+
+// --------------------------------------------------
+/**
+ * Bootstrap overwrite variables.
+ */
+
+// Links
+@linkColor:             @pbGreen;
+@linkColorHover:        @pbGreenHover;
+
+// Typography
+@baseFontSize:          13px;
+@baseFontFamily:        'Open Sans', arial, sans-serif;
+@baseLineHeight:        18px;
+@textColor:             #333333;
+
+// Sprites
+@iconSpritePath:          "http://d2jaknbl34vcit.cloudfront.net/img/bootstrap/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "http://d2jaknbl34vcit.cloudfront.net/img/bootstrap/glyphicons-halflings-white.png";
+
+// Z-index
+@zindexTooltip:           1060;
+
+// Navbar
+@navbarHeight:                    50px;
+@navbarBackground:                @topNavBackgroundStart;
+@navbarBackgroundHighlight:       @topNavBackgroundFinish;
+
+@navbarText:                      #999;
+@navbarLinkColor:                 #eee;
+@navbarLinkColorHover:            #fff;
+@navbarLinkColorActive:           #fff; //@pbGreenHover;
+@navbarLinkBackgroundHover:       #7bc04b;
+@navbarLinkBackgroundActive:      #7bc04b;
+
+@navbarSearchBackground:          lighten(@navbarBackground, 25%);
+@navbarSearchBackgroundFocus:     @white;
+@navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
+@navbarSearchPlaceholderColor:    #ccc;
+
+// Forms
+@inputBorderRadius:               @borderRadiusInputs;
+
+// Input placeholder text color
+@placeholderText:                 #666;
+
+// Buttons
+@btnInfoBackground:                 #fcf8e3;
+@btnInfoBackgroundHighlight:        darken(spin(@btnInfoBackground, -10), 3%);
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @white;
+@dropdownBorder:                #ccc;
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkBackgroundHover:   @pbGreenLight;
+
+@btnPrimaryBackground:              @pbGreenLight;
+@btnPrimaryBackgroundHighlight:     @pbGreen;
+
+// Alerts
+@infoText:                #666;
+@infoBackground:          #f5f5f5;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// GRID
+//@gridColumns:             24;
+//@gridColumnWidth:         30px;
+//@gridGutterWidth:         10px;
+//@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
