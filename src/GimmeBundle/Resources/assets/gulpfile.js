@@ -12,7 +12,8 @@ var jsCmdVersionOne  = uglifyjsBinary + ' <%= file.path %> --define __DEV__=1 --
     jsCompileCoffee  = coffeeBinary   + ' --print --stdio < <%= file.path %>',
     jsUglifyQuotes   = uglifyjsBinary + ' <%= file.path %> --beautify beautify=false,quote_keys=true --no-copyright',
     cssCmdVersionOne = lessBinary     + ' <%= file.path %> --compress',
-    cssCmdVersionTwo = lessBinary     + ' <%= file.path %> --compress' + ' | ' + uglifycssBinary;
+    cssCmdVersionTwo = lessBinary     + ' <%= file.path %> --compress' + ' | ' + uglifycssBinary,
+    cssCmdInputPath  = lessBinary     + ' -x --include-path=generic/:stylesheet/src/ <%= file.path %> ';
 
 var execOptions       = {pipeStdout: true},
     noBreakLineOption = {newLine:''};
@@ -87,7 +88,6 @@ gulp.task('dropdown-select2.css', function() {
     .pipe(gulp.dest('./stylesheet/dist/'))
 });
 
-<<<<<<< HEAD
 gulp.task('provabrasil.js', function() {
     return gulp.src([
         './javascript/src/ProvaBrasil/Util/statemenu.coffee',
@@ -119,9 +119,7 @@ gulp.task('provabrasil.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
-
-
-gulp.task('concat-provabrasil.css', function() {
+gulp.task('provabrasil-concat.css', function() {
     return gulp.src([
         './generic/css/bootstrap/reset.less',
         './generic/css/bootstrap/variables.less',
@@ -280,21 +278,9 @@ gulp.task('concat-provabrasil.css', function() {
         './stylesheet/src/Meritt/QEdu/UI/Modal/InnerModal.less',
         './stylesheet/src/Meritt/QEdu/UI/Follow/InnerFollowCampaignModal.less'
     ])
-        .pipe(exec('cat <%= file.path %>'))
-        .pipe(concat('concatprovabrasilteste.css'))
+        .pipe(concat('pb-concat.css'))
         .pipe(gulp.dest('./stylesheet/dist/'))
+        .pipe(exec(lessBinary + ' -x --include-path=generic/:stylesheet/src/ <%= file.path %> > ./stylesheet/dist/provabrasil.css', {maxBuffer: 1024 * 5000000}))
 });
 
-gulp.task('process-less-provabrasil.css', function() {
-    return gulp.src('./stylesheet/dist/concat-provabrasil.css')
-        .pipe(exec(lessBinary + ' -compress -include-path=./generic/css/ < - <%= file.path %>'))
-});
-
-gulp.task('process-provabrasil.css', ['concat-provabrasil.css'], function() {
-    return gulp.src(['./stylesheet/dist/concat-provabrasil.css'])
-        .pipe(exec(cssCmdVersionOne, execOptions))
-        .pipe(concat('provabrasil.css', noBreakLineOption))
-        .pipe(gulp.dest('./stylesheet/dist/'))
-});
-
-gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css', 'provabrasil.js', 'concat-provabrasil.css']);
+gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css', 'provabrasil.js', 'provabrasil.css']);
