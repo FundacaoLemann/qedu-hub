@@ -4,10 +4,13 @@ var gulp   = require('gulp'),
 
 var uglifyjsBinary  = './node_modules/.bin/uglifyjs',
     uglifycssBinary = './node_modules/.bin/uglifycss',
-    lessBinary      = './node_modules/.bin/lessc';
+    lessBinary      = './node_modules/.bin/lessc',
+    coffeeBinary    = './node_modules/.bin/coffee';
 
 var jsCmdVersionOne  = uglifyjsBinary + ' <%= file.path %> --define __DEV__=1 --beautify quote_keys=true',
     jsCmdVersionTwo  = uglifyjsBinary + ' <%= file.path %>',
+    jsCompileCoffee  = coffeeBinary   + ' --print --stdio < <%= file.path %>',
+    jsUglifyQuotes   = uglifyjsBinary + ' <%= file.path %> --beautify beautify=false,quote_keys=true --no-copyright',
     cssCmdVersionOne = lessBinary     + ' <%= file.path %> --compress',
     cssCmdVersionTwo = lessBinary     + ' <%= file.path %> --compress' + ' | ' + uglifycssBinary;
 
@@ -84,4 +87,35 @@ gulp.task('dropdown-select2.css', function() {
     .pipe(gulp.dest('./stylesheet/dist/'))
 });
 
-gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css']);
+gulp.task('provabrasil.js', function() {
+    return gulp.src([
+        './javascript/src/ProvaBrasil/Util/statemenu.coffee',
+        './javascript/src/ProvaBrasil/Util/fixedLayout.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-fixed-layout.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-i18n.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-dropdown.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-tooltip.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-popover.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-smoothscroll.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-append-hash-to-url.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-highlight-by-hash.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-label_behind.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-chart.coffee',
+        './javascript/src/ProvaBrasil/Util/behavior-full-height.coffee',
+        './javascript/src/ProvaBrasil/Header/behavior-header.coffee',
+        './javascript/src/ProvaBrasil/Footer/behavior-footer.coffee',
+        './javascript/src/ProvaBrasil/Util/RotateBanner/behavior.coffee',
+        './javascript/src/ProvaBrasil/Search/Global/model-globalsearch.coffee',
+        './javascript/src/ProvaBrasil/Search/Global/view-globalsearch.coffee',
+        './javascript/src/ProvaBrasil/Search/Global/behavior-globalsearch.coffee',
+        './javascript/src/ProvaBrasil/Easteregg/harlemshake.coffee',
+    ])
+    .pipe(concat('provabrasil.js'))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsCompileCoffee, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
+gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css', 'provabrasil.js']);
