@@ -1,0 +1,159 @@
+@import 'css/provabrasil/variables.less';
+@import 'css/provabrasil/mixins.less';
+
+.help-article .help-content {
+
+  h2 {
+    color: black;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+    margin-top: 40px;
+  }
+
+  h3 {
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    line-height: 1.7em;
+  }
+
+  ul {
+    margin-top: 16px;
+    list-style: square;
+    margin-left: 22px;
+    padding: 8px;
+    border-left: 8px solid #eee;
+    margin-bottom: 20px;
+
+    li {
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+
+  }
+
+  img {
+    border: 10px solid #eee;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 540px;
+  }
+
+}
+
+.help-topic .help-content {
+
+  h1.page_header{
+    color: #444;
+    text-shadow: 1px 1px #ccc;
+  }
+
+  h2 {
+    margin-bottom: 5px;
+    padding-bototm: 0;
+    margin-top: 40px;
+  }
+
+  p {
+    font-size: 12px;
+    color: #444;
+    margin-top: 0px;
+
+  }
+}
+
+.help-nav-topics {
+  li a {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 32px;
+  }
+}
+
+.nav-articles {
+
+  li {
+    line-height: 1.4em;
+    margin-bottom: 10px;
+
+    &.nav-header a {
+      font-size: 14px;
+      padding-left: 0;
+    }
+
+    a {
+      font-weight: normal;
+    }
+
+    &.active a, a, &.active a:hover{
+      text-shadow: none;
+    }
+
+    &.active a, &.active a:hover, a:hover {
+      color: @pbGreen;
+      background-color: transparent;
+    }
+
+  }
+}
+
+.help-content {
+  color: #444;
+  font-size: 13px;
+
+  .help-content-inner {
+    margin-right: 40px;
+  }
+
+  p, div, li {
+    color: #444;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  h1 + p, h1 + div {
+    color: #444;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  h2 + p, h2 + div {
+    color: #444;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  ul {
+    margin-top: 12px;
+    list-style: square;
+  }
+
+  li {
+    margin-left: 30px;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+
+  hr {
+    margin: 20px 0;
+  }
+
+  .well + p, .well + h2, .well + h3, .well + h4, .well + h5, .well + .well, p + .well, ul + hr, ul + h2, p + h2 {
+    margin-top: 20px;
+  }
+}

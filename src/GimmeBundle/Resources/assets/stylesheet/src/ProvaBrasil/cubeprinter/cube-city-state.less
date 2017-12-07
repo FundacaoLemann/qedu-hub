@@ -1,0 +1,302 @@
+.cube-city-printer-page-container.cube-city-printer-size-large {
+    @cubeSize: 8.6cm;
+    width: (@cubeSize * 2);
+    font-family: "Open Sans";
+
+    .cube-inner {
+        width: @cubeSize;
+        height: @cubeSize;
+    }
+
+    .cube-printer-page-left {
+        width: @cubeSize;
+    }
+
+    .cube-printer-page-right {
+        width: @cubeSize;
+    }
+
+    .merittlemann-logos {
+        margin: 22% 17%;
+        padding: 0 10%;
+        clear:both;
+        width: 100%;
+        .meritt-logo {
+            padding-top: 0.3cm;
+            float: left;
+            width: 89px;
+        }
+        .lemann-logo {
+            margin-left: 5%;
+            float: left;
+            width: 46px;
+        }
+    }
+
+    .cube-printer-cube {
+        width: @cubeSize;
+        height: @cubeSize;
+
+        .title {
+            @cubeFontSize: @cubeSize / 11;
+            font-size: @cubeFontSize;
+        }
+
+        .value {
+            @cubeFontSize: @cubeSize / 3;
+            font-size: @cubeFontSize;
+            line-height: @cubeFontSize;
+
+            &.value-no-data {
+                font-size: @cubeFontSize * 0.3;
+                line-height: @cubeFontSize * 0.3;
+            }
+        }
+
+        .description {
+            @cubeFontSize: @cubeSize / 16;
+            font-size: @cubeFontSize;
+        }
+    }
+}
+
+.cube-city-printer-page-container.cube-city-printer-size-small {
+    @cubeSize: 6.1cm;
+    width: (@cubeSize * 2);
+    font-family: "Open Sans";
+
+    .cube-inner {
+        width: @cubeSize;
+        height: @cubeSize;
+    }
+
+    .cube-printer-page-left {
+        width: @cubeSize;
+    }
+    .cube-printer-page-right {
+        width: @cubeSize;
+    }
+
+    .merittlemann-logos {
+        margin: 22% 17%;
+        padding: 0 10%;
+        clear:both;
+        width: 100%;
+        .meritt-logo {
+            padding-top: 0.3cm*(@cubeSize/6.5cm);
+            float: left;
+            width: 64px*(@cubeSize/6.2cm);
+        }
+        .lemann-logo {
+            margin-left: 5%*(@cubeSize/6.5cm);
+            float: left;
+            width: 32px*(@cubeSize/6.2cm);
+        }
+    }
+
+    .invite-access {
+        margin-left: 2% !important;
+    }
+
+    .cube-printer-cube {
+        width: @cubeSize;
+        height: @cubeSize;
+
+        .discipline {
+            @cubeFontSize: @cubeSize / 11;
+            font-size: @cubeFontSize;
+        }
+
+        .title {
+            font-size: 14pt*(@cubeSize/6.5cm);
+            margin-top: 5%;
+        }
+
+        .value {
+            @cubeFontSize: @cubeSize / 3;
+            font-size: @cubeFontSize;
+            line-height: @cubeFontSize;
+
+            &.value-no-data {
+                font-size: @cubeFontSize * 0.3;
+                line-height: @cubeFontSize * 0.3;
+            }
+        }
+
+        .description {
+            @cubeFontSize: @cubeSize / 16;
+            font-size: @cubeFontSize;
+        }
+
+
+    }
+}
+
+.cube-city-printer-page-container {
+    .clearfix();
+
+    margin: 0 auto;
+    font-family: "Open Sans";
+
+    page-break-before: always;
+    page-break-after: always;
+
+    .cube-printer-cube { float: left; }
+    .cube-inner { text-align: center; float:left; }
+
+    .cube-printer-page-left {
+        float: left;
+
+        .cube-printer-cube {
+            &:nth-child(3) {
+                .cube-inner {
+                    .rotate(180deg);
+                }
+            }
+        }
+    }
+
+    .cube-printer-page-right {
+        float: right;
+
+        .cube-printer-cube {
+            &:nth-child(1) {
+                .cube-inner {
+                    .rotate(180deg);
+                }
+            }
+
+            &:nth-child(2) {
+                .cube-inner {
+                    .rotate(-90deg);
+                }
+            }
+
+        }
+    }
+
+    .cube-printer-cube {
+        position: relative;
+
+        box-sizing: border-box;
+
+        -webkit-print-color-adjust:exact;
+
+        border: 1px solid #666;
+        border-bottom-width: 0;
+
+        &:last-child {
+            border-bottom-width: 1px;
+        }
+
+        .title {
+            color: #333;
+            text-align: center;
+
+            margin-top: 10%;
+        }
+
+        .discipline {
+            font-weight: bold;
+        }
+
+        .value {
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+
+            margin-top: 20%;
+
+            &.value-no-data {
+                margin-top: 30%;
+            }
+        }
+
+        .description {
+            color: #333;
+            font-weight: bold;
+            line-height: 130%;
+            text-align: center;
+
+            margin-top: 10%;
+        }
+    }
+
+    .cube-printer-cube-logos {
+        .qedu-logo {
+            text-align: center;
+            margin-top: 20%;
+            width: 100%;
+            clear:both;
+            img {
+                width: 147px;
+            }
+        }
+
+        .qedu-url {
+            margin-top: 45%;
+            text-align: center;
+            width: 100%;
+            clear: both;
+            font-size: 15pt;
+            color: #000;
+        }
+
+
+    }
+
+    .cube-printer-cube-location {
+
+        .logos {
+            text-align: center;
+            margin-top: 10%;
+            .qedu-logo {float: left; width: 100%;}
+            .qedu-url {float: left; width: 100%; margin-right: 20px;}
+        }
+
+        .description {
+            margin-top: 7%;
+        }
+
+        .title {
+            height: 3.2em;
+            line-height: 1.2em;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .invite-access {
+            width: 100%;
+            margin-left: 5%;
+            margin-top: 1%;
+            text-align: center;
+            font-size: 9pt;
+            .access {
+                background-color: #37913f !important;
+                border-radius: 3px;
+                color: #fff !important;
+                padding: 2% 5%;
+                width: 96%;
+                b {
+                    color: #fff !important;
+                }
+            }
+
+            .desc-code {
+                margin-top: 3%;
+                clear: both;
+            }
+
+            .code {
+                color: #37913f !important;
+                font-size: 26pt;
+                clear: both;
+                margin-top: 5%;
+                img {
+                    margin-right: 3%;
+                }
+            }
+
+        }
+    }
+}

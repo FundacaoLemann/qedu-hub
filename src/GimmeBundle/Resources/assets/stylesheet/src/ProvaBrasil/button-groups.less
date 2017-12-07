@@ -1,0 +1,98 @@
+.btn-group{
+  font-size: inherit !important;
+}
+
+.btn-group.open .dropdown-menu {
+  margin-top: 0px;
+
+  .border-radius(@borderRadius);
+}
+
+.btn-toolbar {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+// We wanna glue dropdown menus too!
+.btn-group > .btn-fake,
+.btn-group > .dropdown {
+  float: left;
+
+  .btn {
+    //position: relative;
+    //float: left;
+    margin-left: -1px;
+    .border-radius(0);
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+}
+
+// Set corners individually because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btn-group > .btn:first-child,
+.btn-group > .dropdown:first-child .btn {
+  margin-left: 0;
+  -webkit-border-top-left-radius: @borderRadius;
+  -moz-border-radius-topleft: @borderRadius;
+  border-top-left-radius: @borderRadius;
+  -webkit-border-bottom-left-radius: @borderRadius;
+  -moz-border-radius-bottomleft: @borderRadius;
+  border-bottom-left-radius: @borderRadius;
+  padding: 5px 10px;
+}
+.btn-group > .btn:last-child,
+.btn-group .dropdown-toggle,
+.btn-group > .dropdown:last-child .btn {
+  -webkit-border-top-right-radius: @borderRadius;
+  -moz-border-radius-topright: @borderRadius;
+  border-top-right-radius: @borderRadius;
+  -webkit-border-bottom-right-radius: @borderRadius;
+  -moz-border-radius-bottomright: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
+}
+// Reset corners for large buttons
+.btn-group .btn.large:first-child {
+  margin-left: 0;
+  -webkit-border-top-left-radius: @borderRadius;
+  -moz-border-radius-topleft: @borderRadius;
+  border-top-left-radius: @borderRadius;
+  -webkit-border-bottom-left-radius: @borderRadius;
+  -moz-border-radius-bottomleft: @borderRadius;
+  border-bottom-left-radius: @borderRadius;padding: 5px 10px;
+}
+.btn-group .btn.large:last-child,
+.btn-group .large.dropdown-toggle {
+  -webkit-border-top-right-radius: @borderRadius;
+  -moz-border-radius-topright: @borderRadius;
+  border-top-right-radius: @borderRadius;
+  -webkit-border-bottom-right-radius: @borderRadius;
+  -moz-border-radius-bottomright: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
+}
+
+.open .btn {
+  border-bottom-right-radius: 0 !important;
+  -webkit-border-bottom-right-radius: 0 !important;
+  -moz-border-radius-bottomright: 0 !important;
+
+  border-bottom-left-radius: 0 !important;
+  -webkit-border-bottom-left-radius: 0 !important;
+  -moz-border-radius-bottomleft: 0 !important;
+}
+
+.open .dropdown-menu {
+  border-top-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+}
+
+.pull-right .open .dropdown-menu {
+  border-top-right-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topright: 0;
+}

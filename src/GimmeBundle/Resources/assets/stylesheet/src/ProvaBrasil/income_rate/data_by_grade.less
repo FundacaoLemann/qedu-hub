@@ -1,0 +1,130 @@
+@criticalColor: darkorange;
+@urgentColor: red;
+
+section.income-range-data-by-grade {
+  margin-top: 40px;
+}
+
+section.income-range-data-by-grade, section.income-range-aggregated {
+
+  margin-bottom: 40px;
+
+  h2 {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  table {
+    margin-top: 10px;
+
+    th {
+      line-height: 48px;
+      color: #888;
+    }
+
+    td {
+      color: #888;
+    }
+
+    tr.empty {
+      td {
+        line-height: 48px;
+      }
+    }
+
+    tr.title {
+
+      th {
+        font-size: 24px;
+        font-weight: normal;
+        padding-top: 20px;
+        line-height: 100%;
+        border-top: 0;
+        border-bottom: 1px solid black;
+        color: black;
+      }
+
+      td {
+        padding-top: 30px;
+        border-top: 0;
+        border-bottom: 1px solid black;
+        color: black;
+      }
+    }
+  }
+
+  strong.data {
+    color: #666;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.4em;
+    display: block;
+  }
+
+  small {
+    i.icon {
+      .opacity(20);
+      margin-top: -8px;
+      margin-left: -4px;
+    }
+  }
+
+  strong.data-critical {
+    color: @criticalColor;
+  }
+
+  strong.data-urgent {
+    color: @urgentColor;
+  }
+
+}
+
+.icon-income-rate-info {
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/income_rate/info-14.png') !important;
+  background-position: 0 0px;
+}
+
+.icon-income-rate-critical {
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/income_rate/critical-14.png') !important;
+  background-position: 0 0px;
+}
+
+.icon-income-rate-urgent {
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon/income_rate/urgent-14.png') !important;
+  background-position: 0 0px;
+}
+
+.legend-item {
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  .border-radius(10px);
+  padding: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
+  height: 160px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .legend-baloon {
+    .pull-right();
+    margin-top: -50px;
+    margin-right: -50px;
+  }
+
+  &.legend-item-critical {
+    h4 {color: @criticalColor;}
+  }
+
+  &.legend-item-urgent {
+    h4 {color: @urgentColor;}
+  }
+
+}

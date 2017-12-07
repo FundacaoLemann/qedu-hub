@@ -1,0 +1,99 @@
+@import 'css/bootstrap/variables.less';
+@import 'css/provabrasil/variables.less';
+@import 'css/bootstrap/mixins.less';
+@import 'css/provabrasil/mixins.less';
+
+
+body {
+  overflow: hidden;
+}
+
+object {
+  width: 100%;  
+}
+
+
+#stream-page {
+  
+  > .normal-section.container {
+    height: 1000px;
+    
+    object {
+      height: 100%;
+      margin-top: -210px;
+    }
+  }
+  
+  
+  .stream-messages {
+    margin-top: 30px;
+    
+    ul {
+      margin-top: 30px;
+      margin-left: 20px;
+      height: 350px;
+      overflow: auto;
+      
+      li {
+        -webkit-transition: 0.5s all linear;
+        
+        &.state {
+          border-color: #9AA515;
+        }
+        
+        &.city {
+          border-color: #29AFB2;
+        }
+        
+        &.school {
+          border-color: #D6234A;
+        }
+        
+        padding-bottom: 10px;
+        border-left: 4px solid;
+        padding-left: 10px;
+        margin-bottom: 2px;
+        
+        span {
+          display: block;
+          font-weight: bold;
+        }
+        
+        
+      }
+    }
+  }
+  
+  
+  .span12 {
+    
+    .circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 95px;
+      border: 15px solid #DCDCDC;
+      float: left;
+    
+      span {
+         font-size: 46px;
+         text-align: center;
+         margin-top: 55px;
+         display: block;
+         font-weight: bold;
+      }
+    
+    }
+    
+    p {
+      margin-top: 65px;
+      margin-left: 170px;
+      text-align: center;
+      font-size: 17px;
+      line-height: 20px;
+    }
+    
+  }
+  
+  
+}
+

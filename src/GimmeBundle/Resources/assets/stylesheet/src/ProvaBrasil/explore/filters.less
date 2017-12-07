@@ -1,0 +1,382 @@
+// Topbar
+.explore-filters-section {
+  color: @infoTextColor;
+  font-size: 12px;
+
+  position: relative;
+
+  z-index: 100;
+
+  .explore-topbar {
+    position: relative;
+    background: #fff;
+    z-index: @exploreTopbarIndex;
+    float: right;
+    width: 630px;
+
+    padding-top: @exploreTopbarMarginTop;
+    padding-bottom: 10px;
+
+    .btn{
+      padding: 5px;
+    }
+
+    .explore-topbar-inner {
+      padding: 10px;
+      height: 30px;
+      line-height: 30px;
+
+      background: @infoBackgroundColor;
+
+      .btn-toolbar {
+        margin: 0;
+
+        .btn-group {
+          .input-append {
+            margin: 0;
+          }
+
+          //margin-right: 10px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Sidebar
+.explore-filters-section {
+  .explore-sidebar {
+    margin-top: @exploreTopbarMarginTop;
+
+    //padding-top: 10px;
+
+    background: #fff;
+    float: left;
+    z-index: @exploreSidebarIndex;
+
+    width: @exploreSidebarWidth;
+
+    .explore-sidebar-inner {
+      margin-right: 5px;
+
+      > div {
+        margin-bottom: 15px;
+      }
+
+      .explore-sidebar-title {
+        font-weight: bold;
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+
+        &.explore-sidebar-title-info {
+          color: @infoLinkColor;
+        }
+
+        .small-help-text {
+          color: @infoLinkColor;
+          font-size: 11px;
+          font-weight: normal;
+        }
+      }
+
+      .explore-sidebar-description {
+
+      }
+
+      .explore-sidebar-source {
+        font-size: 11px;
+        color: #777;
+        padding-top: 40px;
+      }
+
+      .nav {
+        margin-bottom: 5px;
+
+        .nav-horizontal-header {
+          line-height: 26px;
+          font-size: 12px;
+          font-weight: bold;
+          width: 80px;
+          text-align: right;
+          padding-right: 5px;
+        }
+
+        .nav-horizontal-header-smaller {
+          width: 65px;
+        }
+
+        li {
+          a {
+            padding: 2px 5px;
+            line-height: 18px;
+          }
+
+          &.active {
+            a {
+              padding: 2px 10px;
+              i {
+                margin-right: -6px;
+              }
+            }
+          }
+
+            &.not-logged {
+                a {
+                    color: #d8d8d8;
+                }
+            }
+        }
+      }
+    }
+  }
+}
+
+// Sliders
+.explore-filters-section .explore-sidebar .noUiSlider {
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 150px;
+}
+
+.explore-filters-section .explore-sidebar .explore-sidebar-inner .explore-sidebar-sliders .nav {
+  margin-top: 15px;
+}
+
+.explore-filters-section .explore-sidebar .explore-sidebar-inner .explore-sidebar-sort {
+  position: relative;
+
+  .explore-sidebar-sort-blocked {
+    background: fadeout(#fff, 50%);
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.explore-filters-section .explore-sidebar .explore-sidebar-inner .explore-sidebar-sliders {
+    position: relative;
+
+    .explore-sidebar-sliders-blocked {
+        background: #fff;
+        background: fadeout(#fff, 50%);
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        text-align: center;
+
+        .explore-sidebar-sliders-blocked-inner {
+            position: absolute;
+            top: -10px;
+            left: 10%;
+            right: 10%;
+            background: #222;
+            background: fadeout(#222, 10%);
+            color: #fff;
+            //border: 1px solid #ccc;
+            .border-radius(6px);
+            padding: 15px 0px;
+            display: inline-block;
+            .ie7-inline-block();
+
+            .explore-sidebar-sliders-blocked-inner-title {
+              color: #fff;
+
+              font-size: 20px;
+              line-height: 1.2em;
+              letter-spacing: 1px;
+
+              margin-bottom: 16px;
+
+              span {
+                color: @linksColor;
+              }
+            }
+
+            .explore-sidebar-sliders-blocked-inner-register {
+
+              a {
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                letter-spacing: 1px;
+
+                small {
+                  letter-spacing: normal;
+                  font-size: 11px;
+                  display: block;
+                  margin-top: 4px;
+                }
+              }
+            }
+
+            .explore-sidebar-sliders-blocked-inner-login {
+              margin-top: 15px;
+              font-size: 11px;
+            }
+        }
+    }
+}
+
+
+// Sidebar instructions
+.explore-sidebar .explore-sidebar-instructions {
+  a {
+    color: @infoLinkColor;
+  }
+}
+
+// Sidebar advanced link
+.explore-sidebar .well-callout {
+ // width: 180px;
+  margin: 0;
+  margin-top: 20px;
+ // margin-left: 30px;
+  display: inline-block;
+  .ie7-inline-block();
+
+  h4 {
+    font-size: 22px;
+    color: @titlesColor;
+  }
+
+  h4 + p {
+    margin-top: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+.explore-sidebar .explore-sidebar-advanced-callout {
+
+}
+
+// Topbar search
+.explore-topbar .explore-topbar-search {
+  position: relative;
+
+  .search-reset {
+    position: absolute;
+    z-index: @exploreTopbarIndex + 1;
+    right: 42px;
+    top: 2px;
+  }
+
+  input {
+    .buttonBackground(darken(@infoBackgroundColor, 10%), @infoBackgroundColor);
+
+    width: 130px;
+    position: relative;
+  }
+}
+
+.explore-topbar .explore-topbar-compare {
+  .explore-topbar-compare-selection {
+    margin-right: 10px;
+
+    strong {
+      color: @infoTextColor;
+      font-size: 14px;
+
+      padding: 2px 4px;
+      .border-radius(3px);
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+  }
+
+  .explore-topbar-compare-action-open {
+
+  }
+
+  .explore-topbar-compare-action-compare {
+
+  }
+
+  .explore-topbar-compare-clean {
+    margin-left: 2px;
+    color: @textComplementColor;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+#explore-highlight {
+  margin: 0 auto;
+  width: 150px;
+  display: block;
+}
+
+.explore-filters-slider {
+  float: right;
+
+  width: 124px;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.slider-value {
+  text-align: right;
+  padding-right: 26px;
+
+  margin-top: -6px;
+
+  p {
+    font-size: 11px;
+    color: @textComplementColor;
+
+    margin-bottom: 5px;
+  }
+}
+
+
+.explore-sidebar-filters {
+  margin-top: 10px;
+
+  .btn-explore-sidebar-info {
+    padding: 0 5px;
+
+    &.active {
+      background: @warningBackground;
+    }
+
+    button {
+      margin-top: -5px;
+    }
+  }
+}
+
+*/

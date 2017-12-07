@@ -1,0 +1,321 @@
+.only-printer {
+  display: none;
+}
+
+.only-screen {
+  display: block !important;
+}
+
+body.print-version {
+  .only-screen {
+    display: none !important;
+  }
+
+  .qedu-footer, .resourcesportal-section, .facebook-section, .global-search-top, .advanced-search-link, .more-information-legend-section, .tooltip, .study-section {
+    display: none !important;
+  }
+
+  // redesign
+  .qedu-menu,
+  .qedu-search,
+  .qedu-header ul,
+  .gotoAcademy,
+  .blog-ribbon,
+  .qedu-access,
+  .qedu-copyright .header-anchor,
+  .qedu-copyright ul,
+  .addthis_sharing_toolbox,
+  .subnav-breadcrumb,
+  .not-following .follow-button-label-center,
+  .explore-filters-section .explore-topbar,
+  ul.nav.nav-pills
+  {
+    display: none !important;
+  }
+
+  #uvTab, .uv-icon {
+    display: none !important;
+  }
+
+  .only-screen {
+    display: none;
+  }
+
+  .explore-filters-section .explore-topbar{
+    background-color: transparent;
+    position: relative;
+    z-index: 0;
+  }
+
+  .explore-container .explore-isotope .explore-isotope-inner {
+    position: absolute;
+    top: 180px;
+    z-index: 999;
+    overflow: visible;
+  }
+
+  .well {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  .navbar-fixed-top, .subnav-section-fixed {
+    position: absolute !important;
+  }
+  .explore-filters-section{
+    position: absolute;
+  }
+  .navbar-fixed-top {
+    top: 0 !important;
+    .brand img {
+      height: 40px;
+      left: -40px !important;
+    }
+  }
+
+
+  .subnav-section-fixed {
+    top: 50px !important;
+  }
+
+  .explore-filters-section {
+    top: 186px !important;
+  }
+
+  .user-not-logged header.navbar .brand {
+    width: 194px !important;
+  }
+
+  .navbar {
+    border: 0;
+
+    .navbar-inner {
+      height: 40px;
+      filter: none;
+      box-shadow: none;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 5px;
+
+      .brand {
+        overflow: visible;
+        margin-top: 10px
+      }
+    }
+
+    .nav-collapse {
+      display: none !important;
+    }
+
+
+  }
+
+  .subnav-section {
+    background-color: white !important;
+    display: block !important;
+
+  }
+
+  .normal-section {
+    padding-bottom: 10px;
+  }
+
+  .dropdown {
+    a {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      text-shadow: none;
+    }
+  }
+
+  .proficiency-section {
+    .db-filters {
+      position: relative !important;
+      top: 0 !important;
+    }
+  }
+
+  .card-proficiency {
+    h2 {
+      display: none !important;
+    }
+  }
+
+  .explore-sidebar {
+    height: auto !important;
+  }
+
+  .legend-block {
+    border: 0 !important;
+  }
+
+  .copywrite-footer {
+    background: white !important;
+    filter: none !important;
+    color: #444 !important;
+
+    .container {
+      border-top: 1px solid #aaa;
+    }
+
+    a {
+      color: #444 !important;
+    }
+
+    .up-arrow, ul {
+      display: none !important;
+    }
+  }
+
+  .didactic-block-filters, .didactic-main-block {
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  .only-printer {
+    display: block !important;
+  }
+}
+
+/** -- Usando Media. Não consegui fazer funcionar com o mesmo CSS de cima, Então, está tudo repetido -- **/
+@media print
+{
+  .only-screen {
+    display: none !important;
+  }
+
+  .main-footer, .resourcesportal-section, .facebook-section, .global-search-top, .advanced-search-link, .more-information-legend-section, .tooltip, .study-section {
+    display: none !important;
+  }
+
+  #uvTab, .uv-icon {
+    display: none !important;
+  }
+
+  .only-screen {
+    display: none;
+  }
+
+  .explore-container .explore-isotope .explore-isotope-inner {
+    overflow: visible;
+  }
+
+  .well {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  .navbar-fixed-top, .subnav-section-fixed, .explore-filters-section {
+    position: absolute !important;
+  }
+  .navbar-fixed-top {
+    top: 0 !important;
+    .brand img {
+      height: 40px;
+      left: -40px !important;
+    }
+  }
+
+  .subnav-section-fixed {
+    top: 50px !important;
+  }
+
+  .explore-filters-section {
+    top: 186px !important;
+  }
+
+  .user-not-logged header.navbar .brand {
+    width: 194px !important;
+  }
+
+  .navbar {
+    border: 0;
+
+    .navbar-inner {
+      height: 40px;
+      filter: none;
+      box-shadow: none;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 5px;
+
+      .brand {
+        overflow: visible;
+        margin-top: 10px
+      }
+    }
+
+    .nav-collapse {
+      display: none !important;
+    }
+
+
+  }
+
+  .subnav-section {
+    background-color: white !important;
+
+  }
+
+  .normal-section {
+    padding-bottom: 10px;
+  }
+
+  .dropdown {
+    a {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      text-shadow: none;
+    }
+  }
+
+  .proficiency-section {
+    .db-filters {
+      position: relative !important;
+      top: 0 !important;
+    }
+  }
+
+  .card-proficiency {
+    h2 {
+      display: none !important;
+    }
+  }
+
+  .explore-sidebar {
+    height: auto !important;
+  }
+
+  .legend-block {
+    border: 0 !important;
+  }
+
+  .copywrite-footer {
+    background: white !important;
+    filter: none !important;
+    color: #444 !important;
+
+    .container {
+      border-top: 1px solid #aaa;
+    }
+
+    a {
+      color: #444 !important;
+    }
+
+    .up-arrow, ul {
+      display: none !important;
+    }
+  }
+
+  .didactic-block-filters, .didactic-main-block {
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  .only-printer {
+    display: block !important;
+  }
+}

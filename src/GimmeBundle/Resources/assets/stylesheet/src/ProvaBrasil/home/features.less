@@ -1,0 +1,226 @@
+.home-features {
+  overflow: hidden;
+
+  padding-bottom: 80px;
+
+  .container {
+    position: relative;
+  }
+
+  .home-features-callout {
+    text-align: center;
+
+    h2 {
+      font-size: 30px;
+    }
+  }
+
+  .carousel {
+    margin-top: 40px;
+  }
+
+  .carousel-inner {
+    width: auto;
+    overflow: visible;
+  }
+
+  .home-features-checklist {
+    margin-left: 20px;
+    margin-right: 80px;
+    margin-top: 40px;
+
+    list-style: none;
+
+    li {
+      color: #888;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+
+      padding-left: 25px;
+
+      i {
+        .opacity(70);
+
+        float: left;
+        margin-left: -25px;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .carousel-control {
+    .opacity(20);
+    font-size: 50px;
+
+    &:hover {
+      .opacity(60);
+    }
+
+    &.left {
+      left: -40px;
+      top: 50%;
+    }
+
+    &.right {
+      right: -40px;
+      top: 50%;
+    }
+  }
+
+  .carousel-control-bullets {
+    list-style: none;
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+
+    bottom: -40px;
+    left: 50%;
+
+    li {
+      float: left;
+
+      .opacity(30);
+
+      &:hover {
+        .opacity(100);
+      }
+
+      &.selected {
+        .opacity(80);
+      }
+    }
+  }
+
+  .more-info-link {
+    margin: 0;
+    position: absolute;
+    right: 40px;
+    bottom: -36px;
+  }
+}
+
+.home-features {
+  @homeFeaturesHeight: 320px;
+
+  .item {
+    height: @homeFeaturesHeight;
+
+    .transition(0.5s ease-in-out left);
+
+    > div {
+      .opacity(0);
+
+      .transition(opacity 0.5s);
+    }
+
+    &.active {
+      > div {
+        .opacity(100);
+      }
+    }
+
+    &.prev.right,
+    &.next.right,
+    &.prev.left,
+    &.next.left {
+      > div {
+        .opacity(100);
+      }
+    }
+
+    &.left.active,
+    &.right.active {
+      > div {
+        .opacity(0);
+      }
+    }
+  }
+
+  .home-feature-cabecalhos {
+    .span7 {
+      height: @homeFeaturesHeight;
+    }
+
+    .browser-frame {
+      position: absolute;
+      left: 100px;
+      top: 200px;
+
+      cursor: pointer;
+      .transform-origin(90% 50%);
+      backface-visibility: hidden;
+
+      height: 96px;
+    }
+  }
+
+  .home-feature-map {
+    .span7 {
+      height: @homeFeaturesHeight;
+
+      .slide {
+        margin-left: 40px;
+        margin-top: -20px;
+
+        z-index: 1;
+      }
+    }
+
+    .span5 {
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  .home-feature-busca {
+    .span7 {
+      height: @homeFeaturesHeight;
+
+      img {
+        position: absolute;
+        z-index: 0;
+        left: 80px;
+      }
+    }
+  }
+
+  .home-feature-questions {
+    .span7 {
+      height: @homeFeaturesHeight;
+
+      img {
+        position: absolute;
+        z-index: 0;
+        left: 60px;
+        top: 40px;
+      }
+    }
+  }
+
+  .home-feature-censo-escola {
+    .span7 {
+      height: @homeFeaturesHeight;
+
+      img {
+        position: absolute;
+        z-index: 0;
+        left: 60px;
+      }
+    }
+  }
+
+  .home-features-mac {
+    .macbook-frame {
+      margin-left: 20px;
+    }
+  }
+
+  .with-image-slide {
+    .slide {
+      img {
+        position: absolute;
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+/*
+    USER PROFILE MENU
+*/
+.qedu-user-avatar {
+    border: 1px solid #d3d3d3;
+    height: 45px;
+    width: 45px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.dropdown-toggle {
+    .icon-notification {
+        border-radius: 10px;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        right: -7px;
+        top: -7px;
+        width: 20px;
+    }
+}
+
+.qedu-user-profile-menu {
+   // .box-shadow(0 1px 2px #ccc);
+}
+
+.qedu-user-profile-menu {
+    .border-radius(3px);
+
+    -webkit-font-smoothing: antialiased;
+    border-color: #dbdbdb;
+    float: right !important;
+    font: 14px @font-family;
+    margin-top: 4px;
+    padding: 0;
+    right: 0;
+    left: auto;
+    top: 60px;
+    width: 310px;
+
+    a, & > li > a {
+        color: #666;
+        line-height: 18px;
+        padding: 3px 20px;
+
+        i {
+            .opacity(100);
+            margin-top: 0;
+        }
+    }
+
+    .arrow {
+        background: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/header/drop-triangle.png") no-repeat;
+        height: 12px;
+        position: absolute;
+        right: 9px;
+        top: -12px;
+        width: 23px;
+    }
+
+    /*
+        BOOTSTRAP OVERRIDES
+    */
+    @dropdownLinkColorHover:        #fff;
+    @pbGreenLight:                  lighten(#7baa31, 5%);
+    @dropdownLinkBackgroundHover:   @pbGreenLight;
+
+    & > li > a:hover,
+    & > li > a:focus,
+    &:hover > a,
+    &:focus > a {
+        .gradient(top, @dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+
+        color: @dropdownLinkColorHover;
+        text-decoration: none;
+    }
+
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        &:empty {
+            width: 1em;
+        }
+    }
+
+    .glyphicon-cog  { &:before { content: "\e019"; } }
+    .glyphicon-fire { &:before { content: "\e104"; } }
+    .glyphicon-off  { &:before { content: "\e017"; } }
+}
+
+.user-data {
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 20px;
+
+    .name {
+        display: block;
+        font: 16px/18px @font-family;
+        padding-bottom: 0;
+        padding-top: 20px;
+        white-space: nowrap;
+
+        &:hover {
+            background: none;
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+
+    .email {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+}
+
+.user-notification {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 20px;
+
+    .icon-notification {
+        border-radius: 16px;
+        font-size: 20px;
+        height: 33px;
+        line-height: 33px;
+        margin-bottom: 15px;
+        width: 33px;
+    }
+
+    b {
+        color: #f39200;
+        font-size: 13px;
+    }
+
+    p {
+        color: #666;
+        font-size: 12px;
+        line-height: 17px;
+        margin-top: 10px;
+        padding: 0 !important;
+    }
+
+    .go-profile {
+        .transition(background-color 0.5s ease);
+
+        color: #36923f;
+        display: inline-block;
+        font: normal 12px @font-family;
+        padding: 0;
+
+        &:hover {
+            color: #7bc04b;
+            text-decoration: none;
+            background: none;
+        }
+    }
+}
+
+.icon-notification {
+    background: #e30600;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
+
+.user-logout, .god-mode {
+    a {
+        padding: 20px !important;
+
+        &:hover {
+            color: #36923f !important;
+          background: transparent !important;
+        }
+    }
+}
+
+.god-mode {
+    border-top: 1px solid #e5e5e5;
+}

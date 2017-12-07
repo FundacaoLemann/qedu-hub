@@ -1,0 +1,276 @@
+/*
+    FORM BUSCA
+*/
+@qedu-search: 300px;
+.qedu-search {
+    float: right;
+    margin-bottom: 0;
+    position: relative;
+    margin-top: -2px;
+    margin-right: 20px;
+
+    input {
+        .border-radius(0);
+        .box-shadow(none);
+        .transition(all 0.5s ease);
+
+        background: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/header/qedu-search.png") no-repeat #fff;
+        background-position: 5px 10px;
+        border: 1px solid #FFF;
+        color: #666;
+        font: 14px/21px @font-family;
+        height: 42px;
+        margin-bottom: 0;
+        outline: none;
+        padding: 0 10px 0 37px;
+        width: @qedu-search;
+        position: relative;
+        margin-top: -6px;
+
+        &::-webkit-input-placeholder {
+            color: #666;
+        }
+
+        &::-moz-placeholder {
+            color: #666;
+        }
+
+        &:hover, &:focus {
+            border-bottom-color: #7BC04B;
+            background-position: 5px -43px;
+          box-shadow: none;
+          border-top-color: #fff;
+          border-left-color: #fff;
+          border-right-color: #fff;
+        }
+    }
+}
+
+.logged {
+    margin-right: 88px;
+}
+
+/*
+    BUSCA RESULTADO
+*/
+.qedu-search .ajax-loading {
+    position: absolute;
+    top: 15px;
+    right: 45px;
+    z-index: 750;
+}
+
+.qedu-search {
+    position: relative;
+    z-index: 700;
+}
+
+.qedu-search-results {
+    .box-shadow(0 0 1px 2px fadeout(#000, 95%));
+    .border-radius(3px);
+
+    position: absolute;
+    font-family: @font-family;
+    z-index: 9999;
+    width: 475px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    top: 50px;
+    padding: 10px 20px;
+
+    &:after, &:before {
+        bottom: 100%;
+        left: 10%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: #FFF;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+    &:before {
+        border-color: rgba(204, 204, 204, 0);
+        border-bottom-color: #ccc;
+        border-width: 11px;
+        margin-left: -11px;
+    }
+
+    a {
+        color: #36923f;
+    }
+
+    .qedu-search-nav-helper {
+
+        h3 {
+            color: #474747;
+            font-size: 12px;
+            border-top: 1px solid #ccc;
+
+            margin: 5px -23px;
+            padding: 15px 23px 5px;
+            position: relative;
+            display: block;
+            clear: both;
+
+            &:first-of-type{
+               border-top: none;
+                margin-top: 0;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0 0 5px 0;
+            margin: 0 0 0 103px;
+            li {
+            color: #474747;
+            font-size: 12px;
+            line-height: 18px;
+
+
+            .nav-helper-exemplo {
+                color: #888;
+                font-style: italic;
+            }
+        }}
+    }
+
+    .qedu-search-guided-block {
+        background: #fff;
+        width: 474px;
+        position: relative;
+        margin: 0 -20px;
+        padding: 10px 20px 0;
+      border-top: 1px solid #ccc;
+      a{
+        font-size: 13px;
+        font-weight: 600;
+        color: #36923f;
+      }
+    }
+
+    .qedu-search-nav-list {
+        border-top: 1px solid #DCDCDC;
+        padding: 0 20px;
+        margin: 10px -20px;
+        list-style: none;
+        overflow: hidden;
+        clear: both;
+
+        &:first-of-type{
+            border-top: none;
+            margin-top: 0;
+        }
+
+        .qedu-search-pull-left, .qedu-search-pull-right {
+            padding: 5px 0;
+        }
+
+        .qedu-search-pull-left {
+            width: 70px;
+            float: left;
+
+            span.qedu-search-legend {
+                text-decoration: none;
+                text-transform: none;
+                margin-bottom: 5px;
+                font-size: 14px;
+                color: #474747;
+                font-weight: 400;
+            }
+
+            [class^="qedu-search-icon-"],
+            [class*=" qedu-search-icon-"] {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                line-height: 14px;
+                vertical-align: text-top;
+                background-image: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/header/glyphicons-halflings.png");
+                background-position: 14px 14px;
+                background-repeat: no-repeat;
+                margin-top: 1px;
+            }
+
+            .qedu-search-icon-home {
+                background-position: 0 -24px;
+            }
+
+            .qedu-search-icon-map-marker {
+                background-position: -24px  -72px;
+            }
+        }
+
+        .qedu-search-pull-right {
+            width: 345px;
+            float: right;
+
+            li.no-results {
+                display: block;
+                color: #777;
+                line-height: 15px;
+                font-size: 12px;
+                padding: 2px 15px 2px 15px;
+            }
+
+            a.qedu-search-result {
+                display: block;
+                text-decoration: none;
+                line-height: 15px;
+                font-size: 13px;
+                font-weight: 600;
+                padding: 2px 0 2px 15px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                color: #36923f;
+
+                &.qedu-search-hover {
+                    color: #36923f;
+                    text-decoration: underline;
+
+                    label {
+                        color:#36923f;
+                    }
+                }
+
+                label {
+                    color: #777;
+                    font-size: 10px;
+                    display: block;
+                    margin-bottom: 0;
+
+                    &.qedu-search-state {
+                        display: inline;
+                        margin-left: 5px;
+                    }
+                }
+
+                .qedu-search-label-success {
+                    .border-radius(3px);
+
+                    background-color:  #468847;
+                    color: #fff;
+                    display: inline-block;
+                    font-size: 13px * .846;
+                    font-weight: bold;
+                    line-height: 14px;
+                    padding: 2px 4px;
+                    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+                    vertical-align: baseline;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+    .qedu-search-nav-list.qedu-search-nav-helper{
+      border-top: 1px solid #cccccc;
+    }
+}

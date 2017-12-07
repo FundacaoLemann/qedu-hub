@@ -1,0 +1,48 @@
+.body-explore-map {
+    .explore-map {
+        display: block;
+    }
+}
+.body-explore-isotope {
+    .explore-map {
+        display: none;
+    }
+}
+
+
+
+.explore-container {
+  .explore-map {
+    display: none;
+    margin-left: @exploreSidebarWidth;
+
+    .explore-map-inner {
+      position: relative;
+      margin-left: 20px;
+      min-height: 685px;
+    }
+
+    .explore-map-footer {
+      position: absolute;
+      bottom: 10px;
+      background: #fff;
+      padding: 4px;
+      left: 0px;
+      color: #777;
+      font-size: 11px;
+    }
+
+    .explore-map-tooltip {
+      position: absolute;
+      background: #000;
+      color: #fff;
+      padding: 3px 6px;
+      z-index: 1000;
+      top: -1000px;
+      left: 0;
+      width: auto;
+
+      .border-radius(4px);
+    }
+  }
+}

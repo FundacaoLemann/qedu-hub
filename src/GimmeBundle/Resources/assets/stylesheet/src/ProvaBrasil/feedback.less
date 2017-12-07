@@ -1,0 +1,121 @@
+#feedback-indicator {
+  position: fixed;
+  bottom:0;
+  right: 100px;
+  background-color: @pbGreen;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  .border-radius(10px 10px 0 0);
+  #gradient > .vertical(@pbGreenHover, @pbGreen);
+  a {
+    color: white;
+//    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.feedbacks {
+  border-top: 4px solid @pbGreen;
+  background-color: #f4f4f4;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin-left: 0px;
+
+  .page-header {
+    border-color: #ddd;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .new-feedback {
+    width: 360px;
+    float: left;
+    margin-left: 20px;
+
+    form {
+      .text-feedback {
+        width: 340px;
+      }
+
+      .type-feedback {
+        width: 348px;
+      }
+
+    }
+  }
+
+  .the-feedbacks {
+    width: 480px;
+    float: left;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #ddd;
+  }
+
+}
+.feedbacks-section {
+  padding-top: 10px !important;
+  .page-header {
+    margin-bottom: 10px;
+  }
+  .pagination {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+}
+
+.feedback {
+  float: left;
+  width: 100%;
+  border-bottom: 1px dashed #ddd;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  img {
+    float: left;
+    margin-right: 10px;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+    small {
+      font-size: 11px;
+    }
+  }
+
+  p{
+    margin-top: 10px;
+  }
+
+  &.type-comment{
+    h3 small strong {
+      color: #444;
+    }
+  }
+  &.type-error{
+    h3 small strong {
+      color: red;
+    }
+  }
+  &.type-congratulations{
+    h3 small strong {
+      color: green;
+    }
+  }
+  &.type-question {
+    h3 small strong {
+      color: darkblue;
+    }
+  }
+  &.type-suggest {
+    h3 small strong {
+      color: darkorange;
+    }
+  }
+
+}

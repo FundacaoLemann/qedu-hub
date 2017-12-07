@@ -1,0 +1,531 @@
+.explore-container {
+  .explore-isotope {
+    //background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/explore_bg_container.png') no-repeat;
+
+    margin-left: @exploreSidebarWidth;
+
+    .explore-isotope-inner {
+      margin-left: 14px;
+      margin-bottom: 10px;
+      padding-top: 7px;
+
+      box-sizing: border-box;
+      width: 635px;
+      height: 570px;
+      overflow: auto;
+    }
+  }
+}
+
+.body-explore-isotope {
+    .explore-isotope {
+        display: block;
+    }
+}
+.body-explore-map {
+    .explore-isotope {
+        display: none;
+    }
+}
+
+@-moz-document url-prefix() {
+    .explore-container {
+        .explore-isotope {
+            padding-top: 82px;
+        }
+    }
+}
+
+@exploreIsotopeDuration: 0.8s;
+
+// Default is zoom 1
+@exploreIsotopeElementWidthZoom1: 35px;
+@exploreIsotopeElementHeightZoom1: 35px;
+@exploreIsotopeElementGutterZoom1: 5px;
+
+@exploreIsotopeElementWidthZoom2: 70px;
+@exploreIsotopeElementHeightZoom2: 70px;
+@exploreIsotopeElementGutterZoom2: 5px;
+@exploreIsotopeElementTextHeightZoom2: 22px;
+
+@exploreIsotopeElementWidthZoom3: 140px;
+@exploreIsotopeElementHeightZoom3: 140px;
+@exploreIsotopeElementGutterZoom3: 5px;
+@exploreIsotopeElementTextHeightZoom3: 42px;
+
+@exploreIsotopeElementBasicWidthOpened: 290px;
+@exploreIsotopeElementBasicHeightOpened: 70px;
+@exploreIsotopeElementBasicGutterOpened: 10px;
+
+@exploreIsotopeElementAdvancedWidthOpened: 290px;
+@exploreIsotopeElementAdvancedHeightOpened: 140px;
+@exploreIsotopeElementAdvancedGutterOpened: 10px;
+
+.explore-isotope-list {
+  margin: 0;
+  overflow: visible !important;
+
+  .isotope-item {
+    //overflow: hidden;
+
+    position: relative;
+
+    //z-index: 1;
+
+//    width: @exploreIsotopeElementWidthZoom1;
+//    height: @exploreIsotopeElementHeightZoom1;
+//
+//    margin: @exploreIsotopeElementGutterZoom1;
+    //margin-bottom: @exploreIsotopeElementGutterZoom1;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// zoom level
+.explore-isotope-list {
+  &.zoom-1 {
+    .isotope-item {
+      width: @exploreIsotopeElementWidthZoom1;
+      height: @exploreIsotopeElementHeightZoom1;
+
+      margin: @exploreIsotopeElementGutterZoom1;
+    //margin-bottom: @exploreIsotopeElementGutterZoom2;
+
+      // customization of inner block
+      .isotope-item-closed {
+        .isotope-item-optimal-box {
+          .isotope-item-optimal-box-number {
+            margin-top: 0;
+            height: @exploreIsotopeElementWidthZoom1;
+            line-height: @exploreIsotopeElementWidthZoom1;
+            font-size: 12px;
+          }
+        }
+
+        .isotope-item-name {
+          display: none;
+        }
+
+        .isotope-item-avatar {
+          width: 13px;
+          height: 13px;
+
+          img {
+            height: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  &.zoom-2 {
+    .isotope-item {
+      width: @exploreIsotopeElementWidthZoom2;
+      height: @exploreIsotopeElementHeightZoom2;
+
+      margin: @exploreIsotopeElementGutterZoom2;
+      //margin-bottom: @exploreIsotopeElementGutterZoom2;
+    }
+  }
+
+  &.zoom-3 {
+    .isotope-item {
+      width: @exploreIsotopeElementWidthZoom3;
+      height: @exploreIsotopeElementHeightZoom3;
+
+      margin: @exploreIsotopeElementGutterZoom3;
+      //margin-bottom: @exploreIsotopeElementGutterZoom3;
+
+      // customization of inner block
+      .isotope-item-closed {
+        .isotope-item-optimal-box {
+          .isotope-item-optimal-box-number {
+            margin-top: (@exploreIsotopeElementHeightZoom3 - @exploreIsotopeElementTextHeightZoom3) / 2;
+            font-size: 22px;
+          }
+        }
+
+        .isotope-item-name {
+          //top: @exploreIsotopeElementHeightZoom3 - @exploreIsotopeElementTextHeightZoom3;
+          max-height: @exploreIsotopeElementTextHeightZoom3;
+
+          padding: 0 4px;
+          padding-top: 2px;
+
+          font-size: 12px;
+        }
+
+        &:hover {
+          .isotope-item-name {
+            max-height: @exploreIsotopeElementHeightZoom3 - 1;
+          }
+        }
+
+        .isotope-item-avatar {
+          width: 40px;
+          height: 40px;
+
+          img {
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// opened show/hide
+.explore-isotope-list {
+  .isotope-item {
+    .isotope-item-opened {
+      display: none;
+    }
+
+    &.opened {
+      width: @exploreIsotopeElementBasicWidthOpened;
+      height: @exploreIsotopeElementBasicHeightOpened;
+      margin: @exploreIsotopeElementBasicGutterOpened;
+
+      // move it a little to the top
+      margin-top: @exploreIsotopeElementBasicGutterOpened / 2;
+
+      //overflow: hidden;
+
+      .isotope-item-closed {
+        display: none;
+      }
+
+      .isotope-item-opened {
+        display: inherit;
+      }
+
+      &.isotope-item-advanced {
+        width: @exploreIsotopeElementAdvancedWidthOpened;
+        height: @exploreIsotopeElementAdvancedHeightOpened;
+        margin: @exploreIsotopeElementAdvancedGutterOpened;
+
+        // move it a little to the top
+        margin-top: @exploreIsotopeElementAdvancedGutterOpened / 2;
+      }
+    }
+
+    // avatar
+    .isotope-item-avatar {
+      position: absolute;
+      z-index: 2;
+      left: -3px;
+      top: -3px;
+
+      //.border-radius(3px);
+
+      //display: none;
+
+      overflow: hidden;
+      //border: 1px solid #fff;
+
+      .box-shadow(0px 0px 3px rgba(0,0,0,.3));
+
+      width: 22px;
+      height: 22px;
+
+      img {
+        vertical-align: top;
+        height: 22px;
+        max-width: none;
+      }
+    }
+  }
+}
+
+// Isotope closed and opened (basic and advanced)
+.explore-isotope-list {
+  // closed only
+  .isotope-item-closed {
+    cursor: pointer;
+
+    .isotope-item-hover-box {
+      position: absolute;
+      z-index: 0;
+
+      .border-radius(3px);
+
+      display: none;
+
+      background: #666;
+
+      @hoverBoxBorder: -3px;
+
+      left: @hoverBoxBorder;
+      right: @hoverBoxBorder;
+      bottom: @hoverBoxBorder;
+      top: @hoverBoxBorder;
+    }
+
+    .isotope-item-name {
+      overflow: hidden;
+
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+    //top: @exploreIsotopeElementHeightZoom2 - @exploreIsotopeElementTextHeightZoom2;
+      max-height: @exploreIsotopeElementTextHeightZoom2;
+      min-height: @exploreIsotopeElementTextHeightZoom2;
+      bottom: 0;
+
+      .transition(max-height 0.2s linear);
+
+      font-size: 11px;
+
+      padding: 0 2px;
+      padding-top: 1px;
+
+      background-color: #eee;
+    //border-bottom: 1px solid #eee;
+
+      .rgba & {
+      //border-top-color: fade(#000, 30%);
+      //#gradient > .vertical(rgba(255,255,255,0), rgba(255,255,255,1));
+        background-color: rgba(255,255,255,0.7);
+      }
+    }
+  }
+
+  // closed and opened
+  .isotope-item-opened,
+  .isotope-item-closed {
+    color: #333;
+
+    .isotope-item-optimal-box {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      &.optimal-decile-bg-no-data {
+        color: #bbb;
+
+        //cursor: help;
+      }
+
+      .isotope-item-optimal-box-number {
+        margin-top: 18px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+
+        //text-shadow: 1px 1px 0px #fff;
+      }
+    }
+
+    &:hover {
+      .isotope-item-name {
+        max-height: @exploreIsotopeElementHeightZoom2 - 1;
+      }
+
+      .isotope-item-hover-box {
+        display: block;
+      }
+    }
+  }
+
+  .selected {
+    .isotope-item-closed {
+      .isotope-item-hover-box {
+        display: block;
+
+        background: #444;
+      }
+    }
+  }
+
+  &.is-comparing {
+    .isotope-item-closed {
+      cursor: default;
+
+      .isotope-item-hover-box {
+        display: none;
+      }
+    }
+  }
+}
+
+
+// opened layout
+.explore-isotope-list {
+  .isotope-item-partial {
+    .isotope-item-enrolled {
+      font-size: 11px;
+    }
+  }
+  .isotope-item-opened {
+    cursor: default;
+
+    .isotope-item-optimal-box {
+      right: auto;
+      bottom: auto;
+
+      width: @exploreIsotopeElementWidthZoom2;
+      height: @exploreIsotopeElementHeightZoom2;
+    }
+
+    @exploreIsotopeElementOpenedBasicNameHeight: 22px;
+
+    .isotope-item-name {
+      position: absolute;
+
+      left: @exploreIsotopeElementWidthZoom2 + 10px;
+      right: 0;
+      top: 4px;
+
+      height: @exploreIsotopeElementOpenedBasicNameHeight;
+
+      overflow: hidden;
+    }
+
+    .isotope-item-description {
+      position: absolute;
+
+      left: @exploreIsotopeElementWidthZoom2 + 10px;
+      right: 0;
+      top: @exploreIsotopeElementOpenedBasicNameHeight + 4px;
+
+      height: @exploreIsotopeElementHeightZoom2 - @exploreIsotopeElementOpenedBasicNameHeight - 4px;
+
+      overflow: hidden;
+
+      font-size: 11px;
+      color: #666;
+
+      .growth-up {
+        padding: 0 2px;
+        color: green;
+      }
+
+      .growth-down {
+        padding: 0 2px;
+        color: red;
+      }
+
+      .growth-equal {
+        padding: 0 2px;
+        color: #666;
+      }
+    }
+
+    .isotope-item-qualitative-list {
+      margin: 0;
+      list-style: none;
+
+      position: absolute;
+      top: @exploreIsotopeElementHeightZoom2 + 4px;
+
+      li {
+        font-size: 11px;
+      }
+
+      .isotope-item-qualitative-list-3 { color: @qualitativeLevel3-Background; }
+      .isotope-item-qualitative-list-2 { color: @qualitativeLevel2-Background; }
+      .isotope-item-qualitative-list-1 { color: @qualitativeLevel1-Background; }
+      .isotope-item-qualitative-list-0 { color: @qualitativeLevel0-Background; }
+    }
+
+    .isotope-item-enrolled {
+      position: absolute;
+      top: @exploreIsotopeElementHeightZoom2 + 4px;
+      left: (@exploreIsotopeElementWidthZoom2 * 2) - 2;
+    }
+
+    .isotope-item-presence {
+      position: absolute;
+      top: @exploreIsotopeElementHeightZoom2 + 28px;
+      left: (@exploreIsotopeElementWidthZoom2 * 2) - 2;
+    }
+
+    .isotope-item-nse {
+      position: absolute;
+      top: @exploreIsotopeElementHeightZoom2 + 52px;
+      left: (@exploreIsotopeElementWidthZoom2 * 2) - 2;
+      font-size: 11px;
+    }
+
+    .isotope-item-hover-box {
+      position: absolute;
+      z-index: 0;
+
+      .border-radius(3px);
+      border: 1px solid #ddd;
+
+      @hoverBoxBorder: -6px;
+
+      left: @hoverBoxBorder;
+      right: @hoverBoxBorder;
+      bottom: @hoverBoxBorder;
+      top: @hoverBoxBorder;
+
+      background-color: transparent;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**** Isotope Filtering ****/
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/**** Isotope CSS3 transitions ****/
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration : @exploreIsotopeDuration;
+  -moz-transition-duration    : @exploreIsotopeDuration;
+  -ms-transition-duration     : @exploreIsotopeDuration;
+  -o-transition-duration      : @exploreIsotopeDuration;
+  transition-duration         : @exploreIsotopeDuration;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property:    -moz-transform, opacity;
+  -ms-transition-property:     -ms-transform, opacity;
+  -o-transition-property:         top, left, opacity;
+  transition-property:         transform, opacity;
+}

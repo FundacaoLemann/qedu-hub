@@ -1,0 +1,169 @@
+@homeCallOutFontColorTitle: #ddd;
+@homeCallOutFontColor: #bbb;
+
+.home-callout {
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/home/callout-background-cubes-1.jpg') no-repeat #111111;
+  .background-cover();
+
+  .home-callout-title {
+    text-align: center;
+
+    padding: 0 20px;
+
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    h1 + p {
+      margin-bottom: 0px;
+      margin-top: 20px;
+      color: @homeCallOutFontColorTitle;
+    }
+  }
+
+  .home-callout-search {
+    background: none;
+    border: none;
+    .border-radius(6px);
+
+    h3 {
+      color: @homeCallOutFontColor;
+      font-size: 18px;
+    }
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    padding: 20px;
+  }
+
+  form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    input {
+      width: 690px;
+      height: 60px;
+    }
+
+    .btn {
+      padding: 4px 18px;
+    }
+  }
+
+  .home-video-title {
+    color: @homeCallOutFontColor;
+    font-size: 18px;
+    padding-left: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .home-callout-video {
+    margin: 0 auto;
+
+    .border-radius(3px);
+    padding: 0;
+
+    background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/home/video-background.jpg') no-repeat #000;
+    border: 3px solid #7baa31;
+
+    .box-shadow(-1px 2px 3px rgba(0,0,0,.2));
+  }
+
+  .home-callout-search-alternative {
+    margin-top: 20px;
+    color: @homeCallOutFontColor;
+  }
+
+  .side-links {
+    margin-top: 28px;
+    margin-left: 20px;
+  }
+}
+
+.home-questions {
+  h2 + p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .right-arrow {
+    font-weight: bold;
+  }
+
+  .row {
+    .span6.first h2,
+    .span6.first p {
+      padding-right: 30px;
+    }
+
+    .span6.last h2,
+    .span6.last p {
+      padding-left: 30px;
+    }
+
+    .ee {
+      h2 {
+        padding-left: 0 !important;
+      }
+
+      p {
+        font-size: 16px;
+        margin-top: 10px;
+        color: #777;
+        line-height: 24px;
+      }
+
+      img {
+        float: left;
+      }
+    }
+  }
+
+  .row + .row {
+    margin-top: 40px;
+  }
+
+  .tooltip-link {
+    border-bottom: 2px dashed #555;
+    color: #555;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.home-cite {
+  padding: 40px 0;
+  
+  blockquote {
+    padding-top: 10px;
+    position: relative;
+  }
+  
+  .cite-send-link {
+    position: absolute;
+    right: 10px;
+    bottom: -40px;
+    
+    color: #777;
+    font-size: 10px;
+    
+    &:hover {
+      color: @pbGreenHover;
+    }
+  }
+}
+
+.home-more {
+  padding: 60px 0;
+
+  .more-container {
+    height: 200px;
+  }
+}

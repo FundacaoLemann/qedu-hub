@@ -1,0 +1,189 @@
+// Nav headers (for dropdowns and lists)
+
+.nav-list {
+  &.well {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.nav .nav-header {
+  font-size: 13px;
+  color: #444;
+  font-weight: normal;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 4px;
+  padding-bottom: 6px;
+}
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  background-color: @pbGreenLight;
+}
+
+.nav > li > a {
+  font-weight: bold;
+  color: #999;
+
+  &:hover {
+    .transition(200ms background);
+    color: #555;
+    background: #7bc04b;
+  }
+}
+
+
+.nav > li > a.btn {
+  color: inherit;
+
+  &:hover {
+    .transition(background-position .1s linear);
+    color: inherit;
+  }
+}
+
+.nav li + .nav-header {
+  margin-top: 15px;
+}
+
+
+.nav-tabs > li > a,
+.nav-pills > li > a {
+  margin-right: 0;
+}
+
+.nav-pills > li > a {
+  .border-radius(@borderRadiusInputs);
+  padding: 9px 12px;
+}
+
+.tabs-left .nav-tabs {
+  float: none;
+}
+
+.nav-pills-small > li{
+  &:nth-child(2) > a {
+    border-radius: 3px 0 0 3px;
+  }
+  &:last-child > a {
+    border-radius: 0 3px 3px 0;
+  }
+  > a {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding-right: 6px;
+    padding-left: 6px;
+    margin-right: -1px;
+    line-height: 12px; // keeps the overall height an even number
+    font-weight: normal;
+    font-size: 12px;
+  }
+}
+
+.tabs-two-level .nav-tabs > li {
+  &.tab-header {
+    margin-top: 10px;
+    border: none;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+
+    a {
+      font-weight: bold;
+      padding-left: 0px;
+      color: #555;
+    }
+
+    &:hover a {
+      background: none;
+      border-color: transparent;
+      cursor: default;
+      color: #555;
+      &:hover{
+        background: #fff;
+        color: #36923f;
+      }
+    }
+  }
+
+  a {
+    .border-radius(@borderRadius);
+
+    padding: 3px 10px;
+    padding-left: 15px;
+    margin-left: 10px;
+
+    font-size: 12px;
+  }
+
+  &.active a {
+    color: @white;
+    background-color: @linkColor;
+    border-color: @linkColor;
+  }
+}
+
+
+
+// STACKED NAV
+// -----------
+
+.nav-stacked-horizontal {
+  border-bottom: 0;
+}
+
+// Stacked tabs and pills
+.nav-stacked-horizontal > li {
+  float: left;
+}
+.nav-stacked-horizontal > li > a {
+  margin-right: -1px; // no need for the gap between nav items
+  line-height: 40px;
+  height: 40px;
+  
+  padding: 0px 15px;
+  
+  border: 1px solid #ddd;
+  .border-radius(0);
+  
+  color: @pbGreen;
+}
+.nav-stacked-horizontal > li.active > a {
+  margin-right: -1px; // no need for the gap between nav items
+  
+  .box-shadow(inset 0 1px 2px #CCC);
+  background: #eee;
+  
+  color: #333;
+  
+  cursor: default;
+  
+  border-bottom-color: #ddd;
+}
+.nav-tabs.nav-stacked-horizontal > li:first-child > a {
+  .border-radius(@borderRadius 0 0 @borderRadius);
+}
+.nav-tabs.nav-stacked-horizontal > li:last-child > a {
+  .border-radius(0 @borderRadius @borderRadius 0);
+}
+.nav-tabs.nav-stacked-horizontal > li > a:hover {
+  border-color: #ccc;
+  color: @pbGreenHover;
+  z-index: 2;
+  background: #fff;
+  
+  .box-shadow(inset 0 1px 2px #CCC);
+}
+
+.nav-tabs.nav-stacked-horizontal > .active > a:hover {
+  background: #eee !important;
+  color: #333;
+  border-color: #ddd;
+}
+
+.nav-stacked > li > a {
+  line-height: 20px;
+}

@@ -1,0 +1,91 @@
+.well-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #F5F5F5;
+    opacity: 0.8;
+  }
+  &.with-overlay {
+    .well-overlay {
+      display: block;
+  }
+}
+
+.well {
+  .border-radius(@borderRadius);
+
+  background-color: @infoBackgroundColor;
+
+  margin-bottom: 0;
+
+  .page-header {
+    margin-top: 0;
+  }
+  &.filter {
+    .page-header {
+      margin-top: -8px;
+      padding-bottom: 0;
+      margin-bottom: 8px;
+    }
+    .btn-group {
+      margin-bottom: 8px;
+      margin-left: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .close {
+    margin-top: -10px;
+    margin-right: -10px;
+  }
+}
+
+.well-white {
+  #gradient > .vertical(#f1f1f1, #fefefe);
+
+  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(0,0,0,.01);
+
+  &:hover {
+    #gradient > .vertical(#e8e8e8, #f8f8f8);
+  }
+}
+
+.well-mini {
+  padding: 32px 0px;
+  padding-left: 0;
+  font-size: 11px;
+
+  height: 24px;
+  line-height: 24px;
+}
+
+a.well-mini {
+  display: block;
+
+  &:hover {
+    background-color: #eeeeee;
+  }
+}
+
+.well-info {
+  font-size: 18px;
+  padding: 0;
+  .box-shadow(none);
+  border: 0;
+  background: #fff;
+  line-height: 29px;
+
+
+  color: #777;
+
+  a {
+    color: @infoLinkColor;
+    font-weight: bold;
+  }
+}

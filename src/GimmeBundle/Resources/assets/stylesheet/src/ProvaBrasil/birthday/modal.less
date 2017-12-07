@@ -1,0 +1,121 @@
+.birthday-modal-background {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+  background: #000;
+  background: rgba(0,0,0,0.94);
+}
+
+.birthday-modal-container {
+  text-align: center;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 40000;
+
+  .birthday-modal-title-section {
+    .container {
+      position: relative;
+    }
+
+    .birthday-close-btn {
+      position: absolute;
+      top: -20px;
+      right: -70px;
+    }
+
+    h1 {
+      color: #c1d455;
+      font-size: 85px;
+      font-weight: bold;
+      line-height: 1.2em;
+      letter-spacing: -5px;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 26px;
+      letter-spacing: -2px;
+      line-height: 1.6em;
+      font-weight: bold;
+      margin: 0px;
+    }
+  }
+
+  .birthday-modal-why-section {
+    background: #f8f8f8;
+    background: rgba(248, 248, 248, 0.9);
+
+    .box-shadow(inset 0 0 10px rgba(0, 0, 0, 0.3));
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .birthday-why-reasons {
+      margin-left: 20px;
+
+      h3 {
+        margin-top: 0;
+        color: #3a3a3a;
+        letter-spacing: 0;
+        font-size: 20px;
+        font-weight: normal;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        height: 50px;
+        li {
+          position: absolute;
+          margin: 0;
+          padding: 0;
+          padding-left: 30px;
+          color: #636363;
+          font-size: 18px;
+          letter-spacing: 0;
+          line-height: 1.4em;
+          font-style: italic;
+        }
+      }
+    }
+
+    .btn-primary {
+      margin-top: 13px;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      color: #fff;
+      background: #7baa31;
+      padding: 20px 30px;
+      text-shadow: none;
+    }
+  }
+
+  .birthday-modal-like-section {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    iframe {
+      border:none;
+      overflow:hidden;
+      position: relative;
+      top: 8px;
+      width:50px;
+      height:65px;
+      margin-left: 6px;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+.distortion-grade-data {
+  margin-top: 10px;
+
+  .nav-list>.active>a, .nav-list>.active>a:hover {
+    background-color: #222;
+
+    .border-radius(5px);
+
+    p {
+      margin-top: 10px;
+      font-size: 11px;
+      text-shadow: none;
+    }
+
+    .value {
+      i {
+        .opacity(100);
+      }
+    }
+  }
+
+  li.nav-header {
+    a {
+      color: #222;
+    }
+  }
+
+  .nav .active .grade{
+    color: #fff;
+  }
+  .nav {
+    a {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      vertical-align: top;
+
+      .grade {
+        display: inline-block;
+        float: left;
+        width: 60px;
+        color: #555;
+      }
+
+      .progress {
+        display: inline-block;
+        margin-bottom: 0;
+        width: 130px;
+        border-radius: 2px;
+      }
+
+      .value {
+
+        float: right;
+        text-align: right;
+        width: 60px;
+        margin-left: 10px;
+        font-weight: normal;
+        i {
+          .opacity(5);
+        }
+      }
+    }
+  }
+}
+
+section.distortion-legend {
+  margin-top: 30px;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      line-height: 16px;
+      font-size: 11px;
+      font-weight: bold;
+      color: white;
+      padding: 4px;
+      margin-bottom: 5px;
+      text-align: center;
+      .border-radius(5px);
+      margin-left: 0px;
+    }
+  }
+
+  li.distortion-color-scale-0 { background-color: @distortion-color-scale-0; color: #888;}
+  li.distortion-color-scale-1 { background-color: @distortion-color-scale-1; color: #888; }
+  li.distortion-color-scale-2 { background-color: @distortion-color-scale-2; }
+  li.distortion-color-scale-3 { background-color: @distortion-color-scale-3; }
+  li.distortion-color-scale-4 { background-color: @distortion-color-scale-4; }
+  li.distortion-color-scale-5 { background-color: @distortion-color-scale-5; }
+  li.distortion-color-scale-6 { background-color: @distortion-color-scale-6; }
+}

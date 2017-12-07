@@ -1,0 +1,212 @@
+// Normal section with spacing
+.normal-section {
+  padding: 34px 0;
+
+  .page-header {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    small {
+      font-size: 16px;
+    }
+  }
+  &.terms-section{
+    padding: 54px 0;
+  }
+}
+
+// Normal section without subnav detail
+.subnav-section + script + .normal-section, .subnav-section + .normal-section {
+  //padding-top: 50px;
+}
+
+.large-section {
+  padding: 60px 0;
+}
+
+
+.alert-section {
+  padding: 40px 0;
+}
+
+
+/* Seção para áreas informativas envolvendo blocos simples de textos com links e botões */
+.block-text-section {
+  padding: 40px 0;
+
+  h1, h2 {
+    color: @pbGreen;
+  }
+
+  h2 + p {
+    font-size: 16px;
+    margin-top: 0px;
+  }
+
+  h1.light + p {
+    font-size: 18px;
+    margin-top: 0px;
+    color:#898989;
+  }
+
+  .block-text {
+    margin-bottom: 40px;
+  }
+}
+
+.gray-pattern {
+//  background: #F0F0F0 url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/gray_pattern.png') repeat; /* @inline */
+  background: @grayPatternColor;
+  height: 170px;
+  margin-bottom: 76px;
+  position: relative;
+  z-index: 10;
+  &:before{
+    content: "";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: 56px;
+    background: #dfdfdf;
+    left: 0;
+  }
+}
+
+.gray-pattern-gradient {
+  }
+
+
+hr {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  height: 1px;
+
+  background-color: #ddd;
+
+  &.container {
+    margin: 0 auto;
+  }
+
+  &.light {
+    background-color: #eee;
+  }
+}
+
+
+.internet-explorer img {
+  max-width: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * COISAS ANTIGAS => VER O QUE PODEMOS REMOVER
+ */
+
+
+.page-header {
+  padding-bottom: 5px;
+}
+
+/**
+ *   CONTENT
+ */
+
+body > .content {
+  > h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+}
+
+
+
+
+.stamp-container{
+  .sprite.size16.info {
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 7px;
+    strong:after {
+      content: " ";
+    }
+  }
+  .stamp {
+    overflow: hidden; margin-bottom: 10px; position: relative;
+    > div {
+      float: left; width: 45%; 
+      &.first {
+        margin-right: 8%;
+      }
+      strong {
+        font-size: 14px; display: block; margin-bottom: 5px; 
+        a {
+          .clearfix();
+          .sprite{
+            float: right;
+          }
+        }
+      }
+      > a .sprite {
+        float: right; margin-right: 5px;
+      }
+      ul {
+        overflow: hidden; margin-top: 10px;
+        li {
+          background:#70BE22; width: 48%; float: left; margin-right: 2%; margin-bottom: 2%; height: 90px; border-radius: (5px);
+          span {
+            color: #FFFFFF; display: block; text-align: center; padding-top: 12px; font-size: 13px;
+            &:last-child {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+    > .sprite {
+      position: absolute;top: 118px; left: 212px;
+    }
+  }
+}
+
+.well article {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+    padding: 0;
+  }
+}
+input.error, textarea.error { 
+  color: #B94A48;
+  border-color: #B94A48;
+  &:focus{
+    border-color: #953B39;
+    .box-shadow(0 0 6px #d59392);
+  }
+}
+label.error {
+  display: none !important;
+}
+
+.popover-content {
+  p, ul, ol {
+    margin-bottom: 10px;
+  }
+}
+
+
+.tooltip {
+  font-size: 12px;
+  padding: 10px;
+}

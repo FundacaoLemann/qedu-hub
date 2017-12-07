@@ -1,0 +1,82 @@
+.didactic-section .didactic-compare-block {
+
+  &.didactic-compare-block-text {
+    h3 {
+    font-size: 18px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    }
+  }
+
+  &#compare-block-choice{
+    width: 100%;
+  }
+
+  float: left;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  //border-bottom: 1px solid #eee;
+
+  &:only-of-type {
+    border-bottom-color: #fff;
+  }
+
+  &.last {
+    /*border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;*/
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    color: #777;
+  }
+
+  img {
+    height: 28px;
+    border: 1px solid #ccc;
+    display: block;
+    float: left;
+    margin-right: 5px;
+  }
+
+  p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  small {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.0em;
+   // display: none;
+  }
+
+
+ /** &:hover {
+    p {display: block;}
+    small {display: block;}
+  } **/
+
+
+  .qualitative-square {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+    margin-left: 0px;
+    .transition(all 0.5s linear);
+    border-radius: 3px;
+
+    span {
+      line-height: 90px;
+      font-size: 24px;
+      &.percent-level-no-data {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,270 @@
+.cube-normal-printer-page-container.cube-normal-printer-size-large {
+  @cubeSize: 8.6cm;
+  width: (@cubeSize * 2);
+
+  .cube-inner {
+    width: @cubeSize;
+    height: @cubeSize;
+  }
+
+  .cube-printer-page-left {
+    width: @cubeSize;
+  }
+
+  .cube-printer-page-right {
+    width: @cubeSize;
+  }
+
+  .cube-printer-cube {
+    width: @cubeSize;
+    height: @cubeSize;
+
+    .title {
+      @cubeFontSize: @cubeSize / 11;
+      font-size: @cubeFontSize;
+    }
+
+    .value {
+      @cubeFontSize: @cubeSize / 3;
+      font-size: @cubeFontSize;
+      line-height: @cubeFontSize;
+
+      &.value-no-data {
+        font-size: @cubeFontSize * 0.3;
+        line-height: @cubeFontSize * 0.3;
+      }
+    }
+
+    .description {
+      @cubeFontSize: @cubeSize / 16;
+      font-size: @cubeFontSize;
+    }
+  }
+
+  .cube-printer-cube-logos {
+
+    .qedu-url {
+      @cubeFontSize: @cubeSize / 10;
+      font-size: @cubeFontSize;
+      color: @pbGreen;
+    }
+  }
+}
+
+.cube-normal-printer-page-container.cube-normal-printer-size-small {
+  @cubeSize: 6.5cm;
+  width: (@cubeSize * 2);
+
+  .cube-inner {
+    width: @cubeSize;
+    height: @cubeSize;
+  }
+
+  .cube-printer-page-left {
+    width: @cubeSize;
+  }
+  .cube-printer-page-right {
+    width: @cubeSize;
+  }
+  .cube-printer-cube {
+    width: @cubeSize;
+    height: @cubeSize;
+
+    .title {
+      @cubeFontSize: @cubeSize / 11;
+      font-size: @cubeFontSize;
+    }
+
+    .value {
+      @cubeFontSize: @cubeSize / 3;
+      font-size: @cubeFontSize;
+      line-height: @cubeFontSize;
+
+      &.value-no-data {
+        font-size: @cubeFontSize * 0.3;
+        line-height: @cubeFontSize * 0.3;
+      }
+    }
+
+    .description {
+      @cubeFontSize: @cubeSize / 16;
+      font-size: @cubeFontSize;
+    }
+  }
+
+  .cube-printer-cube-logos {
+
+    .qedu-url {
+      @cubeFontSize: @cubeSize / 10;
+      font-size: @cubeFontSize;
+      color: @pbGreen;
+    }
+  }
+}
+
+.cube-normal-printer-page-container {
+  .clearfix();
+
+  margin: 0 auto;
+
+  page-break-before: always;
+  page-break-after: always;
+
+  .cube-printer-cube { float: left; }
+  .cube-inner { float: left; }
+
+  .cube-printer-page-left {
+    float: left;
+
+    .cube-printer-cube {
+      &:nth-child(3) {
+        .cube-inner {
+          .rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .cube-printer-page-right {
+    float: right;
+
+    .cube-printer-cube {
+      &:nth-child(1) {
+        .cube-inner {
+          .rotate(180deg);
+        }
+      }
+
+      &:nth-child(2) {
+        .cube-inner {
+          .rotate(-90deg);
+        }
+      }
+
+    }
+  }
+
+  .cube-printer-cube {
+    position: relative;
+
+    box-sizing: border-box;
+
+    -webkit-print-color-adjust:exact;
+
+    border: 1px solid #666;
+    border-bottom-width: 0;
+
+    &:last-child {
+      border-bottom-width: 1px;
+    }
+
+    .title {
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+
+      margin-top: 10%;
+    }
+
+    .value {
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+
+      margin-top: 20%;
+
+      &.value-no-data {
+        margin-top: 30%;
+      }
+    }
+
+    .description {
+      color: #333;
+      font-weight: bold;
+      line-height: 130%;
+      text-align: center;
+
+      margin-top: 10%;
+    }
+  }
+
+  .cube-printer-cube-logos {
+    .qedu-logo {
+      text-align: center;
+      margin-top: 5%;
+      img {
+        width: 70%;
+      }
+    }
+
+    .qedu-url {
+      margin-top: 50%;
+      text-align: center;
+    }
+
+    .merittlemann-logos {
+      margin-top: 15%;
+      padding: 0 10%;
+      .meritt-logo {
+        height: 1.2cm;
+        padding-top: 0.3cm;
+      }
+
+      .lemann-logo {
+        float: right;
+        height: 1.5cm;
+      }
+    }
+  }
+
+  .cube-printer-cube-location-with-logo {
+
+    .logos {
+      text-align: center;
+      margin-top: 7%;
+      .qedu-logo {float: left; margin-left: 20px;}
+      .qedu-url {float: right; margin-right: 20px;}
+    }
+
+    .logo {
+      text-align: center;
+      padding: 0 10%;
+
+      margin-top: 10%;
+    }
+
+    .title {
+      text-align: center;
+      padding: 0 10%;
+
+      margin-top: 8%;
+    }
+
+    .description {
+      margin-top: 7%;
+    }
+  }
+
+  .cube-printer-cube-location {
+
+    .logos {
+      text-align: center;
+      margin-top: 13%;
+      .qedu-logo {float: left; margin-left: 20px;}
+      .qedu-url {float: right; margin-right: 20px;}
+    }
+
+    .description {
+      margin-top: 7%;
+    }
+
+    .title {
+      height: 3.2em;
+      line-height: 1.2em;
+      text-align: center;
+      padding: 0 10%;
+
+      margin-top: 13%;
+    }
+  }
+}

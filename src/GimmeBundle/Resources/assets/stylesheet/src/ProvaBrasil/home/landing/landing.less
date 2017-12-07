@@ -1,0 +1,195 @@
+@import 'css/bootstrap/variables.less';
+@import 'css/provabrasil/variables.less';
+@import 'css/bootstrap/mixins.less';
+@import 'css/provabrasil/mixins.less';
+
+@landingBackground: #93c944;
+@landingBaseColor: #fff;
+
+@landingFooterBackgroundStart: #fb8f02;
+@landingFooterBackgroundFinish: #ca7302;
+
+body.landing {
+  position: relative;
+
+  background: @landingBackground;
+}
+
+.home-landing-section {
+  background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/landing/background.png') center top no-repeat @landingBackground;
+  background-size: cover;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .home-landing-top {
+    margin-bottom: 10px;
+    img {
+      margin-left: 40px;
+    }
+  }
+
+  .landing-teaser {
+    margin-left: 40px;
+
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: bold;
+
+      display: none;
+
+      //letter-spacing: 0.05em;
+
+      color: #fb8f02;
+      //text-shadow: 0.08em 0.08em #fff;
+      //text-shadow: 0.05em 0.05em 0.2em #fff;
+
+      text-transform: uppercase;
+    }
+
+    p {
+      color: @landingBaseColor;
+
+      margin-top: 105px;
+      font-size: 24px;
+      line-height: 38px;
+      letter-spacing: 0.05em;
+      //text-shadow: 0.04em 0.05em #fb8f02;
+      //text-shadow: 0.05em 0.05em 0.2em #fff;
+
+      text-transform: uppercase;
+    }
+  }
+
+  .landing-play  {
+    color: @landingBaseColor;
+
+    .landing-square {
+      margin-left: 20px;
+      margin-top: 5px;
+
+      width: 200px;
+      height: 200px;
+
+      background: #39b549;
+    }
+
+    .happy-square-container {
+      position: relative;
+
+      width: 240px;
+
+      .happy-question {
+        position: absolute;
+        right: -90px;
+        top: 40px;
+      }
+    }
+  }
+}
+
+.home-landing-footer {
+//  position: absolute;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  height: 60px;
+  line-height: 60px;
+
+  //background: orange;
+
+  //#gradient > .vertical(@landingFooterBackgroundStart, @landingFooterBackgroundFinish);
+
+  .footer-copywrite {
+    color: @landingBaseColor;
+
+    font-size: 12px;
+
+    a {
+      color: @landingBaseColor;
+
+      font-weight: bold;
+    }
+  }
+
+  .footer-share {
+    line-height: 1;
+    height: auto;
+
+    text-align: right;
+
+    margin-top: 20px;
+
+    //position: absolute;
+    //right: 0;
+    //top: 20px;
+  }
+}
+
+
+
+// Forms
+.home-landing-section .landing-forms {
+  margin-top: 50px;
+
+  form {
+    color: @landingBaseColor;
+    margin: 0;
+
+    .form-message {
+      max-width: 420px !important;
+    }
+
+    .inputs-large {
+      input {
+        padding-left: 5px;
+      }
+    }
+
+    .what-is-it {
+      color: #fff;
+    }
+
+    .btn-primary {
+      .buttonBackground(@landingFooterBackgroundStart, @landingFooterBackgroundFinish);
+    }
+  }
+
+  .landing-subscribe-form {
+
+  }
+
+  .landing-login-form {
+    .checkbox {
+      margin-top: 10px;
+    }
+
+    input {
+      margin-right: 5px;
+    }
+  }
+
+  .landing-options-link {
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    color: @landingBaseColor;
+
+    a {
+      color: @landingBaseColor;
+
+      font-weight: bold;
+    }
+
+    div + div {
+      margin-top: 5px;
+    }
+  }
+}

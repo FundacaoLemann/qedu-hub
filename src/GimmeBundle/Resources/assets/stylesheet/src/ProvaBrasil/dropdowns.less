@@ -1,0 +1,108 @@
+.dropdown-menu {
+  margin-top: 0px;
+
+  border: 1px solid @dropdownBorder;
+  //.box-shadow(0 0 1px 2px fadeout(#000, 95%));
+  .border-radius(@borderRadius);
+
+  .divider {
+    margin: 4px 1px;
+  }
+
+  // The first div gets some space
+  > li > div, > li > p, > li.description {
+//    display: block;
+    padding: 3px 15px;
+//    clear: both;
+//    font-weight: normal;
+//    line-height: @baseLineHeight;
+//    color: @dropdownLinkColor;
+//    white-space: nowrap;
+  }
+
+  > li.description {
+      font-size: @baseFontSize - 1;
+      color: #666;
+      line-height: @baseLineHeight;
+  }
+
+  a {
+    padding: 3px 8px 3px 24px;
+
+    i {
+      margin-top: 1px;
+    }
+  }
+
+  .checked > a {
+    background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/icon-checked-14px.png') no-repeat 4px 4px/* @inline */;
+    //background-position: 14px 14px;
+    font-weight: bold;
+  }
+
+  &.limited-height {
+    max-height: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+// Right aligned dropdowns for all parents (bootstrap changed this in 2.0.4 so we are puting it back
+.pull-right .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.dropdown-menu.dropdown-menu-small {
+  a {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  > li.description {
+    font-size: @baseFontSize - 1;
+    color: #666;
+    line-height: @baseLineHeight - 2;
+  }
+}
+
+// Dropdown
+.dropdown-with-arrow {
+  &:before {
+    content: '';
+    display: inline-block;
+    border-left:   7px solid transparent;
+    border-right:  7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-bottom-color: @dropdownBorder;
+    position: absolute;
+    top: -7px;
+    left: 9px;
+  }
+  &:after {
+    content: '';
+    display: inline-block;
+    border-left:   6px solid transparent;
+    border-right:  6px solid transparent;
+    border-bottom: 6px solid @dropdownBackground;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+  }
+}
+
+.dropdown-with-arrow-right {
+  &:before {
+    right: 12px;
+    left: auto;
+  }
+  &:after {
+    right: 13px;
+    left: auto;
+  }
+}
+
+
+//.dropdown .caret {
+//  margin-left: 6px;
+//}

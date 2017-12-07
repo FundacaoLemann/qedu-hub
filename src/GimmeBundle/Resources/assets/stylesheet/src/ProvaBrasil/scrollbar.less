@@ -1,0 +1,39 @@
+/*
+    webkit scroll bars
+*/
+.scrollbar::-webkit-scrollbar {
+  background: transparent;
+  overflow: visible;
+  width: 12px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: solid #fff;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.scrollbar::-webkit-scrollbar-thumb:horizontal {
+  border-width: 3px 2px;
+  min-width: 40px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:vertical {
+  border-width: 3px 2px;
+  min-height: 40px;
+}
+
+.scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}

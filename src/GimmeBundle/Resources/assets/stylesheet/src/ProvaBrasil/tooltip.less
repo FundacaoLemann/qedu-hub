@@ -1,0 +1,108 @@
+.tooltip {
+  padding: 4px !important;
+}
+
+.tooltip-inner {
+  .border-radius(@borderRadius);
+}
+
+.tooltip-red {
+  @errorBackground: @infoColor;
+  @errorText: white;
+  @errorBorder: #ff613b;
+  @tooltipArrowColor: @errorBackground;
+  @tooltipArrowWidth: 5px;
+  z-index: @zindexTooltip - 5;
+
+  &.in     { .opacity(100); }
+
+  .tooltip-inner {
+    background-color: @errorBackground;
+    color: @errorText;
+    border-color: @errorBorder;
+
+    a {
+      color: @errorText;
+      font-weight: bold;
+      text-decoration: underline;
+
+      &:hover {
+
+      }
+    }
+  }
+
+  &.top .tooltip-arrow    {
+    .tooltip .top .tooltip-arrow();
+    margin-bottom: -11px;
+  }
+  &.left .tooltip-arrow   {
+    .tooltip .left .tooltip-arrow();
+  }
+  &.bottom .tooltip-arrow {
+    .tooltip .bottom .tooltip-arrow();
+  }
+  &.right .tooltip-arrow  {
+    .tooltip .right .tooltip-arrow();
+    margin-left:  -10px !important;
+  }
+}
+
+.tooltip-feature{
+    .tooltip-red();
+    margin-top: 5px !important;
+    z-index: 3;
+
+    .tooltip-inner {
+        .tooltip-red .tooltip-inner();
+        font-size: 10px;
+        font-weight: bold;
+        padding: 5px;
+    }
+
+    &.top .tooltip-arrow {
+        border-top-color: @errorBackground;
+        height: 10px;
+        margin-top: 0;
+        padding: 0;
+    }
+}
+
+.tooltip-green {
+  @errorBackground: @pbGreen;
+  @errorText: white;
+  @errorBorder: @pbGreen;
+  @tooltipArrowWidth: 5px;
+  @tooltipArrowColor: @errorBackground;
+  z-index: @zindexTooltip - 5;
+
+  &.in     { .opacity(100); }
+
+  .tooltip-inner {
+    background-color: @errorBackground;
+    color: @errorText;
+    border-color: @errorBorder;
+  }
+
+  &.top .tooltip-arrow    { .tooltip .top .tooltip-arrow(); }
+  &.left .tooltip-arrow   { .tooltip .left .tooltip-arrow(); }
+  &.bottom .tooltip-arrow { .tooltip .bottom .tooltip-arrow(); }
+  &.right .tooltip-arrow  { .tooltip .right .tooltip-arrow(); }
+}
+
+.tooltip-not-ok,
+.tooltip-ok {
+  &.in     { .opacity(100); }
+
+  z-index: @zindexTooltip - 5;
+
+  .tooltip-inner {
+    background: transparent;
+    color: @pbGreen;
+    border: none;
+  }
+
+  .tooltip-arrow {
+    display: none;
+  }
+}

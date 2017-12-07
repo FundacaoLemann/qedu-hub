@@ -1,0 +1,81 @@
+.didactic-section .didactic-learning-block {
+  float: left;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  //border-bottom: 1px solid #f0f0f0;
+
+  &:only-of-type {
+    border-bottom-color: #fff;
+  }
+
+  &.last {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 26px;
+    margin-bottom: 15px;
+    color: #666;
+  }
+
+  p {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 23px;
+    color: #565656;
+    margin-bottom: 5px;
+   // display: none;
+  }
+
+  small {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.0em;
+    font-weight: bold;
+   // display: none;
+  }
+
+
+  .qualitative-square {
+    color: #333;
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+    border-radius: 3px;
+    .transition(all 0.5s linear);
+    border-radius: 3px;
+    span {
+      line-height: 90px;
+      font-size: 24px;
+
+      &.percent-level-no-data {
+        font-size: 11px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+.didactic-section .didactic-learning-block .qualitative-square.referencesample{
+  float: none;
+  position: relative;
+  left: 196px;
+
+  &:after{
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(135, 204, 29, 0);
+      border-top-color: #87cc1d;
+      border-width: 7px;
+      margin-left: -7px;
+  }
+}

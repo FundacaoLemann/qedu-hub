@@ -1,0 +1,412 @@
+/* Subnav */
+@subnavHeightSmall: 116px;
+@subnavPadding: 20px;
+@thumbnailPadding: 4px;
+
+.subnav-section {
+  padding-top: 5px;
+  //margin-top: -2px;
+  //border-bottom: 1px solid #ddd;
+
+  > .container {
+    position: relative;
+
+    height: 30px;
+
+    &.with-avatar-big {
+      height: 120px;
+    }
+
+    &.with-avatar-small {
+      height: @subnavHeightSmall;
+      position: relative;
+      z-index: 1000;
+    }
+
+    &.with-avatar-mini {
+      height: 90px;
+
+      .block-image {
+        margin-right: 15px;
+      }
+    }
+
+    //height: 90px;
+  }
+
+  &.auto-height {
+    padding-top: 5px;
+    height: 95px;
+    margin-bottom: 40px;
+
+    h1{
+      margin: 20px 0 18px 0;
+      font-size: 35px;
+      line-height: 49px;
+      font-weight: 100;
+    }
+
+    .subnav .nav{
+      margin-top: 30px;
+    }
+
+    &:before{
+      display: none;
+    }
+
+    > .container {
+      height: auto;
+      padding-bottom: 60px;
+    }
+    .addthis_sharing_toolbox{
+      top: 18px;
+    }
+  }
+
+  div.subnav-title {
+    margin: 0px;
+    display: inline-block;
+    .ie7-inline-block();
+    line-height: 1;
+    top: -4px;
+    position: relative;
+    padding-bottom: 25px;
+
+    h1{
+      top: -4px;
+      position: relative;
+      padding-bottom: 25px;
+      margin: 7px 0 -50px 20px;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .brasil-title{
+      position: relative;
+      top: 0;
+    }
+
+    .subnav-breadcrumb{
+      display: inline-block;
+      background: #FFF;
+      clear: both;
+
+      >li{
+        background: #FFFFFF;
+        border: 1px solid #d8d8d8;
+        height: 28px;
+        margin-right: -5px;
+        padding: 0px 10px;
+        line-height: 28px;
+        border-right: none;
+        border-left: 0;
+        position: relative;
+        &:after{
+          content:"";
+          display: block;
+          position: absolute;
+          top: -1px;
+          right: 0;
+          z-index: 10;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 15.5px 0 15.5px 10px;
+          border-color: transparent transparent transparent #fff;
+        }
+        &:before{
+          content:"";
+          display: block;
+          position: absolute;
+          top: -2px;
+          right: -1px;
+          z-index: 9;
+          border-style: solid;
+          border-width: 16.5px 0 16.5px 10px;
+          border-color: transparent transparent transparent #d8d8d8;
+        }
+        &:first-child{
+          border-radius: 3px 0 0 3px;
+          border-left: 1px solid #d8d8d8;
+
+        }
+        &:last-child{
+          border-radius: 0 3px 3px 0;
+          border-right: 1px solid #d8d8d8;
+          &:before, &:after{
+            display: none;
+          }
+        }
+        a{
+          text-transform: uppercase;
+          color: #000;
+          font-size: 10px !important;
+          font-weight: 600;
+          background: #fff;
+
+        }
+      }
+    }
+  }
+
+  li.subnav-title {
+    .dropdown-toggle {
+      font-size: 13px;
+    //line-height: 1;
+      color: #545454;
+      text-transform: uppercase;
+      margin-left: 0;
+
+    }
+  }
+
+  .block-content {
+    .btn-toolbar {
+      margin-top: 15px;
+      margin-bottom: 7px;
+    }
+
+    > .subnav-title:only-child {
+      //margin-top: 12px;
+    }
+  }
+
+  .thumbnail {
+
+    border: 0;
+    .box-shadow(none);
+
+    padding: @thumbnailPadding;
+  }
+
+  .block-image {
+    float: left;
+
+    &.avatar-block-small {
+      .avatar-container {
+        width: @subnavHeightSmall;
+        height: @subnavHeightSmall;
+        border-radius: 50%;
+
+        img {
+          height: @subnavHeightSmall;
+          left:-23%;
+          position: relative;
+        }
+      }
+    }
+
+    &.avatar-block-small.thumbnail-no-padding {
+      .avatar-container {
+        width: @subnavHeightSmall + @thumbnailPadding;
+        height: @subnavHeightSmall + @thumbnailPadding;
+
+        img {
+          height: @subnavHeightSmall + @thumbnailPadding;
+        }
+      }
+    }
+
+    &.avatar-block-mini {
+      margin-bottom: 0px;
+
+      .avatar-container {
+        width: 64px;
+        height: 64px;
+
+        img {
+          height: 64px;
+        }
+      }
+    }
+  }
+}
+
+.followposition{
+  margin: 0 0 0 152px;
+  position: relative;
+  z-index: 2;
+  width: 50%;
+}
+
+.subnav-section-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  z-index: @zindexFixedNavbar - 1;
+}
+
+.subnav-section-fixed-spacer {
+  display: block;
+  height: @subnavHeightSmall + 20px;
+}
+
+// Avatar stuff for the subnav
+.with-avatar-big-margin {
+  margin-left: 160px;
+}
+
+.with-avatar-small-margin {
+  clear: both;
+  position: relative;
+  z-index: 1;
+  height: 50px;
+}
+
+// hack to fix Explore's scroll
+.gray-pattern .with-avatar-small-margin:after{
+  content: "";
+  background: #fff;
+  width: 100%;
+  height: 84px;
+  display: block;
+  z-index: 0;
+  top: -80px;
+  position: relative;
+}
+
+.with-avatar-mini-margin {
+  margin-left: 90px;
+}
+
+@subnavTabBorderColor: #ccc; // @pbGreenLight
+
+// The actual navegator with tabs
+.subnav {
+  //border-bottom: 1px solid @subnavTabBorderColor;
+
+
+
+  ul {
+    li {
+      list-style: none;
+      margin-right: 20px;
+
+      //.transition(opacity 150ms linear);
+      //.opacity(50);
+    }
+  }
+
+  .btn-toolbar {
+    margin: 0;
+  }
+}
+.subnav .nav {
+  margin: 20px auto 15px;
+  width: 940px;
+  border-bottom: 1px solid #dfdfdf;
+  position: relative;
+  z-index: 1000;
+}
+.subnav .nav > li > a i {
+  display: none;
+}
+.subnav .nav > li > a {
+  margin: 0;
+  padding: 6px;
+  padding-top:    8px;
+  padding-bottom: 14px;
+
+  background: transparent;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: normal;
+
+  i {
+    .opacity(80);
+  }
+}
+.subnav .nav > .active {
+  border-bottom: 3px solid #36923f;
+  position: relative;
+  margin-bottom: -2px;
+
+
+}
+.subnav .nav > .active > a {
+  color: #000;
+}
+.subnav .nav > .active > a:hover {
+  background: #FFF;
+}
+.subnav .nav > li > a:hover {
+}
+.subnav .nav > .active > a .caret,
+.subnav .nav > .active > a:hover .caret {
+}
+.subnav .nav > li:first-child > a,
+.subnav .nav > li:first-child > a:hover {
+}
+.subnav .nav > li:last-child > a {
+  //border-right: 0;
+}
+.subnav .dropdown-menu {
+  .border-radius(0 0 @borderRadius @borderRadius);
+}
+
+.gray-pattern .subnav {
+
+}
+
+.subnav-fixed {
+  .transition(width @responsiveTransitionDelay linear);
+}
+
+.offset-for-small-avatar {
+  margin-left: 145px;
+}
+
+.subnav-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+@media (min-width: 980px) {
+  .subnav-fixed {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+    border-color: #d5d5d5;
+    border-width: 0 0 1px; /* drop the border on the fixed edges */
+
+    .border-radius(0);
+
+    .box-shadow(inset 0 1px 0 #fff 0 1px 5px rgba(0,0,0,.1));
+  }
+  .subnav-fixed .nav {
+    width: 938px;
+    margin: 0 auto;
+    padding: 0 1px;
+  }
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+    .border-radius(0);
+  }
+}
+
+/* LARGE DESKTOP SCREENS */
+@media (min-width: 1210px) {
+
+/* Update subnav container */
+  .subnav-fixed .nav {
+    width: 1168px; /* 2px less to account for left/right borders being removed when in fixed mode */
+  }
+
+}
+
+.internet-explorer-7 .subnav-section div.subnav-title  {
+  margin-left: 140px;
+  margin-top: -40px;
+
+  &.brasil-title {
+    margin-left: 0;
+    margin-top: 0;
+  }
+}

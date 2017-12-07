@@ -1,0 +1,55 @@
+.group-educacenso {
+    margin-bottom: 30px;
+    float: left;
+
+    h3 {
+        float: left;
+        width: 100%;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    table {
+        margin-bottom: 0px;
+        border-bottom: 1px solid #ccc;
+
+        margin-bottom: 10px;
+        width: 445px;
+
+        &.table-striped {
+            tbody>tr:nth-child(odd)>th,
+            tbody>tr:nth-child(odd)>td {
+                background-color: #e4e4e4;
+            }
+        }
+
+        &.table-less {
+            width: 345px;
+        }
+    }
+
+    small {
+        font-size: 11px;
+        color: #666;
+        text-align: center;
+        float: right;
+    }
+
+    .educacenso-block-identify-icon {
+        float: left;
+        margin-right:10px;
+    }
+
+    &.highlight {
+        table {
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+
+            tbody tr td,
+            tbody tr th, {
+                border: none;
+                background-color: #e4e4e4;
+            }
+        }
+    }
+}

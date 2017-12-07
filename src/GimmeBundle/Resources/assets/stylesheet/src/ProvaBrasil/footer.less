@@ -1,0 +1,143 @@
+.main-footer {
+  //background: url('http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/footer-background.png') repeat #333;
+  background: #F4F3F3;
+  border-top: 1px solid #ddd;
+
+  padding-top: 40px;
+  padding-bottom: 20px;
+
+  .alert {
+    margin-bottom: 30px;
+    font-size: 14px;
+
+    a {
+      color: @warningText;
+    }
+  }
+
+  h3 + p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  ul.links {
+    margin-top: 5px;
+
+    li a {
+      color: #666;
+
+      &:hover {
+        color: @footerColor;
+      }
+    }
+  }
+
+  h3 {
+    color: @footerColor;
+
+    small {
+      color: #888;
+      font-size: 13px;
+      line-height: 20px;
+
+      width: 270px;
+    }
+
+    a {
+      color: @footerColor;
+    }
+  }
+
+  .share-buttons {
+    margin-top: 10px;
+    iframe {
+
+    }
+  }
+
+  a.newsletter-qedu img{
+    .transition(all 0.4s linear) ;
+
+    &:hover {
+      box-shadow: 0 0 20px black;
+    }
+  }
+
+  .footer-share-container {
+    margin-left: -20px;
+    padding-right: 40px;
+  }
+
+  .footer-logos-container {
+   // margin-left: -40px;
+  //  padding-right: 10px;
+
+    .footer-logos {
+      margin-top: 10px;
+      margin-bottom: 30px;
+
+      a {
+        float: left;
+        margin-right: 20px;
+        border: 2px solid #ddd;
+        background-color: white;
+        padding: 10px;
+        width: 160px;
+        margin-bottom: 10px;
+        .transition(all 0.4s linear) ;
+
+        &:hover {
+          box-shadow: 0 0 20px black;
+        }
+
+        a.last {margin-bottom: 0;}
+
+      }
+    }
+  }
+}
+
+.normal-section + script + .main-footer,
+.normal-section + script + script + .main-footer,
+.normal-section + script + script + script + .main-footer{
+  margin-top: 30px;
+}
+
+
+
+.copywrite-footer {
+  color: @footerExtraColor;
+  font-size: 11px;
+
+  height: 40px;
+  line-height: 40px;
+
+  #gradient > .vertical(@footerExtraBackgroundStart, @footerExtraBackgroundFinish);
+
+  color: @footerExtraColor;
+
+  a {
+    color: @footerExtraColor;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      display: inline;
+      padding-right: 15px;
+
+      a {
+        color: @footerExtraColor;
+      }
+    }
+  }
+
+  .link-to-top {
+    text-align: right;
+    a {
+      color: @footerExtraColor;
+    }
+  }
+}

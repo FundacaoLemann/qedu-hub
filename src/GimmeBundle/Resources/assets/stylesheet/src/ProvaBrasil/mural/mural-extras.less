@@ -1,0 +1,150 @@
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 1.2s;
+     -moz-transition-duration: 1.2s;
+       -o-transition-duration: 1.2s;
+          transition-duration: 1.2s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity, background-color;
+     -moz-transition-property:    -moz-transform, opacity, background-color;
+       -o-transition-property:         top, left, opacity, background-color;
+          transition-property:         transform, opacity, background-color;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+
+#super-grid {
+    display: none;
+    width: 350px;    
+    height: 350px;
+    float: right;
+    margin-top: 10px;
+    a {cursor: default; display: block; float: left; width: 48px; height: 48px; border: 1px solid #bbb; background-color: #eee; text-align: center; line-height: 48px; font-size: 24px;
+
+	&.description { font-size: 12px; line-height: 13px; text-align: left; padding: 5px; width: 138px; height: 138px;}
+
+	&.filter {cursor: pointer;}
+	&.filter:hover { background-color: #ddd; }
+	
+	&.square-1 {}
+	&.line-4 {width: 198px;}
+	&.line-2 {width: 98px;}
+	&.column-4 {height: 198px; line-height: 198px;}
+	&.column-2 {height: 98px; line-height: 98px;}
+
+	&.active { background-color: yellow; }
+	
+    }
+
+}
+
+
+// TWIPSY
+// ------
+
+.twipsy {
+  display: block;
+  position: absolute;
+  visibility: visible;
+  padding: 5px;
+  font-size: 11px;
+  z-index: 1000;
+  .opacity(80);
+  &.fade.in {
+    .opacity(80);
+  }
+  &.above .twipsy-arrow   { #popoverArrow > .above(); }
+  &.left .twipsy-arrow    { #popoverArrow > .left(); }
+  &.below .twipsy-arrow   { #popoverArrow > .below(); }
+  &.right .twipsy-arrow   { #popoverArrow > .right(); }
+}
+.twipsy-inner {
+  padding: 3px 8px;
+  background-color: @black;
+  color: white;
+  text-align: center;
+  max-width: 200px;
+  text-decoration: none;
+  .border-radius(4px);
+}
+.twipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+#popoverArrow {
+  .above(@arrowWidth: 5px) {
+    bottom: 0;
+    left: 50%;
+    margin-left: -@arrowWidth;
+    border-left: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid transparent;
+    border-top: @arrowWidth solid @black;
+  }
+  .left(@arrowWidth: 5px) {
+    top: 50%;
+    right: 0;
+    margin-top: -@arrowWidth;
+    border-top: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid transparent;
+    border-left: @arrowWidth solid @black;
+  }
+  .below(@arrowWidth: 5px) {
+    top: 0;
+    left: 50%;
+    margin-left: -@arrowWidth;
+    border-left: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid @black;
+  }
+  .right(@arrowWidth: 5px) {
+    top: 50%;
+    left: 0;
+    margin-top: -@arrowWidth;
+    border-top: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid @black;
+  }
+}
+
+.fade {
+  .transition(opacity .15s linear);
+  opacity: 0;
+  &.in {
+    opacity: 1;
+  }
+}

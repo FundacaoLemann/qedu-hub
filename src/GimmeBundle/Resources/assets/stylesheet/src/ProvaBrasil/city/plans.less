@@ -1,0 +1,170 @@
+#plans_page-container {
+  > .show-grid {
+    > aside {
+      > a {
+        margin-left: 175px;
+      }
+      .nav-list {
+        padding: 0 14px;
+        .nav-header {
+          padding-bottom: 10px; border-top: none;
+        }
+        > li {
+          border-top: 1px solid #EEE;
+          a {
+            position: relative; padding-left: 80px; padding-bottom: 10px;
+            img {
+              position: absolute; left: 10px; top: 14px;
+            }
+            h3 {
+              font-size: 13px; margin-top: 4px;
+            }
+            ul {
+              overflow: hidden; margin-top: 10px;
+              li {
+                float: left; font-weight: bold; margin-right: 25px;font-size: 11px;
+              }
+            }
+            &.active {
+              background-color: #3B7600;
+              h3, p, li {
+                color: #FFF; text-shadow: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    > section{
+      .page-header {
+        margin-top: 0;
+      }
+      ul.plans_comments-container {
+        li {
+          position: relative; padding-left: 65px; border-top: 1px solid #DCDCDC; padding-top: 15px; margin-bottom: 15px;
+          &.info {
+            border-bottom: none; background: #DCDCDC; border: 1px solid #CCC; position: relative; height: 15px;
+            a { 
+              display: block; font-size: 11px; margin-top: -9px; margin-bottom: 7px; position: absolute; width: 100%; height: 100%; left: 0; text-align: center; top: 15px;
+            }
+          }
+          &:first-child {
+            border-top: none;
+          }
+          h4 {
+            font-size: 13px; margin-bottom: 5px; padding-bottom: 0;
+          }
+          > img {
+            position: absolute; left: 0;
+          }
+          p {
+            text-align: justify;
+          }
+          .denunciate_span {
+            position: absolute; right: 0; display: none;
+          }
+          &:hover {
+            .denunciate_span {
+              display: block; 
+            }
+          }
+          form {
+            textarea {
+              width: 325px; height: 30px; -webkit-transition: 0.2s all linear;
+              &.clicked {
+                height: 70px;
+              }
+            }
+            .form-actions {
+              overflow: hidden; margin-top: -5px; margin-bottom: -15px; padding-top: 10px; padding-bottom: 10px;  border-top: none;
+              button {
+                float: right;
+              }
+            }
+          }
+        }
+      }
+      .loading-container {
+        p {
+          text-align: center;
+        }
+      }
+      ul.plans-list-container {
+        margin-top: 20px;
+        > li {
+          position: relative; padding-left: 70px; border-bottom: 1px solid #DCDCDC; padding-bottom: 15px; margin-bottom: 15px;
+          &:last-child {
+            border-bottom: none;
+          }
+          .check-container {
+            position: absolute; left: 0;
+          }
+          h4 {
+            font-size: 13px; padding: 0; border: none; margin-bottom: 1px;
+          }
+          h5 {
+            font-weight: normal; font-size: 12px;
+          }
+          .check-container {
+            background: #EEE; border-radius: 5px; border: 1px solid #CCC; height: 50px; width: 50px;
+            span {
+              margin-left: 6px;
+            }
+          }
+          .like-container {
+            overflow:hidden; margin-top: 10px;
+            > a {
+              float: left; display: block; font-weight: bold; text-decoration: none; font-size: 20px; margin-right: 15px;
+            }
+            ul {
+              li {
+                float: left; margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #create-plan-modal {
+    fieldset {
+      border-top: 1px solid #EEE; padding: 15px 0 0;
+      &:first-child {
+        border-top: none;
+      }
+    }
+    .control-label {
+      width: 100px;
+      .control-label {
+        padding-top: 2px;
+      }
+    }
+    .controls {
+      margin-left: 120px;
+    }
+    .form-actions {
+      padding-left: 240px; margin-bottom: -65px;
+    }
+    .plan_actions-container {
+       li {
+         border-bottom: 1px dotted #CCC; margin-bottom: 20px; position: relative;
+         &:last-child {
+          border: none; margin-bottom: 0;
+         }
+         &:hover {
+           .remove_action {
+             display: block;
+           }
+         }
+         .remove_action { 
+           display: block; position: absolute; right: -27px; top: 28px; background: #EEE; border: 1px solid #CCC; -webkit-transition: 0.15s all linear; padding: 2px 2px 5px; border-radius: 3px;
+         }
+       }
+    }
+  }
+}
+.well .nav-list > li > a, .well .nav-list .nav-header {
+  margin-left: 0; margin-right: 0;
+}
+
+

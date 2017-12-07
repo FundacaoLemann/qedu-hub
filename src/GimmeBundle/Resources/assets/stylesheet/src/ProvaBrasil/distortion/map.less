@@ -1,0 +1,42 @@
+section.distortion-map {
+  margin-top: 20px;
+
+  h2 {
+    .border-radius(5px);
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #666;
+
+    padding: 5px;
+    padding-left: 10px;
+
+    text-align: left;
+
+  }
+
+  div.map-container {
+    padding: 5px;
+
+    .map-svg {
+      width: 100%;
+      float: none;
+      clear: both;
+
+    }
+
+  }
+  .distortion-map-tooltip {
+    position: absolute;
+    background: #000;
+    color: #fff;
+    padding: 3px 6px;
+    display: none;
+    z-index: 1000;
+    top: -1000px;
+    left: 0;
+    width: auto;
+
+    .border-radius(4px);
+  }
+}
