@@ -12,8 +12,7 @@ var jsCmdVersionOne  = uglifyjsBinary + ' <%= file.path %> --define __DEV__=1 --
     jsCompileCoffee  = coffeeBinary   + ' --print --stdio < <%= file.path %>',
     jsUglifyQuotes   = uglifyjsBinary + ' <%= file.path %> --beautify beautify=false,quote_keys=true --no-copyright',
     cssCmdVersionOne = lessBinary     + ' <%= file.path %> --compress',
-    cssCmdVersionTwo = lessBinary     + ' <%= file.path %> --compress' + ' | ' + uglifycssBinary,
-    cssCmdInputPath  = lessBinary     + ' -x --include-path=generic/:stylesheet/src/ <%= file.path %> ';
+    cssCmdVersionTwo = lessBinary     + ' <%= file.path %> --compress' + ' | ' + uglifycssBinary;
 
 var execOptions       = {pipeStdout: true},
     noBreakLineOption = {newLine:''};
@@ -278,9 +277,9 @@ gulp.task('provabrasil.css', function() {
         './stylesheet/src/Meritt/QEdu/UI/Modal/InnerModal.less',
         './stylesheet/src/Meritt/QEdu/UI/Follow/InnerFollowCampaignModal.less'
     ])
-        .pipe(concat('pb-concat.css'))
-        .pipe(gulp.dest('./stylesheet/dist/'))
-        .pipe(exec(lessBinary + ' -x --include-path=generic/:stylesheet/src/ <%= file.path %> > ./stylesheet/dist/provabrasil.css', {maxBuffer: 1024 * 5000000}))
+    .pipe(concat('pb-concat.css'))
+    .pipe(gulp.dest('./stylesheet/dist/'))
+    .pipe(exec(lessBinary + ' -x --include-path=generic/:stylesheet/src/ <%= file.path %> > ./stylesheet/dist/provabrasil.css', {maxBuffer: 1024 * 5000000}))
 });
 
 gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css', 'provabrasil.js', 'provabrasil.css']);
