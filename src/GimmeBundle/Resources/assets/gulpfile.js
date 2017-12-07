@@ -119,7 +119,7 @@ gulp.task('provabrasil.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
-gulp.task('provabrasil-concat.css', function() {
+gulp.task('provabrasil.css', function() {
     return gulp.src([
         './generic/css/bootstrap/reset.less',
         './generic/css/bootstrap/variables.less',
