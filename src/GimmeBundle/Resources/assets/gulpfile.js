@@ -282,4 +282,39 @@ gulp.task('provabrasil.css', function() {
     .pipe(exec(lessBinary + ' -x --include-path=generic/:stylesheet/src/ <%= file.path %> > ./stylesheet/dist/provabrasil.css', {maxBuffer: 1024 * 5000000}))
 });
 
-gulp.task('default', ['header.js', 'landingideb.js', 'banner.css', 'landingideb.css', 'dropdown-select2.css', 'provabrasil.js', 'provabrasil.css']);
+gulp.task('mcc-basic-libs.js', function () {
+    return gulp.src([
+        'generic/js/mcc/lib/uri.js',
+        'generic/js/mcc/lib/number.js',
+        'generic/js/bootstrap/bootstrap-alert.js',
+        'generic/js/bootstrap/bootstrap-button.js',
+        'generic/js/bootstrap/bootstrap-carousel.js',
+        'generic/js/bootstrap/bootstrap-collapse.js',
+        'generic/js/bootstrap/bootstrap-dropdown.js',
+        'generic/js/bootstrap/bootstrap-modal.js',
+        'generic/js/bootstrap/bootstrap-tooltip.js',
+        'generic/js/bootstrap/bootstrap-popover.js',
+        'generic/js/bootstrap/bootstrap-scrollspy.js',
+        'generic/js/bootstrap/bootstrap-tab.js',
+        'generic/js/bootstrap/bootstrap-transition.js',
+        'generic/js/bootstrap/bootstrap-typeahead.js'
+    ])
+    .pipe(concat('mcc-basic-libs.js', noBreakLineOption))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(concat('mcc-basic-libs.js'), noBreakLineOption)
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
+gulp.task('default', [
+    'banner.css',
+    'dropdown-select2.css',
+    'landingideb.css',
+    'provabrasil.css',
+
+    'header.js',
+    'landingideb.js',
+    'mcc-basic-libs.js',
+    'provabrasil.js'
+]);
