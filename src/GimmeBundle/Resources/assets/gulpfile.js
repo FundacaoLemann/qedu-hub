@@ -307,6 +307,31 @@ gulp.task('mcc-basic-libs.js', function () {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('mcc-boot.js', function() {
+    return gulp.src([
+        './javascript/src/RavenJs/raven.js',
+        './javascript/src/underscore.js',
+        './javascript/src/underscore.string.js',
+        './javascript/src/Mcc/Core/boot.js',
+        './javascript/src/Mcc/Core/functions.js',
+        './javascript/src/Mcc/Core/install.js',
+        './javascript/src/Mcc/Core/behavior.js',
+        './javascript/src/Mcc/BigPipe/bigpipe.js',
+        './javascript/src/jquery.js',
+        './javascript/src/jquery-browser.js',
+        './javascript/src/RavenJs/Plugins/jquery.js',
+        './javascript/src/RavenJs/Plugins/native.js',
+        './javascript/src/jquery.color.js',
+        './javascript/src/backbone.js',
+        './javascript/src/modernizr.js',
+        './javascript/src/Mcc/Extra/Dev/behavior-reload.js',
+        './javascript/src/Mcc/Extra/UserVoice/behavior-uservoice-widget.js'
+    ])
+        .pipe(exec(jsUglifyQuotes, execOptions))
+        .pipe(concat('mcc-boot.js', noBreakLineOption))
+        .pipe(gulp.dest('./javascript/dist/'));
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -315,6 +340,7 @@ gulp.task('default', [
 
     'header.js',
     'landingideb.js',
+    'mcc-boot.js',
     'mcc-basic-libs.js',
     'provabrasil.js'
 ]);
