@@ -327,9 +327,50 @@ gulp.task('mcc-boot.js', function() {
         './javascript/src/Mcc/Extra/Dev/behavior-reload.js',
         './javascript/src/Mcc/Extra/UserVoice/behavior-uservoice-widget.js'
     ])
-        .pipe(exec(jsUglifyQuotes, execOptions))
-        .pipe(concat('mcc-boot.js', noBreakLineOption))
-        .pipe(gulp.dest('./javascript/dist/'));
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(concat('mcc-boot.js', noBreakLineOption))
+    .pipe(gulp.dest('./javascript/dist/'));
+});
+
+gulp.task('distortion.js', function() {
+    return gulp.src([
+        './javascript/src/ProvaBrasil/Distortion/service/ColorScale.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionFilter.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionStatus.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionEvolution.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionEvolutionBrazil.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionEvolutionState.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionEvolutionCity.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionEvolutionSchool.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionEntity.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionBrazil.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionState.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionCity.coffee',
+        './javascript/src/ProvaBrasil/Distortion/models/DistortionSchool.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionEntities.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionStates.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionCities.coffee',
+        './javascript/src/ProvaBrasil/Distortion/collections/DistortionSchools.coffee',
+        './javascript/src/ProvaBrasil/Distortion/routes/DistortionRouter.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionPlayerView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/Filters/DistortionDependenceFilterView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/Filters/DistortionLocalizationFilterView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/Filters/DistortionYearFilterView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionFilterView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionStageView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionEvolutionView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionTableSchoolView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionMapView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/views/DistortionPaneToggleView.coffee',
+        './javascript/src/ProvaBrasil/Distortion/behaviorDistortion.coffee',
+    ])
+    .pipe(concat('distortion.js'))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsCompileCoffee, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'));
 });
 
 gulp.task('default', [
@@ -342,5 +383,6 @@ gulp.task('default', [
     'landingideb.js',
     'mcc-boot.js',
     'mcc-basic-libs.js',
-    'provabrasil.js'
+    'provabrasil.js',
+    'distortion.js',
 ]);
