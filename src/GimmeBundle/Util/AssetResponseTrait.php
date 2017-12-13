@@ -26,6 +26,7 @@ trait AssetResponseTrait
 
         $response = new Response($fileContent);
         $response->headers->set('Content-Type', $contentType);
+        $response->setPublic()->setMaxAge(15778463);
 
         return $response;
     }
