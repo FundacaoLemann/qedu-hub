@@ -373,16 +373,46 @@ gulp.task('distortion.js', function() {
     .pipe(gulp.dest('./javascript/dist/'));
 });
 
+gulp.task('Ideb.js', function() {
+    return gulp.src([
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/model/ChildrenList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/collection/ChildrenList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/view/ChildrenList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/ChildrenList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/model/FlowIndicatorList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/collection/FlowIndicatorList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/view/FlowIndicatorList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/FlowIndicatorList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/view/LearningRatesList.js',
+        'javascript/src/Meritt/QEdu/UI/IdebChildrenList/LearningRatesList.js',
+        'javascript/src/Meritt/QEdu/UI/Ideb/view/Filters.js',
+        'javascript/src/Meritt/QEdu/UI/Ideb/Filters.js',
+        'javascript/src/Meritt/QEdu/UI/IdebResults/view/ScoreChart.js',
+        'javascript/src/Meritt/QEdu/UI/IdebResults/view/IdebStatusLocation.js',
+        'javascript/src/Meritt/QEdu/UI/IdebResults/ScoreChart.js',
+        'javascript/src/Meritt/QEdu/UI/IdebResults/IdebStatusLocation.js',
+        'javascript/src/Meritt/QEdu/UI/IdebFlowIndicator/view/IdebFlowIndicator.js',
+        'javascript/src/Meritt/QEdu/UI/IdebFlowIndicator/IdebFlowIndicator.js',
+        'javascript/src/Meritt/QEdu/UI/IdebLearningIndicator/view/IdebLearningIndicator.js',
+        'javascript/src/Meritt/QEdu/UI/IdebLearningIndicator/IdebLearningIndicator.js'
+    ])
+    .pipe(concat('Ideb.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
     'landingideb.css',
     'provabrasil.css',
 
+    'distortion.js',
     'header.js',
     'landingideb.js',
+    'Ideb.js',
     'mcc-boot.js',
     'mcc-basic-libs.js',
-    'provabrasil.js',
-    'distortion.js',
+    'provabrasil.js'
 ]);
