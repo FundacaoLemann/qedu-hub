@@ -402,12 +402,30 @@ gulp.task('Ideb.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('print_libs.js', function() {
+    return gulp.src([
+        'javascript/src/canvas-toBlob.js',
+        'javascript/src/rgbcolor.js',
+        'javascript/src/canvg.js',
+        'javascript/src/FileSaver.js',
+        'javascript/src/BlobBuilder.js',
+        'javascript/src/html2canvas.js',
+        'javascript/src/jspdf.js',
+        'javascript/src/jspdf.plugin.addimage.js',
+    ])
+    .pipe(concat('print_libs.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
     'landingideb.css',
     'provabrasil.css',
 
+    'print_libs.js',
     'distortion.js',
     'header.js',
     'landingideb.js',
