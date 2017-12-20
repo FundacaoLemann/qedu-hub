@@ -27,8 +27,9 @@ gulp.task('header.js', function() {
       './javascript/src/Header/IdebModal_view.js',
       './javascript/src/Header/IdebModal.js'
     ])
-    .pipe(exec(jsCmdVersionOne, execOptions))
     .pipe(concat('Header.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
     .pipe(gulp.dest('./javascript/dist/'));
 });
 

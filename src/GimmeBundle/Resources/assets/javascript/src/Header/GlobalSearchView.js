@@ -24,7 +24,8 @@
             'mouseenter a.qedu-search-result'       : 'hover',
             'mouseleave a.qedu-search-result'       : 'hover',
             'submit'                                : 'submit',
-            'webkitspeechchange input[type="text"]' : 'speechResult'
+            'webkitspeechchange input[type="text"]' : 'speechResult',
+            'click .qedu-search-result'             : 'trackSuggestionPicked'
         },
         textToSearch: null,
         urlToAppend: '',
@@ -117,6 +118,7 @@
                     }
                     url += this.autosend;
                 }
+                this.trackSuggestionPicked();
                 window.location = url;
                 return true;
             }
@@ -269,6 +271,16 @@
             } else {
                 return $this.removeClass('qedu-search-hover');
             }
+        },
+        trackSuggestionPicked: function() {
+            $el = this.$el.find('ul li a.qedu-search-result.qedu-search-hover');
+
+            var optionPicked = $el.contents().get(0).nodeValue.trim();
+            var categoryPicked = $el.closest('ul.qedu-search-nav').find('.qedu-search-legend').text();
+
+            var eventLabel = categoryPicked + ' - ' + optionPicked;
+
+            ga('send', 'event', 'search', 'suggestion picked', eventLabel);
         }
     });
 }));
