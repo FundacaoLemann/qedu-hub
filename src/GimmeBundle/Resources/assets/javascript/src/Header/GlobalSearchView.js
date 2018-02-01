@@ -280,7 +280,10 @@
 
             var eventLabel = categoryPicked + ' - ' + optionPicked;
 
-            ga('send', 'event', 'search', 'suggestion picked', eventLabel);
+            dataLayer.push({
+                'event': 'searchEvent',
+                'suggestionPicked': eventLabel
+            });
         }
     });
 }));
