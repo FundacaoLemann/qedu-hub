@@ -420,6 +420,21 @@ gulp.task('print_libs.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('jquery.libs.js', function() {
+    return gulp.src([
+        'javascript/src/jquery.smooth-scroll-1.4.13.js',
+        'javascript/src/jquery.shortcuts.js',
+        'javascript/src/waypoints.js',
+        'javascript/src/jquery.loadmask.js',
+        'javascript/src/jquery.nouislider.js',
+        'javascript/src/jquery.swatchbook.js',
+    ])
+    .pipe(concat('jquery.libs.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -433,5 +448,6 @@ gulp.task('default', [
     'Ideb.js',
     'mcc-boot.js',
     'mcc-basic-libs.js',
-    'provabrasil.js'
+    'provabrasil.js',
+    'jquery.libs.js',
 ]);
