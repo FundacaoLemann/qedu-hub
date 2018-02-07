@@ -435,6 +435,21 @@ gulp.task('jquery.libs.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('print.js', function() {
+    return gulp.src([
+        'javascript/src/ProvaBrasil/Util/Print/behavior.coffee',
+        'javascript/src/ProvaBrasil/Util/Print/view.coffee',
+        'javascript/src/ProvaBrasil/Util/Print/data.coffee',
+        'javascript/src/ProvaBrasil/Util/Print/canvas.coffee'
+    ])
+    .pipe(concat('print.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsCompileCoffee, execOptions))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -450,4 +465,5 @@ gulp.task('default', [
     'mcc-basic-libs.js',
     'provabrasil.js',
     'jquery.libs.js',
+    'print.js'
 ]);
