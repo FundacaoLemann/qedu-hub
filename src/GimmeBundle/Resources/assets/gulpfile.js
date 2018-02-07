@@ -435,6 +435,28 @@ gulp.task('jquery.libs.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('Enem.js', function() {
+    return gulp.src([
+        'javascript/src/Meritt/QEdu/UI/EnemBase/view/Filters.js',
+        'javascript/src/Meritt/QEdu/UI/EnemBase/Filters.js',
+        'javascript/src/Meritt/QEdu/UI/Enem/view/Compare.js',
+        'javascript/src/Meritt/QEdu/UI/Enem/Compare.js',
+        'javascript/src/Meritt/QEdu/UI/EnemBase/view/Base.js',
+        'javascript/src/Meritt/QEdu/UI/EnemBase/Base.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/model/School.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/model/SchoolParticipation.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/model/SchoolResults.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/collection/SchoolResults.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/view/SchoolsList.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/SchoolsList.js',
+        'javascript/src/Meritt/QEdu/UI/EnemSchoolsList/DataFileDownload.js'
+    ])
+    .pipe(concat('Enem.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -450,4 +472,5 @@ gulp.task('default', [
     'mcc-basic-libs.js',
     'provabrasil.js',
     'jquery.libs.js',
+    'Enem.js',
 ]);
