@@ -1,0 +1,409 @@
+
+.ideb-results {
+    
+    margin: 50px 0 47px;
+    position: relative;
+
+    /**
+     * Fucking BootStrap didn't create a zero margin
+     * Remove margin to collapse content
+     */
+    [class*="span"] {
+        margin-left: 0;
+    }
+
+    /**
+     * IdebHeaderUI
+     */
+    .ideb-header {
+        background: #FFF;
+        padding: 15px 0 30px;
+        width: 100%;
+
+        h1 {
+            color: #000;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 0;
+            margin-right: 10px;
+            max-width: 860px;
+            overflow: hidden;
+            text-transform: uppercase;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        p {
+            color: #565656;
+            font-size: 14px;
+            line-height: normal;
+            margin-top: 0;
+            width: auto;
+        }
+    }
+
+    /**
+     * IdebScore
+     */
+    .ideb-escola {
+        .results-ct, .symbol {
+            display: none;
+        }
+
+        .results-ct.ideb-average {
+            display: block;
+        }
+    }
+
+    .ideb-score {
+        padding: 20px 0 25px;
+    }
+
+    .no-classification-chart {
+        margin: 20px;
+    }
+
+    .results-ct {
+        display: inline-block;
+        float: left;
+        padding: 10px 0;
+
+        b {
+            font-size: 14px;
+        }
+
+        h4 {
+            color: #666;
+            font-size: 60px;
+            letter-spacing: -5px;
+            line-height: normal;
+        }
+
+        p {
+            color: #5f5f5f;
+            font-size: 13px;
+            line-height: 17px;
+        }
+    }
+
+    .results-ct:nth-of-type(1) {
+        padding-left: 30px;
+    }
+
+    .symbol {
+        float: left;
+        margin: 60px 20px 0 20px;
+    }
+
+    .ideb-average {
+        width: 150px;
+        overflow: hidden;
+
+        h4 {
+            color: #000;
+        }
+
+        strong {
+            color: #000;
+        }
+    }
+
+    .ideb-no-official {
+        padding-left: 10px;
+    }
+
+    .ideb-situation-legend {
+        color: #666;
+        list-style: none;
+        margin-top: 30px;
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        i {
+            border-radius: 5px;
+            display: inline-block;
+            height: 8px;
+            margin-right: 10px;
+            width: 8px;
+        }
+    }
+
+    /**
+     * CSS Donuts Chart (Oh yeah! Pure CSS bro)
+     * Yes, we're incredible
+     */
+    .pie-box {
+        left: 85px;
+        position: relative;
+        top: -122px;
+    }
+
+    .pie {
+        height:112px;
+        left:150px;
+        overflow:hidden;
+        position:absolute;
+        width:56px;
+
+        -moz-transform-origin:left center;
+        -ms-transform-origin:left center;
+        -o-transform-origin:left center;
+        -webkit-transform-origin:left center;
+        transform-origin:left center;
+
+        &:before {
+            border-radius: 100px 0 0 100px;
+            content: "";
+            height: 112px;
+            left: -56px;
+            position: absolute;
+            width: 56px;
+
+            -moz-transform-origin: right center;
+            -ms-transform-origin: right center;
+            -o-transform-origin: right center;
+            -webkit-transform-origin: right center;
+            transform-origin: right center;
+        }
+
+        &.big {
+            height: 112px;
+            left: 94px;
+            width: 112px;
+
+            -moz-transform-origin: center center;
+            -ms-transform-origin: center center;
+            -o-transform-origin: center center;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+
+            &:before {
+                left: 0;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 56px;
+                height: 112px;
+                left: 56px;
+                border-radius: 0 100px 100px 0;
+            }
+        }
+
+        &.slice-1 {
+            z-index: 1;
+
+            &:before, &:after {
+                background: @level-1;
+            }
+        }
+
+        &.slice-2 {
+            z-index: 2;
+
+            &:before, &:after {
+                background: @level-2;
+            }
+        }
+
+        &.slice-3 {
+            z-index: 3;
+
+            &:before, &:after {
+                background: @level-3;
+            }
+        }
+
+        &.slice-4 {
+            z-index: 4;
+
+            &:before, &:after {
+                background: @level-4;
+            }
+        }
+    }
+
+    .pie-center {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/sprite.png') no-repeat -215px 16px #fff;
+        border-radius: 100px;
+        height: 88px;
+        left: 106px;
+        top: 12px;
+        width: 88px;
+        z-index: 5;
+    }
+
+    /**
+     * IdebStatusUI
+     */
+    .ideb-status {
+        // padding: 20px 0 40px 10px;
+        width: 317px;
+
+        .go-to-children {
+            margin-left: 20px;
+        }
+
+        .ideb-title {
+            float: none;
+            margin: 30px 0 0px 20px;
+        }
+
+        span {
+            color: #5f5f5f;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+    }
+
+    .status-chart {
+        border-radius: 120px;
+        height: 220px;
+        margin: 45px auto 30px auto;
+        width: 220px;
+    }
+
+    .inner-chart {
+        background: #fff;
+        border-radius: 100px;
+        height: 170px;
+        margin: auto;
+        position: relative;
+        top: 25px;
+        width: 170px;
+    }
+
+    .img-chart {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/sprite.png') no-repeat 0 0;
+        display: block;
+        height: 53px;
+        margin: auto;
+        position: relative;
+        top: 40px;
+        width: 74px;
+    }
+
+    .label-chart {
+        display: block;
+        font-size: 18px;
+        font-weight: 100;
+        padding-top: 55px;
+        text-align: center;
+    }
+
+    .ideb-goals {
+        color: #5f5f5f;
+        font-size: 18px;
+        list-style: none;
+        margin: 0 auto;
+        width: 220px;
+
+        li {
+            border-bottom: 1px solid #e4e4e4;
+            line-height: 47px;
+        }
+    }
+
+    .ideb-icon {
+        float: left;
+        margin: 16px 17px 0 25px;
+    }
+
+    .ideb-info {
+        color: #5f5f5f;
+        font-size: 14px;
+        margin: 85px auto 0 auto;
+        text-align: center;
+        width: 200px;
+
+        b {
+            color: #efa445;
+            font-size: 16px;
+        }
+    }
+
+    /**
+     * ScoreChartUI
+     */
+    .ideb-score-chart {
+    }
+
+    .score-chart {
+        height: 360px;
+        margin: 20px auto 10px 0;
+        width: 93%;
+    }
+
+    .source {
+        bottom: -47px;
+    }
+}
+
+/**
+ * IdebLegendGoalsUI
+ */
+.ideb-legend-goals {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    width: 317px;
+
+    table {
+        border-top: 1px solid #eee;
+        margin: 0;
+    }
+
+    .ideb-icon {
+        float: none;
+        margin: 0 auto;
+    }
+
+    tbody {
+        tr {
+            border-top: 1px solid #eee;
+        }
+    }
+
+    th {
+        color: #000;
+        font-weight: 100;
+        padding: 9px 10px;
+    }
+
+    .ideb-tooltip {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/sprite.png') no-repeat -254px -94px;
+        display: block;
+        height: 28px;
+        margin-left: 5px;
+        width: 28px;
+    }
+
+    td {
+        background: #fff;
+        color: @level-2;
+        font-weight: 600;
+        padding: 13px 10px 10px 10px;
+    }
+
+    td:first-child {
+        padding-left: 15px;
+        text-align: left;
+    }
+
+    .ideb-level-1 {
+        color: @level-1;
+    }
+
+    .ideb-level-3 {
+        color: @level-3;
+    }
+
+    .ideb-level-4 {
+        color: @level-4;
+    }
+}

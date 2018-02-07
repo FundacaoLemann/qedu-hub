@@ -1,0 +1,75 @@
+.ideb-performance {
+    header {
+        padding-bottom: 10px;
+    }
+
+    .icon-increase, .icon-decrease {
+        left: 80px;
+        position: absolute;
+        top: 43px;
+    }
+
+    .performance-indicators {
+        margin-bottom: 10px;
+        overflow: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    thead {
+        background: #f8f8f8;
+        color: #888;
+    }
+
+    tbody {
+        tr {
+            border-top: 1px solid #ddd;
+        }
+
+        tr:nth-child(2n) {
+            background: #fbfbfb;
+        }
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+.ideb-children-list {
+    thead {
+        border-top: 1px solid #ccc;
+    }
+}
+
+.indicator-blocks {
+    padding-bottom: 19px;
+
+    .active {
+        position: relative;
+
+        .caret {
+            border-bottom: 11px solid #d7d7d7;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: none;
+            bottom: -20px;
+            display: block;
+            height: 0;
+            margin-left: -10px;
+            position: absolute;
+            left: 50%;
+            width: 0;
+        }
+    }
+}
+
+#ideb-modal, .modal {
+    display: none;
+}

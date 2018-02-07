@@ -450,11 +450,58 @@ gulp.task('print.js', function() {
     .pipe(gulp.dest('./javascript/dist'))
 });
 
+gulp.task('guide.js', function() {
+    return gulp.src([
+        './javascript/src/ProvaBrasil/Guide/behavior-guide.coffee',
+        './javascript/src/ProvaBrasil/Guide/view-guide-abstract.coffee',
+        './javascript/src/ProvaBrasil/Guide/view-guide-step-abstract.coffee',
+        './javascript/src/ProvaBrasil/Guide/Evolution/view-guide-evolution.coffee',
+        './javascript/src/ProvaBrasil/Guide/Evolution/view-guide-evolution-step1.coffee',
+        './javascript/src/ProvaBrasil/Guide/Evolution/view-guide-evolution-step2.coffee',
+        './javascript/src/ProvaBrasil/Guide/Explore/view-guide-explore.coffee',
+        './javascript/src/ProvaBrasil/Guide/Explore/view-guide-explore-step1.coffee',
+        './javascript/src/ProvaBrasil/Guide/Explore/view-guide-explore-step2.coffee',
+        './javascript/src/ProvaBrasil/Guide/Context/view-guide-context.coffee',
+        './javascript/src/ProvaBrasil/Guide/Context/view-guide-context-step1.coffee',
+        './javascript/src/ProvaBrasil/Guide/Context/view-guide-context-step2.coffee',
+        './javascript/src/ProvaBrasil/Guide/Context/view-guide-context-step3.coffee',
+        './javascript/src/ProvaBrasil/Guide/Context/view-guide-context-step4.coffee',
+    ])
+    .pipe(concat('guide.js'))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsCompileCoffee, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'));
+});
+
+gulp.task('ideb.css', function() {
+    return gulp.src([
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/Ideb.less',
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/Filters.less',
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/Sidebar.less',
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/Footer.less',
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/ClassificationLabel.less',
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/PerformanceIndicators.less',
+        './stylesheet/src/Meritt/QEdu/UI/Ideb/NoDataNotification.less',
+        './stylesheet/src/Meritt/QEdu/UI/IdebResults/Results.less',
+        './stylesheet/src/Meritt/QEdu/UI/IdebFlowIndicator/IdebFlowIndicator.less',
+        './stylesheet/src/Meritt/QEdu/UI/IdebLearningIndicator/IdebLearningIndicator.less',
+        './stylesheet/src/Meritt/QEdu/UI/IdebChildrenList/ChildrenList.less',
+        './stylesheet/src/Meritt/QEdu/UI/IdebChildrenList/DataFileDownload.less',
+    ])
+    .pipe(concat('ideb.css'))
+    .pipe(gulp.dest('./stylesheet/dist/'))
+    .pipe(exec(cssCmdVersionOne, execOptions))
+    .pipe(gulp.dest('./stylesheet/dist/'));
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
     'landingideb.css',
     'provabrasil.css',
+    'ideb.css',
 
     'print_libs.js',
     'distortion.js',
@@ -465,5 +512,6 @@ gulp.task('default', [
     'mcc-basic-libs.js',
     'provabrasil.js',
     'jquery.libs.js',
-    'print.js'
+    'print.js',
+    'guide.js',
 ]);

@@ -1,0 +1,300 @@
+
+
+.ideb-schools .contents {
+    width: 100%;
+}
+
+.ideb-children-list {
+    .ideb-tabs-location {
+        margin-bottom: 0;
+
+        li {
+            margin-right: 6px;
+        }
+
+        a {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 12px;
+            padding: 10px 20px;
+        }
+
+        .active {
+            a {
+                background: #fff;
+                border-bottom-color: transparent;
+            }
+        }
+    }
+
+    table {
+        border: 1px solid #ccc;
+        border-top: none;
+        width: 100%
+    }
+
+    thead {
+        background: #fff;
+    }
+
+    th {
+        color: #000;
+        padding: 15px 0;
+    }
+
+    tbody {
+        tr {
+            border-top: 1px solid #f2f2f2;
+            height: 28px;
+            line-height: 28px;
+        }
+
+        tr:first-child {
+            border-top: 1px solid #ccc;
+        }
+
+        tr:nth-child(2n) {
+            background: #fff;
+        }
+    }
+
+    td {
+        color: #787878;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .ib-child-name {
+        font-size: 12px;
+        overflow: hidden;
+        padding-left: 20px;
+        padding-right: 10px;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .ib-ideb {
+        border-right: 1px solid #ccc;
+        color: #000;
+    }
+
+    .ib-no-data {
+        border-left: 1px solid #ccc;
+        text-transform: none;
+    }
+}
+
+.ideb-location-list {
+    th {
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+
+    .ib-child-name {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        line-height: 20px;
+    }
+
+    .location-name {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .location-school-count {
+        font-weight: normal;
+        text-transform: none;
+    }
+
+    .ib-level {
+        border-right: 1px solid #f2f2f2;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .ib-level-4 {
+        border-right-color: #ccc;
+    }
+
+    td.ib-level-1 {
+        color: @level-1;
+    }
+
+    td.ib-level-2 {
+        color: @level-2;
+    }
+
+    td.ib-level-3 {
+        color: @level-3;
+    }
+
+    td.ib-level-4 {
+        color: @level-4;
+    }
+
+    td.level {
+        color: #fff;
+    }
+
+    th.ib-flow {
+        border-right: 1px solid #f2f2f2;
+    }
+
+    .ib-situation {
+        border-bottom: 1px solid #f2f2f2;
+    }
+}
+
+.ideb-schoolslist {
+    table {
+        border-left: none;
+    }
+
+    td.ib-child-name {
+        font-weight: normal;
+    }
+
+    .ib-child-name {
+        border-left: 5px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-transform: uppercase;
+    }
+
+    .ib-no-data {
+        border-left: 5px solid #ccc;
+    }
+
+    .ib-reach {
+        border-right: 1px solid #ccc;
+    }
+
+    .ib-goal, .ib-growth, .ib-reach {
+        min-width: 80px;
+        width: 80px;
+    }
+
+    .ib-check {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/check.gif') no-repeat center center;
+    }
+
+    .ib-wrong {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/wrong.gif') no-repeat center center;
+    }
+
+    .ib-status {
+        color: #fff;
+        font-size: 13px;
+        line-height: 14px;
+        width: 90px;
+    }
+
+    .sc-level-1 {
+        border-left-color: @level-1;
+    }
+
+    .sc-level-2 {
+        border-left-color: @level-2;
+    }
+
+    .sc-level-3 {
+        border-left-color: @level-3;
+    }
+
+    .sc-level-4 {
+        border-left-color: @level-4;
+    }
+}
+
+.partial-data-note {
+    margin-bottom: 10px;
+}
+
+/*School Situation Table*/
+#school-situation {
+    th.ib-score {
+        border-right: 1px solid #ccc;
+    }
+
+    th.ib-level {
+        width: 90px;
+    }
+}
+
+/*Flow Indicator Table*/
+#flow-indicator {
+    th {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    th.ib-child-name {
+        border-right: none;
+    }
+
+    th.ib-flow {
+        border-right: none;
+        width: 80px;
+    }
+
+    th.ib-level {
+        border-right: 1px solid #f2f2f2;
+        width: 80px;
+    }
+
+    th.ib-level:last-child {
+        border-right: none;
+    }
+
+    th.ib-situation {
+        width: 100px;
+    }
+
+    td.level {
+        color: #fff;
+    }
+
+    td.ib-flow-year {
+        border-left: 1px solid #f2f2f2;
+
+        &:first-child {
+            border-left: none;
+        }
+    }
+}
+
+/*Learning Rates Table*/
+#learning-rates {
+    th {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    th.ib-level {
+        border-right: 1px solid #f2f2f2;
+    }
+
+    th.ib-level:last-child {
+        border-right: none;
+    }
+
+    th.ib-score, th.ib-situation, th.ib-learning, th.ib-level {
+        max-width: 130px;
+        min-width: 130px;
+        width: 130px;
+    }
+
+    td.ib-portuguese {
+        border-left: 1px solid #f2f2f2;
+        border-right: 1px solid #f2f2f2;
+    }
+
+    th.ib-score {
+        border-right: none;
+    }
+
+    td.level {
+        color: #fff;
+    }
+}
