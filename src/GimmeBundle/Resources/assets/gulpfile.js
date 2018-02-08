@@ -550,6 +550,28 @@ gulp.task('Enem.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('didactic.js', function() {
+   return gulp.src([
+       'javascript/src/ProvaBrasil/Didactic/fixed-main-block.coffee',
+       'javascript/src/ProvaBrasil/Didactic/fixed-buttons-filter.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Proficiency/behavior.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Proficiency/view-filters-proficiency.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Proficiency/proficiency-collection.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Compare/behavior.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Compare/view-filters-compare.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Compare/compare-collection.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Evolution/view-filters-evolution.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Evolution/evolution-collection.coffee',
+       'javascript/src/ProvaBrasil/Didactic/Evolution/behavior.coffee'
+   ])
+       .pipe(concat('didactic.js'))
+       .pipe(gulp.dest('./javascript/dist'))
+       .pipe(exec(jsCompileCoffee, execOptions))
+       .pipe(gulp.dest('./javascript/dist'))
+       .pipe(exec(jsUglifyQuotes, execOptions))
+       .pipe(gulp.dest('./javascript/dist'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -571,4 +593,5 @@ gulp.task('default', [
     'FollowButton.js',
     'FollowMenu.js',
     'Enem.js',
+    'didactic.js',
 ]);
