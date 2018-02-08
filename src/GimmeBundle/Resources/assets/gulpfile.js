@@ -496,6 +496,23 @@ gulp.task('ideb.css', function() {
     .pipe(gulp.dest('./stylesheet/dist/'));
 });
 
+gulp.task('FollowButton.js', function() {
+    return gulp.src([
+        './javascript/src/Meritt/QEdu/UI/Follow/ButtonView.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/SetFollowProfileView.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/SetFollowProfileBehavior.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/ButtonBehavior.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/FollowCountView.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/FollowCountBehavior.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/UnfollowView.js',
+        './javascript/src/Meritt/QEdu/UI/Follow/UnfollowBehavior.js',
+    ])
+    .pipe(concat('FollowButton.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -514,4 +531,5 @@ gulp.task('default', [
     'jquery.libs.js',
     'print.js',
     'guide.js',
+    'FollowButton.js',
 ]);
