@@ -1,0 +1,298 @@
+@import './generic/Mixins.less';
+@import './generic/Variables.less';
+
+.ideb {
+    padding: 15px 0;
+
+    .ideb2013-follow {
+        font-size: 13px;
+        margin-top: 15px;
+    }
+
+    .social-section {
+        .addthis_sharing_toolbox {
+            margin-right: 10px;
+        }
+
+        .at-svc-email {
+            display: none;
+        }
+    }
+
+    /**
+     * Ideb reusable UIComponents
+     */
+    .ideb-icon {
+        background-image: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/sprite.png');
+    }
+
+    .ideb-right {
+        background-position: -14px -56px;
+        display: block;
+        height: 12px;
+        width: 16px;
+    }
+
+    .ideb-wrong {
+        background-position: 0 -56px;
+        display: block;
+        height: 13px;
+        width: 13px;
+    }
+
+    .ideb-wrong-gray {
+        background-position: -32px -56px;
+        display: block;
+        height: 13px;
+        width: 13px;
+    }
+
+    .symbol {
+        border: 1px solid #bebebe;
+        border-radius: 25px;
+        height: 35px;
+        line-height: 30px;
+        width: 35px;
+
+        i {
+            background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/sprite.png') no-repeat -45px -70px;
+            display: block;
+            height: 18px;
+            margin: 8px 7px;
+            width: 18px;
+        }
+
+        .equal {
+            background-position: -65px -70px;
+            margin-top: 13px;
+            margin-left: 8px;
+        }
+    }
+
+    .ideb-title {
+        border-bottom: none;
+        color: #000;
+        float: left;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 30px 0 0;
+        padding-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    .ideb-mask {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .mask {
+        .transition(all .4s ease);
+
+        left: 0;
+        overflow: hidden;
+        position: relative;
+        width: 1880px;
+
+        .span12 {
+            width: 938px;
+        }
+    }
+
+    .slide-next {
+        left: -940px !important;
+    }
+
+    .fade-out {
+        .transition(all 0.5s ease);
+
+        opacity: .3;
+    }
+
+    .ideb-loader {
+        background: url('http://d2jaknbl34vcit.cloudfront.net/img/qedu/loader.gif') no-repeat center center;
+    }
+    /**
+     * END Ideb reusable UIComponents
+     */
+
+    .action-buttons {
+        position: absolute;
+        right: 0;
+        top: 40px;
+    }
+
+    .block-print-button a {
+        color: #333;
+    }
+
+    .contents {
+        float: left;
+        width: 600px;
+    }
+
+    .icon-increase {
+        background-image: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/glyphicons-halflings-green.png");
+    }
+
+    .icon-decrease {
+        background-image: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/ideb/glyphicons-halflings-red.png");
+    }
+
+    .icon-up {
+        background-position: -289px -96px;
+    }
+
+    .icon-down {
+        background-position: -312px -96px;
+    }
+
+    .ideb-caret {
+        border-bottom: 4px solid rgba(0,0,0,0);
+        border-left: 4px solid #36923f;
+        border-right: none;
+        border-top: 4px solid rgba(0,0,0,0);
+        content: "";
+        display: inline-block;
+        margin-top: 0;
+        vertical-align: middle;
+        width: 0;
+    }
+
+    .indicator-blocks {
+        list-style: none;
+        margin: 0;
+        overflow: auto;
+        padding-bottom: 19px;
+
+        .active {
+            background: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .caret {
+            display: none;
+        }
+
+        li {
+            float: left;
+            margin: 0 15px 0 0;
+            padding: 10px 18px;
+            position: relative;
+        }
+
+        li:first-child {
+            padding-left: 0;
+        }
+
+        small {
+            color: #888;
+            display: block;
+            font-size: 12px;
+            margin-left: 2px;
+        }
+
+        b {
+            display: block;
+            font-size: 28px;
+            font-weight: 400;
+            margin: 10px 0
+        }
+
+        i {
+            color: #666;
+            display: block;
+            font-size: 12px;
+            font-style: normal;
+            margin-left: 2px;
+        }
+    }
+
+    a {
+        // color: #36923f;
+        color: #7baa31;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    thead {
+        background: #f8f8f8;
+        color: #888;
+    }
+
+    tbody {
+        th {
+            text-align: left;
+        }
+
+        tr {
+            border-top: 1px solid #ddd;
+        }
+
+        tr:nth-child(2n) {
+            background: #fbfbfb;
+        }
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    footer {
+        .contents();
+
+        h3 {
+            border-bottom: 1px dashed #ccc;
+            color: #666;
+            font-size: 16px;
+            padding-bottom: 8px;
+        }
+    }
+
+    h2 {
+        color: #444;
+        font-size: 22px;
+        font-weight: 400;
+        margin-right: 130px;
+        margin: 10px 130px 20px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    h3 {
+        border-bottom: 1px dashed #ccc;
+        color: #666;
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+    header {
+        padding: 20px 0;
+        position: relative;
+
+        p {
+            color: #777;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 23px;
+            width: 840px;
+        }
+    }
+
+    .source {
+        bottom: 0;
+        clear: both;
+        color: #666;
+        font-size: 12px;
+        margin-top: 20px;
+        position: absolute;
+    }
+}
