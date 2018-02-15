@@ -593,6 +593,17 @@ gulp.task('explore.js', function() {
     .pipe(gulp.dest('./javascript/dist/'));
 });
 
+gulp.task('select2-lib.js', function() {
+    return gulp.src([
+        'generic/js/select2-base.js',
+        'generic/js/select2.js',
+        'select2_locale_pt-BR'
+    ])
+    .pipe(concat('select2-lib.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
 
 gulp.task('default', [
     'banner.css',
@@ -617,4 +628,5 @@ gulp.task('default', [
     'Enem.js',
     'didactic.js',
     'explore.js',
+    'select2-lib.js',
 ]);
