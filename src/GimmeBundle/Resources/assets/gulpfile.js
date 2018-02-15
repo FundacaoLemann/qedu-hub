@@ -564,13 +564,35 @@ gulp.task('didactic.js', function() {
        'javascript/src/ProvaBrasil/Didactic/Evolution/evolution-collection.coffee',
        'javascript/src/ProvaBrasil/Didactic/Evolution/behavior.coffee'
    ])
-       .pipe(concat('didactic.js'))
-       .pipe(gulp.dest('./javascript/dist'))
-       .pipe(exec(jsCompileCoffee, execOptions))
-       .pipe(gulp.dest('./javascript/dist'))
-       .pipe(exec(jsUglifyQuotes, execOptions))
-       .pipe(gulp.dest('./javascript/dist'))
+   .pipe(concat('didactic.js'))
+   .pipe(gulp.dest('./javascript/dist'))
+   .pipe(exec(jsCompileCoffee, execOptions))
+   .pipe(gulp.dest('./javascript/dist'))
+   .pipe(exec(jsUglifyQuotes, execOptions))
+   .pipe(gulp.dest('./javascript/dist'))
 });
+
+gulp.task('explore.js', function() {
+    return gulp.src([
+        'javascript/src/ProvaBrasil/Explore/model-explore-state.coffee',
+        'javascript/src/ProvaBrasil/Explore/view-subnav.coffee',
+        'javascript/src/ProvaBrasil/Explore/view-map.coffee',
+        'javascript/src/ProvaBrasil/Explore/view-explore.coffee',
+        'javascript/src/ProvaBrasil/Explore/view-isotope.coffee',
+        'javascript/src/ProvaBrasil/Explore/view-filters.coffee',
+        'javascript/src/ProvaBrasil/Explore/model-explore.coffee',
+        'javascript/src/ProvaBrasil/Explore/router-explore.coffee',
+        'javascript/src/ProvaBrasil/Explore/tour-explore.coffee',
+        'javascript/src/ProvaBrasil/Explore/behavior-explore.coffee',
+    ])
+    .pipe(concat('explore.js'))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsCompileCoffee, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'));
+});
+
 
 gulp.task('default', [
     'banner.css',
@@ -594,4 +616,5 @@ gulp.task('default', [
     'FollowMenu.js',
     'Enem.js',
     'didactic.js',
+    'explore.js',
 ]);
