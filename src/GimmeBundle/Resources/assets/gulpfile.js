@@ -605,6 +605,18 @@ gulp.task('select2-lib.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('dropdown-select2.js', function() {
+    return gulp.src([
+        'javascript/src/ProvaBrasil/Controls/dropdown-select2.coffee',
+    ])
+    .pipe(concat('dropdown-select2.js'))
+    .pipe(gulp.dest('./javascript/dist'))
+    .pipe(exec(jsCompileCoffee, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+    .pipe(exec(jsUglifyQuotes, execOptions))
+    .pipe(gulp.dest('./javascript/dist/'))
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
@@ -629,4 +641,5 @@ gulp.task('default', [
     'didactic.js',
     'explore.js',
     'select2-lib.js',
+    'dropdown-select2.js',
 ]);
