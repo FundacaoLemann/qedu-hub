@@ -617,12 +617,31 @@ gulp.task('dropdown-select2.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('enem.css', function() {
+    return gulp.src([
+        'stylesheet/src/Meritt/QEdu/UI/EnemBase/Filters.less',
+        'stylesheet/src/Meritt/QEdu/UI/EnemBase/Ads.less',
+        'stylesheet/src/Meritt/QEdu/UI/EnemBase/AdsEnem.less',
+        'stylesheet/src/Meritt/QEdu/UI/Enem/Enem.less',
+        'stylesheet/src/Meritt/QEdu/UI/Enem/EnemResults.less',
+        'stylesheet/src/Meritt/QEdu/UI/Enem/MoreInfo.less',
+        'stylesheet/src/Meritt/QEdu/UI/Enem/NoData.less',
+        'stylesheet/src/Meritt/QEdu/UI/EnemSchoolsList/SchoolsList.less',
+        'stylesheet/src/Meritt/QEdu/UI/EnemSchoolsList/DataFileDownload.less'
+    ])
+    .pipe(concat('enem.css'))
+    .pipe(gulp.dest('./stylesheet/dist/'))
+    .pipe(exec(cssCmdVersionOne, execOptions))
+    .pipe(gulp.dest('./stylesheet/dist/'));
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
     'landingideb.css',
     'provabrasil.css',
     'ideb.css',
+    'enem.css',
 
     'print_libs.js',
     'distortion.js',

@@ -1,0 +1,33 @@
+.enem .download-ct {
+    display: block;
+    height: 38px;
+    margin-bottom: 10px;
+    position: relative;
+
+    .download-btn {
+        background: #36923f;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px 20px !important;
+        position: absolute;
+        right: 0;
+        border-radius: 3px;
+      &:hover{
+        text-decoration: none;
+        background: #7bc04b;
+      }
+    }
+    .download-btn-disabled {
+        &:extend(.enem .download-ct .download-btn);
+        background: #C0C0C0;
+
+        &:hover {
+            background: #ccc;
+        }
+    }
+
+    .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+}

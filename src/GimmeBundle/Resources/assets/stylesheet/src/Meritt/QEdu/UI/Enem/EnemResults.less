@@ -1,0 +1,258 @@
+@import './stylesheet/src/Meritt/QEdu/UI/EnemBase/Variables';
+
+.enem .enem-results {
+    @min-height-default: 147px;
+    @padding-default: 30px;
+    @height-image-ct: 155px;
+
+    border: 1px solid #ccc;
+    color: #777;
+    margin: 0;
+    position: relative;
+
+    a {
+        color: @color-text-main;
+    }
+
+    [class*="span"] {
+        margin-left: 0;
+    }
+
+    .enem-header {
+        background: #fafafa;
+        border-bottom: 1px solid #ccc;
+        padding: 15px 0;
+        width: 100%;
+
+        h1 {
+            color: #000;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 0;
+            margin-right: 10px;
+            max-width: 860px;
+            overflow: hidden;
+            padding-left: 30px;
+            text-transform: uppercase;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        h2 {
+            color: #666;
+            font-size: 13px;
+            margin: 0;
+            padding-left: 30px;
+            text-transform: uppercase;
+        }
+    }
+
+    .glyphicon {
+        color: @color-highlight;
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .score-ct {
+        border-right: 1px solid #ccc;
+        color: #000;
+        font-size: 14px;
+        line-height: 1;
+        min-height: 253px;
+        padding: 0;
+        text-align: center;
+        width: 276px;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .compare-sign, .compare-note {
+            display: none;
+        }
+
+        .score {
+            .transition(font-size 0.5s ease, padding-top 0.5s ease);
+
+            color: @color-highlight;
+            font-size: 36px;
+            padding-bottom: 25px;
+            padding-top: 70px;
+
+            .value {
+                font-size: 65px;
+            }
+        }
+
+        .description {
+            line-height: normal;
+            margin: 0 40px;
+        }
+
+        &.cannot-compare {
+            .compare-note {
+                font-size: 13px;
+                padding-top: 20px;
+
+                a {
+                    color: @color-compare;
+                }
+            }
+
+            .compare-sign {
+                font-size: 65px;
+            }
+        }
+    }
+
+    .main-ct {
+        width: 661px;
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .image-ct {
+            text-align: center;
+            width: 253px;
+        }
+
+        .image-border {
+            .border-radius(50%);
+
+            border: 1px solid #ccc;
+            display: inline-block;
+            height: @height-image-ct;
+            margin: 50px 50px 0;
+            vertical-align: top;
+            width: 155px;
+        }
+
+        .image {
+            background: url(@sprite-path) no-repeat;
+            display: inline-block;
+            margin-top: 32px;
+        }
+
+        .links-ct {
+            display: inline-block;
+            margin-top: 60px;
+            width: 408px;
+
+            a {
+                display: inline-block;
+                vertical-align: top;
+                width: 90%;
+            }
+
+            p {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &.cs .image {
+        @height-image: 92px;
+        background-position: 0px 0px;
+        margin-top: @height-image-ct/2 - @height-image/2;
+        height: @height-image;
+        width: 90px;
+    }
+
+    &.ca .image {
+        @height-image: 76px;
+        background-position: 0px -291px;
+        margin-top: @height-image-ct/2 - @height-image/2;
+        height: @height-image;
+        width: 93px;
+    }
+
+    &.ma .image {
+        @height-image: 89px;
+        background-position: 0px -586px;
+        margin-top: @height-image-ct/2 - @height-image/2;
+        height: @height-image;
+        width: 85px;
+    }
+
+    &.ls .image {
+        @height-image: 78px;
+        background-position: 0px -377px;
+        margin-top: @height-image-ct/2 - @height-image/2;
+        height: @height-image;
+        width: 77px;
+    }
+
+    &.ro .image {
+        @height-image: 78px;
+        background-position: 0px -102px;
+        margin-top: @height-image-ct/2 - @height-image/2;
+        height: @height-image;
+        width: 77px;
+    }
+
+    &.participation-rate {
+        @font-size-score: 60px;
+        @font-size-value: 117px;
+
+        a {
+            font-weight: bold;
+        }
+
+        .cannot-compare {
+            .score {
+                padding-top: 42px;
+
+                .value {
+                    font-size: @font-size-value * .85;
+                    line-height: 1;
+                }
+            }
+
+            .compare-note {
+                padding-top: 10px;
+            }
+        }
+
+        .content-ct {
+            margin: 30px 27px;
+        }
+
+        .main-ct {
+            width: 420px;
+        }
+
+        .score {
+            font-size: @font-size-score;
+            padding-bottom: 0;
+            padding-top: 62px;
+
+            .value {
+                display: inline-block;
+                font-size: @font-size-value;
+                height: 122px;
+                line-height: 0.9;
+                vertical-align: top;
+            }
+        }
+
+        .participation-map {
+            background: url(@sprite-path) no-repeat 0px -726px;
+            display: block;
+            font-size: 0;
+            height: 193px;
+            margin: @padding-default auto;
+            width: 198px;
+        }
+    }
+}
