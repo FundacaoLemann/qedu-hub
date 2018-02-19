@@ -617,6 +617,20 @@ gulp.task('dropdown-select2.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('explore.css', function() {
+    return gulp.src([
+        './stylesheet/src/ProvaBrasil/explore/explore.less',
+        './stylesheet/src/ProvaBrasil/explore/filters.less',
+        './stylesheet/src/ProvaBrasil/explore/isotope.less',
+        './stylesheet/src/ProvaBrasil/explore/map.less',
+        './stylesheet/src/ProvaBrasil/explore/explore-responsive.less',
+    ])
+    .pipe(concat('explore.css'))
+    .pipe(gulp.dest('./stylesheet/dist/'))
+    .pipe(exec(cssCmdVersionOne, execOptions))
+    .pipe(gulp.dest('./stylesheet/dist/'));
+});
+
 gulp.task('enem.css', function() {
     return gulp.src([
         'stylesheet/src/Meritt/QEdu/UI/EnemBase/Filters.less',
@@ -641,6 +655,7 @@ gulp.task('default', [
     'landingideb.css',
     'provabrasil.css',
     'ideb.css',
+    'explore.css',
     'enem.css',
 
     'print_libs.js',
