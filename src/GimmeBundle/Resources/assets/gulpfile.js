@@ -617,12 +617,27 @@ gulp.task('dropdown-select2.js', function() {
     .pipe(gulp.dest('./javascript/dist/'))
 });
 
+gulp.task('explore.css', function() {
+    return gulp.src([
+        './stylesheet/src/ProvaBrasil/explore/explore.less',
+        './stylesheet/src/ProvaBrasil/explore/filters.less',
+        './stylesheet/src/ProvaBrasil/explore/isotope.less',
+        './stylesheet/src/ProvaBrasil/explore/map.less',
+        './stylesheet/src/ProvaBrasil/explore/explore-responsive.less',
+    ])
+    .pipe(concat('explore.css'))
+    .pipe(gulp.dest('./stylesheet/dist/'))
+    .pipe(exec(cssCmdVersionOne, execOptions))
+    .pipe(gulp.dest('./stylesheet/dist/'));
+});
+
 gulp.task('default', [
     'banner.css',
     'dropdown-select2.css',
     'landingideb.css',
     'provabrasil.css',
     'ideb.css',
+    'explore.css',
 
     'print_libs.js',
     'distortion.js',
