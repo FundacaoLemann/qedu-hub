@@ -1,0 +1,98 @@
+@import './stylesheet/src/Meritt/QEdu/UI/Variables';
+@import './stylesheet/src/Meritt/QEdu/UI/Mixins';
+
+.enem-more-info {
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+
+            p {
+                .transition(all 0.5s ease);
+
+                color: @color-link-main;
+                text-decoration: none;
+            }
+        }
+    }
+
+    h2 {
+        margin: 0 0 40px;
+    }
+
+    .more-info-link {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        width: 240px;
+
+        h3 {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0 25px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: normal;
+        }
+    }
+
+    .link-icon-border {
+        .border-radius(50%);
+
+        background: #fff no-repeat;
+        border: 1px solid #fff;
+        display: block;
+        height: 165px;
+        margin: 0 auto;
+        text-align: center;
+        width: 165px;
+    }
+
+    .link-icon {
+        background: url("http://d2jaknbl34vcit.cloudfront.net/img/qedu/enem/sprite.png") no-repeat;
+        display: inline-block;
+    }
+
+    .link-enem .link-icon {
+        background-position: 0 -465px;
+        height: 111px;
+        margin-top: 30px;
+        width: 104px;
+    }
+
+    .link-inep {
+        width: 250px;
+
+        .link-icon {
+            background-position: 0 -685px;
+            height: 31px;
+            margin-top: 70px;
+            width: 102px;
+        }
+    }
+
+    .link-prouni .link-icon {
+        background-position: 0 -190px;
+        height: 91px;
+        margin-top: 40px;
+        width: 103px;
+    }
+
+    .more-info-ct {
+        background: #f4f3f3;
+        padding: 65px 0;
+    }
+
+    .more-info-link-ct {
+        margin: 0;
+        width: 312px;
+    }
+
+    .more-info-links-ct {
+        background: #f4f3f3;
+        padding: 0;
+    }
+}

@@ -1,0 +1,102 @@
+@import './stylesheet/src/Meritt/QEdu/UI/Mixins';
+@import './stylesheet/src/Meritt/QEdu/UI/EnemBase/Variables';
+
+.enem {
+    padding: 15px 0 0;
+
+    .action-buttons {
+        position: absolute;
+        right: 0;
+        top: 40px;
+    }
+
+    .enem-title {
+        border-bottom: none;
+        color: #000;
+        float: left;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 30px 0 0;
+        padding-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    .social-section {
+        .block-print-button {
+            a {
+                color: #333;
+            }
+        }
+
+        .addthis_sharing_toolbox {
+            margin-right: 10px;
+        }
+
+        .at-svc-email {
+            display: none;
+        }
+    }
+
+    a {
+        color: @color-highlight;
+    }
+
+    h2 {
+        color: @color-h2;
+        font-size: 22px;
+        font-weight: 400;
+        margin: 10px 220px 20px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    h3 {
+        border-bottom: 1px dashed #ccc;
+        color: @color-h3;
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+    header {
+        padding: 20px 0;
+        position: relative;
+
+        p {
+            color: #777;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 23px;
+            width: 800px;
+        }
+    }
+
+    .source {
+        clear: both;
+        color: #666;
+        font-size: 12px;
+        margin: 10px 0 40px;
+    }
+
+    .glyphicon-chevron-right {
+        &:before {
+            content: "\e080";
+        }
+    }
+
+    .compare-note a {
+        color: @color-compare;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .compare-sign, .compare-note {
+        color: @color-compare;
+    }
+
+    .compare-sign {
+        color: @color-compare;
+        font-weight: bold;
+    }
+}

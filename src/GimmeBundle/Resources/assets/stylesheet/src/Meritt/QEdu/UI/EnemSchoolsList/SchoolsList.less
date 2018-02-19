@@ -1,0 +1,93 @@
+.enem-children-list {
+    @border-color-dark: #ccc;
+    @border-color-light: #f2f2f2;
+
+    padding-bottom: 40px;
+
+    table {
+        border: 1px solid @border-color-dark;
+        border-collapse: collapse;
+        width: 100%
+    }
+
+    thead {
+        background: #fff;
+    }
+
+    th {
+        border-left: 1px solid @border-color-light;
+        border-right: 1px solid @border-color-light;
+        color: #000;
+        padding: 15px 0;
+
+        &.enem-child-name {
+            text-transform: uppercase;
+        }
+
+        &:first-of-type, &:last-of-type {
+            border-color: @border-color-dark;
+        }
+    }
+
+    tbody {
+        tr {
+            border-top: 1px solid @border-color-light;
+            height: 28px;
+            line-height: 28px;
+        }
+
+        tr:first-child {
+            border-top: 1px solid @border-color-dark;
+        }
+
+        tr:nth-child(2n) {
+            background: #fff;
+        }
+    }
+
+    td {
+        border-left: 1px solid @border-color-light;
+        border-right: 1px solid @border-color-light;
+        color: #787878;
+        font-size: 13px;
+
+        &:first-of-type, &:last-of-type {
+            border-color: @border-color-dark;
+        }
+    }
+
+    .enem-child-name {
+        font-size: 12px;
+        max-width: 428px;
+        padding: 10px 10px 10px 20px;
+        text-align: left;
+
+        p {
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .child-link {
+            text-transform: uppercase;
+        }
+    }
+
+    .enem-area-result {
+        border-color: @border-color-light;
+        color: #000;
+        font-weight: bold;
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        width: 85px;
+    }
+
+    .enem-no-data {
+        border-left: 1px solid @border-color-dark;
+        padding: 20px;
+        text-align: center;
+        text-transform: none;
+    }
+}
