@@ -23,4 +23,14 @@ class LearningService
 
         return $this->learningFactory->create($brazilProficiency);
     }
+
+    public function getSchoolLearningByEdition(int $schoolId, ProvaBrasilEdition $provaBrasilEdition): array
+    {
+        $brazilProficiency = $this->proficiencyRepository->findSchoolProficiencyByEdition(
+            $schoolId,
+            $provaBrasilEdition
+        );
+
+        return $this->learningFactory->create($brazilProficiency);
+    }
 }
