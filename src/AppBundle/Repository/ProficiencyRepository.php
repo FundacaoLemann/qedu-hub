@@ -31,4 +31,23 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
             ->getQuery()
             ->getResult();
     }
+
+    public function findSchoolProficiencyByEdition(int $schoolId, ProvaBrasilEdition $provaBrasilEdition)
+    {
+        $queryBuilder = $this->createQueryBuilder('p');
+
+        $editionCode = $provaBrasilEdition->getCode();
+
+        return $queryBuilder
+            ->join(DimRegionalAggregation::class, 'dra', 'WITH', 'p.dimRegionalAggregationId = dra.id')
+            ->andWhere('dra.schoolId = '.$schoolId)
+
+            ->join(DimPoliticAggregation::class, 'dpa', 'WITH', 'p.dimPoliticAggregationId = dpa.id')
+
+            ->andWhere('dpa.editionId = '.$editionCode)
+            ->addOrderBy('dpa.disciplineId')
+            ->addOrderBy('dpa.gradeId')
+            ->getQuery()
+            ->getResult();
+    }
 }
