@@ -18,7 +18,7 @@ class LearningControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Português, 9º ano', $crawler->filter('.proficiency-9-1 h3')->text());
         $this->assertContains('34', $crawler->filter('.proficiency-9-1 .percent-level')->text());
-        $this->assertContains('36', $crawler->filter('.proficiency-9-1 .present_count')->text());
+        $this->assertContains('37', $crawler->filter('.proficiency-9-1 .present_count')->text());
         $this->assertContains('12', $crawler->filter('.proficiency-9-1 .optimal_count')->text());
     }
 
