@@ -58,6 +58,15 @@ doctrine:
                 user: '%database_user%'
                 password: '%database_password%'
                 charset: UTF8
+            waitress_entities:
+                driver: pdo_mysql
+                host: '%database_host%'
+                port: '%database_port%'
+                dbname: 'waitress_entities'
+                user: '%database_user%'
+                password: '%database_password%'
+                charset: UTF8
+
     orm:
         default_entity_manager: default
         entity_managers:
@@ -67,6 +76,10 @@ doctrine:
                     AppBundle:  ~
             waitress_dw_prova_brasil:
                 connection: waitress_dw_prova_brasil
+                mappings:
+                    AppBundle:  ~
+            waitress_entities:
+                connection: waitress_entities
                 mappings:
                     AppBundle:  ~
 
