@@ -1,2 +1,3 @@
 parameters:
     waitress_dw_prova_brasil_dbname: waitress_dw_prova_brasil_test
+    waitress_entities_dbname: waitress_entities_test
