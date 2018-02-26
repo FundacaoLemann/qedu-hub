@@ -15,6 +15,7 @@
         "psr-4": {
             "Tests\\Fixture\\": "tests/fixture",
             "Tests\\Functional\\": "tests/functional",
+            "Tests\\Integration\\": "tests/integration",
             "Tests\\Unit\\": "tests/unit"
         },
         "files": [

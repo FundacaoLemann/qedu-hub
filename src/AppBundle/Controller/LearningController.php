@@ -6,6 +6,7 @@ use AppBundle\Learning\LearningService;
 use AppBundle\Learning\ProvaBrasilService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LearningController extends Controller
 {
@@ -32,5 +33,36 @@ class LearningController extends Controller
             'provaBrasilEdition' => $provaBrasilEdition,
             'brazilLearning' => $brazilLearning,
         ]);
+    }
+
+    /**
+     * @Route("/amp/escola/{schoolId}-{schoolSlug}/aprendizado",
+     *     name="learning_school",
+     *     requirements={
+     *         "schoolId": "\d+",
+     *         "schoolSlug": ".*"
+     *     }
+     * )
+     */
+    public function schoolAction(int $schoolId)
+    {
+        $provaBrasilEdition = $this->provaBrasilService->getLastEdition();
+        $schoolLearning = $this->learningService->getSchoolLearningByEdition($schoolId, $provaBrasilEdition);
+        $school = $this->getSchoolRepository()->find($schoolId);
+
+        if (count($schoolLearning) === 0) {
+            throw new NotFoundHttpException();
+        }
+
+        return $this->render('learning/amp/school.html.twig', [
+            'school' => $school,
+            'provaBrasilEdition' => $provaBrasilEdition,
+            'schoolLearning' => $schoolLearning,
+        ]);
+    }
+
+    private function getSchoolRepository()
+    {
+        return $this->getDoctrine()->getRepository('AppBundle:School', 'waitress_entities');
     }
 }

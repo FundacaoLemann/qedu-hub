@@ -9,6 +9,8 @@ parameters:
     database_password: ~
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
+    waitress_dw_prova_brasil_dbname: waitress_dw_prova_brasil
+    waitress_entities_dbname: waitress_entities
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1

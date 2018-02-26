@@ -13,7 +13,7 @@ class LearningServiceTest extends TestCase
 {
     public function testGetBrazilLearningByEdition()
     {
-        $proficiencyRepositoryMock = $this->getProficiencyRepositoryMock();
+        $proficiencyRepositoryMock = $this->getProficiencyRepositoryMockInBrazilCase();
         $learningFactoryMock = $this->getLearningFactoryMock();
         $provaBrasilEdition = ProvaBrasilEditionFixture::getProvaBrasilEdition();
 
@@ -25,17 +25,57 @@ class LearningServiceTest extends TestCase
         $this->assertEquals($brazilLearningExpected, $brazilLearning);
     }
 
-    private function getProficiencyRepositoryMock()
+    public function testGetSchoolLearningByEdition()
     {
+        $proficiencyRepositoryMock = $this->getProficiencyRepositoryMockInSchoolCase();
+        $learningFactoryMock = $this->getLearningFactoryMock();
+        $provaBrasilEdition = ProvaBrasilEditionFixture::getProvaBrasilEdition();
+        $schoolId = 12392;
+
+        $learningService = new LearningService($proficiencyRepositoryMock, $learningFactoryMock);
+        $schoolLearning = $learningService->getSchoolLearningByEdition($schoolId, $provaBrasilEdition);
+
+        $schoolLearningExpected = LearningFixture::getLearningCollection();
+
+        $this->assertEquals($schoolLearningExpected, $schoolLearning);
+    }
+
+    private function getProficiencyRepositoryMockInBrazilCase()
+    {
+        $proficiencyRepository = $this->getProficiencyRepositoryMock();
+
         $provaBrasilEdition = ProvaBrasilEditionFixture::getProvaBrasilEdition();
         $proficiencyEntity = ProficiencyEntityFixture::getProficiencyEntities();
-
-        $proficiencyRepository = $this->createMock('AppBundle\Repository\ProficiencyRepositoryInterface');
 
         $proficiencyRepository->expects($this->once())
             ->method('findBrazilProficiencyByEdition')
             ->with($this->equalTo($provaBrasilEdition))
             ->willReturn($proficiencyEntity);
+
+        return $proficiencyRepository;
+    }
+
+    private function getProficiencyRepositoryMockInSchoolCase()
+    {
+        $proficiencyRepository = $this->getProficiencyRepositoryMock();
+
+        $provaBrasilEdition = ProvaBrasilEditionFixture::getProvaBrasilEdition();
+        $proficiencyEntity = ProficiencyEntityFixture::getProficiencyEntities();
+
+        $proficiencyRepository->expects($this->once())
+            ->method('findSchoolProficiencyByEdition')
+            ->with(
+                $this->equalTo(12392),
+                $this->equalTo($provaBrasilEdition)
+            )
+            ->willReturn($proficiencyEntity);
+
+        return $proficiencyRepository;
+    }
+
+    private function getProficiencyRepositoryMock()
+    {
+        $proficiencyRepository = $this->createMock('AppBundle\Repository\ProficiencyRepositoryInterface');
 
         return $proficiencyRepository;
     }

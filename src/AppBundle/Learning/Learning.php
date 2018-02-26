@@ -22,12 +22,12 @@ class Learning
 
     public function getTotalSuccessfulStudents(): int
     {
-        return $this->proficiency->getLevelOptimal();
+        return round($this->proficiency->getLevelOptimal(), 0);
     }
 
     public function getTotalStudents(): int
     {
-        return $this->proficiency->getWithProficiencyWeight();
+        return ceil($this->proficiency->getWithProficiencyWeight());
     }
 
     public function getGradeId(): int
