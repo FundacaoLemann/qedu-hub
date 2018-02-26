@@ -46,9 +46,9 @@ class LearningController extends Controller
      */
     public function schoolAction(int $schoolId)
     {
-        $schoolName = '';
         $provaBrasilEdition = $this->provaBrasilService->getLastEdition();
         $schoolLearning = $this->learningService->getSchoolLearningByEdition($schoolId, $provaBrasilEdition);
+        $schoolName = $this->getSchoolRepository()->find($schoolId)->getName();
 
         if (count($schoolLearning) === 0) {
             throw new NotFoundHttpException();
@@ -59,5 +59,10 @@ class LearningController extends Controller
             'provaBrasilEdition' => $provaBrasilEdition,
             'schoolLearning' => $schoolLearning,
         ]);
+    }
+
+    private function getSchoolRepository()
+    {
+        return $this->getDoctrine()->getRepository('AppBundle:School', 'waitress_entities');
     }
 }
