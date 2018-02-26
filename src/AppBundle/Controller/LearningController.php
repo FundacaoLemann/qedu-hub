@@ -48,14 +48,14 @@ class LearningController extends Controller
     {
         $provaBrasilEdition = $this->provaBrasilService->getLastEdition();
         $schoolLearning = $this->learningService->getSchoolLearningByEdition($schoolId, $provaBrasilEdition);
-        $schoolName = $this->getSchoolRepository()->find($schoolId)->getName();
+        $school = $this->getSchoolRepository()->find($schoolId);
 
         if (count($schoolLearning) === 0) {
             throw new NotFoundHttpException();
         }
 
         return $this->render('learning/amp/school.html.twig', [
-            'schoolName' => $schoolName,
+            'school' => $school,
             'provaBrasilEdition' => $provaBrasilEdition,
             'schoolLearning' => $schoolLearning,
         ]);
