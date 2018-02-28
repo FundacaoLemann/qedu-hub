@@ -1,42 +1,95 @@
-<h1>{{ school.getName() }}</h1>
+<!doctype html>
+<html amp lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    {% set originalUrl = app.request.uri|replace({'/amp': ''}) %}
+    {% set schoolName = school.getName()|title %}
+    <title>Escola {{ schoolName }} - QEdu</title>
+    <link rel="canonical" href="{{ originalUrl }}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Escola {{ schoolName }}",
+        "datePublished": "2018-02-27T00:00:00Z",
+        "image": [
+          "http://qedu.org.br/img/provabrasil/qedu_opengraph_logo.png"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="googleanalytics" id="analytics-amp">
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-41291812-8"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            },
+            "trackClickToWebsite" : {
+              "on": "click",
+              "selector": "#original-page",
+              "request": "event",
+              "vars": {
+                "eventCategory": "Go to original website",
+                "eventAction": "{{ originalUrl }}"
+              }
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
 
-<div>
-  {% for learning in schoolLearning  %}
+    <a id="original-page" href="{{ originalUrl }}">Ir para o site</a>
+    <h1>{{ schoolName }}</h1>
 
-    {% set gradeId = learning.getGradeId() %}
-    {% set disciplineId = learning.getDisciplineId() %}
+    <div>
+      {% for learning in schoolLearning  %}
 
-    <div class="didactic-learning-block proficiency-{{ gradeId }}-{{ disciplineId }} ">
+        {% set gradeId = learning.getGradeId() %}
+        {% set disciplineId = learning.getDisciplineId() %}
 
-      {% set isPortuguese = disciplineId == '1' %}
+        <div class="didactic-learning-block proficiency-{{ gradeId }}-{{ disciplineId }} ">
 
-      {% set discipline = isPortuguese ? 'Português' : 'Matemática' %}
+          {% set isPortuguese = disciplineId == '1' %}
 
-      <h3>{{ discipline }}, {{ gradeId }}º ano</h3>
+          {% set discipline = isPortuguese ? 'Português' : 'Matemática' %}
 
-      <div>
-        <span>
-          <span class="percent-level">{{ learning.getPercentage() }}</span>%
-        </span>
-      </div>
+          <h3>{{ discipline }}, {{ gradeId }}º ano</h3>
 
-      <p class="description">
-        É a proporção de alunos que aprenderam o adequado na competência de
-        <span class="competence">
-              {% if isPortuguese %}
-                leitura e interpretação de textos
-              {% else %}
-                resolução de problemas
-              {% endif %}
+          <div>
+          <span>
+            <span class="percent-level">{{ learning.getPercentage() }}</span>%
+          </span>
+          </div>
+
+          <p class="description">
+            É a proporção de alunos que aprenderam o adequado na competência de
+            <span class="competence">
+                {% if isPortuguese %}
+                  leitura e interpretação de textos
+                {% else %}
+                  resolução de problemas
+                {% endif %}
             </span> até o <span class="grade">{{ gradeId }}º ano</span>
-        na rede <span class="dependence">pública</span> de ensino.
-      </p>
+            na rede <span class="dependence">pública</span> de ensino.
+          </p>
 
-      <small class="no-partial ">
-        Dos <span class="present_count">{{ learning.getTotalStudents() | number_format(0, ',', '.') }}</span> alunos,
-        <span class="optimal_count">{{ learning.getTotalSuccessfulStudents() | number_format(0, ',', '.') }}</span>
-        demonstraram o aprendizado adequado.
-      </small>
+          <small class="no-partial ">
+            Dos <span class="present_count">{{ learning.getTotalStudents() | number_format(0, ',', '.') }}</span> alunos,
+            <span class="optimal_count">{{ learning.getTotalSuccessfulStudents() | number_format(0, ',', '.') }}</span>
+            demonstraram o aprendizado adequado.
+          </small>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-</div>
+  </body>
+</html>
