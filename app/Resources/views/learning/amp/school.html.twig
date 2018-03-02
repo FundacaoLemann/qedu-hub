@@ -5,7 +5,7 @@
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     {% set originalUrl = app.request.uri|replace({'/amp': ''}) %}
-    {% set schoolName = school.getNameStandard()|title ~ ' (' ~ school.getNamePrefix() ~ ')' %}
+    {% set schoolName = school.getNameStandard()|title ~ ' ' ~ school.getNamePrefix() %}
     <title>Escola {{ schoolName }} - Aprendizado - QEdu</title>
     <link rel="canonical" href="{{ originalUrl }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
