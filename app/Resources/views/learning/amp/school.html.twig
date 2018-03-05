@@ -5,19 +5,22 @@
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     {% set originalUrl = app.request.uri|replace({'/amp': ''}) %}
-    {% set schoolName = school.getNameStandard()|title ~ ' ' ~ school.getNamePrefix() %}
-    <title>Escola {{ schoolName }} - Aprendizado - QEdu</title>
+
+    {% set schoolPrefix = school.getNamePrefix() == 'ESCOLA' or school.getNamePrefix() == 'COLEGIO' ? school.getNamePrefix()|title : school.getNamePrefix() %}
+    {% set schoolName =  schoolPrefix ~ ' ' ~ school.getNameStandard()|title %}
+    <title>{{ schoolName }} - Aprendizado - QEdu</title>
     <link rel="canonical" href="{{ originalUrl }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script type="application/ld+json">
       {
         "@context": "http://schema.org",
         "@type": "NewsArticle",
-        "headline": "Escola {{ schoolName }}",
+        "headline": "{{ schoolName }} - Aprendizado - QEdu",
         "datePublished": "2018-02-27T00:00:00Z",
         "image": [
           "http://qedu.org.br/img/provabrasil/qedu_opengraph_logo.png"
-        ]
+        ],
+        "description": "Com base nos resultados da Prova Brasil {{ provaBrasilEdition.getYear() }}, é possível calcular a proporção de alunos com aprendizado adequado à sua etapa escolar."
       }
     </script>
     <style amp-custom>
@@ -28,6 +31,9 @@
         box-shadow: 0px 0px 22px black;
         width: 100%;
         min-height: 3rem;
+      }
+      h1 {
+        font-size: 12vw;
       }
       .logo {
         margin: 10px;
@@ -42,7 +48,7 @@
         color: white;
       }
       .school-name {
-        padding-top: 35px;
+        padding-top: 25px;
       }
       .didactic-learning-block {
         box-shadow: 0px 0px 11px black;
@@ -68,16 +74,14 @@
         align-items: center;
       }
       .info-box {
-        padding: 10px;
-        padding-left: 20px;
+        padding: 0.8rem;
         -webkit-flex: 3 1 60%;
         flex: 3 1 60%;
-
       }
       footer {
         border-top: 1px solid;
       }
-      a:active, a:visited, a:hover {
+      a, a:active, a:visited, a:hover {
         color: green;
       }
       .optimal-decile-bg-0{background:#f00}.optimal-decile-bg-1{background:#f60}.optimal-decile-bg-2{background:#fc9700}.optimal-decile-bg-3{background:#fcc115}.optimal-decile-bg-4{background:#fde51f}.optimal-decile-bg-5{background:#f6fd2c}.optimal-decile-bg-6{background:#c9de26}.optimal-decile-bg-7{background:#87cc1d}.optimal-decile-bg-8{background:#63b916}.optimal-decile-bg-9{background:#3ea50f}.optimal-decile-bg-10{background:#3ea50f}
@@ -117,10 +121,10 @@
 
     <div class="container">
 
-      <h1 class="school-name">{{ schoolName }}</h1>
+      <h1 class="school-name">{{ school.getNameStandard()|title }}</h1>
 
-      <h3>Aprendizado dos alunos na escola</h3>
-      <p>Com base nos resultados da Prova Brasil {{ provaBrasilEdition.getYear() }}, é possível calcular a proporção de alunos com aprendizado adequado à sua etapa escolar.</p>
+      <h3>Aprendizado dos alunos</h3>
+      <p>Com base na Prova Brasil {{ provaBrasilEdition.getYear() }}, é possível calcular a proporção de alunos com aprendizado adequado.</p>
 
       {% for learning in schoolLearning  %}
 
