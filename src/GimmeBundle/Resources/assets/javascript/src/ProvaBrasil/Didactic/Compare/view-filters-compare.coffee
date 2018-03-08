@@ -7,7 +7,7 @@
  * Quando for uma página de escola, gerencia o bloco de escola
  * quando for de município, o bloco do município dono da página
  * e assim por diante...
- * 
+ *
  * Este bloco engloba também o filtro seletor.
 ###
 ViewFiltersCompare = Backbone.View.extend
@@ -18,8 +18,8 @@ ViewFiltersCompare = Backbone.View.extend
   statemenu: null
 
   events:
-    'click .nav-pills li a' : 'clickDimensionFilter'    
-  
+    'click .nav-pills li a' : 'clickDimensionFilter'
+
   initialize: (@options) ->
     @statemenu = new StateMenu @options.stateMenuConfigs
 
@@ -58,3 +58,9 @@ ViewFiltersCompare = Backbone.View.extend
     filter = el.attr 'data-filter'
     value = el.attr 'data-value'
     @set filter, value
+    dataLayer.push({
+      'event': 'dependencyFilterTrigger',
+      'dependencyFilterActionVariable': 'clicked Depdendency Filter',
+      'dependencyFilterValueVariable': el['0'].innerText,
+      'dependencyFilterLocationVariable': window.location.href
+    })
