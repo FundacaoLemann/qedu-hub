@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% set ebookTitle = '%s - QEdu'|format(ebook['name']) %}
+
+{% block title %}{{ ebookTitle }}{% endblock %}
+{% block description %}{{ ebook['description'] }}{% endblock %}
+{% block og_title %}{{ ebookTitle }}{% endblock %}
+{% block og_description %}{{ ebook['description'] }}{% endblock %}
+
+{% block stylesheets %}
+  <link type="text/css" href="/gimme/d3e1a7d09b/pkg/css/provabrasil.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/c6e158691b/pkg/css/provabrasil/help.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/e798d9d766/pkg/css/provabrasil/ebook.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+  <section class="subnav-section auto-height gray-pattern">
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+          <h1>eBook</h1>
+        </div>
+
+        <div class="social-section">
+          <div class="pull-right">
+            <div class="addthis_sharing_toolbox"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-542c488254cb45ee" async></script>
+
+  <div class="container">
+    <div class="row">
+      <div class="span8 ebook-content">
+        <h2 class="ebook-title-call">
+          {{ ebook['title'] }}
+        </h2>
+
+        <p>{{ ebook['description'] }}</p>
+
+        <p>Com este material, você vai aprender:</p>
+
+        <ul>
+          {% for item in ebook['content_list'] %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+
+        {% set download_url = app.user ? ebook['download_url'] : '/entrar?return=%s'|format(app.request.uri) %}
+
+        <p>
+          <a href="{{ download_url }}">Baixe o livro digital gratuitamente agora mesmo!</a>
+          Basta fazer login ou cadastro gratuito no QEdu.
+        </p>
+
+        <p class="ebook-warning">Imagem ilustrativa, o produto é digital. Nenhuma cópia impressa será entregue.</p>
+      </div>
+      <div class="span4">
+        <div class="row">
+          <div class="span4">
+            <img src="{{ ebook['image_url'] }}" alt="Capa do eBook '{{ ebook['name'] }}'" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4 ebook-download-btn">
+            <br/>
+            <a class="btn btn-primary" href="{{ download_url }}">Baixar agora!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="ebook-banner-ct">
+    <img src="//d2jaknbl34vcit.cloudfront.net/img/qedu/ebook/bg.png"
+         alt="Imagem ilustrativa do eBook '{{ ebook['name'] }}', o produto é digital. Nenhuma cópia impressa será entregue." />
+  </section>
+
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
+  <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript" src="/gimme/cbb3e00db0/pkg/js/mcc-basic-libs.js"></script>
+  <script type="text/javascript">
+      mcc.init_behaviors({"Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend":""}]});
+  </script>
+  <script type="text/javascript">$(function() {mcc.init_behaviors({"dev-reload":[[]]});});</script>
+{% endblock %}
