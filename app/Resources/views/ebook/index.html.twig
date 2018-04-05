@@ -49,7 +49,7 @@
           {% endfor %}
         </ul>
 
-        {% set download_url = is_granted('IS_AUTHENTICATED_FULLY') ? ebook['download_url'] : '/entrar?return=%s'|format(app.request.uri) %}
+        {% set download_url = app.user ? ebook['download_url'] : '/entrar?return=%s'|format(app.request.uri) %}
 
         <p>
           <a href="{{ download_url }}">Baixe o livro digital gratuitamente agora mesmo!</a>
