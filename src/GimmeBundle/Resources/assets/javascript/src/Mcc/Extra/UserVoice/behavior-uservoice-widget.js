@@ -22,7 +22,7 @@ mcc.behavior('uservoice-widget', function(config){
       config.subdomain = 'feedback';
     }
 
-    mcc.BigPipe.load_resources('http://'+config.subdomain+'.uservoice.com/logout.js');
+    mcc.BigPipe.load_resources('https://'+config.subdomain+'.uservoice.com/logout.js');
   }
 
   // Include the UserVoice JavaScript SDK (only needed once on a page)
