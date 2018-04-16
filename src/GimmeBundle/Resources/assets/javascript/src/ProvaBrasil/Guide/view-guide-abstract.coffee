@@ -30,8 +30,8 @@ ProvaBrasilGuideAbstractView = Backbone.View.extend
         @introJs = introJs().setOptions(
             nextLabel: 'Avançar'
             prevLabel: 'Voltar'
-            skipLabel: '<img src="http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/guide/close.gif" />'
-            doneLabel: '<img src="http://d2jaknbl34vcit.cloudfront.net/img/provabrasil/guide/close.gif" />'
+            skipLabel: '<img src="https://d2jaknbl34vcit.cloudfront.net/img/provabrasil/guide/close.gif" />'
+            doneLabel: '<img src="https://d2jaknbl34vcit.cloudfront.net/img/provabrasil/guide/close.gif" />'
             lastNext: @lastNext
             buttonCls: 'btn'
             showStepNumbers: false
