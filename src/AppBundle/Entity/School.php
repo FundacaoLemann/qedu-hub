@@ -164,5 +164,4 @@ class School
     {
         $this->localizationId = $localizationId;
     }
-
 }
