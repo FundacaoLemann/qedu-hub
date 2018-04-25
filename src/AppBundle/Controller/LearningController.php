@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\School;
 use AppBundle\Learning\LearningService;
 use AppBundle\Learning\ProvaBrasilService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -10,14 +11,14 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LearningController extends Controller
 {
-    private $provaBrasilService;
+    private $provaBrasilLastEdition;
     private $learningService;
 
     public function __construct(
         ProvaBrasilService $provaBrasilService,
         LearningService $learningService
     ) {
-        $this->provaBrasilService = $provaBrasilService;
+        $this->provaBrasilLastEdition = $provaBrasilService->getLastEdition();
         $this->learningService = $learningService;
     }
 
@@ -26,11 +27,10 @@ class LearningController extends Controller
      */
     public function brazilAction()
     {
-        $provaBrasilEdition = $this->provaBrasilService->getLastEdition();
-        $brazilLearning = $this->learningService->getBrazilLearningByEdition($provaBrasilEdition);
+        $brazilLearning = $this->learningService->getBrazilLearningByEdition($this->provaBrasilLastEdition);
 
         return $this->render('learning/brazil.html.twig', [
-            'provaBrasilEdition' => $provaBrasilEdition,
+            'provaBrasilEdition' => $this->provaBrasilLastEdition,
             'brazilLearning' => $brazilLearning,
         ]);
     }
@@ -46,23 +46,40 @@ class LearningController extends Controller
      */
     public function schoolAction(int $schoolId)
     {
-        $provaBrasilEdition = $this->provaBrasilService->getLastEdition();
-        $schoolLearning = $this->learningService->getSchoolLearningByEdition($schoolId, $provaBrasilEdition);
-        $school = $this->getSchoolRepository()->find($schoolId);
-
-        if (count($schoolLearning) === 0) {
-            throw new NotFoundHttpException();
-        }
+        $school = $this->findSchool($schoolId);
+        $schoolLearning = $this->findSchoolLearningFromLastEdition($school);
 
         return $this->render('learning/amp/school.html.twig', [
             'school' => $school,
-            'provaBrasilEdition' => $provaBrasilEdition,
+            'provaBrasilEdition' => $this->provaBrasilLastEdition,
             'schoolLearning' => $schoolLearning,
         ]);
+    }
+
+    private function findSchool(int $schoolId)
+    {
+        $school = $this->getSchoolRepository()->find($schoolId);
+
+        if (is_null($school)) {
+            throw new NotFoundHttpException();
+        }
+
+        return $school;
     }
 
     private function getSchoolRepository()
     {
         return $this->getDoctrine()->getRepository('AppBundle:School', 'waitress_entities');
+    }
+
+    private function findSchoolLearningFromLastEdition(School $school)
+    {
+        $schoolLearning = $this->learningService->getSchoolLearningByEdition($school, $this->provaBrasilLastEdition);
+
+        if (count($schoolLearning) === 0) {
+            throw new NotFoundHttpException();
+        }
+
+        return $schoolLearning;
     }
 }

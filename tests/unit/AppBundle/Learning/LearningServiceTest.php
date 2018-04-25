@@ -30,10 +30,10 @@ class LearningServiceTest extends TestCase
         $proficiencyRepositoryMock = $this->getProficiencyRepositoryMockInSchoolCase();
         $learningFactoryMock = $this->getLearningFactoryMock();
         $provaBrasilEdition = ProvaBrasilEditionFixture::getProvaBrasilEdition();
-        $schoolId = 12392;
+        $schoolMock = $this->getSchoolEntityMock();
 
         $learningService = new LearningService($proficiencyRepositoryMock, $learningFactoryMock);
-        $schoolLearning = $learningService->getSchoolLearningByEdition($schoolId, $provaBrasilEdition);
+        $schoolLearning = $learningService->getSchoolLearningByEdition($schoolMock, $provaBrasilEdition);
 
         $schoolLearningExpected = LearningFixture::getLearningCollection();
 
@@ -59,18 +59,29 @@ class LearningServiceTest extends TestCase
     {
         $proficiencyRepository = $this->getProficiencyRepositoryMock();
 
+        $schoolExpected = $this->getSchoolEntityMock();
         $provaBrasilEdition = ProvaBrasilEditionFixture::getProvaBrasilEdition();
         $proficiencyEntity = ProficiencyEntityFixture::getProficiencyEntities();
 
         $proficiencyRepository->expects($this->once())
             ->method('findSchoolProficiencyByEdition')
             ->with(
-                $this->equalTo(12392),
+                $this->equalTo($schoolExpected),
                 $this->equalTo($provaBrasilEdition)
             )
             ->willReturn($proficiencyEntity);
 
         return $proficiencyRepository;
+    }
+
+    private function getSchoolEntityMock()
+    {
+        $schoolMock = $this->createMock('AppBundle\Entity\School');
+
+        $schoolMock->method('getId')
+            ->willReturn(12392);
+
+        return $schoolMock;
     }
 
     private function getProficiencyRepositoryMock()

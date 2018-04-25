@@ -2,6 +2,7 @@
 
 namespace AppBundle\Learning;
 
+use AppBundle\Entity\School;
 use AppBundle\Repository\ProficiencyRepositoryInterface;
 
 class LearningService
@@ -24,10 +25,10 @@ class LearningService
         return $this->learningFactory->create($brazilProficiency);
     }
 
-    public function getSchoolLearningByEdition(int $schoolId, ProvaBrasilEdition $provaBrasilEdition): array
+    public function getSchoolLearningByEdition(School $school, ProvaBrasilEdition $provaBrasilEdition): array
     {
         $schoolProficiency = $this->proficiencyRepository->findSchoolProficiencyByEdition(
-            $schoolId,
+            $school,
             $provaBrasilEdition
         );
 
