@@ -76,6 +76,20 @@ class School
      */
     private $slug;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dependence_id", type="integer", nullable=false)
+     */
+    private $dependenceId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="localization_id", type="integer", nullable=false)
+     */
+    private $localizationId;
+
     public function getId(): int
     {
         return $this->id;
@@ -129,5 +143,25 @@ class School
     public function setSlug(string $slug)
     {
         $this->slug = $slug;
+    }
+
+    public function getDependenceId(): int
+    {
+        return $this->dependenceId;
+    }
+
+    public function setDependenceId(int $dependenceId)
+    {
+        $this->dependenceId = $dependenceId;
+    }
+
+    public function getLocalizationId(): int
+    {
+        return $this->localizationId;
+    }
+
+    public function setLocalizationId(int $localizationId)
+    {
+        $this->localizationId = $localizationId;
     }
 }

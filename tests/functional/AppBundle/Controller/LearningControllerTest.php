@@ -28,7 +28,7 @@ class LearningControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/escola/9999999-non-existent/aprendizado');
+        $client->request('GET', '/amp/escola/9999999-non-existent/aprendizado');
 
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
