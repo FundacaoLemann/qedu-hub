@@ -44,8 +44,6 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
 
             ->join(DimPoliticAggregation::class, 'dpa', 'WITH', 'p.dimPoliticAggregationId = dpa.id')
             ->andWhere('dpa.editionId = ' . $provaBrasilEdition->getCode())
-            ->andWhere('dpa.dependenceId = ' . $school->getDependenceId())
-            ->andWhere('dpa.localizationId = ' . $school->getLocalizationId())
             ->andWhere('dpa.disciplineId in (1, 2)')
             ->andWhere('dpa.gradeId in (5, 9)')
 
