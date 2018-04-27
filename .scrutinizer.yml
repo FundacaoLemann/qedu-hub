@@ -5,6 +5,9 @@ checks:
     php: true
 
 build:
+    environment:
+        php: '7.1.12'
+        node: 'v0.10.25'
     tests:
         override:
             -
