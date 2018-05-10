@@ -7,7 +7,7 @@ checks:
 build:
     environment:
         php: '7.1.12'
-        node: 'v0.10.25'
+        node: 'v6.13.0'
     tests:
         override:
             -
