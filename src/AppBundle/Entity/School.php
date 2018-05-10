@@ -115,32 +115,32 @@ class School
         $this->name = $name;
     }
 
-    public function getNamePrefix(): string
+    public function getNamePrefix(): ?string
     {
         return $this->namePrefix;
     }
 
-    public function setNamePrefix(string $namePrefix)
+    public function setNamePrefix(?string $namePrefix)
     {
         $this->namePrefix = $namePrefix;
     }
 
-    public function getNameStandard(): string
+    public function getNameStandard(): ?string
     {
         return $this->nameStandard;
     }
 
-    public function setNameStandard(string $nameStandard)
+    public function setNameStandard(?string $nameStandard)
     {
         $this->nameStandard = $nameStandard;
     }
 
-    public function getSlug(): string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug)
+    public function setSlug(?string $slug)
     {
         $this->slug = $slug;
     }
