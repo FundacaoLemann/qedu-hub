@@ -9,25 +9,23 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="school",
  *     uniqueConstraints={
- *      @ORM\UniqueConstraint(
- *          name="ibge",
- *          columns={"ibge_id"}
- *     ), @ORM\UniqueConstraint(
- *          name="enem",
- *          columns={"id", "city_id", "state_id", "ibge_id"}
- *     )}, indexes={
- *      @ORM\Index(name="fk_school_dependence1", columns={"dependence_id"}),
- *      @ORM\Index(name="fk_school_localization1", columns={"localization_id"}),
- *      @ORM\Index(name="fk_school_operating_conditions1", columns={"operating_conditions_id"}),
- *      @ORM\Index(name="name", columns={"name_standard"}),
- *      @ORM\Index(name="prefix_and_name",columns={"name_prefix", "name_standard"}),
- *      @ORM\Index(name="fk_school_city1", columns={"city_id"}),
- *      @ORM\Index(name="fk_school_state1", columns={"state_id"}),
- *      @ORM\Index(name="fast_search", columns={"state_id", "city_id", "id"}),
- *      @ORM\Index(name="name_2", columns={"name"}),
- *      @ORM\Index(name="city_name", columns={"city_id", "name"}),
- *      @ORM\Index(name="Enem Average", columns={"ibge_id", "state_id", "city_id"})})
- * @ORM\Entity
+ *         @ORM\UniqueConstraint(name="ibge", columns={"ibge_id"}),
+ *         @ORM\UniqueConstraint(name="enem", columns={"id", "city_id", "state_id", "ibge_id"})
+ *     },
+ *     indexes={
+ *         @ORM\Index(name="fk_school_dependence1", columns={"dependence_id"}),
+ *         @ORM\Index(name="fk_school_localization1", columns={"localization_id"}),
+ *         @ORM\Index(name="fk_school_operating_conditions1", columns={"operating_conditions_id"}),
+ *         @ORM\Index(name="name", columns={"name_standard"}),
+ *         @ORM\Index(name="prefix_and_name", columns={"name_prefix", "name_standard"}),
+ *         @ORM\Index(name="fk_school_city1", columns={"city_id"}),
+ *         @ORM\Index(name="fk_school_state1", columns={"state_id"}),
+ *         @ORM\Index(name="fast_search", columns={"state_id", "city_id", "id"}),
+ *         @ORM\Index(name="name_2", columns={"name"}),
+ *         @ORM\Index(name="city_name", columns={"city_id", "name"}),
+ *         @ORM\Index(name="Enem Average", columns={"ibge_id", "state_id", "city_id"})
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SchoolRepository")
  */
 class School
@@ -89,6 +87,26 @@ class School
      * @ORM\Column(name="localization_id", type="integer", nullable=false)
      */
     private $localizationId;
+
+    /**
+     * @var \AppBundle\Entity\City
+     *
+     * @ORM\ManyToOne(targetEntity="City")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
+
+    /**
+     * @var \AppBundle\Entity\State
+     *
+     * @ORM\ManyToOne(targetEntity="State")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
+     * })
+     */
+    private $state;
 
     public function getId(): int
     {
@@ -163,5 +181,25 @@ class School
     public function setLocalizationId(int $localizationId)
     {
         $this->localizationId = $localizationId;
+    }
+
+    public function getCity(): City
+    {
+        return $this->city;
+    }
+
+    public function setCity(City $city)
+    {
+        $this->city = $city;
+    }
+
+    public function getState(): State
+    {
+        return $this->state;
+    }
+
+    public function setState(State $state)
+    {
+        $this->state = $state;
     }
 }
