@@ -1,0 +1,36 @@
+<section class="subnav-section gray-pattern">
+
+  <div class="container with-avatar-small">
+
+    <div class="subnav-title">
+      <ul class="subnav-breadcrumb">
+
+        {% for item in breadcrumb.getItems() %}
+          <li>
+            <a href="{{ item['url'] }}">{{ item['name'] }}</a>
+            <input type="hidden" id="{{ item['element_id'] }}" />
+          </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="block-image thumbnail avatar-block-small ">
+      <a href="#" rel="tooltip" title="" class="avatar-container" data-original-title="">
+        <img src="/img/provabrasil/avatar/school-128px.png">-
+      </a>
+    </div>
+
+    <div class="subnav-title">
+      <h1></h1>
+    </div>
+
+    <div class="action-buttons social-section">
+      <div class="addthis_sharing_toolbox"></div>
+    </div>
+  </div>
+
+</section>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-542c488254cb45ee" async></script>

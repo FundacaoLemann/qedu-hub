@@ -7,7 +7,7 @@
 {% block og_description %}{% endblock %}
 
 {% block body %}
-  content
+  {% include 'census/subnav.html.twig' %}
 {% endblock %}
 
 {% block stylesheets %}
@@ -18,9 +18,30 @@
 {% block javascripts %}
   <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
   <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript" src="/gimme/f46964a241/pkg/js/select2-lib.js"></script>
+  <script type="text/javascript" src="/gimme/85d63f33ed/pkg/js/provabrasil/dropdown-select2.js"></script>
   <script type="text/javascript">
     mcc.init_behaviors({
-        "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}]
+        "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}],
+
+        "behavior-dropdown-select2":[
+
+            {% for item in breadcrumb.getItems() if item['type'] != 'country' %}
+              {
+                  "fetch_from": "{{ item['ajax_dropdown_url'] }}",
+                  "formatSearchingText": "{{ item['search_text'] }}",
+                  "placeholder_input": "{{ item['placeholder'] }}",
+                  "formatNoMatches": "Nenhum resultado para \"%s\".",
+                  "extra_dropdown_classes": " select2-breadcrumb-box",
+                  "idElement": "{{ item['element_id'] }}"
+
+                {% if item['type'] == 'school' %}
+                  ,"message_bottom": 'Listando escolas p\u00fablicas participantes da Prova Brasil<br/><a href="javascript:void(0)" class="select2-redirect" data-url="{{ item['message_bottom_url'] }}">Veja a lista completa de escolas (incluindo particulares) na busca guiada</a>'
+                {% endif %}
+              },
+            {% endfor %}
+
+        ]
     });
   </script>
 {% endblock %}
