@@ -27,6 +27,7 @@ class CensusController extends Controller
         $breadcrumb = new Breadcrumb($school, $request);
 
         return $this->render('census/school.html.twig', [
+            'school' => $school,
             'breadcrumb' => $breadcrumb,
         ]);
     }

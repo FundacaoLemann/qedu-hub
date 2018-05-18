@@ -202,4 +202,9 @@ class School
     {
         $this->state = $state;
     }
+
+    public function getFullName(): string
+    {
+        return trim($this->namePrefix . ' ' . $this->nameStandard);
+    }
 }
