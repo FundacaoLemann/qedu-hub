@@ -6,8 +6,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Breadcrumb
 {
+    use RequestSegmentTrait;
+
     private $entity;
     private $request;
+    private $lastUrlSegment;
 
     public function __construct($entity, Request $request)
     {
@@ -17,6 +20,9 @@ class Breadcrumb
 
     public function getItems()
     {
+        $pathInfo = $this->request->getPathInfo();
+        $this->lastUrlSegment = $this->getLastUrlSegment($pathInfo);
+
         return [
             $this->getCountryConfiguration(),
             $this->getStateConfiguration(),
@@ -25,20 +31,12 @@ class Breadcrumb
         ];
     }
 
-    private function getLastUrlSegment()
-    {
-        $urlSegments = explode('/', $this->request->getPathInfo());
-        $lastUrlSegment = end($urlSegments);
-
-        return $lastUrlSegment;
-    }
-
     private function getCountryConfiguration()
     {
         return [
             'type' => 'country',
             'name' => 'Brasil',
-            'url' => sprintf('/brasil/%s', $this->getLastUrlSegment()),
+            'url' => sprintf('/brasil/%s', $this->lastUrlSegment),
             'element_id' => 'breadcrumb_country',
             'ajax_dropdown_url' => '',
             'search_text' => '',
@@ -57,13 +55,13 @@ class Breadcrumb
                 '/estado/%s-%s/%s',
                 $state->getId(),
                 $state->getSlug(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_state',
             'ajax_dropdown_url' => sprintf(
                 '/ajax/dropdown/remote/states/%s/?url_default=/%s',
                 $state->getId(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'search_text' => 'Carregando estados',
             'placeholder' => 'Busque por estado...',
@@ -82,14 +80,14 @@ class Breadcrumb
                 '/cidade/%s-%s/%s',
                 $city->getId(),
                 $city->getSlug(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_city',
             'ajax_dropdown_url' => sprintf(
                 '/ajax/dropdown/remote/cities/%s/%s?url_default=/%s',
                 $state->getId(),
                 $city->getId(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'search_text' => 'Carregando munic\u00edpios',
             'placeholder' => 'Busque por cidade...',
@@ -108,14 +106,14 @@ class Breadcrumb
                 '/escola/%s-%s/%s',
                 $this->entity->getId(),
                 $this->entity->getSlug(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_school',
             'ajax_dropdown_url' => sprintf(
                 '/ajax/dropdown/remote/schools/%s/%s?url_default=/%s',
                 $state->getId(),
                 $city->getId(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'search_text' => 'Carregando escolas...',
             'placeholder' => 'Busque por escola...',

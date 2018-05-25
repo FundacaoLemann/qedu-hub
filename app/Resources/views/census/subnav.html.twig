@@ -31,6 +31,15 @@
     </div>
   </div>
 
+  <div class="subnav with-avatar-small-margin">
+    <ul class="nav nav-pills">
+      {% for item in menuItems %}
+        <li class="{{ item['isActive'] ? 'active' : '' }}">
+          <a href="{{ item['url'] }}"><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-542c488254cb45ee" async></script>
