@@ -2,10 +2,8 @@
 
 namespace Tests\Fixture\Database;
 
-class ProficiencyTableFixture
+class ProficiencyTableFixture extends ProvaBrasilDatabase
 {
-    private $entityManager;
-
     public function createTable($kernel)
     {
         $this->createDatabase($kernel);
@@ -15,38 +13,6 @@ class ProficiencyTableFixture
         $this->createProficiencyTable();
         $this->createDimRegionalAggregationTable();
         $this->createDimPoliticAggregationTable();
-    }
-
-    public function createDatabase($kernel)
-    {
-        $kernel->getContainer()
-            ->get('doctrine')
-            ->getManager()
-            ->getConnection()
-            ->prepare("CREATE DATABASE waitress_dw_prova_brasil_test;")
-            ->execute();
-    }
-
-    public function getEntityManager()
-    {
-        return $this->entityManager;
-    }
-
-    public function dropTable()
-    {
-        $this->entityManager->getConnection()
-            ->prepare("DROP DATABASE waitress_dw_prova_brasil_test;")
-            ->execute();
-
-        $this->entityManager->close();
-        $this->entityManager = null;
-    }
-
-    private function loadEntityManager($kernel)
-    {
-        $this->entityManager = $kernel->getContainer()
-            ->get('doctrine')
-            ->getManager('waitress_dw_prova_brasil');
     }
 
     public function populateWithBrazilRegister()

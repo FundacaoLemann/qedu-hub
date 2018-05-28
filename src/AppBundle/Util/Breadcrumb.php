@@ -6,31 +6,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Breadcrumb
 {
-    private $entity;
-    private $request;
+    use RequestSegmentTrait;
 
-    public function __construct($entity, Request $request)
-    {
-        $this->entity = $entity;
-        $this->request = $request;
-    }
+    private $lastUrlSegment;
 
-    public function getItems()
+    public function buildItems($entity, Request $request)
     {
+        $pathInfo = $request->getPathInfo();
+        $this->lastUrlSegment = $this->getLastUrlSegment($pathInfo);
+
         return [
             $this->getCountryConfiguration(),
-            $this->getStateConfiguration(),
-            $this->getCityConfiguration(),
-            $this->getSchoolConfiguration(),
+            $this->getStateConfiguration($entity),
+            $this->getCityConfiguration($entity),
+            $this->getSchoolConfiguration($entity),
         ];
-    }
-
-    private function getLastUrlSegment()
-    {
-        $urlSegments = explode('/', $this->request->getPathInfo());
-        $lastUrlSegment = end($urlSegments);
-
-        return $lastUrlSegment;
     }
 
     private function getCountryConfiguration()
@@ -38,7 +28,7 @@ class Breadcrumb
         return [
             'type' => 'country',
             'name' => 'Brasil',
-            'url' => sprintf('/brasil/%s', $this->getLastUrlSegment()),
+            'url' => sprintf('/brasil/%s', $this->lastUrlSegment),
             'element_id' => 'breadcrumb_country',
             'ajax_dropdown_url' => '',
             'search_text' => '',
@@ -46,9 +36,9 @@ class Breadcrumb
         ];
     }
 
-    private function getStateConfiguration()
+    private function getStateConfiguration($entity)
     {
-        $state = $this->entity->getState();
+        $state = $entity->getState();
 
         return [
             'type' => 'state',
@@ -57,23 +47,23 @@ class Breadcrumb
                 '/estado/%s-%s/%s',
                 $state->getId(),
                 $state->getSlug(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_state',
             'ajax_dropdown_url' => sprintf(
                 '/ajax/dropdown/remote/states/%s/?url_default=/%s',
                 $state->getId(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'search_text' => 'Carregando estados',
             'placeholder' => 'Busque por estado...',
         ];
     }
 
-    private function getCityConfiguration()
+    private function getCityConfiguration($entity)
     {
-        $state = $this->entity->getState();
-        $city = $this->entity->getCity();
+        $state = $entity->getState();
+        $city = $entity->getCity();
 
         return [
             'type' => 'city',
@@ -82,40 +72,40 @@ class Breadcrumb
                 '/cidade/%s-%s/%s',
                 $city->getId(),
                 $city->getSlug(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_city',
             'ajax_dropdown_url' => sprintf(
                 '/ajax/dropdown/remote/cities/%s/%s?url_default=/%s',
                 $state->getId(),
                 $city->getId(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'search_text' => 'Carregando munic\u00edpios',
             'placeholder' => 'Busque por cidade...',
         ];
     }
 
-    private function getSchoolConfiguration()
+    private function getSchoolConfiguration($entity)
     {
-        $state = $this->entity->getState();
-        $city = $this->entity->getCity();
+        $state = $entity->getState();
+        $city = $entity->getCity();
 
         return [
             'type' => 'school',
-            'name' => $this->entity->getName(),
+            'name' => $entity->getName(),
             'url' => sprintf(
                 '/escola/%s-%s/%s',
-                $this->entity->getId(),
-                $this->entity->getSlug(),
-                $this->getLastUrlSegment()
+                $entity->getId(),
+                $entity->getSlug(),
+                $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_school',
             'ajax_dropdown_url' => sprintf(
                 '/ajax/dropdown/remote/schools/%s/%s?url_default=/%s',
                 $state->getId(),
                 $city->getId(),
-                $this->getLastUrlSegment()
+                $this->lastUrlSegment
             ),
             'search_text' => 'Carregando escolas...',
             'placeholder' => 'Busque por escola...',
