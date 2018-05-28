@@ -8,26 +8,18 @@ class Breadcrumb
 {
     use RequestSegmentTrait;
 
-    private $entity;
-    private $request;
     private $lastUrlSegment;
 
-    public function __construct($entity, Request $request)
+    public function buildItems($entity, Request $request)
     {
-        $this->entity = $entity;
-        $this->request = $request;
-    }
-
-    public function getItems()
-    {
-        $pathInfo = $this->request->getPathInfo();
+        $pathInfo = $request->getPathInfo();
         $this->lastUrlSegment = $this->getLastUrlSegment($pathInfo);
 
         return [
             $this->getCountryConfiguration(),
-            $this->getStateConfiguration(),
-            $this->getCityConfiguration(),
-            $this->getSchoolConfiguration(),
+            $this->getStateConfiguration($entity),
+            $this->getCityConfiguration($entity),
+            $this->getSchoolConfiguration($entity),
         ];
     }
 
@@ -44,9 +36,9 @@ class Breadcrumb
         ];
     }
 
-    private function getStateConfiguration()
+    private function getStateConfiguration($entity)
     {
-        $state = $this->entity->getState();
+        $state = $entity->getState();
 
         return [
             'type' => 'state',
@@ -68,10 +60,10 @@ class Breadcrumb
         ];
     }
 
-    private function getCityConfiguration()
+    private function getCityConfiguration($entity)
     {
-        $state = $this->entity->getState();
-        $city = $this->entity->getCity();
+        $state = $entity->getState();
+        $city = $entity->getCity();
 
         return [
             'type' => 'city',
@@ -94,18 +86,18 @@ class Breadcrumb
         ];
     }
 
-    private function getSchoolConfiguration()
+    private function getSchoolConfiguration($entity)
     {
-        $state = $this->entity->getState();
-        $city = $this->entity->getCity();
+        $state = $entity->getState();
+        $city = $entity->getCity();
 
         return [
             'type' => 'school',
-            'name' => $this->entity->getName(),
+            'name' => $entity->getName(),
             'url' => sprintf(
                 '/escola/%s-%s/%s',
-                $this->entity->getId(),
-                $this->entity->getSlug(),
+                $entity->getId(),
+                $entity->getSlug(),
                 $this->lastUrlSegment
             ),
             'element_id' => 'breadcrumb_school',

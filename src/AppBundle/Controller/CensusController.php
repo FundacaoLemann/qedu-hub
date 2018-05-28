@@ -10,10 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CensusController extends Controller
 {
+    private $breadcrumb;
     private $menuBuilder;
 
-    public function __construct(MenuBuilder $menuBuilder)
+    public function __construct(Breadcrumb $breadcrumb, MenuBuilder $menuBuilder)
     {
+        $this->breadcrumb = $breadcrumb;
         $this->menuBuilder = $menuBuilder;
     }
 
@@ -32,12 +34,12 @@ class CensusController extends Controller
             ->getRepository('AppBundle:School', 'waitress_entities')
             ->find($schoolId);
 
-        $breadcrumb = new Breadcrumb($school, $request);
+        $breadcrumbItems = $this->breadcrumb->buildItems($school, $request);
         $menuItems = $this->menuBuilder->buildItems($school, $request);
 
         return $this->render('census/school.html.twig', [
             'school' => $school,
-            'breadcrumb' => $breadcrumb,
+            'breadcrumbItems' => $breadcrumbItems,
             'menuItems' => $menuItems,
         ]);
     }

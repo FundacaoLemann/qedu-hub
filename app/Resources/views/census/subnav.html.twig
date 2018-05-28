@@ -5,7 +5,7 @@
     <div class="subnav-title">
       <ul class="subnav-breadcrumb">
 
-        {% for item in breadcrumb.getItems() %}
+        {% for item in breadcrumbItems %}
           <li>
             <a href="{{ item['url'] }}">{{ item['name'] }}</a>
             <input type="hidden" id="{{ item['element_id'] }}" />

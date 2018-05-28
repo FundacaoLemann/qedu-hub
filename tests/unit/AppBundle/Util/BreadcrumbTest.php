@@ -12,8 +12,8 @@ class BreadcrumbTest extends TestCase
         $school = $this->getSchoolMock();
         $request = $this->getRequestMock();
 
-        $breadcrumb = new Breadcrumb($school, $request);
-        $items = $breadcrumb->getItems();
+        $breadcrumb = new Breadcrumb();
+        $items = $breadcrumb->buildItems($school, $request);
 
         $itemsExpected = $this->getSchoolItemsExpected();
 

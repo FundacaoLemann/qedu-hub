@@ -26,7 +26,7 @@
 
         "behavior-dropdown-select2":[
 
-            {% for item in breadcrumb.getItems() if item['type'] != 'country' %}
+            {% for item in breadcrumbItems if item['type'] != 'country' %}
               {
                   "fetch_from": "{{ item['ajax_dropdown_url'] }}",
                   "formatSearchingText": "{{ item['search_text'] }}",
