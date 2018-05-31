@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Census\CensusFilter;
 use AppBundle\Util\Breadcrumb;
 use AppBundle\Util\MenuBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,11 +13,13 @@ class CensusController extends Controller
 {
     private $breadcrumb;
     private $menuBuilder;
+    private $censusFilter;
 
-    public function __construct(Breadcrumb $breadcrumb, MenuBuilder $menuBuilder)
+    public function __construct(Breadcrumb $breadcrumb, MenuBuilder $menuBuilder, CensusFilter $censusFilter)
     {
         $this->breadcrumb = $breadcrumb;
         $this->menuBuilder = $menuBuilder;
+        $this->censusFilter = $censusFilter;
     }
 
     /**
@@ -41,6 +44,7 @@ class CensusController extends Controller
             'school' => $school,
             'breadcrumbItems' => $breadcrumbItems,
             'menuItems' => $menuItems,
+            'filter' => $this->censusFilter,
         ]);
     }
 }
