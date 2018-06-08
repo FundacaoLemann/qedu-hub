@@ -2,17 +2,15 @@
 
 namespace AppBundle\Entity\Census;
 
-use AppBundle\Entity\Census\Group\{
-    Accessibility,
-    BuildingCharacteristic,
-    EnrollmentsAggregation,
-    EnrollmentsGrade,
-    Equipments,
-    Food,
-    OthersInformation,
-    Services,
-    Technologies
-};
+use AppBundle\Entity\Census\Group\Accessibility;
+use AppBundle\Entity\Census\Group\BuildingCharacteristic;
+use AppBundle\Entity\Census\Group\EnrollmentsAggregation;
+use AppBundle\Entity\Census\Group\EnrollmentsGrade;
+use AppBundle\Entity\Census\Group\Equipments;
+use AppBundle\Entity\Census\Group\Food;
+use AppBundle\Entity\Census\Group\OthersInformation;
+use AppBundle\Entity\Census\Group\Services;
+use AppBundle\Entity\Census\Group\Technologies;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
