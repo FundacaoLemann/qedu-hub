@@ -10,10 +10,10 @@ class BreadcrumbTest extends TestCase
     public function testBuildSchoolBreadcrumb()
     {
         $school = $this->getSchoolMock();
-        $request = $this->getRequestMock();
+        $request = $this->getRequestStackMock();
 
-        $breadcrumb = new Breadcrumb();
-        $items = $breadcrumb->buildItems($school, $request);
+        $breadcrumb = new Breadcrumb($request);
+        $items = $breadcrumb->buildItems($school);
 
         $itemsExpected = $this->getSchoolItemsExpected();
 
@@ -76,13 +76,17 @@ class BreadcrumbTest extends TestCase
         return $stateMock;
     }
 
-    private function getRequestMock()
+    private function getRequestStackMock()
     {
         $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
         $requestMock->method('getPathInfo')
             ->willReturn('/escola/156485-ee-belmiro-braga/sobre');
 
-        return $requestMock;
+        $requestStackMock = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
+        $requestStackMock->method('getCurrentRequest')
+            ->willReturn($requestMock);
+
+        return $requestStackMock;
     }
 
     private function getSchoolItemsExpected()
