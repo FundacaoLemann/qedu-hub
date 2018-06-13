@@ -75,6 +75,41 @@ class School
     private $slug;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="district", type="string", length=60, nullable=true)
+     */
+    private $district;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=120, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address_cep", type="string", length=8, nullable=true)
+     */
+    private $addressCep;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ddd", type="string", length=2, nullable=true)
+     */
+    private $ddd;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="public_phone", type="string", length=8, nullable=true)
+     */
+    private $publicPhone;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="dependence_id", type="integer", nullable=false)
@@ -161,6 +196,56 @@ class School
     public function setSlug(?string $slug)
     {
         $this->slug = $slug;
+    }
+
+    public function getDistrict(): ?string
+    {
+        return $this->district;
+    }
+
+    public function setDistrict(?string $district)
+    {
+        $this->district = $district;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address)
+    {
+        $this->address = $address;
+    }
+
+    public function getAddressCep(): ?string
+    {
+        return $this->addressCep;
+    }
+
+    public function setAddressCep(?string $addressCep)
+    {
+        $this->addressCep = $addressCep;
+    }
+
+    public function getDdd(): ?string
+    {
+        return $this->ddd;
+    }
+
+    public function setDdd(?string $ddd)
+    {
+        $this->ddd = $ddd;
+    }
+
+    public function getPublicPhone(): ?string
+    {
+        return $this->publicPhone;
+    }
+
+    public function setPublicPhone(?string $publicPhone)
+    {
+        $this->publicPhone = $publicPhone;
     }
 
     public function getDependenceId(): int

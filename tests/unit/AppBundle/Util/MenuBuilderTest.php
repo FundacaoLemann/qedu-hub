@@ -13,11 +13,11 @@ class MenuBuilderTest extends TestCase
     public function testBuildShouldReturnItemsWithoutLearningSection($itemsExpected)
     {
         $schoolProficiency = $this->getSchoolProficiencyMockWithoutProficiency();
-        $request = $this->getRequestMockFromAboutUrl();
+        $request = $this->getRequestStackMockFromAboutUrl();
         $school = $this->getSchoolMock();
 
-        $menu = new MenuBuilder($schoolProficiency);
-        $items = $menu->buildItems($school, $request);
+        $menu = new MenuBuilder($schoolProficiency, $request);
+        $items = $menu->buildItems($school);
 
         $this->assertEquals(count($itemsExpected), count($items));
         $this->assertEquals($itemsExpected, $items);
@@ -51,11 +51,11 @@ class MenuBuilderTest extends TestCase
     public function testBuildShouldReturnItemsWithLearningSection($itemsExpected)
     {
         $schoolProficiency = $this->getSchoolProficiencyMockWithProficiency();
-        $request = $this->getRequestMockFromCensusUrl();
+        $request = $this->getRequestStackMockFromCensusUrl();
         $school = $this->getSchoolMock();
 
-        $menu = new MenuBuilder($schoolProficiency);
-        $items = $menu->buildItems($school, $request);
+        $menu = new MenuBuilder($schoolProficiency, $request);
+        $items = $menu->buildItems($school);
 
         $this->assertEquals(count($itemsExpected), count($items));
         $this->assertEquals($itemsExpected, $items);
@@ -145,24 +145,32 @@ class MenuBuilderTest extends TestCase
         return $schoolProficiencyInterfaceMock;
     }
 
-    private function getRequestMockFromAboutUrl()
+    private function getRequestStackMockFromAboutUrl()
     {
         $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
 
         $requestMock->method('getPathInfo')
             ->willReturn('/escola/156485-ee-belmiro-braga/sobre');
 
-        return $requestMock;
+        $requestStackMock = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
+        $requestStackMock->method('getCurrentRequest')
+            ->willReturn($requestMock);
+
+        return $requestStackMock;
     }
 
-    private function getRequestMockFromCensusUrl()
+    private function getRequestStackMockFromCensusUrl()
     {
         $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
 
         $requestMock->method('getPathInfo')
             ->willReturn('/escola/156485-ee-belmiro-braga/censo-escolar');
 
-        return $requestMock;
+        $requestStackMock = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
+        $requestStackMock->method('getCurrentRequest')
+            ->willReturn($requestMock);
+
+        return $requestStackMock;
     }
 
     private function getSchoolMock()

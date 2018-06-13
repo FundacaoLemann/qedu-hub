@@ -2,17 +2,23 @@
 
 namespace AppBundle\Util;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class Breadcrumb
 {
     use RequestSegmentTrait;
 
     private $lastUrlSegment;
+    private $request;
 
-    public function buildItems($entity, Request $request)
+    public function __construct(RequestStack $requestStack)
     {
-        $pathInfo = $request->getPathInfo();
+        $this->request = $requestStack->getCurrentRequest();
+    }
+
+    public function buildItems($entity)
+    {
+        $pathInfo = $this->request->getPathInfo();
         $this->lastUrlSegment = $this->getLastUrlSegment($pathInfo);
 
         return [

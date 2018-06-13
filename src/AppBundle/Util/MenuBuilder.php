@@ -5,12 +5,14 @@ namespace AppBundle\Util;
 use AppBundle\Entity\School;
 use AppBundle\Learning\ProficiencyInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class MenuBuilder
 {
     use RequestSegmentTrait;
 
     private $proficiency;
+    private $request;
     private $items = [
         'learning' => [
             'name' => 'Aprendizado',
@@ -74,14 +76,15 @@ class MenuBuilder
         ],
     ];
 
-    public function __construct(ProficiencyInterface $proficiency)
+    public function __construct(ProficiencyInterface $proficiency, RequestStack $requestStack)
     {
         $this->proficiency = $proficiency;
+        $this->request = $requestStack->getCurrentRequest();
     }
 
-    public function buildItems(School $school, Request $request)
+    public function buildItems(School $school)
     {
-        $this->setActiveItem($request);
+        $this->setActiveItem($this->request);
 
         if ($this->proficiency->hasProficiencyInLastEdition($school) === false) {
             $items[] = $this->items['about'];
