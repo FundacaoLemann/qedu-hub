@@ -11,7 +11,7 @@ class SchoolRepository extends EntityRepository implements SchoolRepositoryInter
 {
     public function findSchoolCensusByEdition(School $school, CensusEdition $censusEdition)
     {
-        return $this->findBy([
+        return $this->findOneBy([
             'schoolId' => $school->getId(),
             'educacenso' => $censusEdition->getYear(),
         ]);

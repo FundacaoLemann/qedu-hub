@@ -173,7 +173,7 @@ class SchoolRepositoryTest extends KernelTestCase
             ->getRepository(School::class)
             ->findSchoolCensusByEdition($this->getSchoolMock(), new CensusEdition(2017));
 
-        return $result[0];
+        return $result;
     }
 
     private function getSchoolMock()
