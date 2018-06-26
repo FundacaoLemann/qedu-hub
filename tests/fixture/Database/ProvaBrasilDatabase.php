@@ -23,7 +23,7 @@ abstract class ProvaBrasilDatabase
             ->execute();
     }
 
-    protected function loadEntityManager($kernel)
+    public function loadEntityManager($kernel)
     {
         $this->entityManager = $kernel->getContainer()
             ->get('doctrine')

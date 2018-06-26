@@ -4,7 +4,7 @@ namespace Tests\Functional\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Fixture\Database\ProficiencyTableFixture;
-use Tests\Fixture\Database\SchoolTableFixture;
+use Tests\Fixture\Database\SchoolLearningTableFixture;
 
 class LearningControllerTest extends WebTestCase
 {
@@ -41,8 +41,9 @@ class LearningControllerTest extends WebTestCase
         $this->proficiencyTableFixture->createTable($kernel);
         $this->proficiencyTableFixture->populateWithSchoolRegister();
 
-        $this->schoolTableFixture = new SchoolTableFixture();
-        $this->schoolTableFixture->createTable($kernel);
+        $this->schoolTableFixture = new SchoolLearningTableFixture();
+        $this->schoolTableFixture->loadEntityManager($kernel);
+        $this->schoolTableFixture->createSchoolLearningTable();
         $this->schoolTableFixture->populateWithSchoolRegister();
     }
 

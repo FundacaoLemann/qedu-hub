@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\School;
+use AppBundle\Entity\Learning\School;
 use AppBundle\Learning\LearningService;
 use AppBundle\Learning\ProvaBrasilService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -46,40 +46,20 @@ class LearningController extends Controller
      */
     public function schoolAction(int $schoolId)
     {
-        $school = $this->findSchool($schoolId);
-        $schoolLearning = $this->findSchoolLearningFromLastEdition($school);
+        $school = $this->getDoctrine()->getRepository('AppBundle:School', 'waitress_entities')->find($schoolId);
+
+        $schoolProficiency = $this->getDoctrine()->getRepository('AppBundle:Learning\School', 'waitress_dw_prova_brasil')->findSchoolProficiencyByEdition($school, $this->provaBrasilLastEdition)[0];
+
+        if (is_null($schoolProficiency)) {
+            throw new NotFoundHttpException();
+        }
+
+        $schoolLearning = $this->learningService->getSchoolLearningByEdition($schoolProficiency, $this->provaBrasilLastEdition);
 
         return $this->render('learning/amp/school.html.twig', [
             'school' => $school,
             'provaBrasilEdition' => $this->provaBrasilLastEdition,
             'schoolLearning' => $schoolLearning,
         ]);
-    }
-
-    private function findSchool(int $schoolId)
-    {
-        $school = $this->getSchoolRepository()->find($schoolId);
-
-        if (is_null($school)) {
-            throw new NotFoundHttpException();
-        }
-
-        return $school;
-    }
-
-    private function getSchoolRepository()
-    {
-        return $this->getDoctrine()->getRepository('AppBundle:School', 'waitress_entities');
-    }
-
-    private function findSchoolLearningFromLastEdition(School $school)
-    {
-        $schoolLearning = $this->learningService->getSchoolLearningByEdition($school, $this->provaBrasilLastEdition);
-
-        if (count($schoolLearning) === 0) {
-            throw new NotFoundHttpException();
-        }
-
-        return $schoolLearning;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\School;
+use AppBundle\Entity\Learning\School;
 use AppBundle\Learning\ProvaBrasilEdition;
 
 interface ProficiencyRepositoryInterface
