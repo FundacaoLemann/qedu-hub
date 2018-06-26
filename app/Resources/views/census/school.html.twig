@@ -1,3 +1,7 @@
+{% set breadcrumb = header.getBreadcrumb() %}
+{% set menu = header.getMenu() %}
+{% set filter = content.getFilter() %}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}{% endblock %}
@@ -36,7 +40,7 @@
 
         "behavior-dropdown-select2":[
 
-            {% for item in breadcrumbItems if item['type'] != 'country' %}
+            {% for item in breadcrumb if item['type'] != 'country' %}
               {
                   "fetch_from": "{{ item['ajax_dropdown_url'] }}",
                   "formatSearchingText": "{{ item['search_text'] }}",

@@ -143,6 +143,13 @@ class School
      */
     private $state;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="operating_conditions_id", type="integer", nullable=false)
+     */
+    private $operatingConditionsId;
+
     public function getId(): int
     {
         return $this->id;
@@ -291,5 +298,10 @@ class School
     public function getFullName(): string
     {
         return trim($this->namePrefix . ' ' . $this->nameStandard);
+    }
+
+    public function getOperatingConditionsId(): int
+    {
+        return $this->operatingConditionsId;
     }
 }

@@ -42,6 +42,18 @@ services:
         factory: 'doctrine.orm.waitress_dw_prova_brasil_entity_manager:getRepository'
         arguments: ['AppBundle\Entity\Learning\School']
 
+    AppBundle\Repository\SchoolRepository:
+        factory: 'doctrine.orm.waitress_entities_entity_manager:getRepository'
+        arguments: ['AppBundle\Entity\School']
+
+    AppBundle\Repository\Census\SchoolRepository:
+        factory: 'doctrine.orm.waitress_entities_entity_manager:getRepository'
+        arguments: ['AppBundle\Entity\Census\School']
+
     AppBundle\Repository\ProficiencyRepositoryInterface: '@AppBundle\Repository\ProficiencyRepository'
 
     AppBundle\Repository\Learning\SchoolRepositoryInterface: '@AppBundle\Repository\Learning\SchoolRepository'
+
+    AppBundle\Repository\SchoolRepositoryInterface: '@AppBundle\Repository\SchoolRepository'
+
+    AppBundle\Repository\Census\SchoolRepositoryInterface: '@AppBundle\Repository\Census\SchoolRepository'

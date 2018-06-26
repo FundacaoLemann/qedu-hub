@@ -2,24 +2,17 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Census\CensusFilter;
-use AppBundle\Util\Breadcrumb;
-use AppBundle\Util\MenuBuilder;
+use AppBundle\Census\CensusPage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class CensusController extends Controller
 {
-    private $breadcrumb;
-    private $menuBuilder;
-    private $censusFilter;
+    private $censusPage;
 
-    public function __construct(Breadcrumb $breadcrumb, MenuBuilder $menuBuilder, CensusFilter $censusFilter)
+    public function __construct(CensusPage $censusPage)
     {
-        $this->breadcrumb = $breadcrumb;
-        $this->menuBuilder = $menuBuilder;
-        $this->censusFilter = $censusFilter;
+        $this->censusPage = $censusPage;
     }
 
     /**
@@ -31,20 +24,14 @@ class CensusController extends Controller
      *     }
      * )
      */
-    public function schoolAction(Request $request, int $schoolId)
+    public function schoolAction(int $schoolId)
     {
-        $school = $this->getDoctrine()
-            ->getRepository('AppBundle:School', 'waitress_entities')
-            ->find($schoolId);
-
-        $breadcrumbItems = $this->breadcrumb->buildItems($school, $request);
-        $menuItems = $this->menuBuilder->buildItems($school, $request);
+        $this->censusPage->build($schoolId);
 
         return $this->render('census/school.html.twig', [
-            'school' => $school,
-            'breadcrumbItems' => $breadcrumbItems,
-            'menuItems' => $menuItems,
-            'filter' => $this->censusFilter,
+            'header' => $this->censusPage->getHeader(),
+            'content' => $this->censusPage->getContent(),
+            'school' => $this->censusPage->getSchool(),
         ]);
     }
 }
