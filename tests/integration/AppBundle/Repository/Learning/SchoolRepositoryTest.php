@@ -45,7 +45,7 @@ class SchoolRepositoryTest extends KernelTestCase
         $schoolMock = $this->createMock('AppBundle\Entity\School');
 
         $schoolMock->method('getId')
-            ->willReturn(258542);
+            ->willReturn(142950);
 
         return $schoolMock;
     }
