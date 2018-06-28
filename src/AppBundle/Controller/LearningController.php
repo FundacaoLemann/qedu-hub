@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Learning\School;
 use AppBundle\Exception\SchoolLearningNotFoundException;
 use AppBundle\Exception\SchoolNotFoundException;
 use AppBundle\Learning\LearningService;
