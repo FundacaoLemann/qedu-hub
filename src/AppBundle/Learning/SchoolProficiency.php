@@ -22,7 +22,7 @@ class SchoolProficiency implements ProficiencyInterface
 
         $schools = $this->schoolRepository->findSchoolProficiencyByEdition($school, $provaBrasilEdition);
 
-        if (count($schools) === 0) {
+        if (is_null($schools)) {
             return false;
         }
 

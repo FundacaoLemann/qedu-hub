@@ -52,7 +52,7 @@ class LearningController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $schoolProficiency = $this->getDoctrine()->getRepository('AppBundle:Learning\School', 'waitress_dw_prova_brasil')->findSchoolProficiencyByEdition($school, $this->provaBrasilLastEdition)[0];
+        $schoolProficiency = $this->getDoctrine()->getRepository('AppBundle:Learning\School', 'waitress_dw_prova_brasil')->findSchoolProficiencyByEdition($school, $this->provaBrasilLastEdition);
 
         if (is_null($schoolProficiency)) {
             throw new NotFoundHttpException();

@@ -12,32 +12,33 @@ class SchoolRepositoryTest extends KernelTestCase
     private $schoolLearningTableFixture;
     private $emSchool;
 
-    /**
-     * @dataProvider findSchoolProficiencyByEditionDataProvider
-     */
-    public function testFindSchoolProficiencyByEdition($school, $provaBrasilEdition, $resultExpected)
+    public function testFindSchoolProficiencyByEditionWithoutSchoolLearning()
     {
+        $school = $this->getSchoolMock();
+        $provaBrasilEdition = new ProvaBrasilEdition(2, 2007);
+
         $result = $this->emSchool
             ->getRepository(School::class)
             ->findSchoolProficiencyByEdition($school, $provaBrasilEdition);
 
-        $this->assertEquals($resultExpected, count($result));
+        $this->assertNull($result);
     }
 
-    public function findSchoolProficiencyByEditionDataProvider()
+    public function testFindSchoolProficiencyByEditionWithSchoolLearning()
     {
-        return [
-            'with_school_learning' => [
-                $this->getSchoolMock(),
-                new ProvaBrasilEdition(6, 2015),
-                $schoolsFound = 1,
-            ],
-            'without_school_learning' => [
-                $this->getSchoolMock(),
-                new ProvaBrasilEdition(2, 2007),
-                $schoolsFound = 0,
-            ],
-        ];
+        $school = $this->getSchoolMock();
+        $provaBrasilEdition = new ProvaBrasilEdition(6, 2015);
+
+        $result = $this->emSchool
+            ->getRepository(School::class)
+            ->findSchoolProficiencyByEdition($school, $provaBrasilEdition);
+
+        $this->assertEquals(142950, $result->getId());
+        $this->assertEquals(6, $result->getEditionId());
+        $this->assertEquals(113, $result->getStateId());
+        $this->assertEquals(1597, $result->getCityId());
+        $this->assertEquals(2, $result->getLocalizationId());
+        $this->assertEquals(3, $result->getDependenceId());
     }
 
     private function getSchoolMock()
