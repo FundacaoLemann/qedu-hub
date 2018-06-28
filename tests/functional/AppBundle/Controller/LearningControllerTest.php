@@ -4,12 +4,14 @@ namespace Tests\Functional\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Fixture\Database\ProficiencyTableFixture;
+use Tests\Fixture\Database\SchoolTableFixture;
 use Tests\Fixture\Database\SchoolLearningTableFixture;
 
 class LearningControllerTest extends WebTestCase
 {
     private $proficiencyTableFixture;
     private $schoolTableFixture;
+    private $schoolLearningTableFixture;
 
     public function testExistentAMPSchoolPage()
     {
@@ -41,10 +43,14 @@ class LearningControllerTest extends WebTestCase
         $this->proficiencyTableFixture->createTable($kernel);
         $this->proficiencyTableFixture->populateWithSchoolRegister();
 
-        $this->schoolTableFixture = new SchoolLearningTableFixture();
-        $this->schoolTableFixture->loadEntityManager($kernel);
-        $this->schoolTableFixture->createSchoolLearningTable();
+        $this->schoolTableFixture = new SchoolTableFixture();
+        $this->schoolTableFixture->createTable($kernel);
         $this->schoolTableFixture->populateWithSchoolRegister();
+
+        $this->schoolLearningTableFixture = new SchoolLearningTableFixture();
+        $this->schoolLearningTableFixture->loadEntityManager($kernel);
+        $this->schoolLearningTableFixture->createSchoolLearningTable();
+        $this->schoolLearningTableFixture->populateWithSchoolRegister();
     }
 
     protected function tearDown()
