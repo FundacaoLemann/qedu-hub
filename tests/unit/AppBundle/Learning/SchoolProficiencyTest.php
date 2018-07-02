@@ -25,8 +25,8 @@ class SchoolProficiencyTest extends TestCase
     public function hasProficiencyInLastEditionDataProvider()
     {
         return [
-            'without_proficiency' => [[], false],
-            'with_proficiency' => [[$this->getSchoolMock()], true],
+            'without_proficiency' => [null, false],
+            'with_proficiency' => [$this->getSchoolMock(), true],
         ];
     }
 

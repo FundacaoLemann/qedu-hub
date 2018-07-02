@@ -3,11 +3,10 @@
 namespace Tests\Integration\AppBundle\Repository;
 
 use AppBundle\Entity\Proficiency;
-use AppBundle\Entity\School;
+use AppBundle\Entity\Learning\School;
 use AppBundle\Learning\ProvaBrasilEdition;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Tests\Fixture\Database\ProficiencyTableFixture;
-use Tests\Fixture\Database\SchoolTableFixture;
 use Tests\Fixture\ProficiencyEntityFixture;
 
 class ProficiencyRepositoryTest extends KernelTestCase
@@ -15,7 +14,6 @@ class ProficiencyRepositoryTest extends KernelTestCase
     private $emProficiency;
     private $emSchool;
     private $proficiencyTableFixture;
-    private $schoolTableFixture;
 
     public function testFindBrazilProficiencyByEdition()
     {
@@ -56,7 +54,6 @@ class ProficiencyRepositoryTest extends KernelTestCase
 
     public function testFindSchoolProficiencyByEdition()
     {
-        $this->schoolTableFixture->populateWithSchoolRegister();
         $this->proficiencyTableFixture->populateWithSchoolRegister();
 
         $proficiencyExpected = new Proficiency();
@@ -67,10 +64,7 @@ class ProficiencyRepositoryTest extends KernelTestCase
         $proficiencyExpected->setQualitative2('4.17');
         $proficiencyExpected->setQualitative3('3.13');
 
-        $schoolId = 142950;
-        $school = $this->emSchool
-            ->getRepository(School::class)
-            ->find($schoolId);
+        $school = $this->getSchoolMock();
 
         $proficiencies = $this->emProficiency
             ->getRepository(Proficiency::class)
@@ -103,6 +97,20 @@ class ProficiencyRepositoryTest extends KernelTestCase
         );
     }
 
+    private function getSchoolMock()
+    {
+        $school = $this->createMock(School::class);
+
+        $school->method('getId')
+            ->willReturn(142950);
+        $school->method('getDependenceId')
+            ->willReturn(3);
+        $school->method('getLocalizationId')
+            ->willReturn(2);
+
+        return $school;
+    }
+
     protected function setUp()
     {
         $kernel = self::bootKernel();
@@ -110,11 +118,7 @@ class ProficiencyRepositoryTest extends KernelTestCase
         $this->proficiencyTableFixture = new ProficiencyTableFixture();
         $this->proficiencyTableFixture->createTable($kernel);
 
-        $this->schoolTableFixture = new SchoolTableFixture();
-        $this->schoolTableFixture->createTable($kernel);
-
         $this->emProficiency = $this->proficiencyTableFixture->getEntityManager();
-        $this->emSchool = $this->schoolTableFixture->getEntityManager();
     }
 
     protected function tearDown()
@@ -122,6 +126,5 @@ class ProficiencyRepositoryTest extends KernelTestCase
         parent::tearDown();
 
         $this->proficiencyTableFixture->dropTable();
-        $this->schoolTableFixture->dropTable();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AppBundle\Learning;
 
-use AppBundle\Entity\School;
+use AppBundle\Entity\Learning\School;
 use AppBundle\Repository\ProficiencyRepositoryInterface;
 
 class LearningService

@@ -10,7 +10,7 @@ class SchoolRepository extends EntityRepository implements SchoolRepositoryInter
 {
     public function findSchoolProficiencyByEdition(School $school, ProvaBrasilEdition $provaBrasilEdition)
     {
-        return $this->findBy([
+        return $this->findOneBy([
             'id' => $school->getId(),
             'editionId' => $provaBrasilEdition->getCode(),
         ]);

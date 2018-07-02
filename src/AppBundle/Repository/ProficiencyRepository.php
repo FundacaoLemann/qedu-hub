@@ -4,7 +4,7 @@ namespace AppBundle\Repository;
 
 use AppBundle\Entity\DimPoliticAggregation;
 use AppBundle\Entity\DimRegionalAggregation;
-use AppBundle\Entity\School;
+use AppBundle\Entity\Learning\School;
 use AppBundle\Learning\ProvaBrasilEdition;
 use Doctrine\ORM\EntityRepository;
 
@@ -46,6 +46,8 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
             ->andWhere('dpa.editionId = ' . $provaBrasilEdition->getCode())
             ->andWhere('dpa.disciplineId in (1, 2)')
             ->andWhere('dpa.gradeId in (5, 9)')
+            ->andWhere('dpa.localizationId = ' . $school->getLocalizationId())
+            ->andWhere('dpa.dependenceId = ' . $school->getDependenceId())
 
             ->addOrderBy('dpa.disciplineId')
             ->addOrderBy('dpa.gradeId')

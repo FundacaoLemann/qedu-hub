@@ -76,7 +76,7 @@ class LearningServiceTest extends TestCase
 
     private function getSchoolEntityMock()
     {
-        $schoolMock = $this->createMock('AppBundle\Entity\School');
+        $schoolMock = $this->createMock('AppBundle\Entity\Learning\School');
 
         $schoolMock->method('getId')
             ->willReturn(12392);
