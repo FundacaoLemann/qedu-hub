@@ -65,6 +65,21 @@ class CensusPageTest extends TestCase
         $this->assertInstanceOf('AppBundle\Census\CensusContent', $censusPage->getContent());
     }
 
+    /**
+     * @expectedException     \AppBundle\Exception\SchoolNotFoundException
+     */
+    public function testBuildShouldThrowSchoolNotFoundException()
+    {
+        $header = $this->createMock('AppBundle\Census\CensusHeader');
+        $content = $this->createMock('AppBundle\Census\CensusContent');
+        $schoolRepository = $this->getSchoolRepositoryMock($school = null);
+
+        $schoolId = 1201;
+
+        $censusPage = new CensusPage($header, $content, $schoolRepository);
+        $censusPage->build($schoolId);
+    }
+
     private function getSchoolRepositoryMock($schoolMock)
     {
         $schoolRepository = $this->createMock('AppBundle\Repository\SchoolRepositoryInterface');
