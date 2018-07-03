@@ -11,9 +11,9 @@ class CensusServiceTest extends TestCase
     public function testCensusServiceShouldImplementsCensusServiceInterface()
     {
         $schoolRepository = $this->createMock('AppBundle\Repository\Census\SchoolRepositoryInterface');
-        $requestStack = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
+        $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
 
-        $censusService = new CensusService($schoolRepository, $requestStack);
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
 
         $this->assertInstanceOf('AppBundle\Census\CensusServiceInterface', $censusService);
     }
@@ -31,15 +31,12 @@ class CensusServiceTest extends TestCase
             )
             ->willReturn($this->createMock('AppBundle\Entity\Census\School'));
 
-        $request = $this->createMock('Symfony\Component\HttpFoundation\Request');
-        $request->method('get')
-            ->with('year')
-            ->willReturn($selectedYear = 2017);
-        $requestStack = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
-        $requestStack->method('getCurrentRequest')
-            ->willReturn($request);
+        $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
+        $censusEditionSelected->expects($this->once())
+            ->method('getCensusEdition')
+            ->willReturn(new CensusEdition(2017));
 
-        $censusService = new CensusService($schoolRepository, $requestStack);
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
         $school = $censusService->getCensusByEdition($school);
 
         $this->assertInstanceOf('AppBundle\Entity\Census\School', $school);
@@ -58,15 +55,12 @@ class CensusServiceTest extends TestCase
             )
             ->willReturn(null);
 
-        $request = $this->createMock('Symfony\Component\HttpFoundation\Request');
-        $request->method('get')
-            ->with('year')
-            ->willReturn($selectedYear = 2017);
-        $requestStack = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
-        $requestStack->method('getCurrentRequest')
-            ->willReturn($request);
+        $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
+        $censusEditionSelected->expects($this->once())
+            ->method('getCensusEdition')
+            ->willReturn(new CensusEdition(2017));
 
-        $censusService = new CensusService($schoolRepository, $requestStack);
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
         $schoolCensus = $censusService->getCensusByEdition($school);
 
         $this->assertNull($schoolCensus);
