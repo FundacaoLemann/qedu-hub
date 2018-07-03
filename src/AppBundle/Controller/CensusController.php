@@ -3,8 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Census\CensusPage;
+use AppBundle\Exception\SchoolNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CensusController extends Controller
 {
@@ -26,12 +28,16 @@ class CensusController extends Controller
      */
     public function schoolAction(int $schoolId)
     {
-        $this->censusPage->build($schoolId);
+        try {
+            $this->censusPage->build($schoolId);
 
-        return $this->render('census/school.html.twig', [
-            'header' => $this->censusPage->getHeader(),
-            'content' => $this->censusPage->getContent(),
-            'school' => $this->censusPage->getSchool(),
-        ]);
+            return $this->render('census/school.html.twig', [
+                'header' => $this->censusPage->getHeader(),
+                'content' => $this->censusPage->getContent(),
+                'school' => $this->censusPage->getSchool(),
+            ]);
+        } catch (SchoolNotFoundException $exception) {
+            throw new NotFoundHttpException($exception);
+        }
     }
 }
