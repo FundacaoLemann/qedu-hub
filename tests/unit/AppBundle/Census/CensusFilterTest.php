@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\AppBundle\Census;
 
+use AppBundle\Census\CensusEdition;
 use AppBundle\Census\CensusFilter;
 
 use PHPUnit\Framework\TestCase;
@@ -12,9 +13,9 @@ class CensusFilterTest extends TestCase
     public function testIsBlockedShouldReturnFalseWhenUserIsLogged()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMockWhenUserIsLogged();
-        $request = $this->createRequestStackMock();
+        $censusEditionSelected = $this->createCensusEditionSelectedMock();
 
-        $filter = new CensusFilter($authorizationChecker, $request);
+        $filter = new CensusFilter($authorizationChecker, $censusEditionSelected);
 
         $this->assertFalse($filter->isBlocked());
     }
@@ -22,9 +23,9 @@ class CensusFilterTest extends TestCase
     public function testIsBlockedShouldReturnTrueWhenUserIsNotLogged()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMockWhenUserIsNotLogged();
-        $request = $this->createRequestStackMock();
+        $censusEditionSelected = $this->createCensusEditionSelectedMock();
 
-        $filter = new CensusFilter($authorizationChecker, $request);
+        $filter = new CensusFilter($authorizationChecker, $censusEditionSelected);
 
         $this->assertTrue($filter->isBlocked());
     }
@@ -32,9 +33,9 @@ class CensusFilterTest extends TestCase
     public function testGetYearsShouldReturnYearsAvailable()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMock();
-        $request = $this->createRequestStackMock();
+        $censusEditionSelected = $this->createCensusEditionSelectedMock();
 
-        $filter = new CensusFilter($authorizationChecker, $request);
+        $filter = new CensusFilter($authorizationChecker, $censusEditionSelected);
 
         $expectedYears = [
             2017,
@@ -50,29 +51,21 @@ class CensusFilterTest extends TestCase
         $this->assertEquals($expectedYears, $filter->getYears());
     }
 
-    public function testGetCurrentYearShouldReturnDefaultYear()
+    public function testGetCurrentYearShouldReturnCensusEdition()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMock();
-        $request = $this->createRequestStackWithoutQueryString();
+        $censusEditionSelected = $this->createCensusEditionSelectedMock();
+        $censusEditionSelected->expects($this->once())
+            ->method('getCensusEdition')
+            ->willReturn(new CensusEdition(2017));
 
-        $filter = new CensusFilter($authorizationChecker, $request);
+        $filter = new CensusFilter($authorizationChecker, $censusEditionSelected);
 
-        $defaultYearExpected = 2017;
+        $censusEditionExpected = 2017;
 
-        $this->assertEquals($defaultYearExpected, $filter->getCurrentYear());
+        $this->assertEquals($censusEditionExpected, $filter->getCurrentYear());
     }
 
-    public function testGetCurrentYearShouldReturnYearBasedOnRequest()
-    {
-        $authorizationChecker = $this->createAuthorizationCheckerMock();
-        $request = $this->createRequestStackWithYearSettledInQueryString();
-
-        $filter = new CensusFilter($authorizationChecker, $request);
-
-        $yearExpected = 2011;
-
-        $this->assertEquals($yearExpected, $filter->getCurrentYear());
-    }
 
     private function createAuthorizationCheckerMockWhenUserIsLogged()
     {
@@ -101,36 +94,8 @@ class CensusFilterTest extends TestCase
         return $this->createMock(AuthorizationCheckerInterface::class);
     }
 
-    private function createRequestStackWithoutQueryString()
+    public function createCensusEditionSelectedMock()
     {
-        $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
-        $requestMock->method('get')
-            ->with('year', $defaultYear = 2017)
-            ->willReturn($defaultYear);
-
-        $requestStackMock = $this->createRequestStackMock();
-        $requestStackMock->method('getCurrentRequest')
-            ->willReturn($requestMock);
-
-        return $requestStackMock;
-    }
-
-    private function createRequestStackWithYearSettledInQueryString()
-    {
-        $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
-        $requestMock->method('get')
-            ->with('year', $defaultYear = 2017)
-            ->willReturn($selectedYear = 2011);
-
-        $requestStackMock = $this->createRequestStackMock();
-        $requestStackMock->method('getCurrentRequest')
-            ->willReturn($requestMock);
-
-        return $requestStackMock;
-    }
-
-    public function createRequestStackMock()
-    {
-        return $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
+        return $this->createMock('AppBundle\Census\CensusEditionSelected');
     }
 }
