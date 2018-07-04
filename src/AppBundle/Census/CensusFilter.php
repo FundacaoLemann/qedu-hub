@@ -2,14 +2,12 @@
 
 namespace AppBundle\Census;
 
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class CensusFilter
 {
     private $authorizationChecker;
-    private $request;
-    private $defaultYear = 2017;
+    private $censusEditionSelected;
     private $years = [
         2017,
         2016,
@@ -21,10 +19,12 @@ class CensusFilter
         2010,
     ];
 
-    public function __construct(AuthorizationCheckerInterface $authorizationChecker, RequestStack $request)
-    {
+    public function __construct(
+        AuthorizationCheckerInterface $authorizationChecker,
+        CensusEditionSelected $censusEditionSelected
+    ) {
         $this->authorizationChecker = $authorizationChecker;
-        $this->request = $request;
+        $this->censusEditionSelected = $censusEditionSelected;
     }
 
     public function isBlocked()
@@ -39,6 +39,6 @@ class CensusFilter
 
     public function getCurrentYear()
     {
-        return $this->request->getCurrentRequest()->get('year', $this->defaultYear);
+        return $this->censusEditionSelected->getCensusEdition()->getYear();
     }
 }

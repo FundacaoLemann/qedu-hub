@@ -4,25 +4,23 @@ namespace AppBundle\Census;
 
 use AppBundle\Entity\Census\School;
 use AppBundle\Repository\Census\SchoolRepositoryInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class CensusService implements CensusServiceInterface
 {
     private $schoolRepository;
-    private $request;
+    private $censusEditionSelected;
 
     public function __construct(
         SchoolRepositoryInterface $schoolRepository,
-        RequestStack $requestStack
+        CensusEditionSelected $censusEditionSelected
     ) {
         $this->schoolRepository = $schoolRepository;
-        $this->request = $requestStack->getCurrentRequest();
+        $this->censusEditionSelected = $censusEditionSelected;
     }
 
     public function getCensusByEdition($school) : ?School
     {
-        $year = (int) $this->request->get('year');
-        $censusEdition = new CensusEdition($year);
+        $censusEdition = $this->censusEditionSelected->getCensusEdition();
 
         return $this->schoolRepository->findSchoolCensusByEdition($school, $censusEdition);
     }

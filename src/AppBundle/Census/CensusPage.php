@@ -4,6 +4,7 @@ namespace AppBundle\Census;
 
 use AppBundle\Entity\Census\OperatingConditions;
 use AppBundle\Entity\School;
+use AppBundle\Exception\SchoolNotFoundException;
 use AppBundle\Repository\SchoolRepositoryInterface;
 
 class CensusPage
@@ -25,6 +26,10 @@ class CensusPage
     public function build($schoolId)
     {
         $this->school = $this->schoolRepository->findSchoolById($schoolId);
+
+        if (is_null($this->school)) {
+            throw new SchoolNotFoundException();
+        }
 
         $this->header->build($this->school);
 

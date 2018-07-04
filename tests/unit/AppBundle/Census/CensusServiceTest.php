@@ -11,9 +11,9 @@ class CensusServiceTest extends TestCase
     public function testCensusServiceShouldImplementsCensusServiceInterface()
     {
         $schoolRepository = $this->createMock('AppBundle\Repository\Census\SchoolRepositoryInterface');
-        $requestStack = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
+        $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
 
-        $censusService = new CensusService($schoolRepository, $requestStack);
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
 
         $this->assertInstanceOf('AppBundle\Census\CensusServiceInterface', $censusService);
     }
@@ -22,24 +22,12 @@ class CensusServiceTest extends TestCase
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
-        $schoolRepository = $this->createMock('AppBundle\Repository\Census\SchoolRepositoryInterface');
-        $schoolRepository->expects($this->once())
-            ->method('findSchoolCensusByEdition')
-            ->with(
-                $this->equalTo($school),
-                $this->equalTo(new CensusEdition(2017))
-            )
-            ->willReturn($this->createMock('AppBundle\Entity\Census\School'));
+        $schoolRepository = $this->getSchoolRepositoryMockWillReturn(
+            $this->createMock('AppBundle\Entity\Census\School')
+        );
+        $censusEditionSelected = $this->getCensusEditionSelectedMock();
 
-        $request = $this->createMock('Symfony\Component\HttpFoundation\Request');
-        $request->method('get')
-            ->with('year')
-            ->willReturn($selectedYear = 2017);
-        $requestStack = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
-        $requestStack->method('getCurrentRequest')
-            ->willReturn($request);
-
-        $censusService = new CensusService($schoolRepository, $requestStack);
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
         $school = $censusService->getCensusByEdition($school);
 
         $this->assertInstanceOf('AppBundle\Entity\Census\School', $school);
@@ -49,6 +37,19 @@ class CensusServiceTest extends TestCase
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
+        $schoolRepository = $this->getSchoolRepositoryMockWillReturn(null);
+        $censusEditionSelected = $this->getCensusEditionSelectedMock();
+
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
+        $schoolCensus = $censusService->getCensusByEdition($school);
+
+        $this->assertNull($schoolCensus);
+    }
+
+    private function getSchoolRepositoryMockWillReturn($return)
+    {
+        $school = $this->createMock('AppBundle\Entity\School');
+
         $schoolRepository = $this->createMock('AppBundle\Repository\Census\SchoolRepositoryInterface');
         $schoolRepository->expects($this->once())
             ->method('findSchoolCensusByEdition')
@@ -56,19 +57,18 @@ class CensusServiceTest extends TestCase
                 $this->equalTo($school),
                 $this->equalTo(new CensusEdition(2017))
             )
-            ->willReturn(null);
+            ->willReturn($return);
 
-        $request = $this->createMock('Symfony\Component\HttpFoundation\Request');
-        $request->method('get')
-            ->with('year')
-            ->willReturn($selectedYear = 2017);
-        $requestStack = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
-        $requestStack->method('getCurrentRequest')
-            ->willReturn($request);
+        return $schoolRepository;
+    }
 
-        $censusService = new CensusService($schoolRepository, $requestStack);
-        $schoolCensus = $censusService->getCensusByEdition($school);
+    private function getCensusEditionSelectedMock()
+    {
+        $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
+        $censusEditionSelected->expects($this->once())
+            ->method('getCensusEdition')
+            ->willReturn(new CensusEdition(2017));
 
-        $this->assertNull($schoolCensus);
+        return $censusEditionSelected;
     }
 }
