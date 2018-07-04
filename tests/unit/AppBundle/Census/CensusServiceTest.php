@@ -22,19 +22,10 @@ class CensusServiceTest extends TestCase
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
-        $schoolRepository = $this->createMock('AppBundle\Repository\Census\SchoolRepositoryInterface');
-        $schoolRepository->expects($this->once())
-            ->method('findSchoolCensusByEdition')
-            ->with(
-                $this->equalTo($school),
-                $this->equalTo(new CensusEdition(2017))
-            )
-            ->willReturn($this->createMock('AppBundle\Entity\Census\School'));
-
-        $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
-        $censusEditionSelected->expects($this->once())
-            ->method('getCensusEdition')
-            ->willReturn(new CensusEdition(2017));
+        $schoolRepository = $this->getSchoolRepositoryMockWillReturn(
+            $this->createMock('AppBundle\Entity\Census\School')
+        );
+        $censusEditionSelected = $this->getCensusEditionSelectedMock();
 
         $censusService = new CensusService($schoolRepository, $censusEditionSelected);
         $school = $censusService->getCensusByEdition($school);
@@ -46,6 +37,19 @@ class CensusServiceTest extends TestCase
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
+        $schoolRepository = $this->getSchoolRepositoryMockWillReturn(null);
+        $censusEditionSelected = $this->getCensusEditionSelectedMock();
+
+        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
+        $schoolCensus = $censusService->getCensusByEdition($school);
+
+        $this->assertNull($schoolCensus);
+    }
+
+    private function getSchoolRepositoryMockWillReturn($return)
+    {
+        $school = $this->createMock('AppBundle\Entity\School');
+
         $schoolRepository = $this->createMock('AppBundle\Repository\Census\SchoolRepositoryInterface');
         $schoolRepository->expects($this->once())
             ->method('findSchoolCensusByEdition')
@@ -53,16 +57,18 @@ class CensusServiceTest extends TestCase
                 $this->equalTo($school),
                 $this->equalTo(new CensusEdition(2017))
             )
-            ->willReturn(null);
+            ->willReturn($return);
 
+        return $schoolRepository;
+    }
+
+    private function getCensusEditionSelectedMock()
+    {
         $censusEditionSelected = $this->createMock('AppBundle\Census\CensusEditionSelected');
         $censusEditionSelected->expects($this->once())
             ->method('getCensusEdition')
             ->willReturn(new CensusEdition(2017));
 
-        $censusService = new CensusService($schoolRepository, $censusEditionSelected);
-        $schoolCensus = $censusService->getCensusByEdition($school);
-
-        $this->assertNull($schoolCensus);
+        return $censusEditionSelected;
     }
 }
