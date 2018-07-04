@@ -8,28 +8,31 @@ use PHPUnit\Framework\TestCase;
 
 class CensusEditionSelectedTest extends TestCase
 {
-    public function testGetYearWithValidYearRequested()
+    /**
+     * @dataProvider getYearDataProvider
+     */
+    public function testGetYear($yearRequested, $expectedYear)
     {
-        $requestStack = $this->getRequestStackMock(2015);
+        $requestStack = $this->getRequestStackMock($yearRequested);
 
         $census = new CensusEditionSelected($requestStack);
         $year = $census->getCensusEdition();
-
-        $expectedYear = new CensusEdition(2015);
 
         $this->assertEquals($expectedYear, $year);
     }
 
-    public function testGetYearWithInvalidYearRequested()
+    public function getYearDataProvider()
     {
-        $requestStack = $this->getRequestStackMock('invalid_param');
-
-        $census = new CensusEditionSelected($requestStack);
-        $year = $census->getCensusEdition();
-
-        $expectedDefaultYear = new CensusEdition(2017);
-
-        $this->assertEquals($expectedDefaultYear, $year);
+        return [
+            'valid_year_requested' => [
+                2015,
+                new CensusEdition(2015),
+            ],
+            'invalid_year_requested' => [
+                'invalid_param',
+                new CensusEdition(2017),
+            ]
+        ];
     }
 
     private function getRequestStackMock($valueRequested)
