@@ -66,7 +66,6 @@ class CensusFilterTest extends TestCase
         $this->assertEquals($censusEditionExpected, $filter->getCurrentYear());
     }
 
-
     private function createAuthorizationCheckerMockWhenUserIsLogged()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMock();
@@ -94,7 +93,7 @@ class CensusFilterTest extends TestCase
         return $this->createMock(AuthorizationCheckerInterface::class);
     }
 
-    public function createCensusEditionSelectedMock()
+    private function createCensusEditionSelectedMock()
     {
         return $this->createMock('AppBundle\Census\CensusEditionSelected');
     }
