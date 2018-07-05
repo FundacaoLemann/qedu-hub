@@ -105,9 +105,9 @@ class School
     /**
      * @var string
      *
-     * @ORM\Column(name="public_phone", type="string", length=8, nullable=true)
+     * @ORM\Column(name="phone", type="string", length=8, nullable=true)
      */
-    private $publicPhone;
+    private $phone;
 
     /**
      * @var integer
@@ -245,14 +245,14 @@ class School
         $this->ddd = $ddd;
     }
 
-    public function getPublicPhone(): ?string
+    public function getPhone(): ?string
     {
-        return $this->publicPhone;
+        return $this->phone;
     }
 
-    public function setPublicPhone(?string $publicPhone)
+    public function setPhone(?string $phone)
     {
-        $this->publicPhone = $publicPhone;
+        $this->phone = $phone;
     }
 
     public function getDependenceId(): int
