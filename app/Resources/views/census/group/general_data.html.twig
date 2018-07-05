@@ -1,0 +1,32 @@
+<div class="group-educacenso highlight">
+  <h3>Dados Gerais</h3>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>Código INEP</th>
+      <td>{{ school.getIbgeId() }}</td>
+    </tr>
+    <tr>
+      <th>Localização da Escola</th>
+      <td>{{ school|localizationTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Dependência</th>
+      <td>{{ school|dependenceTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Endereço</th>
+      <td>
+        {{ school|addressFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>Telefone</th>
+      <td>{{ school|phoneFilter }}</td>
+    </tr>
+    <tr>
+      <th>Fax</th>
+      <td>-</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
