@@ -79,6 +79,27 @@ class CensusDataFilter extends AbstractExtension
         return $addressFormatted;
     }
 
+    public function optionalNumberTranslationFilter($number)
+    {
+        if (is_null($number)) {
+            return '-';
+        }
+
+        return $number;
+    }
+
+    public function convertNumberToYesNoFilter($number)
+    {
+        switch ((string) $number) {
+            case '0':
+                return "<span style='color: red'>Não</span>";
+            case '1':
+                return "<span style='color: darkgreen'>Sim</span>";
+            default:
+                return "<span style='color: #666'>Não informado</span>";
+        }
+    }
+
     public function getFilters()
     {
         return [
@@ -86,6 +107,8 @@ class CensusDataFilter extends AbstractExtension
             new TwigFilter('dependenceTranslationFilter', [$this, 'dependenceTranslationFilter']),
             new TwigFilter('phoneFilter', [$this, 'phoneFilter']),
             new TwigFilter('addressFilter', [$this, 'addressFilter']),
+            new TwigFilter('optionalNumberTranslationFilter', [$this, 'optionalNumberTranslationFilter']),
+            new TwigFilter('convertNumberToYesNoFilter', [$this, 'convertNumberToYesNoFilter']),
         ];
     }
 }

@@ -173,11 +173,69 @@ class CensusDataFilterTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider optionalNumberTranslationFilterDataProvider
+     */
+    public function testOptionalNumberTranslationFilter($number, $numberExpected)
+    {
+        $censusDataFilter = new CensusDataFilter();
+        $number = $censusDataFilter->optionalNumberTranslationFilter($number);
+
+        $this->assertEquals($numberExpected, $number);
+    }
+
+    public function optionalNumberTranslationFilterDataProvider()
+    {
+        return [
+            [
+                $localization = 329,
+                $expected = 329,
+            ],
+            [
+                $localization = null,
+                $expected = '-',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider convertNumberToYesNoFilterDataProvider
+     */
+    public function testConvertNumberToYesNoFilter($number, $outputExpected)
+    {
+        $censusDataFilter = new CensusDataFilter();
+        $number = $censusDataFilter->convertNumberToYesNoFilter($number);
+
+        $this->assertEquals($outputExpected, $number);
+    }
+
+    public function convertNumberToYesNoFilterDataProvider()
+    {
+        return [
+            [
+                $number = 0,
+                $outputExpected = "<span style='color: red'>Não</span>",
+            ],
+            [
+                $$number = 1,
+                $outputExpected = "<span style='color: darkgreen'>Sim</span>",
+            ],
+            [
+                $$number = null,
+                $outputExpected = "<span style='color: #666'>Não informado</span>",
+            ],
+            [
+                $$number = '',
+                $outputExpected = "<span style='color: #666'>Não informado</span>",
+            ],
+        ];
+    }
+
     public function testGetFiltersShouldReturnAllFiltersRegistered()
     {
         $censusDataFilter = new CensusDataFilter();
         $filters = $censusDataFilter->getFilters();
 
-        $this->assertCount(4, $filters);
+        $this->assertCount(6, $filters);
     }
 }
