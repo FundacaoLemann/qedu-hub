@@ -16,38 +16,6 @@ class CensusDataFilterTest extends TestCase
     }
 
     /**
-     * @dataProvider localizationTranslationFilterDataProvider
-     */
-    public function testLocalizationTranslationFilter($localizationId, $localizationExpected)
-    {
-        $school = new School();
-        $school->setLocalizationId($localizationId);
-
-        $censusDataFilter = new CensusDataFilter();
-        $localization = $censusDataFilter->localizationTranslationFilter($school);
-
-        $this->assertEquals($localizationExpected, $localization);
-    }
-
-    public function localizationTranslationFilterDataProvider()
-    {
-        return [
-            [
-                $localization = 1,
-                $expected = 'Urbana',
-            ],
-            [
-                $localization = 2,
-                $expected = 'Rural',
-            ],
-            [
-                $localization = 276756,
-                $expected = '-',
-            ],
-        ];
-    }
-
-    /**
      * @dataProvider dependenceTranslationFilterDataProvider
      */
     public function testDependenceTranslationFilter($dependenceId, $dependenceExpected)
