@@ -199,33 +199,33 @@ class CensusDataFilterTest extends TestCase
     }
 
     /**
-     * @dataProvider convertNumberToYesNoFilterDataProvider
+     * @dataProvider convertBooleanToYesNoFilterDataProvider
      */
-    public function testConvertNumberToYesNoFilter($number, $outputExpected)
+    public function testConvertBooleanToYesNoFilter($answer, $outputExpected)
     {
         $censusDataFilter = new CensusDataFilter();
-        $number = $censusDataFilter->convertNumberToYesNoFilter($number);
+        $answer = $censusDataFilter->convertBooleanToYesNoFilter($answer);
 
-        $this->assertEquals($outputExpected, $number);
+        $this->assertEquals($outputExpected, $answer);
     }
 
-    public function convertNumberToYesNoFilterDataProvider()
+    public function convertBooleanToYesNoFilterDataProvider()
     {
         return [
             [
-                $number = 0,
+                $answer = false,
                 $outputExpected = "<span style='color: red'>Não</span>",
             ],
             [
-                $number = 1,
+                $answer = true,
                 $outputExpected = "<span style='color: darkgreen'>Sim</span>",
             ],
             [
-                $number = null,
+                $answer = null,
                 $outputExpected = "<span style='color: #666'>Não informado</span>",
             ],
             [
-                $number = '',
+                $answer = '',
                 $outputExpected = "<span style='color: #666'>Não informado</span>",
             ],
         ];

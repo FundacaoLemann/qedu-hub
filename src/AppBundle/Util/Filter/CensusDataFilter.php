@@ -88,16 +88,15 @@ class CensusDataFilter extends AbstractExtension
         return $number;
     }
 
-    public function convertNumberToYesNoFilter($number)
+    public function convertBooleanToYesNoFilter($answer)
     {
-        switch ((string) $number) {
-            case '0':
-                return "<span style='color: red'>Não</span>";
-            case '1':
-                return "<span style='color: darkgreen'>Sim</span>";
-            default:
-                return "<span style='color: #666'>Não informado</span>";
+        if ($answer === true) {
+            return "<span style='color: darkgreen'>Sim</span>";
+        } elseif ($answer === false) {
+            return "<span style='color: red'>Não</span>";
         }
+
+        return "<span style='color: #666'>Não informado</span>";
     }
 
     public function waterSupplierFilter($censusServices)
