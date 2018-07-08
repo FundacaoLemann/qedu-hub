@@ -46,4 +46,12 @@ class LocalizationTranslationFilterTest extends TestCase
             ],
         ];
     }
+
+    public function testGetFiltersShouldReturnFilterRegistered()
+    {
+        $localizationTranslationFilter = new LocalizationTranslationFilter();
+        $filters = $localizationTranslationFilter->getFilters();
+
+        $this->assertCount(1, $filters);
+    }
 }

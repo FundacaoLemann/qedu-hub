@@ -4,6 +4,7 @@ namespace AppBundle\Util\Filter\Census;
 
 use AppBundle\Entity\School;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 class LocalizationTranslationFilter extends AbstractExtension
 {
@@ -20,4 +21,11 @@ class LocalizationTranslationFilter extends AbstractExtension
                 return '-';
         }
 	}
+
+	public function getFilters()
+    {
+        return [
+            new TwigFilter('localizationTranslationFilter', [$this, 'localizationTranslationFilter']),
+        ];
+    }
 }

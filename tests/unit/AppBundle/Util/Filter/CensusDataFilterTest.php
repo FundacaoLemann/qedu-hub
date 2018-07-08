@@ -16,50 +16,6 @@ class CensusDataFilterTest extends TestCase
     }
 
     /**
-     * @dataProvider dependenceTranslationFilterDataProvider
-     */
-    public function testDependenceTranslationFilter($dependenceId, $dependenceExpected)
-    {
-        $school = new School();
-        $school->setDependenceId($dependenceId);
-
-        $censusDataFilter = new CensusDataFilter();
-        $dependence = $censusDataFilter->dependenceTranslationFilter($school);
-
-        $this->assertEquals($dependenceExpected, $dependence);
-    }
-
-    public function dependenceTranslationFilterDataProvider()
-    {
-        return [
-            [
-                $localization = 0,
-                $expected = 'Todas',
-            ],
-            [
-                $localization = 1,
-                $expected = 'Federal',
-            ],
-            [
-                $localization = 2,
-                $expected = 'Estadual',
-            ],
-            [
-                $localization = 3,
-                $expected = 'Municipal',
-            ],
-            [
-                $localization = 4,
-                $expected = 'Privada',
-            ],
-            [
-                $localization = 25555565,
-                $expected = '-',
-            ],
-        ];
-    }
-
-    /**
      * @dataProvider phoneFilterDataProvider
      */
     public function testPhoneFilter($phone, $ddd, $phoneExpected)
@@ -259,6 +215,6 @@ class CensusDataFilterTest extends TestCase
         $censusDataFilter = new CensusDataFilter();
         $filters = $censusDataFilter->getFilters();
 
-        $this->assertCount(7, $filters);
+        $this->assertCount(5, $filters);
     }
 }

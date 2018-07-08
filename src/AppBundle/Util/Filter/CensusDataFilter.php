@@ -8,40 +8,6 @@ use Twig\TwigFilter;
 
 class CensusDataFilter extends AbstractExtension
 {
-    public function localizationTranslationFilter(School $school)
-    {
-        $localizationId = $school->getLocalizationId();
-
-        switch ($localizationId) {
-            case 1:
-                return 'Urbana';
-            case 2:
-                return 'Rural';
-            default:
-                return '-';
-        }
-    }
-
-    public function dependenceTranslationFilter(School $school)
-    {
-        $dependenceId = $school->getDependenceId();
-
-        switch ($dependenceId) {
-            case 0:
-                return 'Todas';
-            case 1:
-                return 'Federal';
-            case 2:
-                return 'Estadual';
-            case 3:
-                return 'Municipal';
-            case 4:
-                return 'Privada';
-            default:
-                return '-';
-        }
-    }
-
     public function phoneFilter(School $school)
     {
         $phone = $school->getPhone();
@@ -119,8 +85,6 @@ class CensusDataFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('localizationTranslationFilter', [$this, 'localizationTranslationFilter']),
-            new TwigFilter('dependenceTranslationFilter', [$this, 'dependenceTranslationFilter']),
             new TwigFilter('phoneFilter', [$this, 'phoneFilter']),
             new TwigFilter('addressFilter', [$this, 'addressFilter']),
             new TwigFilter('optionalNumberTranslationFilter', [$this, 'optionalNumberTranslationFilter']),
