@@ -7,40 +7,7 @@ use AppBundle\Util\Filter\CensusDataFilter;
 use PHPUnit\Framework\TestCase;
 
 class CensusDataFilterTest extends TestCase
-{
-    /**
-     * @dataProvider convertBooleanToYesNoFilterDataProvider
-     */
-    public function testConvertBooleanToYesNoFilter($answer, $outputExpected)
-    {
-        $censusDataFilter = new CensusDataFilter();
-        $answer = $censusDataFilter->convertBooleanToYesNoFilter($answer);
-
-        $this->assertEquals($outputExpected, $answer);
-    }
-
-    public function convertBooleanToYesNoFilterDataProvider()
-    {
-        return [
-            [
-                $answer = false,
-                $outputExpected = "<span style='color: red'>Não</span>",
-            ],
-            [
-                $answer = true,
-                $outputExpected = "<span style='color: darkgreen'>Sim</span>",
-            ],
-            [
-                $answer = null,
-                $outputExpected = "<span style='color: #666'>Não informado</span>",
-            ],
-            [
-                $answer = '',
-                $outputExpected = "<span style='color: #666'>Não informado</span>",
-            ],
-        ];
-    }
-
+{   
     /**
      * @dataProvider waterSupplierFilterDataProvider
      */
@@ -101,6 +68,6 @@ class CensusDataFilterTest extends TestCase
         $censusDataFilter = new CensusDataFilter();
         $filters = $censusDataFilter->getFilters();
 
-        $this->assertCount(2, $filters);
+        $this->assertCount(1, $filters);
     }
 }
