@@ -8,9 +8,9 @@ use Twig\TwigFilter;
 
 class DependenceTranslationFilter extends AbstractExtension
 {
-	public function dependenceTranslationFilter(School $school)
+    public function dependenceTranslationFilter(School $school)
     {
-    	$dependenceId = $school->getDependenceId();
+        $dependenceId = $school->getDependenceId();
 
         switch ($dependenceId) {
             case 0:

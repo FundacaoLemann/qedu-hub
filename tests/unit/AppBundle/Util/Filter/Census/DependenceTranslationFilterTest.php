@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class DependenceTranslationFilterTest extends TestCase
 {
-	public function testClassShouldBeInstanceOfAbstractExtension()
+    public function testClassShouldBeInstanceOfAbstractExtension()
     {
         $dependenceTranslationFilter = new DependenceTranslationFilter();
 

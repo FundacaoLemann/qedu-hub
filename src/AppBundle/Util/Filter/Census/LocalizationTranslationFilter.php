@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class LocalizationTranslationFilter extends AbstractExtension
 {
-	public function localizationTranslationFilter(School $school)
+    public function localizationTranslationFilter(School $school)
     {
         $localizationId = $school->getLocalizationId();
 
@@ -20,9 +20,9 @@ class LocalizationTranslationFilter extends AbstractExtension
             default:
                 return '-';
         }
-	}
+    }
 
-	public function getFilters()
+    public function getFilters()
     {
         return [
             new TwigFilter('localizationTranslationFilter', [$this, 'localizationTranslationFilter']),

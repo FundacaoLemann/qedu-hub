@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PhoneFilterTest extends TestCase
 {
-	public function testClassShouldBeInstanceOfAbstractExtension()
+    public function testClassShouldBeInstanceOfAbstractExtension()
     {
         $phoneFilter = new PhoneFilter();
 

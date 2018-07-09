@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class AddressFilterTest extends TestCase
 {
-	public function testClassShouldBeInstanceOfAbstractExtension()
+    public function testClassShouldBeInstanceOfAbstractExtension()
     {
         $addressFilter = new AddressFilter();
 

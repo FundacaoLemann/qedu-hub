@@ -7,14 +7,14 @@ use PHPUnit\Framework\TestCase;
 
 class WaterSupplierFilterTest extends TestCase
 {
-	public function testClassShouldBeInstanceOfAbstractExtension()
+    public function testClassShouldBeInstanceOfAbstractExtension()
     {
         $waterSupplierFilter = new WaterSupplierFilter();
 
         $this->assertInstanceOf('Twig\Extension\AbstractExtension', $waterSupplierFilter);
     }
 
-	/**
+    /**
      * @dataProvider waterSupplierFilterDataProvider
      */
     public function testWaterSupplierFilter($servicesMock, $outputExpected)

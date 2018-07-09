@@ -7,7 +7,7 @@ use Twig\TwigFilter;
 
 class WaterSupplierFilter extends AbstractExtension
 {
-	public function waterSupplierFilter($censusServices)
+    public function waterSupplierFilter($censusServices)
     {
         if ($censusServices->hasWaterPublicNetwork()) {
             return 'Rede pública';

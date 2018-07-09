@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class OptionalNumberTranslationFilter extends AbstractExtension
 {
-	public function optionalNumberTranslationFilter($number)
+    public function optionalNumberTranslationFilter($number)
     {
         if (is_null($number)) {
             return '-';

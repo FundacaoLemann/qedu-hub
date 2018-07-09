@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class ConvertBooleanToYesNoFilter extends AbstractExtension
 {
-	public function convertBooleanToYesNoFilter($answer)
+    public function convertBooleanToYesNoFilter($answer)
     {
         if ($answer === true) {
             return "<span style='color: darkgreen'>Sim</span>";

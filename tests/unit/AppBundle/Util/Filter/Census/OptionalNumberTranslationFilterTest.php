@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class OptionalNumberTranslationFilterTest extends TestCase
 {
-	public function testClassShouldBeInstanceOfAbstractExtension()
+    public function testClassShouldBeInstanceOfAbstractExtension()
     {
         $optionalNumberTranslationFilter = new OptionalNumberTranslationFilter();
 

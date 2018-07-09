@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class PhoneFilter extends AbstractExtension
 {
-	public function phoneFilter(School $school)
+    public function phoneFilter(School $school)
     {
         $phone = $school->getPhone();
         $ddd = $school->getDdd();
