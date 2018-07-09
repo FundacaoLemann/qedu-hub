@@ -8,37 +8,7 @@ use Twig\TwigFilter;
 
 class CensusDataFilter extends AbstractExtension
 {
-    public function addressFilter(School $school)
-    {
-        $address = $school->getAddress();
-        $district = $school->getDistrict();
-        $cep = $school->getAddressCep();
-
-        if (!$address) {
-            return 'Não informado';
-        }
-
-        $addressFormatted = $address;
-        
-        if ($district) {
-            $addressFormatted .= sprintf('<br/>Bairro: %s', $district);
-        }
-
-        if ($cep) {
-            $addressFormatted .= sprintf('<br/>CEP: %s', $cep);
-        }
-
-        return $addressFormatted;
-    }
-
-    public function optionalNumberTranslationFilter($number)
-    {
-        if (is_null($number)) {
-            return '-';
-        }
-
-        return $number;
-    }
+    
 
     public function convertBooleanToYesNoFilter($answer)
     {
@@ -71,7 +41,6 @@ class CensusDataFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('optionalNumberTranslationFilter', [$this, 'optionalNumberTranslationFilter']),
             new TwigFilter('convertNumberToYesNoFilter', [$this, 'convertNumberToYesNoFilter']),
             new TwigFilter('waterSupplierFilter', [$this, 'waterSupplierFilter']),
         ];

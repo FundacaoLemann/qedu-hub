@@ -8,38 +8,6 @@ use PHPUnit\Framework\TestCase;
 
 class CensusDataFilterTest extends TestCase
 {
-    public function testClassShouldBeInstanceOfAbstractExtension()
-    {
-        $censusDataFilter = new CensusDataFilter();
-
-        $this->assertInstanceOf('Twig\Extension\AbstractExtension', $censusDataFilter);
-    }
-
-    /**
-     * @dataProvider optionalNumberTranslationFilterDataProvider
-     */
-    public function testOptionalNumberTranslationFilter($number, $numberExpected)
-    {
-        $censusDataFilter = new CensusDataFilter();
-        $number = $censusDataFilter->optionalNumberTranslationFilter($number);
-
-        $this->assertEquals($numberExpected, $number);
-    }
-
-    public function optionalNumberTranslationFilterDataProvider()
-    {
-        return [
-            [
-                $localization = 329,
-                $expected = 329,
-            ],
-            [
-                $localization = null,
-                $expected = '-',
-            ],
-        ];
-    }
-
     /**
      * @dataProvider convertBooleanToYesNoFilterDataProvider
      */
@@ -133,6 +101,6 @@ class CensusDataFilterTest extends TestCase
         $censusDataFilter = new CensusDataFilter();
         $filters = $censusDataFilter->getFilters();
 
-        $this->assertCount(3, $filters);
+        $this->assertCount(2, $filters);
     }
 }
