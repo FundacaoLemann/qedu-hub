@@ -22,7 +22,10 @@
       {% if school.getOperatingConditionsId() is constant('AppBundle\\Entity\\Census\\OperatingConditions::ACTIVE') %}
 
         {% include 'census/filter.html.twig' %}
-        {% include 'census/content.html.twig' %}
+
+        {% if censusData is not null %}
+          {% include 'census/content.html.twig' %}
+        {% endif %}
 
       {% else %}
 
