@@ -20,7 +20,7 @@ class ConvertBooleanToYesNoFilterTest extends TestCase
     public function testConvertBooleanToYesNoFilter($answer, $outputExpected)
     {
         $convertBooleanToYesNoFilter = new ConvertBooleanToYesNoFilter();
-        $answer = $convertBooleanToYesNoFilter->convertBooleanToYesNoFilter($answer);
+        $answer = $convertBooleanToYesNoFilter->translate($answer);
 
         $this->assertEquals($outputExpected, $answer);
     }

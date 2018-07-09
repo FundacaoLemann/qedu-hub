@@ -25,7 +25,7 @@ class PhoneFilterTest extends TestCase
         $school->setDdd($ddd);
 
         $phoneFilter = new PhoneFilter();
-        $phone = $phoneFilter->phoneFilter($school);
+        $phone = $phoneFilter->translate($school);
 
         $this->assertEquals($phoneExpected, $phone);
     }

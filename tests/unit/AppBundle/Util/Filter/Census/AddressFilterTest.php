@@ -26,7 +26,7 @@ class AddressFilterTest extends TestCase
         $school->setAddressCep($cep);
 
         $addressFilter = new AddressFilter();
-        $address = $addressFilter->addressFilter($school);
+        $address = $addressFilter->translate($school);
 
         $this->assertEquals($addressExpected, $address);
     }

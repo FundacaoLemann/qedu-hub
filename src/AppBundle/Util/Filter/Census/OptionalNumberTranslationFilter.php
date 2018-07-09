@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class OptionalNumberTranslationFilter extends AbstractExtension
 {
-    public function optionalNumberTranslationFilter($number)
+    public function translate($number)
     {
         if (is_null($number)) {
             return '-';
@@ -20,7 +20,7 @@ class OptionalNumberTranslationFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('optionalNumberTranslationFilter', [$this, 'optionalNumberTranslationFilter']),
+            new TwigFilter('optionalNumberTranslationFilter', [$this, 'translate']),
         ];
     }
 }

@@ -20,7 +20,7 @@ class WaterSupplierFilterTest extends TestCase
     public function testWaterSupplierFilter($servicesMock, $outputExpected)
     {
         $waterSupplierFilter = new WaterSupplierFilter();
-        $output = $waterSupplierFilter->waterSupplierFilter($servicesMock);
+        $output = $waterSupplierFilter->translate($servicesMock);
 
         $this->assertEquals($outputExpected, $output);
     }

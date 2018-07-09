@@ -24,7 +24,7 @@ class LocalizationTranslationFilterTest extends TestCase
         $school->setLocalizationId($localizationId);
 
         $localizationTranslationFilter = new LocalizationTranslationFilter();
-        $localization = $localizationTranslationFilter->localizationTranslationFilter($school);
+        $localization = $localizationTranslationFilter->translate($school);
 
         $this->assertEquals($localizationExpected, $localization);
     }

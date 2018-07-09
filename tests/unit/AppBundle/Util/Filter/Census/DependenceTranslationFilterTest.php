@@ -24,7 +24,7 @@ class DependenceTranslationFilterTest extends TestCase
         $school->setDependenceId($dependenceId);
 
         $dependenceTranslationFilter = new DependenceTranslationFilter();
-        $dependence = $dependenceTranslationFilter->dependenceTranslationFilter($school);
+        $dependence = $dependenceTranslationFilter->translate($school);
 
         $this->assertEquals($dependenceExpected, $dependence);
     }

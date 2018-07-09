@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class DependenceTranslationFilter extends AbstractExtension
 {
-    public function dependenceTranslationFilter(School $school)
+    public function translate(School $school)
     {
         $dependenceId = $school->getDependenceId();
 
@@ -31,7 +31,7 @@ class DependenceTranslationFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('dependenceTranslationFilter', [$this, 'dependenceTranslationFilter']),
+            new TwigFilter('dependenceTranslationFilter', [$this, 'translate']),
         ];
     }
 }

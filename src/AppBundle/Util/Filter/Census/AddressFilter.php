@@ -8,7 +8,7 @@ use Twig\TwigFilter;
 
 class AddressFilter extends AbstractExtension
 {
-    public function addressFilter(School $school)
+    public function translate(School $school)
     {
         $address = $school->getAddress();
         $district = $school->getDistrict();
@@ -34,7 +34,7 @@ class AddressFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('addressFilter', [$this, 'addressFilter']),
+            new TwigFilter('addressFilter', [$this, 'translate']),
         ];
     }
 }

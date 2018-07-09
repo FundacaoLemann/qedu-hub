@@ -7,7 +7,7 @@ use Twig\TwigFilter;
 
 class WaterSupplierFilter extends AbstractExtension
 {
-    public function waterSupplierFilter($censusServices)
+    public function translate($censusServices)
     {
         if ($censusServices->hasWaterPublicNetwork()) {
             return 'Rede pública';
@@ -27,7 +27,7 @@ class WaterSupplierFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('waterSupplierFilter', [$this, 'waterSupplierFilter']),
+            new TwigFilter('waterSupplierFilter', [$this, 'translate']),
         ];
     }
 }

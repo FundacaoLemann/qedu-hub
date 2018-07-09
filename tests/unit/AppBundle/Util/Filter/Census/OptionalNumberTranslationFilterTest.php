@@ -20,7 +20,7 @@ class OptionalNumberTranslationFilterTest extends TestCase
     public function testOptionalNumberTranslationFilter($number, $numberExpected)
     {
         $optionalNumberTranslationFilter = new OptionalNumberTranslationFilter();
-        $number = $optionalNumberTranslationFilter->optionalNumberTranslationFilter($number);
+        $number = $optionalNumberTranslationFilter->translate($number);
 
         $this->assertEquals($numberExpected, $number);
     }
