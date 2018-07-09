@@ -71,7 +71,6 @@ class CensusDataFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('addressFilter', [$this, 'addressFilter']),
             new TwigFilter('optionalNumberTranslationFilter', [$this, 'optionalNumberTranslationFilter']),
             new TwigFilter('convertNumberToYesNoFilter', [$this, 'convertNumberToYesNoFilter']),
             new TwigFilter('waterSupplierFilter', [$this, 'waterSupplierFilter']),

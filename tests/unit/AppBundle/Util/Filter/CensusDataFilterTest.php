@@ -16,52 +16,6 @@ class CensusDataFilterTest extends TestCase
     }
 
     /**
-     * @dataProvider addressFilterDataProvider
-     */
-    public function testAddressFilter($address, $district, $cep, $addressExpected)
-    {
-        $school = new School();
-        $school->setAddress($address);
-        $school->setDistrict($district);
-        $school->setAddressCep($cep);
-
-        $censusDataFilter = new CensusDataFilter();
-        $address = $censusDataFilter->addressFilter($school);
-
-        $this->assertEquals($addressExpected, $address);
-    }
-
-    public function addressFilterDataProvider()
-    {
-        return [
-            [
-                $address = null,
-                $district = '',
-                $cep = '',
-                $addressExpected = 'Não informado',
-            ],
-            [
-                $address = 'RUA CARLINDO PEREIRA DA COSTA',
-                $district = null,
-                $cep = '13601008',
-                $addressExpected = 'RUA CARLINDO PEREIRA DA COSTA<br/>CEP: 13601008',
-            ],
-            [
-                $address = 'RUA CARLINDO PEREIRA DA COSTA',
-                $district = 'VILA MICHELIM',
-                $cep = null,
-                $addressExpected = 'RUA CARLINDO PEREIRA DA COSTA<br/>Bairro: VILA MICHELIM',
-            ],
-            [
-                $address = 'RUA CARLINDO PEREIRA DA COSTA',
-                $district = 'VILA MICHELIM',
-                $cep = '13601008',
-                $addressExpected = 'RUA CARLINDO PEREIRA DA COSTA<br/>Bairro: VILA MICHELIM<br/>CEP: 13601008',
-            ],
-        ];
-    }
-
-    /**
      * @dataProvider optionalNumberTranslationFilterDataProvider
      */
     public function testOptionalNumberTranslationFilter($number, $numberExpected)
@@ -179,6 +133,6 @@ class CensusDataFilterTest extends TestCase
         $censusDataFilter = new CensusDataFilter();
         $filters = $censusDataFilter->getFilters();
 
-        $this->assertCount(4, $filters);
+        $this->assertCount(3, $filters);
     }
 }
