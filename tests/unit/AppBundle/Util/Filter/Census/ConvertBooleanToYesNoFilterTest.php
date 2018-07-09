@@ -38,11 +38,11 @@ class ConvertBooleanToYesNoFilterTest extends TestCase
             ],
             [
                 $answer = null,
-                $outputExpected = "<span style='color: #666'>Não informado</span>",
+                $outputExpected = "<span style='color: #666'>-</span>",
             ],
             [
                 $answer = '',
-                $outputExpected = "<span style='color: #666'>Não informado</span>",
+                $outputExpected = "<span style='color: #666'>-</span>",
             ],
         ];
     }

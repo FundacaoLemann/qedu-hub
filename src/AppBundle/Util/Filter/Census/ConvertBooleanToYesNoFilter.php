@@ -16,7 +16,7 @@ class ConvertBooleanToYesNoFilter extends AbstractExtension
             return "<span style='color: red'>Não</span>";
         }
 
-        return "<span style='color: #666'>Não informado</span>";
+        return "<span style='color: #666'>-</span>";
     }
 
     public function getFilters()
