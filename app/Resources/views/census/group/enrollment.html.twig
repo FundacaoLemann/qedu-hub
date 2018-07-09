@@ -1,34 +1,36 @@
+{% set enrollmentsAggregation = censusData.getEnrollmentsAggregation() %}
+
 <div class="group-educacenso">
   <h3>Matrículas</h3>
   <table class="table table-striped">
     <tbody>
     <tr>
       <th>Creche</th>
-      <td>0</td>
+      <td>{{ enrollmentsAggregation.getNurseryEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Pré escola</th>
-      <td>10</td>
+      <td>{{ enrollmentsAggregation.getPreSchoolEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Anos iniciais (1ª a 4ª série ou 1º ao 5º ano)</th>
-      <td>54</td>
+      <td>{{ enrollmentsAggregation.getElementaryEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Anos finais (5ª a 8ª série ou 6º ao 9º ano)</th>
-      <td>52</td>
+      <td>{{ enrollmentsAggregation.getMiddleEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Ensino Médio</th>
-      <td>0</td>
+      <td>{{ enrollmentsAggregation.getHighSchoolEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Educação de Jovens e Adultos</th>
-      <td>0</td>
+      <td>{{ enrollmentsAggregation.getEjaEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Educação Especial</th>
-      <td>3</td>
+      <td>{{ enrollmentsAggregation.getSpecialEducationEnrollments()|optionalNumberTranslationFilter }}</td>
     </tr>
     </tbody>
   </table>

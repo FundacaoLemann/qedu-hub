@@ -1,16 +1,16 @@
+{% set othersInformation = censusData.getOthersInformation() %}
+
 <div class="group-educacenso">
   <h3>Outras Informações</h3>
   <table class="table table-striped">
     <tbody>
     <tr>
       <th>Número de Funcionários da Escola</th>
-      <td>20</td>
+      <td>{{ othersInformation.getEmployeesNumber()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>A escola possui organização por ciclos?</th>
-      <td>
-        <span style="color: darkgreen">Sim</span>
-      </td>
+      <td>{{ othersInformation.hasOrganizationByCycles()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     </tbody>
   </table>

@@ -1,50 +1,52 @@
+{% set infrastructure = censusData.getBuildingCharacteristic() %}
+
 <div class="group-educacenso">
   <h3>Infraestrutura (dependências)</h3>
   <table class="table table-striped">
     <tbody>
     <tr>
       <th>Existe sanitário dentro do prédio da escola?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasToiletInside()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>Existe sanitário fora do prédio da escola?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasToiletOutside()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui biblioteca?</th>
-      <td><span style="color: darkgreen">Sim</span></td>
+      <td>{{ infrastructure.hasLibrary()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui cozinha?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasKitchen()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui laboratório de informática?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasComputerLab()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui laboratório de ciências?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasScienceLab()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui sala de leitura?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasReadingRoom()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui quadra de esportes?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasSportsCourt()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui sala para a diretoria?</th>
-      <td><span style="color: darkgreen">Sim</span></td>
+      <td>{{ infrastructure.hasBoardRoom()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui sala para os professores?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasTeachersRoom()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>A escola possui sala de atendimento especial?</th>
-      <td><span style="color: red">Não</span></td>
+      <td>{{ infrastructure.hasRoomServiceSpecial()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     </tbody>
   </table>

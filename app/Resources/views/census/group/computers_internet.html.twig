@@ -1,22 +1,24 @@
+{% set computers_internet = censusData.getTechnologies() %}
+
 <div class="group-educacenso">
   <h3>Computadores e Internet</h3>
   <table class="table table-striped">
     <tbody>
     <tr>
       <th>Internet</th>
-      <td><span style="color: darkgreen">Sim</span></td>
+      <td>{{ computers_internet.hasInternet()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>Banda larga</th>
-      <td><span style="color: darkgreen">Sim</span></td>
+      <td>{{ computers_internet.hasBroadband()|convertBooleanToYesNoFilter|raw }}</td>
     </tr>
     <tr>
       <th>Computadores para uso dos alunos</th>
-      <td>1</td>
+      <td>{{ computers_internet.getStudentComputersUnits()|optionalNumberTranslationFilter }}</td>
     </tr>
     <tr>
       <th>Computadores para uso administrativo</th>
-      <td>1</td>
+      <td>{{ computers_internet.getAdministrativeComputersUnits()|optionalNumberTranslationFilter }}</td>
     </tr>
     </tbody>
   </table>

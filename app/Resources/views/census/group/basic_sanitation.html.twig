@@ -1,10 +1,12 @@
+{% set basic_sanitation = censusData.getServices() %}
+
 <div class="group-educacenso">
   <h3>Saneamento Básico</h3>
   <table class="table table-striped">
     <tbody>
     <tr>
       <th>Abastecimento de água</th>
-      <td>Rede pública</td>
+      <td>{{ basic_sanitation|waterSupplierFilter }}</td>
     </tr>
     <tr>
       <th>Abastecimento de energia</th>
