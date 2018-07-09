@@ -7,7 +7,14 @@ use PHPUnit\Framework\TestCase;
 
 class ConvertBooleanToYesNoFilterTest extends TestCase
 {
-	/**
+    public function testClassShouldBeInstanceOfAbstractExtension()
+    {
+        $convertBooleanToYesNoFilter = new ConvertBooleanToYesNoFilter();
+
+        $this->assertInstanceOf('Twig\Extension\AbstractExtension', $convertBooleanToYesNoFilter);
+    }
+
+    /**
      * @dataProvider convertBooleanToYesNoFilterDataProvider
      */
     public function testConvertBooleanToYesNoFilter($answer, $outputExpected)
