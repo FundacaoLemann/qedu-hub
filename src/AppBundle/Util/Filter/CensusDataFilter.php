@@ -8,20 +8,6 @@ use Twig\TwigFilter;
 
 class CensusDataFilter extends AbstractExtension
 {
-    public function phoneFilter(School $school)
-    {
-        $phone = $school->getPhone();
-        $ddd = $school->getDdd();
-
-        if (!$phone || !$ddd) {
-            return 'Não informado';
-        }
-
-        $phoneFormatted = '(' . $ddd . ') ' . substr($phone, 0, 4) . '-' . substr($phone, 4, 4);
-
-        return $phoneFormatted;
-    }
-
     public function addressFilter(School $school)
     {
         $address = $school->getAddress();
@@ -85,7 +71,6 @@ class CensusDataFilter extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('phoneFilter', [$this, 'phoneFilter']),
             new TwigFilter('addressFilter', [$this, 'addressFilter']),
             new TwigFilter('optionalNumberTranslationFilter', [$this, 'optionalNumberTranslationFilter']),
             new TwigFilter('convertNumberToYesNoFilter', [$this, 'convertNumberToYesNoFilter']),

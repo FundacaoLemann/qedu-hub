@@ -16,42 +16,6 @@ class CensusDataFilterTest extends TestCase
     }
 
     /**
-     * @dataProvider phoneFilterDataProvider
-     */
-    public function testPhoneFilter($phone, $ddd, $phoneExpected)
-    {
-        $school = new School();
-        $school->setPhone($phone);
-        $school->setDdd($ddd);
-
-        $censusDataFilter = new CensusDataFilter();
-        $phone = $censusDataFilter->phoneFilter($school);
-
-        $this->assertEquals($phoneExpected, $phone);
-    }
-
-    public function phoneFilterDataProvider()
-    {
-        return [
-            [
-                $phone = 32246129,
-                $ddd = 68,
-                $expected = '(68) 3224-6129',
-            ],
-            [
-                $phone = null,
-                $ddd = 68,
-                $expected = 'Não informado',
-            ],
-            [
-                $phone = null,
-                $ddd = null,
-                $expected = 'Não informado',
-            ],
-        ];
-    }
-
-    /**
      * @dataProvider addressFilterDataProvider
      */
     public function testAddressFilter($address, $district, $cep, $addressExpected)
@@ -215,6 +179,6 @@ class CensusDataFilterTest extends TestCase
         $censusDataFilter = new CensusDataFilter();
         $filters = $censusDataFilter->getFilters();
 
-        $this->assertCount(5, $filters);
+        $this->assertCount(4, $filters);
     }
 }
