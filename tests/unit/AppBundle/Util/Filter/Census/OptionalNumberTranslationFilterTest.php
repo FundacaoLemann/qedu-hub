@@ -29,11 +29,11 @@ class OptionalNumberTranslationFilterTest extends TestCase
     {
         return [
             [
-                $localization = 329,
+                $number = 329,
                 $expected = 329,
             ],
             [
-                $localization = null,
+                $number = null,
                 $expected = '-',
             ],
         ];

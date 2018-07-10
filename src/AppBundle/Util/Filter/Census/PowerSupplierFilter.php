@@ -13,8 +13,6 @@ class PowerSupplierFilter extends AbstractExtension
             return 'Rede pública';
         } elseif ($censusServices->hasGeneratorPower()) {
             return 'Gerador';
-        } elseif ($censusServices->hasWaterReservoir()) {
-            return 'Cacimba';
         } elseif ($censusServices->hasPowerFromOthersSources()) {
             return 'Outros';
         } elseif ($censusServices->hasNotEnergy()) {

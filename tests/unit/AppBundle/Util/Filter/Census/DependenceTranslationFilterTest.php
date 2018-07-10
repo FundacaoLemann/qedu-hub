@@ -33,27 +33,27 @@ class DependenceTranslationFilterTest extends TestCase
     {
         return [
             [
-                $localization = 0,
+                $dependence = 0,
                 $expected = 'Todas',
             ],
             [
-                $localization = 1,
+                $dependence = 1,
                 $expected = 'Federal',
             ],
             [
-                $localization = 2,
+                $dependence = 2,
                 $expected = 'Estadual',
             ],
             [
-                $localization = 3,
+                $dependence = 3,
                 $expected = 'Municipal',
             ],
             [
-                $localization = 4,
+                $dependence = 4,
                 $expected = 'Privada',
             ],
             [
-                $localization = 25555565,
+                $dependence = 25555565,
                 $expected = '-',
             ],
         ];
