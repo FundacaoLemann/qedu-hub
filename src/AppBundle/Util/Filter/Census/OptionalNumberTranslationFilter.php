@@ -2,7 +2,6 @@
 
 namespace AppBundle\Util\Filter\Census;
 
-use AppBundle\Entity\School;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

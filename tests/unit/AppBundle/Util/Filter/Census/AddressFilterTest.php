@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\AppBundle\Util\Filter;
+namespace Tests\Unit\AppBundle\Util\Filter\Census;
 
 use AppBundle\Entity\School;
 use AppBundle\Util\Filter\Census\AddressFilter;
