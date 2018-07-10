@@ -1,51 +1,44 @@
-<div class="row">
-  <div class="span12">
-    <h2>Matrículas e Infraestrutura</h2>
-  </div>
+<div class="span12" id="ujeid_0">
+  <div class="census-ct row-fluid" id="ujeid_6">
+    <div class="census-filter buttons-census-filter-area">
+      <label class="pull-left census-label" for="year">Ano:</label>
+      <div class="btn-group census-btn" id="year">
 
-  <div class="span12" id="ujeid_0">
-    <div class="census-ct row-fluid" id="ujeid_6">
-      <div class="census-filter buttons-census-filter-area">
-        <label class="pull-left census-label" for="year">Ano:</label>
-        <div class="btn-group census-btn" id="year">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+          <span class="button-census-filter-value">{{ filter.getCurrentYear() }}</span>
+          <span class="caret"></span>
+        </a>
 
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-            <span class="button-census-filter-value">{{ filter.getCurrentYear() }}</span>
-            <span class="caret"></span>
-          </a>
+        {% set listClass = filter.isBlocked() ? 'dropdown-menu-blocked' : ''  %}
+        {% set itemClass = filter.isBlocked() ? 'disabled' : 'enabled'  %}
 
-          {% set listClass = filter.isBlocked() ? 'dropdown-menu-blocked' : ''  %}
-          {% set itemClass = filter.isBlocked() ? 'disabled' : 'enabled'  %}
+        <ul class="dropdown-menu census-drop {{ listClass }}">
 
-          <ul class="dropdown-menu census-drop {{ listClass }}">
+          {% for year in filter.getYears() %}
 
-            {% for year in filter.getYears() %}
+            {% set activeYearClass = filter.getCurrentYear() == year and not filter.isBlocked() ? 'active' : '' %}
 
-              {% set activeYearClass = filter.getCurrentYear() == year and not filter.isBlocked() ? 'active' : '' %}
+            <li class="{{ itemClass }} {{ activeYearClass }}">
+              <a data-reload="1" data-value="{{ year }}" data-filter="year" class="census-link">{{ year }}</a>
+            </li>
+          {% endfor %}
 
-              <li class="{{ itemClass }} {{ activeYearClass }}">
-                <a data-reload="1" data-value="{{ year }}" data-filter="year" class="census-link">{{ year }}</a>
-              </li>
-            {% endfor %}
-
-            {% if filter.isBlocked() %}
-              <div class="content-alert">
-                <div class="main-phrase">
-                  Recurso exclusivo e gratuito do QEdu<br>Cadastre-se para obter acesso
-                </div>
-                <div class="main-links">
-                  <a href="/cadastrar" class="signup">Cadastrar</a>
-                  <span class="alert-divider">ou</span>
-                  <a href="/entrar" class="signin">Entrar</a>
-                </div>
+          {% if filter.isBlocked() %}
+            <div class="content-alert">
+              <div class="main-phrase">
+                Recurso exclusivo e gratuito do QEdu<br>Cadastre-se para obter acesso
               </div>
-            {% endif %}
+              <div class="main-links">
+                <a href="/cadastrar" class="signup">Cadastrar</a>
+                <span class="alert-divider">ou</span>
+                <a href="/entrar" class="signin">Entrar</a>
+              </div>
+            </div>
+          {% endif %}
 
-          </ul>
+        </ul>
 
-        </div>
       </div>
     </div>
   </div>
-
 </div>

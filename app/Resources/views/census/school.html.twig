@@ -1,6 +1,7 @@
 {% set breadcrumb = header.getBreadcrumb() %}
 {% set menu = header.getMenu() %}
 {% set filter = content.getFilter() %}
+{% set censusData = content.getCensusData() %}
 
 {% extends 'base.html.twig' %}
 
@@ -13,8 +14,44 @@
 {% block body %}
   {% include 'census/subnav.html.twig' %}
   <section class="container censo-section normal-section">
-    {% include 'census/filter.html.twig' %}
+    <div class="row">
+      <div class="span12">
+        <h2>Matrículas e Infraestrutura</h2>
+      </div>
+
+      {% if school.getOperatingConditionsId() is constant('AppBundle\\Entity\\Census\\OperatingConditions::ACTIVE') %}
+
+        {% include 'census/filter.html.twig' %}
+
+        {% if censusData is not null %}
+          {% include 'census/content.html.twig' %}
+        {% endif %}
+
+      {% else %}
+
+        {% include 'census/school_not_active.html.twig' %}
+
+      {% endif %}
+
+    </div>
   </section>
+
+  <div class="container">
+    <p class="informative-text">
+      Os dados de infraestrutura e matrículas apresentados nessa página representam a realidade informada pela
+      rede de ensino e suas escolas no Censo Escolar até a última quarta-feira do mês de maio.
+      Os dados são públicos e oficializados pelo Ministério da Educação.
+    </p>
+    <p class="informative-text">
+      Fonte: Censo Escolar/INEP {{ filter.getCurrentYear() }}.
+    </p>
+    <p class="informative-text">
+      Notas técnicas:
+      <a href="http://academia.qedu.org.br/censo-escolar/notas-tecnicas/">
+        http://academia.qedu.org.br/censo-escolar/notas-tecnicas/
+      </a>
+    </p>
+  </div>
 {% endblock %}
 
 {% block stylesheets %}

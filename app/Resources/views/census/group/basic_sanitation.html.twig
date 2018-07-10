@@ -1,0 +1,25 @@
+{% set basic_sanitation = censusData.getServices() %}
+
+<div class="group-educacenso">
+  <h3>Saneamento Básico</h3>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>Abastecimento de água</th>
+      <td>{{ basic_sanitation|waterSupplierFilter }}</td>
+    </tr>
+    <tr>
+      <th>Abastecimento de energia</th>
+      <td>{{ basic_sanitation|powerSupplierFilter }}</td>
+    </tr>
+    <tr>
+      <th>Destino do esgoto</th>
+      <td>{{ basic_sanitation|sewerFilter }}</td>
+    </tr>
+    <tr>
+      <th>Destino do Lixo</th>
+      <td>{{ basic_sanitation|garbageFilter }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

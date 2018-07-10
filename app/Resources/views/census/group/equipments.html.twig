@@ -1,0 +1,29 @@
+{% set equipments = censusData.getEquipments() %}
+
+<div class="group-educacenso">
+  <h3>Equipamentos</h3>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>Aparelho de DVD</th>
+      <td>{{ equipments.hasDvd()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>Impressora</th>
+      <td>{{ equipments.hasPrinter()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>Copiadora</th>
+      <td>{{ equipments.hasCopyMachine()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>Retroprojetor</th>
+      <td>{{ equipments.hasOverheadProjector()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>Televisão</th>
+      <td>{{ equipments.hasTv()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+{% set food = censusData.getFood() %}
+
+<div class="group-educacenso">
+  <h3>Alimentação</h3>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>Alimentação é fornecida aos alunos?</th>
+      <td>{{ food.hasFoodProvided()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>A escola possui água filtrada?</th>
+      <td>{{ food.hasFilteredWater()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

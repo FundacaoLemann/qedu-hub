@@ -1,0 +1,17 @@
+{% set accessibility = censusData.getAccessibility() %}
+
+<div class="group-educacenso">
+  <h3>Acessibilidade</h3>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>As dependências da escola são acessíveis aos portadores de deficiência?</th>
+      <td>{{ accessibility.hasAccessibilityInDependencies()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    <tr>
+      <th>Os sanitários são acessíveis aos portadores de deficiência?</th>
+      <td>{{ accessibility.hasAccessibilityInToilets()|convertBooleanToYesNoFilter|raw }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

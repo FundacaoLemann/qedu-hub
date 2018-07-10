@@ -1,0 +1,57 @@
+{% set enrollmentsAggregation = censusData.getEnrollmentsGrade() %}
+
+<div class="group-educacenso">
+  <h3>Matrículas por Série</h3>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>Matrículas 1º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade1()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 2º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade2()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 3º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade3()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 4º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade4()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 5º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade5()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 6º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade6()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 7º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade7()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 8º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade8()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 9º ano EF</th>
+      <td>{{ enrollmentsAggregation.getGrade9()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 1º ano EM</th>
+      <td>{{ enrollmentsAggregation.getGrade10()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 2º ano EM</th>
+      <td>{{ enrollmentsAggregation.getGrade11()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    <tr>
+      <th>Matrículas 3º ano EM</th>
+      <td>{{ enrollmentsAggregation.getGrade12()|optionalNumberTranslationFilter }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
