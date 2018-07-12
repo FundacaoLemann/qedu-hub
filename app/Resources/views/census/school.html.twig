@@ -5,11 +5,14 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% set title = 'Escola - ' ~ school|schoolNameFilter ~ ' - ' ~ school.getCity().getName() ~ ' - ' ~ school.getState().getAcronym() ~ ' - ' ~ 'Matrículas e Infraestrutura - QEdu' %}
+{% set description = 'Veja o telefone, informações sobre matrícula e desempenho sobre a escola ' ~ school|schoolNameFilter ~ ' localizada na cidade ' ~ school.getCity().getName() ~ ' - ' ~ school.getState().getAcronym() ~ ' no bairro ' ~ school.getDistrict()|title ~ '.' %}
 
-{% block description %}{% endblock %}
-{% block og_title %}{% endblock %}
-{% block og_description %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+
+{% block og_title %}{{ title }}{% endblock %}
+{% block og_description %}{{ description }}{% endblock %}
 
 {% block body %}
   {% include 'census/subnav.html.twig' %}
