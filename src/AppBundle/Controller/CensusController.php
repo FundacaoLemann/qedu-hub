@@ -18,11 +18,12 @@ class CensusController extends Controller
     }
 
     /**
-     * @Route("/escola/{schoolId}-{schoolSlug}/sobre-dev",
+     * @Route("/escola/{schoolId}-{schoolSlug}/{section}",
      *     name="census_school",
      *     requirements={
      *         "schoolId": "\d+",
-     *         "schoolSlug": ".*"
+     *         "schoolSlug": ".*",
+     *         "section": "(sobre|censo-escolar-dev)"
      *     }
      * )
      */
