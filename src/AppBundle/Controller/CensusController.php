@@ -23,7 +23,7 @@ class CensusController extends Controller
      *     requirements={
      *         "schoolId": "\d+",
      *         "schoolSlug": ".*",
-     *         "section": "(sobre|censo-escolar-dev)"
+     *         "section": "(sobre|censo-escolar)"
      *     }
      * )
      */
