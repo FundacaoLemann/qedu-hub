@@ -2,8 +2,10 @@
 
 namespace Tests\Fixture\Database;
 
-class SchoolLearningTableFixture extends ProvaBrasilDatabase
+class SchoolLearningTableFixture extends AbstractDatabase
 {
+    use DataWarehouseProvaBrasil;
+
     public function createTable($kernel)
     {
         $this->createDatabase($kernel);

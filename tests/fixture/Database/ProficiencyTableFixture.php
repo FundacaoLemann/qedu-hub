@@ -2,8 +2,10 @@
 
 namespace Tests\Fixture\Database;
 
-class ProficiencyTableFixture extends ProvaBrasilDatabase
+class ProficiencyTableFixture extends AbstractDatabase
 {
+    use DataWarehouseProvaBrasil;
+
     public function createTable($kernel)
     {
         $this->createDatabase($kernel);
