@@ -74,19 +74,9 @@ class State
         return $this->name;
     }
 
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
-
     public function getSlug(): string
     {
         return $this->slug;
-    }
-
-    public function setSlug(string $slug)
-    {
-        $this->slug = $slug;
     }
 
     public function getIbgeId(): int
@@ -94,28 +84,13 @@ class State
         return $this->ibgeId;
     }
 
-    public function setIbgeId(int $ibgeId)
-    {
-        $this->ibgeId = $ibgeId;
-    }
-
     public function getAcronym(): string
     {
         return $this->acronym;
     }
 
-    public function setAcronym(string $acronym)
-    {
-        $this->acronym = $acronym;
-    }
-
     public function getRegion(): string
     {
         return $this->region;
-    }
-
-    public function setRegion(string $region)
-    {
-        $this->region = $region;
     }
 }
