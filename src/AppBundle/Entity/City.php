@@ -79,19 +79,9 @@ class City
         return $this->ibgeId;
     }
 
-    public function setIbgeId(int $ibgeId)
-    {
-        $this->ibgeId = $ibgeId;
-    }
-
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function setName(string $name)
-    {
-        $this->name = $name;
     }
 
     public function getNameStandard(): string
@@ -99,28 +89,13 @@ class City
         return $this->nameStandard;
     }
 
-    public function setNameStandard(string $nameStandard)
-    {
-        $this->nameStandard = $nameStandard;
-    }
-
     public function getSlug(): string
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug)
-    {
-        $this->slug = $slug;
-    }
-
     public function getState(): State
     {
         return $this->state;
-    }
-
-    public function setState(State $state)
-    {
-        $this->state = $state;
     }
 }
