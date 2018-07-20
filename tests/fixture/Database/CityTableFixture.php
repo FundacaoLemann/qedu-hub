@@ -31,7 +31,8 @@ CREATE TABLE `city` (
   KEY `name_standard` (`name_standard`),
   KEY `name` (`name`),
   KEY `enem` (`id`,`ibge_id`),
-  CONSTRAINT `fk_citie_state1` FOREIGN KEY (`state_id`) REFERENCES `state` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_citie_state1` FOREIGN KEY (`state_id`)
+  REFERENCES `state` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 SQL
             )->execute();
