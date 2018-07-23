@@ -4,7 +4,7 @@ namespace Tests\Fixture\Database;
 
 class ProficiencyTableFixture extends AbstractDatabase
 {
-    use DataWarehouseProvaBrasil;
+    use DataWarehouseProvaBrasilTrait;
 
     public function createTable($kernel)
     {

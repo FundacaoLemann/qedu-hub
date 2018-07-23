@@ -2,7 +2,7 @@
 
 namespace Tests\Fixture\Database;
 
-trait DataWarehouseProvaBrasil
+trait DataWarehouseProvaBrasilTrait
 {
     protected function getDatabaseName() : string
     {
