@@ -2,8 +2,6 @@
 
 namespace AppBundle\Component;
 
-use AppBundle\Util\MenuBuilder;
-
 class Header
 {
     private $breadcrumb;

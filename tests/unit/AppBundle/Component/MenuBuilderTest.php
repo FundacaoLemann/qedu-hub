@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit\AppBundle\Util;
+namespace Tests\Unit\AppBundle\Component;
 
-use AppBundle\Util\MenuBuilder;
+use AppBundle\Component\MenuBuilder;
 use PHPUnit\Framework\TestCase;
 
 class MenuBuilderTest extends TestCase

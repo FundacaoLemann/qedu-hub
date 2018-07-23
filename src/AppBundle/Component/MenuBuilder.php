@@ -1,8 +1,9 @@
 <?php
 
-namespace AppBundle\Util;
+namespace AppBundle\Component;
 
 use AppBundle\Entity\School;
+use AppBundle\Util\RequestSegmentTrait;
 use AppBundle\Learning\ProficiencyInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;

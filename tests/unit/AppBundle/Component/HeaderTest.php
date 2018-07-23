@@ -10,7 +10,7 @@ class HeaderTest extends TestCase
     public function testBuildShouldConstructBreadcrumb()
     {
         $breadcrumb = $this->getBreadcrumbMock();
-        $menu = $this->createMock('AppBundle\Util\MenuBuilder');
+        $menu = $this->createMock('AppBundle\Component\MenuBuilder');
         $school = $this->getSchoolMock();
 
         $header = new Header($breadcrumb, $menu);
@@ -44,7 +44,7 @@ class HeaderTest extends TestCase
 
     private function getMenuMock()
     {
-        $menu = $this->createMock('AppBundle\Util\MenuBuilder');
+        $menu = $this->createMock('AppBundle\Component\MenuBuilder');
         $menu->expects($this->once())
             ->method('buildItems')
             ->with($this->getSchoolMock())
