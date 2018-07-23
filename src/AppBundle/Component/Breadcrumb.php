@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Util;
+namespace AppBundle\Component;
 
+use AppBundle\Util\RequestSegmentTrait;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class Breadcrumb

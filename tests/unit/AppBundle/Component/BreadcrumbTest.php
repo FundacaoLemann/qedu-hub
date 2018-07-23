@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit\AppBundle\Util\Filter;
+namespace Tests\Unit\AppBundle\Component;
 
-use AppBundle\Util\Breadcrumb;
+use AppBundle\Component\Breadcrumb;
 use PHPUnit\Framework\TestCase;
 
 class BreadcrumbTest extends TestCase

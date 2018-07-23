@@ -2,7 +2,6 @@
 
 namespace AppBundle\Component;
 
-use AppBundle\Util\Breadcrumb;
 use AppBundle\Util\MenuBuilder;
 
 class Header
