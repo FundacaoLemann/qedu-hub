@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\Census;
+namespace AppBundle\Component;
 
 use AppBundle\Util\Breadcrumb;
 use AppBundle\Util\MenuBuilder;
 
-class CensusHeader
+class Header
 {
     private $breadcrumb;
     private $breadcrumbItems = [];

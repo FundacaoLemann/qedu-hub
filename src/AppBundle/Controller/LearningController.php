@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Component\Header;
 use AppBundle\Exception\SchoolLearningNotFoundException;
 use AppBundle\Exception\SchoolNotFoundException;
 use AppBundle\Learning\LearningService;
@@ -16,15 +17,18 @@ class LearningController extends Controller
     private $provaBrasilLastEdition;
     private $learningService;
     private $schoolLearningPage;
+    private $header;
 
     public function __construct(
         ProvaBrasilService $provaBrasilService,
         LearningService $learningService,
-        SchoolLearningPage $schoolLearningPage
+        SchoolLearningPage $schoolLearningPage,
+        Header $header
     ) {
         $this->provaBrasilLastEdition = $provaBrasilService->getLastEdition();
         $this->learningService = $learningService;
         $this->schoolLearningPage = $schoolLearningPage;
+        $this->header = $header;
     }
 
     /**
@@ -42,6 +46,30 @@ class LearningController extends Controller
 
     /**
      * @Route("/amp/escola/{schoolId}-{schoolSlug}/aprendizado",
+     *     name="learning_school_amp",
+     *     requirements={
+     *         "schoolId": "\d+",
+     *         "schoolSlug": ".*"
+     *     }
+     * )
+     */
+    public function ampSchoolAction(int $schoolId)
+    {
+        try {
+            $this->schoolLearningPage->build($schoolId, $this->provaBrasilLastEdition);
+
+            return $this->render('learning/amp/school.html.twig', [
+                'school' => $this->schoolLearningPage->getSchool(),
+                'provaBrasilEdition' => $this->provaBrasilLastEdition,
+                'schoolLearning' => $this->schoolLearningPage->getSchoolLearning(),
+            ]);
+        } catch (SchoolNotFoundException | SchoolLearningNotFoundException $exception) {
+            throw new NotFoundHttpException($exception);
+        }
+    }
+
+    /**
+     * @Route("/escola/{schoolId}-{schoolSlug}/aprendizado-dev",
      *     name="learning_school",
      *     requirements={
      *         "schoolId": "\d+",
@@ -54,8 +82,13 @@ class LearningController extends Controller
         try {
             $this->schoolLearningPage->build($schoolId, $this->provaBrasilLastEdition);
 
-            return $this->render('learning/amp/school.html.twig', [
-                'school' => $this->schoolLearningPage->getSchool(),
+            $school =  $this->schoolLearningPage->getSchool();
+
+            $this->header->build($school);
+
+            return $this->render('learning/school.html.twig', [
+                'header' => $this->header,
+                'school' => $school,
                 'provaBrasilEdition' => $this->provaBrasilLastEdition,
                 'schoolLearning' => $this->schoolLearningPage->getSchoolLearning(),
             ]);

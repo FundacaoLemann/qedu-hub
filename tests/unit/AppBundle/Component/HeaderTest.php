@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit\AppBundle\Census;
+namespace Tests\Unit\AppBundle\Component;
 
-use AppBundle\Census\CensusHeader;
+use AppBundle\Component\Header;
 use PHPUnit\Framework\TestCase;
 
-class CensusHeaderTest extends TestCase
+class HeaderTest extends TestCase
 {
     public function testBuildShouldConstructBreadcrumb()
     {
@@ -13,7 +13,7 @@ class CensusHeaderTest extends TestCase
         $menu = $this->createMock('AppBundle\Util\MenuBuilder');
         $school = $this->getSchoolMock();
 
-        $header = new CensusHeader($breadcrumb, $menu);
+        $header = new Header($breadcrumb, $menu);
         $header->build($school);
 
         $this->assertTrue(is_array($header->getBreadCrumb()));
@@ -25,7 +25,7 @@ class CensusHeaderTest extends TestCase
         $menu = $this->getMenuMock();
         $school = $this->getSchoolMock();
 
-        $header = new CensusHeader($breadcrumb, $menu);
+        $header = new Header($breadcrumb, $menu);
         $header->build($school);
 
         $this->assertTrue(is_array($header->getMenu()));
