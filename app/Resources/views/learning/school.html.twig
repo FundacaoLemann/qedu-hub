@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% set breadcrumb = header.getBreadcrumb() %}
+{% set menu = header.getMenu() %}
+
+{% set title = 'Escola - ' ~ school|schoolNameFilter ~ ' - ' ~ school.getCity().getName() ~ ' - ' ~ school.getState().getAcronym() ~ ' - ' ~ 'Aprendizado dos alunos - QEdu' %}
+{% set description = 'Com base nos resultados da Prova Brasil ' ~ provaBrasilEdition.getYear() ~ ', é possível calcular a proporção de alunos com aprendizado adequado à sua etapa escolar' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+
+{% block og_title %}{{ title }}{% endblock %}
+{% block og_description %}{{ description }}{% endblock %}
+
+{% block stylesheets %}
+  <link type="text/css" href="/gimme/d3e1a7d09b/pkg/css/provabrasil.css" rel="stylesheet">
+  <link type="text/css" href="/gimme/cfdcda464f/pkg/css/provabrasil/dropdown-select2.css" rel="stylesheet"/>
+  <link type="text/css" href="/gimme/c17a152ffb/pkg/css/provabrasil/banner.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+  {% include 'subnav.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
+  <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript" src="/gimme/f46964a241/pkg/js/select2-lib.js"></script>
+  <script type="text/javascript" src="/gimme/85d63f33ed/pkg/js/provabrasil/dropdown-select2.js"></script>
+  <script type="text/javascript" src="/gimme/200fd91df6/pkg/js/provabrasil.js"></script>
+  <script type="text/javascript" src="/gimme/e2a780a5ad/pkg/js/mcc-basic-libs.js"></script>
+  <script type="text/javascript" src="/gimme/918af2f001/pkg/js/didactic.js"></script>
+  <script type="text/javascript" src="/gimme/200fd91df6/pkg/js/jquery.libs.js"></script>
+  <script type="text/javascript">
+      mcc.init_behaviors({
+          "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}],
+
+          "behavior-dropdown-select2":[
+
+            {% for item in breadcrumb if item['type'] != 'country' %}
+              {
+                  "fetch_from": "{{ item['ajax_dropdown_url'] }}",
+                  "formatSearchingText": "{{ item['search_text'] }}",
+                  "placeholder_input": "{{ item['placeholder'] }}",
+                  "formatNoMatches": "Nenhum resultado para \"%s\".",
+                  "extra_dropdown_classes": " select2-breadcrumb-box",
+                  "idElement": "{{ item['element_id'] }}"
+
+                {% if item['type'] == 'school' %}
+                  ,"message_bottom": 'Listando escolas p\u00fablicas participantes da Prova Brasil<br/><a href="javascript:void(0)" class="select2-redirect" data-url="{{ item['message_bottom_url'] }}">Veja a lista completa de escolas (incluindo particulares) na busca guiada</a>'
+                {% endif %}
+              },
+            {% endfor %}
+
+          ]
+      });
+  </script>
+{% endblock %}
