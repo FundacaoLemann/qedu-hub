@@ -12,7 +12,7 @@ class CensusPageTest extends TestCase
     {
         $school = $this->getActiveSchoolMock();
 
-        $header = $this->createMock('AppBundle\Census\CensusHeader');
+        $header = $this->createMock('AppBundle\Component\Header');
         $header->expects($this->once())
             ->method('build')
             ->with($school);
@@ -24,14 +24,14 @@ class CensusPageTest extends TestCase
         $censusPage = new CensusPage($header, $content, $schoolRepository);
         $censusPage->build($schoolId);
 
-        $this->assertInstanceOf('AppBundle\Census\CensusHeader', $censusPage->getHeader());
+        $this->assertInstanceOf('AppBundle\Component\Header', $censusPage->getHeader());
     }
 
     public function testBuildShouldConstructContentWithSchoolData()
     {
         $school = $this->getActiveSchoolMock();
 
-        $header = $this->createMock('AppBundle\Census\CensusHeader');
+        $header = $this->createMock('AppBundle\Component\Header');
         $content = $this->createMock('AppBundle\Census\CensusContent');
         $content->expects($this->once())
             ->method('build')
@@ -50,7 +50,7 @@ class CensusPageTest extends TestCase
     {
         $school = $this->getExtinctSchoolMock();
 
-        $header = $this->createMock('AppBundle\Census\CensusHeader');
+        $header = $this->createMock('AppBundle\Component\Header');
         $content = $this->createMock('AppBundle\Census\CensusContent');
         $content->expects($this->never())
             ->method('build')
@@ -70,7 +70,7 @@ class CensusPageTest extends TestCase
      */
     public function testBuildShouldThrowSchoolNotFoundException()
     {
-        $header = $this->createMock('AppBundle\Census\CensusHeader');
+        $header = $this->createMock('AppBundle\Component\Header');
         $content = $this->createMock('AppBundle\Census\CensusContent');
         $schoolRepository = $this->getSchoolRepositoryMock($school = null);
 

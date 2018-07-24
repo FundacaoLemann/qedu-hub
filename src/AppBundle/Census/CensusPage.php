@@ -2,6 +2,7 @@
 
 namespace AppBundle\Census;
 
+use AppBundle\Component\Header;
 use AppBundle\Entity\Census\OperatingConditions;
 use AppBundle\Entity\School;
 use AppBundle\Exception\SchoolNotFoundException;
@@ -14,7 +15,7 @@ class CensusPage
     private $school;
 
     public function __construct(
-        CensusHeader $header,
+        Header $header,
         CensusContent $content,
         SchoolRepositoryInterface $schoolRepository
     ) {
@@ -38,7 +39,7 @@ class CensusPage
         }
     }
 
-    public function getHeader() : CensusHeader
+    public function getHeader() : Header
     {
         return $this->header;
     }

@@ -2,9 +2,9 @@
 
 namespace Tests\Fixture\Database;
 
-class SchoolTableFixture
+class SchoolTableFixture extends AbstractDatabase
 {
-    private $entityManager;
+    use EntitiesTrait;
 
     public function createTable($kernel)
     {
@@ -13,38 +13,6 @@ class SchoolTableFixture
         $this->loadEntityManager($kernel);
 
         $this->createSchoolTable();
-    }
-
-    public function createDatabase($kernel)
-    {
-        $kernel->getContainer()
-            ->get('doctrine')
-            ->getManager()
-            ->getConnection()
-            ->prepare("CREATE DATABASE waitress_entities_test;")
-            ->execute();
-    }
-
-    public function getEntityManager()
-    {
-        return $this->entityManager;
-    }
-
-    public function dropTable()
-    {
-        $this->entityManager->getConnection()
-            ->prepare("DROP DATABASE waitress_entities_test;")
-            ->execute();
-
-        $this->entityManager->close();
-        $this->entityManager = null;
-    }
-
-    private function loadEntityManager($kernel)
-    {
-        $this->entityManager = $kernel->getContainer()
-            ->get('doctrine')
-            ->getManager('waitress_entities');
     }
 
     private function createSchoolTable()

@@ -2,8 +2,10 @@
 
 namespace Tests\Fixture\Database;
 
-class SchoolCensusTableFixture extends ProvaBrasilDatabase
+class SchoolCensusTableFixture extends AbstractDatabase
 {
+    use EntitiesTrait;
+
     public function createTable($kernel)
     {
         $this->createDatabase($kernel);

@@ -1,19 +1,19 @@
 <?php
 
-namespace Tests\Unit\AppBundle\Census;
+namespace Tests\Unit\AppBundle\Component;
 
-use AppBundle\Census\CensusHeader;
+use AppBundle\Component\Header;
 use PHPUnit\Framework\TestCase;
 
-class CensusHeaderTest extends TestCase
+class HeaderTest extends TestCase
 {
     public function testBuildShouldConstructBreadcrumb()
     {
         $breadcrumb = $this->getBreadcrumbMock();
-        $menu = $this->createMock('AppBundle\Util\MenuBuilder');
+        $menu = $this->createMock('AppBundle\Component\MenuBuilder');
         $school = $this->getSchoolMock();
 
-        $header = new CensusHeader($breadcrumb, $menu);
+        $header = new Header($breadcrumb, $menu);
         $header->build($school);
 
         $this->assertTrue(is_array($header->getBreadCrumb()));
@@ -21,11 +21,11 @@ class CensusHeaderTest extends TestCase
 
     public function testBuildShouldConstructMenu()
     {
-        $breadcrumb = $this->createMock('AppBundle\Util\Breadcrumb');
+        $breadcrumb = $this->createMock('AppBundle\Component\Breadcrumb');
         $menu = $this->getMenuMock();
         $school = $this->getSchoolMock();
 
-        $header = new CensusHeader($breadcrumb, $menu);
+        $header = new Header($breadcrumb, $menu);
         $header->build($school);
 
         $this->assertTrue(is_array($header->getMenu()));
@@ -33,7 +33,7 @@ class CensusHeaderTest extends TestCase
 
     private function getBreadcrumbMock()
     {
-        $breadcrumb = $this->createMock('AppBundle\Util\Breadcrumb');
+        $breadcrumb = $this->createMock('AppBundle\Component\Breadcrumb');
         $breadcrumb->expects($this->once())
             ->method('buildItems')
             ->with($this->getSchoolMock())
@@ -44,7 +44,7 @@ class CensusHeaderTest extends TestCase
 
     private function getMenuMock()
     {
-        $menu = $this->createMock('AppBundle\Util\MenuBuilder');
+        $menu = $this->createMock('AppBundle\Component\MenuBuilder');
         $menu->expects($this->once())
             ->method('buildItems')
             ->with($this->getSchoolMock())
