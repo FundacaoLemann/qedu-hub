@@ -107,6 +107,10 @@ class ProficiencyRepositoryTest extends KernelTestCase
             ->willReturn(3);
         $school->method('getLocalizationId')
             ->willReturn(2);
+        $school->method('getCityId')
+            ->willReturn(1597);
+        $school->method('getStateId')
+            ->willReturn(113);
 
         return $school;
     }

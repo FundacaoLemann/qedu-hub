@@ -39,6 +39,8 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
         return $queryBuilder
             ->join(DimRegionalAggregation::class, 'dra', 'WITH', 'p.dimRegionalAggregationId = dra.id')
             ->andWhere('dra.schoolId = ' . $school->getId())
+            ->andWhere('dra.cityId = ' . $school->getCityId())
+            ->andWhere('dra.stateId = ' . $school->getStateId())
             ->andWhere('dra.teamId = 0')
             ->andWhere('dra.cityGroupId = 0')
 
@@ -48,6 +50,8 @@ class ProficiencyRepository extends EntityRepository implements ProficiencyRepos
             ->andWhere('dpa.gradeId in (5, 9)')
             ->andWhere('dpa.localizationId = ' . $school->getLocalizationId())
             ->andWhere('dpa.dependenceId = ' . $school->getDependenceId())
+
+            ->andWhere('p.partitionStateId = ' . $school->getStateId())
 
             ->addOrderBy('dpa.disciplineId')
             ->addOrderBy('dpa.gradeId')
