@@ -40,7 +40,7 @@ class Proficiency
      */
     private $dimRegionalAggregationId;
 
-    /***
+    /**
      * @ORM\Column(name="partition_state_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
