@@ -40,7 +40,7 @@ class LearningController extends Controller
 
         return $this->render('learning/brazil.html.twig', [
             'provaBrasilEdition' => $this->provaBrasilLastEdition,
-            'brazilLearning' => $brazilLearning,
+            'learnings' => $brazilLearning,
         ]);
     }
 
@@ -90,7 +90,7 @@ class LearningController extends Controller
                 'header' => $this->header,
                 'school' => $school,
                 'provaBrasilEdition' => $this->provaBrasilLastEdition,
-                'schoolLearning' => $this->schoolLearningPage->getSchoolLearning(),
+                'learnings' => $this->schoolLearningPage->getSchoolLearning(),
             ]);
         } catch (SchoolNotFoundException | SchoolLearningNotFoundException $exception) {
             throw new NotFoundHttpException($exception);
