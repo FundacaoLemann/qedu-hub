@@ -150,19 +150,9 @@ class School
         return $this->stateId;
     }
 
-    public function setStateId(int $stateId)
-    {
-        $this->stateId = $stateId;
-    }
-
     public function getCityId(): int
     {
         return $this->cityId;
-    }
-
-    public function setCityId(int $cityId)
-    {
-        $this->cityId = $cityId;
     }
 
     public function getSchoolId(): int
@@ -170,19 +160,9 @@ class School
         return $this->schoolId;
     }
 
-    public function setSchoolId(int $schoolId)
-    {
-        $this->schoolId = $schoolId;
-    }
-
     public function getEducacenso(): int
     {
         return $this->educacenso;
-    }
-
-    public function setEducacenso(int $educacenso)
-    {
-        $this->educacenso = $educacenso;
     }
 
     public function hasProvaBrasil(): bool
@@ -193,11 +173,6 @@ class School
     public function getFaxNumber(): ?int
     {
         return $this->faxNumber;
-    }
-
-    public function setFaxNumber(?int $faxNumber)
-    {
-        $this->faxNumber = $faxNumber;
     }
 
     public function getAccessibility(): Accessibility
