@@ -8,7 +8,7 @@ use AppBundle\Exception\SchoolNotFoundException;
 use AppBundle\Repository\SchoolRepositoryInterface;
 use AppBundle\Repository\Learning\SchoolRepositoryInterface as SchoolLearningRepositoryInterface;
 
-class SchoolLearningPage
+class SchoolLearningContent
 {
     private $schoolRepository;
     private $school;
