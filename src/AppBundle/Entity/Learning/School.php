@@ -75,19 +75,9 @@ class School
         return $this->editionId;
     }
 
-    public function setEditionId(int $editionId)
-    {
-        $this->editionId = $editionId;
-    }
-
     public function getStateId(): int
     {
         return $this->stateId;
-    }
-
-    public function setStateId(int $stateId)
-    {
-        $this->stateId = $stateId;
     }
 
     public function getCityId(): int
@@ -95,28 +85,13 @@ class School
         return $this->cityId;
     }
 
-    public function setCityId(int $cityId)
-    {
-        $this->cityId = $cityId;
-    }
-
     public function getLocalizationId(): int
     {
         return $this->localizationId;
     }
 
-    public function setLocalizationId(int $localizationId)
-    {
-        $this->localizationId = $localizationId;
-    }
-
     public function getDependenceId(): int
     {
         return $this->dependenceId;
-    }
-
-    public function setDependenceId(int $dependenceId)
-    {
-        $this->dependenceId = $dependenceId;
     }
 }
