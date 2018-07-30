@@ -69,7 +69,7 @@ class LearningController extends Controller
     }
 
     /**
-     * @Route("/escola/{schoolId}-{schoolSlug}/aprendizado-dev",
+     * @Route("/escola/{schoolId}-{schoolSlug}/aprendizado",
      *     name="learning_school",
      *     requirements={
      *         "schoolId": "\d+",
