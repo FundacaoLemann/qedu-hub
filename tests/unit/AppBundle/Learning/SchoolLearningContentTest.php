@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\AppBundle\Learning;
 
-use AppBundle\Learning\SchoolLearningPage;
+use AppBundle\Learning\SchoolLearningContent;
 use PHPUnit\Framework\TestCase;
 
-class SchoolLearningPageTest extends TestCase
+class SchoolLearningContentTest extends TestCase
 {
     public function testBuildShouldSchoolAndLearning()
     {
@@ -41,15 +41,15 @@ class SchoolLearningPageTest extends TestCase
             )
             ->willReturn($schoolLearning);
 
-        $schoolLearningPage = new SchoolLearningPage(
+        $schoolLearningContent = new SchoolLearningContent(
             $schoolRepository,
             $schoolLearningRepository,
             $learningService
         );
-        $schoolLearningPage->build($schoolId, $provaBrasilEdition);
+        $schoolLearningContent->build($schoolId, $provaBrasilEdition);
 
-        $this->assertInstanceOf('AppBundle\Entity\School', $schoolLearningPage->getSchool());
-        $this->assertEquals($schoolLearning, $schoolLearningPage->getSchoolLearning());
+        $this->assertInstanceOf('AppBundle\Entity\School', $schoolLearningContent->getSchool());
+        $this->assertEquals($schoolLearning, $schoolLearningContent->getSchoolLearning());
     }
 
     /**
@@ -69,12 +69,12 @@ class SchoolLearningPageTest extends TestCase
 
         $learningService = $this->createMock('AppBundle\Learning\learningService');
 
-        $schoolLearningPage = new SchoolLearningPage(
+        $schoolLearningContent = new SchoolLearningContent(
             $schoolRepository,
             $schoolLearningRepository,
             $learningService
         );
-        $schoolLearningPage->build($schoolId, $provaBrasilEdition);
+        $schoolLearningContent->build($schoolId, $provaBrasilEdition);
     }
 
     /**
@@ -102,11 +102,11 @@ class SchoolLearningPageTest extends TestCase
 
         $learningService = $this->createMock('AppBundle\Learning\learningService');
 
-        $schoolLearningPage = new SchoolLearningPage(
+        $schoolLearningContent = new SchoolLearningContent(
             $schoolRepository,
             $schoolLearningRepository,
             $learningService
         );
-        $schoolLearningPage->build($schoolId, $provaBrasilEdition);
+        $schoolLearningContent->build($schoolId, $provaBrasilEdition);
     }
 }

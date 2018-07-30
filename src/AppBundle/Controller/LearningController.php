@@ -7,7 +7,7 @@ use AppBundle\Exception\SchoolLearningNotFoundException;
 use AppBundle\Exception\SchoolNotFoundException;
 use AppBundle\Learning\LearningService;
 use AppBundle\Learning\ProvaBrasilService;
-use AppBundle\Learning\SchoolLearningPage;
+use AppBundle\Learning\SchoolLearningContent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -16,18 +16,18 @@ class LearningController extends Controller
 {
     private $provaBrasilLastEdition;
     private $learningService;
-    private $schoolLearningPage;
+    private $schoolLearningContent;
     private $header;
 
     public function __construct(
         ProvaBrasilService $provaBrasilService,
         LearningService $learningService,
-        SchoolLearningPage $schoolLearningPage,
+        SchoolLearningContent $schoolLearningContent,
         Header $header
     ) {
         $this->provaBrasilLastEdition = $provaBrasilService->getLastEdition();
         $this->learningService = $learningService;
-        $this->schoolLearningPage = $schoolLearningPage;
+        $this->schoolLearningContent = $schoolLearningContent;
         $this->header = $header;
     }
 
@@ -40,7 +40,7 @@ class LearningController extends Controller
 
         return $this->render('learning/brazil.html.twig', [
             'provaBrasilEdition' => $this->provaBrasilLastEdition,
-            'brazilLearning' => $brazilLearning,
+            'learnings' => $brazilLearning,
         ]);
     }
 
@@ -56,12 +56,12 @@ class LearningController extends Controller
     public function ampSchoolAction(int $schoolId)
     {
         try {
-            $this->schoolLearningPage->build($schoolId, $this->provaBrasilLastEdition);
+            $this->schoolLearningContent->build($schoolId, $this->provaBrasilLastEdition);
 
             return $this->render('learning/amp/school.html.twig', [
-                'school' => $this->schoolLearningPage->getSchool(),
+                'school' => $this->schoolLearningContent->getSchool(),
                 'provaBrasilEdition' => $this->provaBrasilLastEdition,
-                'schoolLearning' => $this->schoolLearningPage->getSchoolLearning(),
+                'schoolLearning' => $this->schoolLearningContent->getSchoolLearning(),
             ]);
         } catch (SchoolNotFoundException | SchoolLearningNotFoundException $exception) {
             throw new NotFoundHttpException($exception);
@@ -80,9 +80,9 @@ class LearningController extends Controller
     public function schoolAction(int $schoolId)
     {
         try {
-            $this->schoolLearningPage->build($schoolId, $this->provaBrasilLastEdition);
+            $this->schoolLearningContent->build($schoolId, $this->provaBrasilLastEdition);
 
-            $school =  $this->schoolLearningPage->getSchool();
+            $school =  $this->schoolLearningContent->getSchool();
 
             $this->header->build($school);
 
@@ -90,7 +90,7 @@ class LearningController extends Controller
                 'header' => $this->header,
                 'school' => $school,
                 'provaBrasilEdition' => $this->provaBrasilLastEdition,
-                'schoolLearning' => $this->schoolLearningPage->getSchoolLearning(),
+                'learnings' => $this->schoolLearningContent->getSchoolLearning(),
             ]);
         } catch (SchoolNotFoundException | SchoolLearningNotFoundException $exception) {
             throw new NotFoundHttpException($exception);

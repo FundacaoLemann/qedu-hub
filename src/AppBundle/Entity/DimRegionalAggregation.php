@@ -72,19 +72,9 @@ class DimRegionalAggregation
         return $this->stateId;
     }
 
-    public function setStateId(int $stateId)
-    {
-        $this->stateId = $stateId;
-    }
-
     public function getCityId(): int
     {
         return $this->cityId;
-    }
-
-    public function setCityId(int $cityId)
-    {
-        $this->cityId = $cityId;
     }
 
     public function getSchoolId(): int
@@ -92,28 +82,13 @@ class DimRegionalAggregation
         return $this->schoolId;
     }
 
-    public function setSchoolId(int $schoolId)
-    {
-        $this->schoolId = $schoolId;
-    }
-
     public function getTeamId(): int
     {
         return $this->teamId;
     }
 
-    public function setTeamId(int $teamId)
-    {
-        $this->teamId = $teamId;
-    }
-
     public function getCityGroupId(): int
     {
         return $this->cityGroupId;
-    }
-
-    public function setCityGroupId(int $cityGroupId)
-    {
-        $this->cityGroupId = $cityGroupId;
     }
 }
