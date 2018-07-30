@@ -61,7 +61,7 @@
           <h3>{{ discipline }}, {{ gradeId }}º ano</h3>
 
 
-          <div class="qualitative-square optimal-decile-bg-{{ learning.getPercentage()|first }}">
+          <div class="qualitative-square {{ learning.getPercentage()|proficiencyCssClass }}">
               <span class="percent-level-with-data">
                 <span class="percent-level">{{ learning.getPercentage() }}</span>%
               </span>
