@@ -15,7 +15,7 @@ DistortionMapView = Backbone.View.extend
     Modernizr.svg and SVG.supported
 
   initializePlayer: () ->
-    items = ['2016', '2015','2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006']
+    items = ['2017', '2016', '2015','2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006']
 
     @player = new DistortionPlayerView
       el: @$el.find('.distortion-play').get 0
