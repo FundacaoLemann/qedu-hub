@@ -3,7 +3,7 @@ DistortionFilter = Backbone.Model.extend
     dependence: 0
     localization: 0
     stageId: 'initial_years'
-    year: 2016
+    year: 2017
 
   getURLParamsForGetEntity: () ->
     result = @toJSON()

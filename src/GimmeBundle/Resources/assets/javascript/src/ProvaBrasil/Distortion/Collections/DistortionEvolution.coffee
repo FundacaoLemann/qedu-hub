@@ -10,7 +10,7 @@ DistortionEvolution = Backbone.Collection.extend
     _.bindAll @, 'addFilterAttributes'
     @setEntity options.entity if options and options.entity
     @on 'add', @addFilterAttributes
-    @distortionFilter = new DistortionFilter(2016, 0, 0, 1)
+    @distortionFilter = new DistortionFilter(2017, 0, 0, 1)
 
     ###
     Below exists two arrays that are true love <3
