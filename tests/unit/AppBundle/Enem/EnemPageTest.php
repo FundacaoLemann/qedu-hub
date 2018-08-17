@@ -43,5 +43,4 @@ class EnemPageTest extends TestCase
         $enemPage = new EnemPage($header, $schoolRepository);
         $enemPage->build($schoolId);
     }
-
 }

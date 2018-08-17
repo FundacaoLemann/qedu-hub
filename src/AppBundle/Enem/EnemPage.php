@@ -7,7 +7,6 @@ use AppBundle\Entity\School;
 use AppBundle\Exception\SchoolNotFoundException;
 use AppBundle\Repository\SchoolRepositoryInterface;
 
-
 class EnemPage
 {
     private $header;
