@@ -1,6 +1,32 @@
 {% extends 'base.html.twig' %}
 
+{% set breadcrumb = header.getBreadcrumb() %}
+{% set menu = header.getMenu() %}
+
 {% block stylesheets %}
-<link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
-<link type="text/css" href="/gimme/ea3598cd92/pkg/css/provabrasil/enem.css" rel="stylesheet" />
+  <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
+  <link type="text/css" href="/gimme/e9dff85299/pkg/css/provabrasil/dropdown-select2.css" rel="stylesheet" />
+  <link type="text/css" href="/gimme/ea3598cd92/pkg/css/provabrasil/enem.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+  {% include 'subnav.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript" src="/gimme/ddfef5b5e4/pkg/js/mcc-boot.js"></script>
+  <script type="text/javascript" src="/gimme/2a854d73fb/pkg/js/QEdu/Header.js"></script>
+  <script type="text/javascript" src="/gimme/f46964a241/pkg/js/select2-lib.js"></script>
+  <script type="text/javascript" src="/gimme/85d63f33ed/pkg/js/provabrasil/dropdown-select2.js"></script>
+  <script type="text/javascript" src="/gimme/200fd91df6/pkg/js/provabrasil.js"></script>
+  <script type="text/javascript" src="/gimme/e2a780a5ad/pkg/js/mcc-basic-libs.js"></script>
+  <script type="text/javascript" src="/gimme/49300c6ac5/pkg/js/QEdu/Enem.js"></script>
+  <script type="text/javascript" src="/gimme/bafe60b3da/pkg/js/jquery.libs.js"></script>
+  <script type="text/javascript">
+    mcc.init_behaviors({
+        "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}],
+
+        {% include 'breadcrumb.html.twig' %}
+    })
+  </script>
 {% endblock %}
