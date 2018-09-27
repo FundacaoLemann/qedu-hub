@@ -70,4 +70,3 @@ class SchoolResults
      */
     private $schoolParticipation;
 }
-

@@ -85,4 +85,3 @@ class SchoolParticipation
         return $this->educationEntity;
     }
 }
-

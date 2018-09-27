@@ -96,6 +96,4 @@ class EducationEntity
     {
         $this->region = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 }
-
