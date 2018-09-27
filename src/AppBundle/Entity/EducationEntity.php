@@ -71,21 +71,4 @@ class EducationEntity
      * @ORM\Column(name="type", type="string", length=255, nullable=false)
      */
     private $type;
-
-    /**
-     * @var EducationEntity
-     *
-     * @ORM\ManyToOne(targetEntity="EducationEntity")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="location_id", referencedColumnName="id")
-     * })
-     */
-    private $location;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-    }
 }
