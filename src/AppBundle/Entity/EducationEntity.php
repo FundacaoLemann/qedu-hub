@@ -83,13 +83,6 @@ class EducationEntity
     private $location;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundleEntityRegion", mappedBy="component")
-     */
-    private $region;
-
-    /**
      * Constructor
      */
     public function __construct()
