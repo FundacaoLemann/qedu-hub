@@ -63,7 +63,7 @@ class SchoolResults
     /**
      * @var \AppBundle\Entity\Enem\SchoolParticipation
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\EnemSchoolParticipation")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enem\SchoolParticipation")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="schoolParticipation_id", referencedColumnName="id")
      * })

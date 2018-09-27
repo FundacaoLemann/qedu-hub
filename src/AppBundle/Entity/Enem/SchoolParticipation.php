@@ -53,7 +53,7 @@ class SchoolParticipation
     /**
      * @var EducationEntity
      *
-     * @ORM\ManyToOne(targetEntity="EducationEntity")
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\EducationEntity")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="school_id", referencedColumnName="id")
      * })
