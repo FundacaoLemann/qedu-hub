@@ -87,6 +87,5 @@ class EducationEntity
      */
     public function __construct()
     {
-
     }
 }
