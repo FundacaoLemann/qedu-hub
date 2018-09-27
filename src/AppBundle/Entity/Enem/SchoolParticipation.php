@@ -41,14 +41,14 @@ class SchoolParticipation
      *
      * @ORM\Column(name="participationCount", type="integer", nullable=false)
      */
-    private $participationcount;
+    private $participationCount;
 
     /**
      * @var string
      *
      * @ORM\Column(name="participationRate", type="decimal", precision=5, scale=4, nullable=false)
      */
-    private $participationrate;
+    private $participationRate;
 
     /**
      * @var EducationEntity
@@ -70,14 +70,14 @@ class SchoolParticipation
         return $this->edition;
     }
 
-    public function getParticipationcount(): int
+    public function getParticipationCount(): int
     {
-        return $this->participationcount;
+        return $this->participationCount;
     }
 
-    public function getParticipationrate(): string
+    public function getParticipationRate(): string
     {
-        return $this->participationrate;
+        return $this->participationRate;
     }
 
     public function getEducationEntity(): EducationEntity

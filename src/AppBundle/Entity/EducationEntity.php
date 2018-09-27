@@ -35,7 +35,7 @@ class EducationEntity
      *
      * @ORM\Column(name="ibgeId", type="integer", nullable=true)
      */
-    private $ibgeid;
+    private $ibgeId;
 
     /**
      * @var string
@@ -56,14 +56,14 @@ class EducationEntity
      *
      * @ORM\Column(name="shortName", type="string", length=100, nullable=false)
      */
-    private $shortname;
+    private $shortName;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="oldId", type="integer", nullable=false)
      */
-    private $oldid;
+    private $oldId;
 
     /**
      * @var string

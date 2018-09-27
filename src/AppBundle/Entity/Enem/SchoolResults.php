@@ -30,35 +30,35 @@ class SchoolResults
      *
      * @ORM\Column(name="averageLc", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $averageLc;
+    private $languagesAndCodesAverage;
 
     /**
      * @var string
      *
      * @ORM\Column(name="averageMt", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $averageMt;
+    private $mathematicsAverage;
 
     /**
      * @var string
      *
      * @ORM\Column(name="averageCh", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $averageCh;
+    private $humanSciencesAverage;
 
     /**
      * @var string
      *
      * @ORM\Column(name="averageCn", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $averageCn;
+    private $natualSciencesAverage;
 
     /**
      * @var string
      *
      * @ORM\Column(name="averageRed", type="decimal", precision=6, scale=2, nullable=false)
      */
-    private $averageRed;
+    private $essayAverage;
 
     /**
      * @var \AppBundle\Entity\Enem\SchoolParticipation
