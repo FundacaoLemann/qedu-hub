@@ -66,6 +66,14 @@ doctrine:
                 user: '%database_user%'
                 password: '%database_password%'
                 charset: UTF8
+            qedu:
+                driver: pdo_mysql
+                host: '%database_host%'
+                port: '%database_port%'
+                dbname: '%qedu_dbname%'
+                user: '%database_user%'
+                password: '%database_password%'
+                charset: UTF8
 
     orm:
         default_entity_manager: default
@@ -80,6 +88,10 @@ doctrine:
                     AppBundle:  ~
             waitress_entities:
                 connection: waitress_entities
+                mappings:
+                    AppBundle:  ~
+            qedu:
+                connection: qedu
                 mappings:
                     AppBundle:  ~
 
