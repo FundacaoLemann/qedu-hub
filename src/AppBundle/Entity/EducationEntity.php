@@ -87,6 +87,6 @@ class EducationEntity
      */
     public function __construct()
     {
-        $this->region = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 }

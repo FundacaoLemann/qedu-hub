@@ -51,7 +51,7 @@ class SchoolResults
      *
      * @ORM\Column(name="averageCn", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $natualSciencesAverage;
+    private $naturalSciencesAverage;
 
     /**
      * @var string
