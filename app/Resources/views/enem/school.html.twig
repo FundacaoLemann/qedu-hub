@@ -11,6 +11,11 @@
 
 {% block body %}
   {% include 'subnav.html.twig' %}
+
+  <section class="container enem">
+    {% include 'enem/filter.html.twig' %}
+  </section>
+
 {% endblock %}
 
 {% block javascripts %}
