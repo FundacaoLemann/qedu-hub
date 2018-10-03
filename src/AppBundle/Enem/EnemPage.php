@@ -9,14 +9,16 @@ use AppBundle\Repository\SchoolRepositoryInterface;
 
 class EnemPage
 {
+    private $content;
     private $header;
     private $repository;
     private $school;
 
-    public function __construct(Header $header, SchoolRepositoryInterface $repository)
+    public function __construct(Header $header, SchoolRepositoryInterface $repository, EnemContent $content)
     {
         $this->header = $header;
         $this->repository = $repository;
+        $this->content = $content;
     }
 
     public function build($schoolId)
@@ -28,6 +30,11 @@ class EnemPage
         }
 
         $this->header->build($this->school);
+    }
+
+    public function getContent() : EnemContent
+    {
+        return $this->content;
     }
 
     public function getHeader() : Header
