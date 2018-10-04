@@ -36,7 +36,8 @@ class EnemController extends Controller
 
         return $this->render('enem/school.html.twig', [
             'header' => $this->enemPage->getHeader(),
-            'school' => $this->enemPage->getSchool()
+            'school' => $this->enemPage->getSchool(),
+            'content' => $this->enemPage->getContent(),
         ]);
     }
 }

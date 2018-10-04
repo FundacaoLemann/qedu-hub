@@ -21,7 +21,9 @@ class EnemPageTest extends TestCase
         $header->expects($this->once())
             ->method('build');
 
-        $enemPage = new EnemPage($header, $schoolRepository);
+        $content = $this->createMock('AppBundle\Enem\EnemContent');
+
+        $enemPage = new EnemPage($header, $schoolRepository, $content);
         $enemPage->build($schoolId);
 
         $this->assertInstanceOf('AppBundle\Component\Header', $enemPage->getHeader());
@@ -40,7 +42,36 @@ class EnemPageTest extends TestCase
             ->with($schoolId = 9)
             ->willReturn(null);
 
-        $enemPage = new EnemPage($header, $schoolRepository);
+        $content = $this->createMock('AppBundle\Enem\EnemContent');
+
+        $enemPage = new EnemPage($header, $schoolRepository, $content);
         $enemPage->build($schoolId);
+    }
+
+    public function testBuildShouldConstructContent()
+    {
+        $school = $this->createMock('AppBundle\Entity\School');
+        $schoolRepository = $this->createMock('AppBundle\Repository\SchoolRepositoryInterface');
+        $schoolRepository->expects($this->once())
+            ->method('findSchoolById')
+            ->with($schoolId = 1201)
+            ->willReturn($school);
+
+        $header = $this->createMock('AppBundle\Component\Header');
+        $header->expects($this->once())
+            ->method('build');
+
+        $filter = $this->createMock('AppBundle\Enem\EnemFilter');
+
+        $content = $this->createMock('AppBundle\Enem\EnemContent');
+        $content->expects($this->once())
+            ->method('getFilter')
+            ->willReturn($filter);
+
+        $enemPage = new EnemPage($header, $schoolRepository, $content);
+        $enemPage->build($schoolId);
+
+        $this->assertInstanceOf('AppBundle\Enem\EnemContent', $enemPage->getContent());
+        $this->assertInstanceOf('AppBundle\Enem\EnemFilter', $enemPage->getContent()->getFilter());
     }
 }

@@ -1,0 +1,43 @@
+<div class="filters">
+  <div class="filter-ct">
+    <label for="edition">Ano:</label>
+
+    <div class="btn-group" id="edition">
+
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+        <span class="button-edition-filter-value">{{ filter.getCurrentYear() }}</span>
+        <span class="caret"></span>
+      </a>
+
+      {% set listClass = filter.isBlocked() ? 'dropdown-menu-blocked' : '' %}
+      {% set itemClass = filter.isBlocked() ? 'disabled' : 'enabled'  %}
+
+      <ul class="dropdown-menu {{ listClass }}">
+
+        {% for year in filter.getYears() %}
+
+          {% set activeYearClass = filter.getCurrentYear() == year and not filter.isBlocked() ? 'active' : '' %}
+          <li class="{{ itemClass }} {{ activeYearClass }}">
+            <a data-value="{{ year }}">{{ year }}</a>
+          </li>
+        {% endfor %}
+
+        {% if filter.isBlocked() %}
+
+        <div class="content-alert">
+          <div class="main-phrase">
+            Recurso exclusivo e gratuito do QEdu<br>Cadastre-se para obter acesso
+          </div>
+          <div class="main-links">
+            <a href="/cadastrar" class="signup">Cadastrar</a>
+            <span class="alert-divider">ou</span>
+            <a href="/entrar" class="signin">Entrar</a>
+          </div>
+        </div>
+
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</div>

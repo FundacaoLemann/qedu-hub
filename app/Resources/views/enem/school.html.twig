@@ -2,6 +2,7 @@
 
 {% set breadcrumb = header.getBreadcrumb() %}
 {% set menu = header.getMenu() %}
+{% set filter = content.getFilter() %}
 
 {% block stylesheets %}
   <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
@@ -11,6 +12,18 @@
 
 {% block body %}
   {% include 'subnav.html.twig' %}
+
+  <section class="container enem">
+
+    <header>
+      <h2>Escola {{ school|schoolNameFilter }} - {{ school.getCity().getName() }} - {{ school.getState().getAcronym() }} - Enem {{ filter.getCurrentYear() }}</h2>
+      <p>Veja a média da escola nas áreas do conhecimento avaliadas pelo Enem {{ filter.getCurrentYear() }}</p>
+    </header>
+
+    {% include 'enem/filter.html.twig' %}
+
+  </section>
+
 {% endblock %}
 
 {% block javascripts %}
