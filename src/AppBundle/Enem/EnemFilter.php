@@ -7,6 +7,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 class EnemFilter
 {
     private $authorizationChecker;
+    private $enemEditionSelected;
     private $years = [
         2017,
         2016,
@@ -19,9 +20,12 @@ class EnemFilter
         2009
     ];
 
-    public function __construct(AuthorizationCheckerInterface $authorizationChecker)
+    public function __construct(
+        AuthorizationCheckerInterface $authorizationChecker,
+        EnemEditionSelected $enemEditionSelected)
     {
         $this->authorizationChecker = $authorizationChecker;
+        $this->enemEditionSelected = $enemEditionSelected;
     }
 
     public function isBlocked()
@@ -36,6 +40,6 @@ class EnemFilter
 
     public function getCurrentYear()
     {
-        return 2017;
+        return $this->enemEditionSelected->getEnemEdition()->getYear();
     }
 }

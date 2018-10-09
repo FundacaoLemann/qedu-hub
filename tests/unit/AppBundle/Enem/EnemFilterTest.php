@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\AppBundle\Census;
+namespace Tests\Unit\AppBundle\Enem;
 
 use AppBundle\Enem\EnemEdition;
 use AppBundle\Enem\EnemFilter;
@@ -13,8 +13,9 @@ class EnemFilterTest extends TestCase
     public function testIsBlockedShouldReturnFalseWhenUserIsLogged()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMockWhenUserIsLogged();
+        $enemEditionSelected = $this->createEnemEditionSelectedMock();
 
-        $filter = new EnemFilter($authorizationChecker);
+        $filter = new EnemFilter($authorizationChecker, $enemEditionSelected);
 
         $this->assertFalse($filter->isBlocked());
     }
@@ -22,8 +23,9 @@ class EnemFilterTest extends TestCase
     public function testIsBlockedShouldReturnTrueWhenUserIsNotLogged()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMockWhenUserIsNotLogged();
+        $enemEditionSelected = $this->createEnemEditionSelectedMock();
 
-        $filter = new EnemFilter($authorizationChecker);
+        $filter = new EnemFilter($authorizationChecker, $enemEditionSelected);
 
         $this->assertTrue($filter->isBlocked());
     }
@@ -31,8 +33,9 @@ class EnemFilterTest extends TestCase
     public function testGetYearsShouldReturnYearsAvailable()
     {
         $authorizationChecker = $this->createAuthorizationCheckerMock();
+        $enemEditionSelected = $this->createEnemEditionSelectedMock();
 
-        $filter = new EnemFilter($authorizationChecker);
+        $filter = new EnemFilter($authorizationChecker, $enemEditionSelected);
 
         $expectedYears = [
             2017,
@@ -49,6 +52,20 @@ class EnemFilterTest extends TestCase
         $this->assertEquals($expectedYears, $filter->getYears());
     }
 
+    public function testGetCurrentYearShouldReturnEnemEdition()
+    {
+        $authorizationChecker = $this->createAuthorizationCheckerMock();
+        $enemEditionSelected = $this->createEnemEditionSelectedMock();
+        $enemEditionSelected->expects($this->once())
+            ->method('getEnemEdition')
+            ->willReturn(new EnemEdition(2017));
+
+        $filter = new EnemFilter($authorizationChecker, $enemEditionSelected);
+
+        $enemEditionExpected = 2017;
+
+        $this->assertEquals($enemEditionExpected, $filter->getCurrentYear());
+    }
 
     private function createAuthorizationCheckerMockWhenUserIsLogged()
     {
@@ -75,5 +92,10 @@ class EnemFilterTest extends TestCase
     private function createAuthorizationCheckerMock()
     {
         return $this->createMock(AuthorizationCheckerInterface::class);
+    }
+
+    private function createEnemEditionSelectedMock()
+    {
+        return $this->createMock('AppBundle\Enem\EnemEditionSelected');
     }
 }

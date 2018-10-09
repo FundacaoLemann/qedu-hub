@@ -10,14 +10,14 @@
       </a>
 
       {% set listClass = filter.isBlocked() ? 'dropdown-menu-blocked' : '' %}
-      {% set itemClass = filter.isBlocked() ? 'disabled' : 'enabled'  %}
+      {% set itemClass = filter.isBlocked() ? 'disabled' : ''  %}
 
       <ul class="dropdown-menu {{ listClass }}">
 
         {% for year in filter.getYears() %}
 
           {% set activeYearClass = filter.getCurrentYear() == year and not filter.isBlocked() ? 'active' : '' %}
-          <li class="{{ itemClass }} {{ activeYearClass }}">
+          <li class="{{ activeYearClass }}">
             <a data-value="{{ year }}">{{ year }}</a>
           </li>
         {% endfor %}
