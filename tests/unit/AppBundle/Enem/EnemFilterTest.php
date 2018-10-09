@@ -62,9 +62,9 @@ class EnemFilterTest extends TestCase
 
         $filter = new EnemFilter($authorizationChecker, $enemEditionSelected);
 
-        $censusEditionExpected = 2017;
+        $enemEditionExpected = 2017;
 
-        $this->assertEquals($censusEditionExpected, $filter->getCurrentYear());
+        $this->assertEquals($enemEditionExpected, $filter->getCurrentYear());
     }
 
     private function createAuthorizationCheckerMockWhenUserIsLogged()

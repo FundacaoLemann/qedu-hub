@@ -15,8 +15,8 @@ class EnemEditionSelectedTest extends TestCase
     {
         $requestStack = $this->getRequestStackMock($yearRequested);
 
-        $census = new EnemEditionSelected($requestStack);
-        $year = $census->getEnemEdition();
+        $enem = new EnemEditionSelected($requestStack);
+        $year = $enem->getEnemEdition();
 
         $this->assertEquals($expectedYear, $year);
     }
