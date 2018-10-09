@@ -17,6 +17,7 @@ class EnemEditionSelected
         2012,
         2011,
         2010,
+        2009
     ];
 
     public function __construct(RequestStack $requestStack)
