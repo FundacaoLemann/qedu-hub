@@ -27,8 +27,7 @@ class EnemEditionSelected
 
     public function getEnemEdition() : EnemEdition
     {
-        $year = (int) $this->request->get('year', $this->defaultYear);
-
+        $year = (int) $this->request->get('edition', $this->defaultYear);
         if (in_array($year, $this->years) === false) {
             return new EnemEdition($this->defaultYear);
         }

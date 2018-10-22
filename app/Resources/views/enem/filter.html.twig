@@ -17,7 +17,7 @@
         {% for year in filter.getYears() %}
 
           {% set activeYearClass = filter.getCurrentYear() == year and not filter.isBlocked() ? 'active' : '' %}
-          <li class="{{ activeYearClass }}">
+          <li class="{{ activeYearClass }} {{ itemClass }}">
             <a data-value="{{ year }}">{{ year }}</a>
           </li>
         {% endfor %}

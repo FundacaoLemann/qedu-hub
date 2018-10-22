@@ -14,7 +14,6 @@
   {% include 'subnav.html.twig' %}
 
   <section class="container enem">
-
     <header>
       <h2>Escola {{ school|schoolNameFilter }} - {{ school.getCity().getName() }} - {{ school.getState().getAcronym() }} - Enem {{ filter.getCurrentYear() }}</h2>
       <p>Veja a média da escola nas áreas do conhecimento avaliadas pelo Enem {{ filter.getCurrentYear() }}</p>
@@ -38,6 +37,14 @@
   <script type="text/javascript">
     mcc.init_behaviors({
         "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}],
+        "Meritt\/QEdu\/UI\/EnemBase\/Assets\/js\/Filters": [
+            []
+        ],
+        "Meritt\/QEdu\/UI\/EnemBase\/Assets\/js\/Base": [{
+            "baseUrl": "\/escola\/{{ school.getId() }}-{{ school.getSlug() }}\/enem-dev",
+            "edition": {{ filter.getCurrentYear() }},
+            "educationNetworkTypeId": null
+        }],
 
         {% include 'breadcrumb.html.twig' %}
     })
