@@ -40,7 +40,7 @@ class EnemEditionSelectedTest extends TestCase
         $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
         $requestMock->expects($this->once())
             ->method('get')
-            ->with('year', $defaultYear = 2017)
+            ->with('edition', $defaultYear = 2017)
             ->willReturn($valueRequested);
 
         $requestStackMock = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');

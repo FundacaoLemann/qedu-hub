@@ -61,9 +61,9 @@ class SchoolResults
     private $essayAverage;
 
     /**
-     * @var \AppBundle\Entity\Enem\SchoolParticipation
+     * @var \AppBundle\Entity\Enem\EnemSchoolParticipation
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enem\SchoolParticipation")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enem\EnemSchoolParticipation")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="schoolParticipation_id", referencedColumnName="id")
      * })
