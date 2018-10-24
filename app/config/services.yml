@@ -50,6 +50,10 @@ services:
         factory: 'doctrine.orm.waitress_entities_entity_manager:getRepository'
         arguments: ['AppBundle\Entity\Census\School']
 
+    AppBundle\Repository\Enem\EnemSchoolParticipationRepository:
+        factory: 'doctrine.orm.qedu_entity_manager:getRepository'
+        arguments: ['AppBundle\Entity\Enem\EnemSchoolParticipation']
+
     AppBundle\Repository\ProficiencyRepositoryInterface: '@AppBundle\Repository\ProficiencyRepository'
 
     AppBundle\Repository\Learning\SchoolRepositoryInterface: '@AppBundle\Repository\Learning\SchoolRepository'
@@ -57,3 +61,5 @@ services:
     AppBundle\Repository\SchoolRepositoryInterface: '@AppBundle\Repository\SchoolRepository'
 
     AppBundle\Repository\Census\SchoolRepositoryInterface: '@AppBundle\Repository\Census\SchoolRepository'
+
+    AppBundle\Repository\Enem\EnemSchoolRepositoryInterface: '@AppBundle\Repository\Enem\EnemSchoolParticipationRepository'
