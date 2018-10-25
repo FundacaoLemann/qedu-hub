@@ -30,14 +30,14 @@ class EnemController extends Controller
     {
         try {
             $this->enemPage->build($schoolId);
+
+            return $this->render('enem/school.html.twig', [
+                'header' => $this->enemPage->getHeader(),
+                'school' => $this->enemPage->getSchool(),
+                'content' => $this->enemPage->getContent(),
+            ]);
         } catch (SchoolNotFoundException $exception) {
             throw new NotFoundHttpException($exception);
         }
-
-        return $this->render('enem/school.html.twig', [
-            'header' => $this->enemPage->getHeader(),
-            'school' => $this->enemPage->getSchool(),
-            'content' => $this->enemPage->getContent(),
-        ]);
     }
 }

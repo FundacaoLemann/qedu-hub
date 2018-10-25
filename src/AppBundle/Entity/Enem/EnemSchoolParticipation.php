@@ -16,9 +16,9 @@ use Doctrine\ORM\Mapping as ORM;
  *         @ORM\Index(name="IDX_5159509AC32A47EE", columns={"school_id"})
  *     }
  * )
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Enem\EnemSchoolParticipationRepository")
  */
-class SchoolParticipation
+class EnemSchoolParticipation
 {
     /**
      * @var integer
@@ -28,6 +28,13 @@ class SchoolParticipation
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="school_id", type="integer", nullable=true)
+     */
+    private $schoolId;
 
     /**
      * @var integer

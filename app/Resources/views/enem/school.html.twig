@@ -3,6 +3,9 @@
 {% set breadcrumb = header.getBreadcrumb() %}
 {% set menu = header.getMenu() %}
 {% set filter = content.getFilter() %}
+{% set schoolRecord = content.getEnemSchoolRecord() %}
+{% set schoolParticipation = schoolRecord.getEnemSchoolParticipation() %}
+{% set schoolParticipationRate = schoolParticipation.getParticipationRate() * 100 %}
 
 {% block stylesheets %}
   <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
@@ -14,7 +17,6 @@
   {% include 'subnav.html.twig' %}
 
   <section class="container enem">
-
     <header>
       <h2>Escola {{ school|schoolNameFilter }} - {{ school.getCity().getName() }} - {{ school.getState().getAcronym() }} - Enem {{ filter.getCurrentYear() }}</h2>
       <p>Veja a média da escola nas áreas do conhecimento avaliadas pelo Enem {{ filter.getCurrentYear() }}</p>
@@ -22,8 +24,30 @@
 
     {% include 'enem/filter.html.twig' %}
 
-  </section>
+    <div class="enem-results row participation-rate">
+      <header class="span12 enem-header">
+        <h1>Taxa de participação</h1>
+      </header>
+      <div class="span4 score-ct">
+        <p class="score"><span class="value">{{ schoolParticipationRate|number_format }}</span>%</p>
+        <p class="description"><strong>{{ schoolParticipation.getParticipationCount() }} alunos participantes</strong><br>nos dois dias da avaliação</p>
+      </div>
+      <div class="span5 main-ct">
+        <div class="content-ct">
+          <p>Esta é a proporção de alunos da escola que participaram desta edição do Enem. Você deve usar este valor para entender qual a representatividade dos resultados do Enem para a sua escola.</p>
+          <p>O Inep só disponibiliza dados quando a taxa de participação é maior ou igual a 50%. Isso é feito porque resultados com baixa participação não podem ser considerados como representativos da escola.</p>
+          <p>
+            <i class="glyphicon glyphicon-chevron-right"></i>
+            <a target="_blank" href="/ajuda/artigo/446051">Saiba mais sobre a participação no Enem no Brasil</a>
+          </p>
+        </div>
+      </div>
+      <div class="span3">
+        <a target="_blank" href="/ajuda/artigo/446051" class="participation-map">Veja o mapa da participação</a>
+      </div>
+    </div>
 
+  </section>
 {% endblock %}
 
 {% block javascripts %}
@@ -38,6 +62,14 @@
   <script type="text/javascript">
     mcc.init_behaviors({
         "Meritt\/QEdu\/UI\/Header\/Assets\/js\/GlobalSearchBehavior": [{"urlToAppend": ""}],
+        "Meritt\/QEdu\/UI\/EnemBase\/Assets\/js\/Filters": [
+            []
+        ],
+        "Meritt\/QEdu\/UI\/EnemBase\/Assets\/js\/Base": [{
+            "baseUrl": "\/escola\/{{ school.getId() }}-{{ school.getSlug() }}\/enem-dev",
+            "edition": {{ filter.getCurrentYear() }},
+            "educationNetworkTypeId": null
+        }],
 
         {% include 'breadcrumb.html.twig' %}
     })

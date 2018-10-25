@@ -30,6 +30,7 @@ class EnemPage
         }
 
         $this->header->build($this->school);
+        $this->content->build($this->school);
     }
 
     public function getContent() : EnemContent
