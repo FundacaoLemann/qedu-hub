@@ -2,7 +2,9 @@
 
 namespace AppBundle\Enem;
 
+use AppBundle\Entity\School;
+
 interface EnemServiceInterface
 {
-    public function getEnemByEdition($entity);
+    public function getEnemByEdition(School $entity);
 }

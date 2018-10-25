@@ -2,7 +2,7 @@
 
 namespace AppBundle\Enem;
 
-use AppBundle\Entity\Enem\School;
+use AppBundle\Entity\School;
 use AppBundle\Repository\Enem\EnemSchoolRepositoryInterface;
 
 class EnemService implements EnemServiceInterface
@@ -18,7 +18,7 @@ class EnemService implements EnemServiceInterface
         $this->enemEditionSelected = $enemEditionSelected;
     }
 
-    public function getEnemByEdition($school)
+    public function getEnemByEdition(School $school)
     {
         $enemEdition = $this->enemEditionSelected->getEnemEdition();
         $enemSchoolParticipation = $this->schoolRepository->findEnemSchoolParticipationByEdition($school, $enemEdition);
