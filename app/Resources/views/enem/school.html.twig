@@ -24,28 +24,7 @@
 
     {% include 'enem/filter.html.twig' %}
 
-    <div class="enem-results row participation-rate">
-      <header class="span12 enem-header">
-        <h1>Taxa de participação</h1>
-      </header>
-      <div class="span4 score-ct">
-        <p class="score"><span class="value">{{ schoolParticipationRate|number_format }}</span>%</p>
-        <p class="description"><strong>{{ schoolParticipation.getParticipationCount() }} alunos participantes</strong><br>nos dois dias da avaliação</p>
-      </div>
-      <div class="span5 main-ct">
-        <div class="content-ct">
-          <p>Esta é a proporção de alunos da escola que participaram desta edição do Enem. Você deve usar este valor para entender qual a representatividade dos resultados do Enem para a sua escola.</p>
-          <p>O Inep só disponibiliza dados quando a taxa de participação é maior ou igual a 50%. Isso é feito porque resultados com baixa participação não podem ser considerados como representativos da escola.</p>
-          <p>
-            <i class="glyphicon glyphicon-chevron-right"></i>
-            <a target="_blank" href="/ajuda/artigo/446051">Saiba mais sobre a participação no Enem no Brasil</a>
-          </p>
-        </div>
-      </div>
-      <div class="span3">
-        <a target="_blank" href="/ajuda/artigo/446051" class="participation-map">Veja o mapa da participação</a>
-      </div>
-    </div>
+    {% include 'enem/school/participation_rate.html.twig' %}
 
   </section>
 {% endblock %}
