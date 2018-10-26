@@ -5,16 +5,16 @@ namespace AppBundle\Entity\Enem;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SchoolResults
+ * EnemSchoolResults
  *
  * @ORM\Table(name="enem_school_results",
  *     uniqueConstraints={
  *         @ORM\UniqueConstraint(name="UNIQ_C08EF8889E8F7F4E", columns={"schoolParticipation_id"})
  *     }
  * )
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Enem\EnemSchoolResultsRepository")
  */
-class SchoolResults
+class EnemSchoolResults
 {
     /**
      * @var integer
@@ -61,12 +61,39 @@ class SchoolResults
     private $essayAverage;
 
     /**
-     * @var \AppBundle\Entity\Enem\EnemSchoolParticipation
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enem\EnemSchoolParticipation")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="schoolParticipation_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="schoolParticipation_id", type="integer", nullable=false)
      */
-    private $schoolParticipation;
+    private $schoolParticipationId;
+
+    public function getLanguagesAndCodesAverage(): string
+    {
+        return $this->languagesAndCodesAverage;
+    }
+
+    public function getMathematicsAverage(): string
+    {
+        return $this->mathematicsAverage;
+    }
+
+    public function getHumanSciencesAverage(): string
+    {
+        return $this->humanSciencesAverage;
+    }
+
+    public function getNaturalSciencesAverage(): string
+    {
+        return $this->naturalSciencesAverage;
+    }
+
+    public function getEssayAverage(): string
+    {
+        return $this->essayAverage;
+    }
+
+    public function getSchoolParticipationId(): int
+    {
+        return $this->schoolParticipationId;
+    }
 }

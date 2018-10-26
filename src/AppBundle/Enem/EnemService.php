@@ -3,26 +3,40 @@
 namespace AppBundle\Enem;
 
 use AppBundle\Entity\School;
-use AppBundle\Repository\Enem\EnemSchoolRepositoryInterface;
+use AppBundle\Repository\Enem\EnemSchoolParticipationRepositoryInterface;
+use AppBundle\Repository\Enem\EnemSchoolResultsRepositoryInterface;
 
 class EnemService implements EnemServiceInterface
 {
-    private $schoolRepository;
+    private $schoolParticipationRepository;
+    private $schoolResultsRepository;
     private $enemEditionSelected;
 
     public function __construct(
-        EnemSchoolRepositoryInterface $schoolRepository,
+        EnemSchoolParticipationRepositoryInterface $schoolParticipationRepository,
+        EnemSchoolResultsRepositoryInterface $schoolResultsRepository,
         EnemEditionSelected $enemEditionSelected
     ) {
-        $this->schoolRepository = $schoolRepository;
+        $this->schoolParticipationRepository = $schoolParticipationRepository;
+        $this->schoolResultsRepository = $schoolResultsRepository;
         $this->enemEditionSelected = $enemEditionSelected;
     }
 
     public function getEnemByEdition(School $school)
     {
         $enemEdition = $this->enemEditionSelected->getEnemEdition();
-        $enemSchoolParticipation = $this->schoolRepository->findEnemSchoolParticipationByEdition($school, $enemEdition);
-        $enemSchoolRecord = new EnemSchoolRecord($enemSchoolParticipation);
+
+        $enemSchoolParticipation = $this->schoolParticipationRepository
+            ->findEnemSchoolParticipationByEdition($school, $enemEdition);
+
+        if (!$enemSchoolParticipation) {
+            return new EnemSchoolRecord(null, null);
+        }
+
+        $enemSchoolResults = $this->schoolResultsRepository
+            ->findEnemSchoolResultsByEnemSchoolParticipation($enemSchoolParticipation);
+
+        $enemSchoolRecord = new EnemSchoolRecord($enemSchoolParticipation, $enemSchoolResults);
 
         return $enemSchoolRecord;
     }

@@ -22,8 +22,8 @@ class EnemFilter
 
     public function __construct(
         AuthorizationCheckerInterface $authorizationChecker,
-        EnemEditionSelected $enemEditionSelected)
-    {
+        EnemEditionSelected $enemEditionSelected
+    ) {
         $this->authorizationChecker = $authorizationChecker;
         $this->enemEditionSelected = $enemEditionSelected;
     }

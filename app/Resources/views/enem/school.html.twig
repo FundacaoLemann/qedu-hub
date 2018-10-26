@@ -6,6 +6,7 @@
 {% set schoolRecord = content.getEnemSchoolRecord() %}
 {% set schoolParticipation = schoolRecord.getEnemSchoolParticipation() %}
 {% set schoolParticipationRate = schoolParticipation.getParticipationRate() * 100 %}
+{% set schoolResults = schoolRecord.getEnemSchoolResults() %}
 
 {% block stylesheets %}
   <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
@@ -25,6 +26,8 @@
     {% include 'enem/filter.html.twig' %}
 
     {% include 'enem/school/participation_rate.html.twig' %}
+
+    {% include 'enem/school/results/human_sciences.html.twig' %}
 
   </section>
 {% endblock %}

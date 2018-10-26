@@ -10,10 +10,19 @@ class EnemServiceTest extends TestCase
 {
     public function testEnemServiceShouldImplementsEnemServiceInterface()
     {
-        $schoolRepository = $this->createMock('AppBundle\Repository\Enem\EnemSchoolRepositoryInterface');
+        $enemSchoolParticipationRepository = $this->createMock(
+            'AppBundle\Repository\Enem\EnemSchoolParticipationRepositoryInterface'
+        );
+        $enemSchoolResultsRepository = $this->createMock(
+            'AppBundle\Repository\Enem\EnemSchoolResultsRepositoryInterface'
+        );
         $enemEditionSelected = $this->createMock('AppBundle\Enem\EnemEditionSelected');
 
-        $enemService = new EnemService($schoolRepository, $enemEditionSelected);
+        $enemService = new EnemService(
+            $enemSchoolParticipationRepository,
+            $enemSchoolResultsRepository,
+            $enemEditionSelected
+        );
 
         $this->assertInstanceOf('AppBundle\Enem\EnemServiceInterface', $enemService);
     }
@@ -22,7 +31,7 @@ class EnemServiceTest extends TestCase
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
-        $enemSchoolParticipationRepository = $this->getSchoolRepositoryMockWillReturn(
+        $enemSchoolParticipationRepository = $this->getEnemSchoolParticipationRepositoryMockWillReturn(
             $this->createMock('AppBundle\Entity\Enem\EnemSchoolParticipation')
         );
         $enemEditionSelected = $this->createMock('AppBundle\Enem\EnemEditionSelected');
@@ -30,7 +39,15 @@ class EnemServiceTest extends TestCase
             ->method('getEnemEdition')
             ->willReturn(new EnemEdition(2017));
 
-        $enemService = new EnemService($enemSchoolParticipationRepository, $enemEditionSelected);
+        $enemSchoolResultsRepository = $this->createMock(
+            'AppBundle\Repository\Enem\EnemSchoolResultsRepositoryInterface'
+        );
+
+        $enemService = new EnemService(
+            $enemSchoolParticipationRepository,
+            $enemSchoolResultsRepository,
+            $enemEditionSelected
+        );
         $enemSchoolRecord = $enemService->getEnemByEdition($school);
 
         $this->assertInstanceOf('AppBundle\Enem\EnemSchoolRecord', $enemSchoolRecord);
@@ -40,25 +57,33 @@ class EnemServiceTest extends TestCase
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
-        $enemSchoolParticipationRepository = $this->getSchoolRepositoryMockWillReturn(null);
+        $enemSchoolParticipationRepository = $this->getEnemSchoolParticipationRepositoryMockWillReturn(null);
 
         $enemEditionSelected = $this->createMock('AppBundle\Enem\EnemEditionSelected');
         $enemEditionSelected->expects($this->once())
             ->method('getEnemEdition')
             ->willReturn(new EnemEdition(2017));
 
-        $enemService = new EnemService($enemSchoolParticipationRepository, $enemEditionSelected);
+        $enemSchoolResultsRepository = $this->createMock(
+            'AppBundle\Repository\Enem\EnemSchoolResultsRepositoryInterface'
+        );
+
+        $enemService = new EnemService(
+            $enemSchoolParticipationRepository,
+            $enemSchoolResultsRepository,
+            $enemEditionSelected
+        );
         $enemSchoolRecord = $enemService->getEnemByEdition($school);
         $enemSchoolParticipation = $enemSchoolRecord->getEnemSchoolParticipation();
 
         $this->assertNull($enemSchoolParticipation);
     }
 
-    private function getSchoolRepositoryMockWillReturn($return)
+    private function getEnemSchoolParticipationRepositoryMockWillReturn($return)
     {
         $school = $this->createMock('AppBundle\Entity\School');
 
-        $schoolRepository = $this->createMock('AppBundle\Repository\Enem\EnemSchoolRepositoryInterface');
+        $schoolRepository = $this->createMock('AppBundle\Repository\Enem\EnemSchoolParticipationRepositoryInterface');
         $schoolRepository->expects($this->once())
             ->method('findEnemSchoolParticipationByEdition')
             ->with(

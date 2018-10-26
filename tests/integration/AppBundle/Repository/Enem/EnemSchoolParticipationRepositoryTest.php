@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Tests\Fixture\Database\EducationEntityTableFixture;
 use Tests\Fixture\Database\EnemSchoolParticipationTableFixture;
 
-class EnemParticipationRepositoryTest extends KernelTestCase
+class EnemSchoolParticipationRepositoryTest extends KernelTestCase
 {
     private $enemSchoolParticipationTableFixture;
     private $educationEntityTableFixture;

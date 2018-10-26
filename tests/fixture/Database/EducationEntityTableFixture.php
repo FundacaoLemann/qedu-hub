@@ -48,7 +48,8 @@ VALUES
 	(1, NULL, NULL, 'brasil', 'Brasil', 'BR', 100, 'country'),
 	(26, 1, 35, 'sao-paulo', 'São Paulo', 'SP', 125, 'state'),
 	(3383, 26, 3550308, 'sao-paulo', 'São Paulo', 'SAO PAULO', 2329, 'city'),
-	(90356, 3383, 35107542, 'pueri-domus-escola-verbo-divino-unidade-i', 'PUERI DOMUS ESCOLA VERBO DIVINO UNIDADE I', 'PUERI DOMUS ESCOLA VERBO DIVINO UNIDADE I', 212104, 'school');
+	(90356, 3383, 35107542, 'pueri-domus-escola-verbo-divino-unidade-i', 'PUERI DOMUS ESCOLA VERBO DIVINO UNIDADE I',
+	 'PUERI DOMUS ESCOLA VERBO DIVINO UNIDADE I', 212104, 'school');
 SQL
             )->execute();
     }
