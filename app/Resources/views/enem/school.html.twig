@@ -5,8 +5,6 @@
 {% set filter = content.getFilter() %}
 {% set schoolRecord = content.getEnemSchoolRecord() %}
 {% set schoolParticipation = schoolRecord.getEnemSchoolParticipation() %}
-{% set schoolParticipationRate = schoolParticipation.getParticipationRate() * 100 %}
-{% set schoolResults = schoolRecord.getEnemSchoolResults() %}
 
 {% block stylesheets %}
   <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
@@ -25,17 +23,23 @@
 
     {% include 'enem/filter.html.twig' %}
 
-    {% include 'enem/school/participation_rate.html.twig' %}
+    {% if schoolParticipation is null %}
 
-    {% include 'enem/school/results/human_sciences.html.twig' %}
+      <p class="data-notification">Não há resultado do Enem para esta escola neste ano.</p>
 
-    {% include 'enem/school/results/natural_sciences.html.twig' %}
+    {% else %}
 
-    {% include 'enem/school/results/languages_and_codes.html.twig' %}
+      {% set schoolParticipationRate = schoolParticipation.getParticipationRate() * 100 %}
+      {% set schoolResults = schoolRecord.getEnemSchoolResults() %}
 
-    {% include 'enem/school/results/mathematics.html.twig' %}
+      {% include 'enem/school/participation_rate.html.twig' %}
+      {% include 'enem/school/results/human_sciences.html.twig' %}
+      {% include 'enem/school/results/natural_sciences.html.twig' %}
+      {% include 'enem/school/results/languages_and_codes.html.twig' %}
+      {% include 'enem/school/results/mathematics.html.twig' %}
+      {% include 'enem/school/results/essay.html.twig' %}
 
-    {% include 'enem/school/results/essay.html.twig' %}
+    {% endif %}
 
   </section>
 
