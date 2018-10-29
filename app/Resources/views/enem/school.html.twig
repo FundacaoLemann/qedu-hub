@@ -5,7 +5,6 @@
 {% set filter = content.getFilter() %}
 {% set schoolRecord = content.getEnemSchoolRecord() %}
 {% set schoolParticipation = schoolRecord.getEnemSchoolParticipation() %}
-{% set schoolParticipationRate = schoolParticipation.getParticipationRate() * 100 %}
 
 {% block stylesheets %}
   <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
@@ -24,30 +23,36 @@
 
     {% include 'enem/filter.html.twig' %}
 
-    <div class="enem-results row participation-rate">
-      <header class="span12 enem-header">
-        <h1>Taxa de participação</h1>
-      </header>
-      <div class="span4 score-ct">
-        <p class="score"><span class="value">{{ schoolParticipationRate|number_format }}</span>%</p>
-        <p class="description"><strong>{{ schoolParticipation.getParticipationCount() }} alunos participantes</strong><br>nos dois dias da avaliação</p>
-      </div>
-      <div class="span5 main-ct">
-        <div class="content-ct">
-          <p>Esta é a proporção de alunos da escola que participaram desta edição do Enem. Você deve usar este valor para entender qual a representatividade dos resultados do Enem para a sua escola.</p>
-          <p>O Inep só disponibiliza dados quando a taxa de participação é maior ou igual a 50%. Isso é feito porque resultados com baixa participação não podem ser considerados como representativos da escola.</p>
-          <p>
-            <i class="glyphicon glyphicon-chevron-right"></i>
-            <a target="_blank" href="/ajuda/artigo/446051">Saiba mais sobre a participação no Enem no Brasil</a>
-          </p>
-        </div>
-      </div>
-      <div class="span3">
-        <a target="_blank" href="/ajuda/artigo/446051" class="participation-map">Veja o mapa da participação</a>
-      </div>
-    </div>
+    {% if schoolParticipation is null %}
+
+      <p class="data-notification">Não há resultado do Enem para esta escola neste ano.</p>
+
+    {% else %}
+
+      {% set schoolParticipationRate = schoolParticipation.getParticipationRate() * 100 %}
+      {% set schoolResults = schoolRecord.getEnemSchoolResults() %}
+
+      {% include 'enem/school/participation_rate.html.twig' %}
+      {% include 'enem/school/results/human_sciences.html.twig' %}
+      {% include 'enem/school/results/natural_sciences.html.twig' %}
+      {% include 'enem/school/results/languages_and_codes.html.twig' %}
+      {% include 'enem/school/results/mathematics.html.twig' %}
+      {% include 'enem/school/results/essay.html.twig' %}
+
+    {% endif %}
 
   </section>
+
+  {% include 'enem/more_info.html.twig' %}
+
+  <script type="text/html" id="tmp-compare-note">
+    <p class="compare-note">Os dados desta escola não são representativos.<a target="_blank" href="/ajuda/artigo/446100">Saiba mais</a>.</p>
+  </script>
+
+  <script type="text/html" id="tmp-compare-sign">
+    <span class="compare-sign">*</span>
+  </script>
+
 {% endblock %}
 
 {% block javascripts %}
@@ -69,6 +74,10 @@
             "baseUrl": "\/escola\/{{ school.getId() }}-{{ school.getSlug() }}\/enem-dev",
             "edition": {{ filter.getCurrentYear() }},
             "educationNetworkTypeId": null
+        }],
+
+        "Meritt\/QEdu\/UI\/Enem\/Assets\/js\/Compare": [{
+            "canBeCompared": {{ schoolParticipation and schoolRecord.isRepresentative() ? 'true' : 'false' }}
         }],
 
         {% include 'breadcrumb.html.twig' %}

@@ -54,6 +54,10 @@ services:
         factory: 'doctrine.orm.qedu_entity_manager:getRepository'
         arguments: ['AppBundle\Entity\Enem\EnemSchoolParticipation']
 
+    AppBundle\Repository\Enem\EnemSchoolResultsRepository:
+            factory: 'doctrine.orm.qedu_entity_manager:getRepository'
+            arguments: ['AppBundle\Entity\Enem\EnemSchoolResults']
+
     AppBundle\Repository\ProficiencyRepositoryInterface: '@AppBundle\Repository\ProficiencyRepository'
 
     AppBundle\Repository\Learning\SchoolRepositoryInterface: '@AppBundle\Repository\Learning\SchoolRepository'
@@ -62,4 +66,6 @@ services:
 
     AppBundle\Repository\Census\SchoolRepositoryInterface: '@AppBundle\Repository\Census\SchoolRepository'
 
-    AppBundle\Repository\Enem\EnemSchoolRepositoryInterface: '@AppBundle\Repository\Enem\EnemSchoolParticipationRepository'
+    AppBundle\Repository\Enem\EnemSchoolParticipationRepositoryInterface: '@AppBundle\Repository\Enem\EnemSchoolParticipationRepository'
+
+    AppBundle\Repository\Enem\EnemSchoolResultsRepositoryInterface: '@AppBundle\Repository\Enem\EnemSchoolResultsRepository'
