@@ -30,4 +30,35 @@ class EnemSchoolRecordTest extends TestCase
 
         $this->assertInstanceOf('AppBundle\Entity\Enem\EnemSchoolResults', $enemSchoolRecord->getEnemSchoolResults());
     }
+
+    /**
+     * @dataProvider enemDataProvider
+     */
+    public function testIsEnemRepresentative($participationRate, $participationCount, $expected)
+    {
+        $enemSchoolParticipation = $this->createMock('AppBundle\Entity\Enem\EnemSchoolParticipation');
+        $enemSchoolParticipation->method('getParticipationRate')
+            ->willReturn($participationRate);
+        $enemSchoolParticipation->method('getParticipationCount')
+            ->willReturn($participationCount);
+
+        $enemSchoolResults = $this->createMock('AppBundle\Entity\Enem\EnemSchoolResults');
+
+        $enemSchoolRecord = new EnemSchoolRecord($enemSchoolParticipation, $enemSchoolResults);
+
+        $this->assertEquals($expected, $enemSchoolRecord->isRepresentative());
+    }
+
+    public function enemDataProvider()
+    {
+        return [
+            ['0.34', 34, false],
+            ['0.14', 1, false],
+            ['0.6', 9, false],
+            ['0.49', 11, false],
+            ['0.51', 9, false],
+
+            ['0.7', 50, true],
+        ];
+    }
 }

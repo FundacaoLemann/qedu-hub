@@ -45,6 +45,14 @@
 
   {% include 'enem/more_info.html.twig' %}
 
+  <script type="text/html" id="tmp-compare-note">
+    <p class="compare-note">Os dados desta escola não são representativos.<a target="_blank" href="/ajuda/artigo/446100">Saiba mais</a>.</p>
+  </script>
+
+  <script type="text/html" id="tmp-compare-sign">
+    <span class="compare-sign">*</span>
+  </script>
+
 {% endblock %}
 
 {% block javascripts %}
@@ -66,6 +74,10 @@
             "baseUrl": "\/escola\/{{ school.getId() }}-{{ school.getSlug() }}\/enem-dev",
             "edition": {{ filter.getCurrentYear() }},
             "educationNetworkTypeId": null
+        }],
+
+        "Meritt\/QEdu\/UI\/Enem\/Assets\/js\/Compare": [{
+            "canBeCompared": {{ schoolParticipation and schoolRecord.isRepresentative() ? 'true' : 'false' }}
         }],
 
         {% include 'breadcrumb.html.twig' %}

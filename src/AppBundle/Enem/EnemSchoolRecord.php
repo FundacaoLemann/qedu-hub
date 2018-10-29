@@ -27,4 +27,16 @@ class EnemSchoolRecord
     {
         return $this->enemSchoolResults;
     }
+
+    public function isRepresentative() : bool
+    {
+        $participationRate = $this->enemSchoolParticipation->getParticipationRate();
+        $participationCount = $this->enemSchoolParticipation->getParticipationCount();
+
+        if ($participationRate < 0.5 || $participationCount < 10) {
+            return false;
+        }
+
+        return true;
+    }
 }
