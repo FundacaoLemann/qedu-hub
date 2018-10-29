@@ -1,0 +1,30 @@
+<div class="enem-results row ro">
+  <header class="span12 enem-header">
+    <h1>Média em Redação</h1>
+  </header>
+  <div class="span4 score-ct">
+    <p class="score"><span class="value">{{ schoolResults.getEssayAverage()|number_format }}</span>pts</p>
+    <p class="description">Média em Redação</p>
+  </div>
+  <div class="span8 main-ct">
+    <div class="span image-ct">
+      <span class="image-border"><span class="image"></span></span>
+    </div>
+
+    <div class="span links-ct">
+      <p><i class="glyphicon glyphicon-chevron-right"></i>
+        <a target="_blank" href="/ajuda/artigo/446112">Conheça as 5 competências avaliadas nesta área</a>
+      </p>
+      <p><i class="glyphicon glyphicon-chevron-right"></i>
+        <a target="_blank" href="/ajuda/artigo/446113">Interprete este resultado pedagogicamente com a escala de desempenho de Redação</a>
+      </p>
+      <p><i class="glyphicon glyphicon-chevron-right"></i>
+        <a target="_blank" href="/ajuda/artigo/446114">Veja como foi o desempenho do Brasil nesta área</a>
+      </p>
+    </div>
+  </div>
+</div>
+<p class="source">
+  Fonte: QEdu.org.br. Microdados do Enem/Inep ({{ filter.getCurrentYear() }}).
+  <a target="_blank" href="/ajuda/artigo/446100">Veja Notas Técnicas aqui</a>
+</p>
