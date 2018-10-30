@@ -4,7 +4,7 @@
     <h2>Física, química e biologia</h2>
   </header>
   <div class="span4 score-ct">
-    <p class="score"><span class="value">{{ schoolResults.getNaturalSciencesAverage()|number_format }}</span>pts</p>
+    <p class="score"><span class="value">{{ schoolResults.getNaturalSciencesAverage()|round(0, 'floor') }}</span>pts</p>
     <p class="description">Média em Ciências da Natureza</p>
   </div>
   <div class="span8 main-ct">
