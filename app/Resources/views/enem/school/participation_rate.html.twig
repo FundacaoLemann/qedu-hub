@@ -3,7 +3,7 @@
     <h1>Taxa de participação</h1>
   </header>
   <div class="span4 score-ct">
-    <p class="score"><span class="value">{{ schoolParticipationRate|number_format }}</span>%</p>
+    <p class="score"><span class="value">{{ schoolParticipationRate|round(0, 'floor') }}</span>%</p>
     <p class="description"><strong>{{ schoolParticipation.getParticipationCount() }} alunos participantes</strong><br>nos dois dias da avaliação</p>
   </div>
   <div class="span5 main-ct">
@@ -18,9 +18,8 @@
   </div>
   <div class="span3">
     <a target="_blank" href="/ajuda/artigo/446051" class="participation-map">Veja o mapa da participação</a>
-    </div>
+  </div>
 </div>
-
 <p class="source">
   Fonte: QEdu.org.br. Microdados do Enem/Inep ({{ filter.getCurrentYear() }}).
   <a target="_blank" href="/ajuda/artigo/446100">Veja Notas Técnicas aqui</a>

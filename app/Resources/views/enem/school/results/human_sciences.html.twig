@@ -4,7 +4,7 @@
     <h2>Geografia, história, filosofia e sociologia</h2>
   </header>
   <div class="span4 score-ct">
-    <p class="score"><span class="value">{{ schoolResults.getHumanSciencesAverage()|number_format }}</span>pts</p>
+    <p class="score"><span class="value">{{ schoolResults.getHumanSciencesAverage()|round(0, 'floor') }}</span>pts</p>
     <p class="description">Média em Ciências Humanas</p>
   </div>
   <div class="span8 main-ct">
@@ -12,19 +12,19 @@
       <span class="image-border">
         <span class="image"></span>
       </span>
-      </div>
+    </div>
 
-      <div class="span links-ct">
-        <p><i class="glyphicon glyphicon-chevron-right"></i>
-          <a target="_blank" href="/ajuda/artigo/446095">Conheça as 6 competências avaliadas nesta área</a>
-        </p>
-        <p><i class="glyphicon glyphicon-chevron-right"></i>
-          <a target="_blank" href="/ajuda/artigo/446097">Interprete este resultado pedagogicamente com a escala de desempenho de Ciências Humanas</a>
-        </p>
-        <p><i class="glyphicon glyphicon-chevron-right"></i>
-          <a target="_blank" href="/ajuda/artigo/446098">Veja como foi o desempenho do Brasil nesta área</a>
-        </p>
-      </div>
+    <div class="span links-ct">
+      <p><i class="glyphicon glyphicon-chevron-right"></i>
+        <a target="_blank" href="/ajuda/artigo/446095">Conheça as 6 competências avaliadas nesta área</a>
+      </p>
+      <p><i class="glyphicon glyphicon-chevron-right"></i>
+        <a target="_blank" href="/ajuda/artigo/446097">Interprete este resultado pedagogicamente com a escala de desempenho de Ciências Humanas</a>
+      </p>
+      <p><i class="glyphicon glyphicon-chevron-right"></i>
+        <a target="_blank" href="/ajuda/artigo/446098">Veja como foi o desempenho do Brasil nesta área</a>
+      </p>
+    </div>
   </div>
 </div>
 <p class="source">

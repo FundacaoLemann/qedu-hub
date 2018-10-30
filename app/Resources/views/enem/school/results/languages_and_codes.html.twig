@@ -4,7 +4,7 @@
     <h2>Português, artes, educação física, inglês e espanhol</h2>
   </header>
   <div class="span4 score-ct">
-    <p class="score"><span class="value">{{ schoolResults.getLanguagesAndCodesAverage()|number_format }}</span>pts</p>
+    <p class="score"><span class="value">{{ schoolResults.getLanguagesAndCodesAverage()|round(0, 'floor') }}</span>pts</p>
     <p class="description">Média em Linguagens e Códigos</p>
   </div>
   <div class="span8 main-ct">

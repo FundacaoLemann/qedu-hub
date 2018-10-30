@@ -3,7 +3,7 @@
     <h1>Média em Matemática</h1>
   </header>
   <div class="span4 score-ct">
-    <p class="score"><span class="value">{{ schoolResults.getMathematicsAverage()|number_format }}</span>pts</p>
+    <p class="score"><span class="value">{{ schoolResults.getMathematicsAverage()|round(0, 'floor') }}</span>pts</p>
     <p class="description">Média em Matemática</p>
   </div>
   <div class="span8 main-ct">
