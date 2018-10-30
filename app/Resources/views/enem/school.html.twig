@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+{% set title = 'Escola - ' ~ school|schoolNameFilter ~ ' - ' ~ school.getCity().getName() ~ ' - ' ~ school.getState().getAcronym() ~ ' - ' ~ 'Enem - QEdu' %}
 {% set breadcrumb = header.getBreadcrumb() %}
 {% set menu = header.getMenu() %}
 {% set filter = content.getFilter() %}
