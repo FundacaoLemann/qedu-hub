@@ -18,7 +18,7 @@ class EnemController extends Controller
     }
 
     /**
-     * @Route("/escola/{schoolId}-{schoolSlug}/enem-dev",
+     * @Route("/escola/{schoolId}-{schoolSlug}/enem",
      *     name="enem_school",
      *     requirements={
      *         "schoolId": "\d+",

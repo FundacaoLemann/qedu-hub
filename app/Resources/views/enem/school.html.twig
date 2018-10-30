@@ -5,6 +5,16 @@
 {% set filter = content.getFilter() %}
 {% set schoolRecord = content.getEnemSchoolRecord() %}
 {% set schoolParticipation = schoolRecord.getEnemSchoolParticipation() %}
+{% set year = filter.getCurrentYear() %}
+
+{% set title = 'Escola - ' ~ school|schoolNameFilter ~ ' - ' ~ school.getCity().getName() ~ ' - ' ~ school.getState().getAcronym() ~ ' - ' ~ 'Enem - ' ~ year %}
+{% set description = 'Veja a média da escola nas áreas do conhecimento avaliadas pelo Enem ' ~ year %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+
+{% block og_title %}{{ title }}{% endblock %}
+{% block og_description %}{{ description }}{% endblock %}
 
 {% block stylesheets %}
   <link type="text/css" href="/gimme/1cb1adaa50/pkg/css/provabrasil.css" rel="stylesheet" />
