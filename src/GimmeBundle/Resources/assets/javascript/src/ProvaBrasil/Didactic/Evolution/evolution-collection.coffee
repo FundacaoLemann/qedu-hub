@@ -77,6 +77,7 @@ EvolutionBlockModel = Backbone.Model.extend
     return '2011' if aggregation.edition_id is 4
     return '2013' if aggregation.edition_id is 5
     return '2015' if aggregation.edition_id is 6
+    return '2017' if aggregation.edition_id is 7
 
 ###
  * Manage a set of models from evolutionPage
