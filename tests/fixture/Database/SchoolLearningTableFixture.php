@@ -38,7 +38,8 @@ SQL
             ->prepare(<<<SQL
 INSERT INTO `school` (`id`, `edition_id`, `state_id`, `city_id`, `localization_id`, `dependence_id`)
 VALUES
-(142950, 6, 113, 1597, 2, 3);
+(142950, 6, 113, 1597, 2, 3),
+(142950, 7, 113, 1597, 2, 3);
 SQL
             )->execute();
     }

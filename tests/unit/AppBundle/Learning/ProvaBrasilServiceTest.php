@@ -24,7 +24,7 @@ class ProvaBrasilServiceTest extends TestCase
     {
         $provaBrasil = $this->provaBrasilService->getLastEdition();
 
-        $provaBrasilExpected = new ProvaBrasilEdition(6, 2015);
+        $provaBrasilExpected = new ProvaBrasilEdition(7, 2017);
 
         $this->assertEquals($provaBrasilExpected, $provaBrasil);
     }
