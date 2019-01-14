@@ -6,6 +6,6 @@ class ProvaBrasilService
 {
     public function getLastEdition()
     {
-        return new ProvaBrasilEdition(6, 2015);
+        return new ProvaBrasilEdition(7, 2017);
     }
 }
