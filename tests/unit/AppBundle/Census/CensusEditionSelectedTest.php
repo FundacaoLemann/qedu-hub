@@ -30,7 +30,7 @@ class CensusEditionSelectedTest extends TestCase
             ],
             'invalid_year_requested' => [
                 'invalid_param',
-                new CensusEdition(2017),
+                new CensusEdition(2018),
             ]
         ];
     }
@@ -40,7 +40,7 @@ class CensusEditionSelectedTest extends TestCase
         $requestMock = $this->createMock('Symfony\Component\HttpFoundation\Request');
         $requestMock->expects($this->once())
             ->method('get')
-            ->with('year', $defaultYear = 2017)
+            ->with('year', $defaultYear = 2018)
             ->willReturn($valueRequested);
 
         $requestStackMock = $this->createMock('Symfony\Component\HttpFoundation\RequestStack');
