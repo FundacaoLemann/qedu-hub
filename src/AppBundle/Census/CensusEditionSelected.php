@@ -7,8 +7,9 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class CensusEditionSelected
 {
     private $request;
-    private $defaultYear = 2017;
+    private $defaultYear = 2018;
     private $years = [
+        2018,
         2017,
         2016,
         2015,
