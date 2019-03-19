@@ -29,7 +29,7 @@ script:
   # this checks that the Twig template files contain no syntax errors
   - ./bin/console lint:twig app/Resources @AppBundle
   # this checks that the application doesn't use dependencies with known security vulnerabilities
-  - ./bin/console security:check --end-point=http://security.symfony.org/
+  - ./bin/console security:check --end-point=https://security.symfony.com/
 
 notifications:
   slack:
