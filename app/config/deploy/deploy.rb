@@ -1,7 +1,7 @@
 lock "3.8.2"
 
 set :application, "qedu-hub"
-set :repo_url, "https://github.com/QEdu/qedu-hub.git"
+set :repo_url, "https://github.com/FundacaoLemann/qedu-hub.git"
 set :linked_files, -> { [fetch(:app_config_path) + "/parameters.yml"] }
 
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
