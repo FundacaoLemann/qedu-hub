@@ -9,6 +9,7 @@ class EnemFilter
     private $authorizationChecker;
     private $enemEditionSelected;
     private $years = [
+        2018,
         2017,
         2016,
         2015,
