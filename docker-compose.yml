@@ -1,0 +1,18 @@
+version: '3'
+services:
+  qeduhub_php:
+    build: ./docker/php/
+    image: qeduhub_php
+    volumes:
+      - ./:/app:cached
+  qeduhub_nginx:
+    image: nginx
+    volumes:
+      - ./:/app:cached
+      - ./docker/nginx/config.conf:/etc/nginx/conf.d/default.conf:cached
+    ports:
+      - "80:80"
+  qeduhub_redis:
+    image: redis:5-alpine
+    ports:
+      - "6379:6379"

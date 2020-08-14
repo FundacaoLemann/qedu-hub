@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QEdu/qedu-hub.git"
+    "url": "git+https://github.com/FundacaoLemann/qedu-hub.git"
   },
-  "homepage": "https://github.com/QEdu/qedu-hub#readme",
+  "homepage": "https://github.com/FundacaoLemann/qedu-hub#readme",
   "dependencies": {
     "gulp": "~3.9.1",
     "gulp-concat": "~2.6.1",

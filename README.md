@@ -9,3 +9,12 @@ QEdu Hub
 QEdu Hub is the new version of qedu.org.br, our mission is to improve Brazilian education by using technology and data.
 
 QEdu Hub é a nova versão do qedu.org.br, nossa missão é melhorar a educação Brasileira através de tecnologia e dados.
+
+# Install
+
+1. Clone this repository
+2. Enter inside the new project directory, like: /home/qedu-hub
+3. Run `docker-compose up`
+4. Install dependencies `docker run -it -v /home/ubuntu/qedu-hub:/app composer /bin/bash`, replace the {/home/ubuntu/qedu-hub} to repository full path.
+5. Inside the composer container run `composer install`
+6. Composer ask for some variables, fill with the database configurations and other connections. For redis, put `qeduhub_redis`
