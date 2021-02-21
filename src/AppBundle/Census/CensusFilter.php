@@ -9,6 +9,8 @@ class CensusFilter
     private $authorizationChecker;
     private $censusEditionSelected;
     private $years = [
+        2020,
+        2018,
         2017,
         2016,
         2015,

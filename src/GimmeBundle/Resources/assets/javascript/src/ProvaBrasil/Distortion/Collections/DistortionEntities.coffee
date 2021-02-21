@@ -7,7 +7,7 @@ DistortionEntities = Backbone.Collection.extend
     _.bindAll @, 'addEvolutionDataToEntity', 'addEvolutionDataToModel', 'getFilter', 'setFilter', 'parse',
       'setParentModel', 'processQueue', 'continueProcessingQueue', 'fetch'
     @setParentModel options.parentModel if options and options.parentModel
-    @distortionFilter = new DistortionFilter 2017, 0, 0, 1
+    @distortionFilter = new DistortionFilter 2020, 0, 0, 1
 
     @temporaryDistortionData = {}
     @on 'add', @addEvolutionDataToEntity
